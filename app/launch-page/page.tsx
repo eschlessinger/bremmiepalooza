@@ -105,20 +105,19 @@ export default function Home() {
         })}
       </div>
 
-      {/* Main Content */}
+      {/* Main Content - UPDATED POSITIONING */}
       <div
         className="absolute inset-0 flex flex-col items-center z-10"
         style={{
           justifyContent: isMobile ? "flex-start" : "center",
-          // MOBILE: Position logo to align with ellipse center
           paddingTop: isMobile ? "20vh" : "0",
         }}
       >
         <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex flex-col items-center">
-          {/* Logo */}
-          <div className="w-full mb-6">
+          {/* Logo - NO BOTTOM MARGIN to keep original height */}
+          <div className="w-full">
             <Image
-              src="/bremmiepalooza-logo-for-cta.png" // Updated to use the renamed logo file
+              src="/bremmiepalooza-logo-for-cta.png"
               alt="Bremmiepalooza 2026"
               width={800}
               height={400}
@@ -132,12 +131,29 @@ export default function Home() {
             />
           </div>
 
-          {/* CTA Button - Now pink with white text */}
-          <Link href="/lineup">
-            <button className="bg-[#d81b8c] text-white font-bold uppercase tracking-wider py-2 px-5 rounded-full text-sm md:text-base shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl">
-              SEE THE LINEUP!
-            </button>
-          </Link>
+          {/* CTA Button - MOVED UP with smaller margin */}
+          <div className="mt-1 md:mt-3">
+            <Link href="/lineup">
+              <button 
+                className="festival-cta-button bg-[#d81b8c] text-white shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl"
+                style={{
+                  fontFamily: "'Impact', 'Franklin Gothic Bold', 'Arial Black', sans-serif",
+                  fontWeight: "900",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  borderRadius: "25px",
+                  border: "none",
+                  cursor: "pointer",
+                  textShadow: "1px 1px 2px rgba(0, 0, 0, 0.3)",
+                  // MOBILE: Much smaller button
+                  padding: isMobile ? "6px 16px" : "12px 24px",
+                  fontSize: isMobile ? "11px" : "16px",
+                }}
+              >
+                SEE THE LINEUP!
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -147,12 +163,10 @@ export default function Home() {
         style={
           isMobile
             ? {
-                // MOBILE: Properly attached to bottom
                 bottom: "0",
-                height: "60vh", // Tall enough to cover bottom but not too tall to cover logo
+                height: "60vh",
               }
             : {
-                // Desktop: Keep at bottom
                 bottom: "0",
                 height: "24vh",
               }
@@ -161,15 +175,13 @@ export default function Home() {
         <svg
           width="100%"
           height="100%"
-          viewBox={isMobile ? "0 0 1440 600" : "0 0 1440 200"} // Taller viewBox for mobile
+          viewBox={isMobile ? "0 0 1440 600" : "0 0 1440 200"}
           preserveAspectRatio="none"
           style={{ display: "block" }}
         >
           {isMobile ? (
-            // MOBILE: Wave with extended purple base, but starts lower
             <>
               <path
-                // Modified path to start lower (higher Y value)
                 d="M0 200L48 187.5C96 175 192 150 288 158.3C384 166.7 480 208.3 576 225C672 241.7 768 233.3 864 216.7C960 200 1056 175 1152 166.7C1248 158.3 1344 166.7 1392 170.8L1440 175V600H1392C1344 600 1248 600 1152 600C1056 600 960 600 864 600C768 600 672 600 576 600C480 600 384 600 288 600C192 600 96 600 48 600H0V200Z"
                 fill="url(#paint0_linear_mobile)"
               />
@@ -186,12 +198,11 @@ export default function Home() {
                   <stop offset="0.15" stopColor="#FACC15" />
                   <stop offset="0.3" stopColor="#3B82F6" />
                   <stop offset="0.45" stopColor="#A855F7" />
-                  <stop offset="1" stopColor="#A855F7" /> {/* Extended purple base */}
+                  <stop offset="1" stopColor="#A855F7" />
                 </linearGradient>
               </defs>
             </>
           ) : (
-            // DESKTOP: Original wave
             <>
               <path
                 d="M0 100L48 87.5C96 75 192 50 288 58.3C384 66.7 480 108.3 576 125C672 141.7 768 133.3 864 116.7C960 100 1056 75 1152 66.7C1248 58.3 1344 66.7 1392 70.8L1440 75V200H1392C1344 200 1248 200 1152 200C1056 200 960 200 864 200C768 200 672 200 576 200C480 200 384 200 288 200C192 200 96 200 48 200H0V100Z"
@@ -223,14 +234,12 @@ export default function Home() {
         style={
           isMobile
             ? {
-                // MOBILE: Positioned to sit on the wave - UPDATED SIZE
                 right: "4%",
                 bottom: "40vh",
-                width: "20vmin", // Increased from 15vmin to 20vmin
-                height: "20vmin", // Increased from 15vmin to 20vmin
+                width: "20vmin",
+                height: "20vmin",
               }
             : {
-                // Desktop: Keep as adjusted before
                 right: "6%",
                 bottom: "60px",
                 width: "20vmin",
@@ -281,29 +290,6 @@ export default function Home() {
           --rotation: 0deg;
           opacity: 0;
           animation: doodleAppear 0.6s forwards;
-        }
-
-        /* CTA Button Styles */
-        .cta-button {
-          border-radius: 25px;
-          font-family: "Impact", "Franklin Gothic Bold", "Arial Black", sans-serif;
-          font-weight: 900;
-          letter-spacing: 0.1em;
-          border: none;
-          cursor: pointer;
-          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-          /* Mobile styles */
-          padding: 6px 16px;
-          font-size: 12px;
-        }
-
-        /* Desktop styles for CTA button */
-        @media (min-width: 768px) {
-          .cta-button {
-            padding: 12px 24px;
-            font-size: 16px;
-            letter-spacing: 0.15em;
-          }
         }
       `}</style>
     </main>

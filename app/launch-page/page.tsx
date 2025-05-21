@@ -4,10 +4,8 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function FAQ() {
+export default function Home() {
   const [mounted, setMounted] = useState(false)
-  const [activeTab, setActiveTab] = useState("faq")
-  const [activeQuestion, setActiveQuestion] = useState(null)
 
   useEffect(() => {
     setMounted(true)
@@ -15,72 +13,53 @@ export default function FAQ() {
 
   if (!mounted) return null
 
-  const toggleQuestion = (index) => {
-    if (activeQuestion === index) {
-      setActiveQuestion(null)
-    } else {
-      setActiveQuestion(index)
+  // Calculate positions in an ellipse (smaller circle with more space from the wave)
+  const createEllipticalPositions = (count) => {
+    const positions = []
+    for (let i = 0; i < count; i++) {
+      // Calculate angle in radians (distribute evenly around the circle)
+      const angle = (i * 2 * Math.PI) / count
+
+      // Make the ellipse smaller overall (30% horizontal radius instead of 35%)
+      // And even shorter vertically (25% vertical radius) to avoid the wave
+      const xRadius = 30
+      const yRadius = 25
+
+      // Convert to percentage coordinates (centered in the viewport)
+      const x = 50 + xRadius * Math.cos(angle)
+      const y = 50 + yRadius * Math.sin(angle)
+
+      // Add some randomness to size and rotation
+      const size = 9 + Math.random() * 4 // Size between 9-13vmin
+      const rotation = (Math.random() - 0.5) * 30 // Rotation between -15 and 15 degrees
+
+      // Calculate animation delay based on position in the circle
+      const delay = i * 0.2 // 0.2 seconds between each doodle
+
+      positions.push({ x, y, size, rotation, delay })
     }
+    return positions
   }
 
-  const faqItems = [
-    {
-      question: "What is Bremmiepalooza?",
-      answer: "Bremmiepalooza is a three-day festival-themed wedding celebration in Cancún, Mexico. Inspired by music festivals like Lollapalooza, it's a fun, high-energy event featuring beach games, parties, celebrations, and even a boat trip!"
-    },
-    {
-      question: "When and where is Bremmiepalooza happening?",
-      answer: "Bremmiepalooza will take place in Cancún, Mexico from January 17-19, 2026."
-    },
-    {
-      question: "Do I need to attend all three days?",
-      answer: "Not at all! While the full 3-day experience is recommended for the complete Bremmiepalooza experience, you can choose to attend for 1 or 2 days based on your schedule. When you register for tickets, you'll have the option to select which days you'll be attending."
-    },
-    {
-      question: "What should I pack?",
-      answer: "Beach attire, swimwear, sunscreen, comfortable shoes, and party clothes! For Sunday's boat excursion, don't forget your 'flippie floppies' (flip flops/sandals), swimsuit, and sunscreen. More detailed packing recommendations will be provided as the event gets closer."
-    },
-    {
-      question: "What are the accommodation options?",
-      answer: "We've arranged special rates at a resort in Cancún. Accommodation details and booking information will be sent after you register for tickets."
-    },
-    {
-      question: "How do I get to Cancún?",
-      answer: "Fly into Cancún International Airport (CUN). From there, transportation to the resort will be arranged. We recommend booking flights well in advance for the best rates."
-    },
-    {
-      question: "What's the dress code?",
-      answer: "Festival casual! Think beach-appropriate, comfortable, and fun. For Saturday's main event, slightly more dressy attire is recommended but still keeping with the festival vibe."
-    },
-    {
-      question: "Can I bring a guest?",
-      answer: "Yes! When registering for tickets, you'll have the option to add guests. Please provide their names and any dietary restrictions."
-    },
-    {
-      question: "Are there any costs associated with attending?",
-      answer: "While the events themselves are hosted, attendees are responsible for their travel to Cancún and accommodation costs. We've negotiated special rates for our group."
-    },
-    {
-      question: "What if I have dietary restrictions?",
-      answer: "We want everyone to enjoy the festival food! Please indicate any dietary restrictions when registering for your tickets, and we'll make sure appropriate options are available."
-    },
-    {
-      question: "Will there be photography/videography of the events?",
-      answer: "Yes! We'll have professional photography and videography throughout the weekend. Links to photos will be shared after the event."
-    },
-    {
-      question: "What happens on the boat on Sunday?",
-      answer: "Sunday's 'The Aftershow' takes place on a boat! We'll have lunch, drinks (featuring mimosas), music, and the opportunity to swim. It's the perfect way to cap off the festival weekend!"
-    },
-    {
-      question: "I have a question that's not answered here!",
-      answer: "No problem! Reach out to us directly at bremmiepalooza2026@email.com and we'll get back to you as soon as possible."
-    }
+  // Create 10 positions in a smaller ellipse
+  const doodlePositions = createEllipticalPositions(10)
+
+  // Array of doodle image paths
+  const doodles = [
+    "/doodles/tree.png",
+    "/doodles/bikini.png",
+    "/doodles/heart.png",
+    "/doodles/whiteclaw.png",
+    "/doodles/ball.png",
+    "/doodles/sunglasses.png",
+    "/doodles/star-blue.png",
+    "/doodles/music.png",
+    "/doodles/sun.png",
+    "/doodles/hotdog.png",
   ]
 
   return (
-    <main className="relative min-h-screen overflow-hidden font-sans">
-      {/* Gradient Background */}
+    <main className="relative min-h-screen overflow-hidden">
       <div
         className="absolute inset-0 animate-gradient-shift"
         style={{
@@ -88,84 +67,87 @@ export default function FAQ() {
           backgroundSize: "600% 600%",
         }}
       ></div>
-      
-      {/* Navigation Bar */}
-      <nav className="relative z-30 bg-purple-900 bg-opacity-80 text-white shadow-lg">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
-            {/* Logo */}
-            <Link href="/">
-              <div className="flex items-center cursor-pointer">
-                <span className="font-bold text-xl md:text-2xl text-yellow-300">Bremmiepalooza</span>
-              </div>
-            </Link>
-            
-            {/* Nav Items */}
-            <div className="hidden md:flex space-x-8">
-              <Link href="/tickets" className="nav-item">Tickets</Link>
-              <Link href="/lineup" className="nav-item">Lineup</Link>
-              <Link href="/schedule" className="nav-item">Schedule</Link>
-              <Link href="/map" className="nav-item">Festival Map</Link>
-              <Link href="/faq" className={`nav-item ${activeTab === "faq" ? "active-nav" : ""}`}>FAQ</Link>
-            </div>
-            
-            {/* Mobile Menu Button - simplified for this example */}
-            <div className="md:hidden">
-              <button className="text-white">Menu</button>
-            </div>
-          </div>
-        </div>
-      </nav>
 
-      {/* Hero Section */}
-      <div className="relative z-20 pt-8 pb-6 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg mb-4">FAQ</h1>
-        <div className="text-xl md:text-2xl text-white drop-shadow-md mb-6">
-          <p>Everything you need to know about Bremmiepalooza</p>
+      {/* Doodles arranged in a smaller circle/ellipse */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+        {doodlePositions.map((position, index) => {
+          const doodleSrc = doodles[index % doodles.length]
+          return (
+            <div
+              key={index}
+              className="absolute doodle-animation"
+              style={{
+                left: `${position.x}%`,
+                top: `${position.y}%`,
+                width: `${position.size}vmin`,
+                height: `${position.size}vmin`,
+                transform: `translate(-50%, -50%) rotate(${position.rotation}deg)`,
+                animationDelay: `${position.delay}s`,
+                zIndex: 20,
+              }}
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src={doodleSrc || "/placeholder.svg"}
+                  alt="Festival doodle"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Bremmie doodle positioned on the wave */}
+      <div
+        className="absolute pointer-events-none z-20"
+        style={{
+          right: "9%",
+          bottom: "32px",
+          width: "20vmin",
+          height: "20vmin",
+          transform: "translateY(0)",
+        }}
+      >
+        <div className="relative w-full h-full">
+          <Image src="/doodles/bremmie.png" alt="Bremmie on the beach" fill style={{ objectFit: "contain" }} />
         </div>
       </div>
 
-      {/* FAQ Content */}
-      <div className="container mx-auto px-4 pb-24 relative z-20">
-        <div className="max-w-3xl mx-auto bg-white bg-opacity-90 rounded-lg shadow-xl overflow-hidden p-6 md:p-8">
-          {faqItems.map((item, index) => (
-            <div key={index} className="faq-item">
-              <button 
-                className="faq-question"
-                onClick={() => toggleQuestion(index)}
-                aria-expanded={activeQuestion === index}
-              >
-                <span>{item.question}</span>
-                <svg 
-                  className={`w-6 h-6 transform transition-transform ${activeQuestion === index ? 'rotate-180' : ''}`} 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div 
-                className={`faq-answer ${activeQuestion === index ? 'active' : ''}`}
-              >
-                <p>{item.answer}</p>
-              </div>
-            </div>
-          ))}
-          
-          {/* Contact CTA */}
-          <div className="mt-12 text-center">
-            <h3 className="text-2xl font-bold text-purple-900 mb-4">Still have questions?</h3>
-            <p className="text-gray-700 mb-6">
-              We're here to help make your Bremmiepalooza experience amazing!
-            </p>
-            <a 
-              href="mailto:bremmiepalooza2026@email.com" 
-              className="inline-block bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-8 rounded-full transition-colors"
-            >
-              Contact Us
-            </a>
+      {/* Main Content */}
+      <div className="flex flex-col items-center justify-center min-h-screen px-4 z-10 relative">
+        {/* Logo and CTA Button */}
+        <div className="w-full max-w-md flex flex-col items-center" style={{ marginTop: "15px" }}>
+          {/* Logo */}
+          <div className="w-full mb-8">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image0%20%288%29-beOvenUhAfVvtgkwNbVktfwy0UfMVY.png"
+              alt="Bremmiepalooza 2026"
+              width={800}
+              height={400}
+              style={{ width: "100%", height: "auto" }}
+              priority
+            />
           </div>
+          
+          {/* Event Details */}
+          <div className="text-center mb-8">
+            <h2 className="font-bold text-3xl text-white drop-shadow-lg mb-2">Cancún, MX</h2>
+            <h3 className="font-bold text-2xl text-white drop-shadow-lg">January 17-19, 2026</h3>
+          </div>
+
+          {/* SEE THE LINEUP Button */}
+          <Link href="/lineup">
+            <button className="bg-purple-700 hover:bg-purple-800 text-yellow-300 font-bold text-2xl py-4 px-8 rounded-full uppercase tracking-wider transform transition-transform duration-200 hover:scale-105 animate-pulse-slow">
+              SEE THE LINEUP!
+            </button>
+          </Link>
+        </div>
+
+        {/* Note for deployment - can be removed in production */}
+        <div className="fixed bottom-4 left-4 bg-black bg-opacity-50 text-white p-2 text-xs rounded max-w-xs z-30">
+          Note: For deployment, replace the Google Font with your custom font
         </div>
       </div>
 
@@ -213,68 +195,38 @@ export default function FAQ() {
           animation: gradient-shift 10s ease infinite;
         }
 
-        .nav-item {
-          position: relative;
-          color: #e2e8f0;
-          font-weight: bold;
-          transition: all 0.3s;
+        @keyframes doodleAppear {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0) rotate(0deg);
+          }
+          70% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2) rotate(var(--rotation));
+          }
+          100% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1) rotate(var(--rotation));
+          }
         }
 
-        .nav-item:hover {
-          color: #fde047;
+        .doodle-animation {
+          --rotation: 0deg;
+          opacity: 0;
+          animation: doodleAppear 0.6s forwards;
         }
 
-        .active-nav {
-          color: #fde047;
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+          100% {
+            transform: scale(1.05);
+          }
         }
-
-        .active-nav:after {
-          content: '';
-          position: absolute;
-          bottom: -6px;
-          left: 0;
-          width: 100%;
-          height: 3px;
-          background-color: #fde047;
-        }
-
-        /* FAQ Styles */
-        .faq-item {
-          border-bottom: 1px solid #e5e7eb;
-        }
-
-        .faq-question {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-          padding: 1.25rem 0;
-          text-align: left;
-          font-weight: 600;
-          font-size: 1.125rem;
-          color: #4b5563;
-          transition: all 0.3s;
-        }
-
-        .faq-question:hover {
-          color: #7c3aed;
-        }
-
-        .faq-answer {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.3s ease-out, padding 0.3s ease;
-          padding: 0 0;
-        }
-
-        .faq-answer.active {
-          max-height: 500px;
-          padding-bottom: 1.25rem;
-        }
-
-        .faq-answer p {
-          color: #6b7280;
-          line-height: 1.6;
+        
+        .animate-pulse-slow {
+          animation: pulse 2s infinite alternate ease-in-out;
         }
       `}</style>
     </main>

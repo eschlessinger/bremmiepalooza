@@ -132,7 +132,7 @@ export default function Home() {
       <div 
         className="absolute left-1/2 transform -translate-x-1/2 z-10"
         style={{
-          top: isMobile ? "calc(20vh + 35px)" : "calc(40vh + 100px)", // FIXED: Mobile button moved up closer
+          top: isMobile ? "calc(20vh + 42px)" : "calc(40vh + 100px)", // FIXED: Mobile button moved to middle position
         }}
       >
         <Link href="/lineup">
@@ -142,7 +142,7 @@ export default function Home() {
               fontFamily: "Arial Black, Helvetica, sans-serif",
               fontWeight: "bold",
               textTransform: "uppercase",
-              letterSpacing: isMobile ? "0.5px" : "1px", // FIXED: Tighter spacing on mobile
+              letterSpacing: isMobile ? "0.3px" : "1px", // FIXED: Even tighter mobile letter spacing
               borderRadius: "15px",
               border: "none",
               cursor: "pointer",
@@ -152,7 +152,7 @@ export default function Home() {
               whiteSpace: "nowrap",
             }}
           >
-            SEE THE LINEUP!
+            SEE THE LINEUP
           </button>
         </Link>
       </div>

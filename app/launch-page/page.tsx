@@ -282,6 +282,29 @@ export default function Home() {
           opacity: 0;
           animation: doodleAppear 0.6s forwards;
         }
+
+        /* CTA Button Styles */
+        .cta-button {
+          border-radius: 25px;
+          font-family: "Impact", "Franklin Gothic Bold", "Arial Black", sans-serif;
+          font-weight: 900;
+          letter-spacing: 0.1em;
+          border: none;
+          cursor: pointer;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+          /* Mobile styles */
+          padding: 6px 16px;
+          font-size: 12px;
+        }
+
+        /* Desktop styles for CTA button */
+        @media (min-width: 768px) {
+          .cta-button {
+            padding: 12px 24px;
+            font-size: 16px;
+            letter-spacing: 0.15em;
+          }
+        }
       `}</style>
     </main>
   )

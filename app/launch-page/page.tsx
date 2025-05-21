@@ -105,54 +105,75 @@ export default function Home() {
         })}
       </div>
 
-      {/* Main Content - UPDATED POSITIONING */}
-      <div
-        className="absolute inset-0 flex flex-col items-center z-10"
-        style={{
-          justifyContent: isMobile ? "flex-start" : "center",
-          paddingTop: isMobile ? "20vh" : "0",
-        }}
-      >
-        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex flex-col items-center">
-          {/* Logo - NO BOTTOM MARGIN to keep original height */}
-          <div className="w-full">
-            <Image
-              src="/bremmiepalooza-logo-for-cta.png"
-              alt="Bremmiepalooza 2026"
-              width={800}
-              height={400}
-              style={{
-                width: "100%",
-                height: "auto",
-                maxWidth: isMobile ? "200px" : "600px",
-              }}
-              className="mx-auto"
-              priority
-            />
-          </div>
-
-          {/* CTA Button - MOVED UP with smaller margin */}
-          <div className="mt-1 md:mt-3">
-            <Link href="/lineup">
-              <button 
-                className="festival-cta-button bg-[#d81b8c] text-white shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl"
+      {/* Main Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl flex flex-col items-center">
+          {/* Logo Container - Responsive positioning */}
+          <div 
+            className="w-full flex flex-col items-center"
+            style={{
+              // Desktop: Move logo down significantly from center
+              marginTop: isMobile ? "0" : "15vh",
+              // Mobile: Position for mobile layout
+              paddingTop: isMobile ? "20vh" : "0",
+            }}
+          >
+            {/* Logo */}
+            <div className="w-full">
+              <Image
+                src="/bremmiepalooza-logo-for-cta.png"
+                alt="Bremmiepalooza 2026"
+                width={800}
+                height={400}
                 style={{
-                  fontFamily: "'Impact', 'Franklin Gothic Bold', 'Arial Black', sans-serif",
-                  fontWeight: "900",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                  borderRadius: "25px",
-                  border: "none",
-                  cursor: "pointer",
-                  textShadow: "1px 1px 2px rgba(0, 0, 0, 0.3)",
-                  // MOBILE: Much smaller button
-                  padding: isMobile ? "6px 16px" : "12px 24px",
-                  fontSize: isMobile ? "11px" : "16px",
+                  width: "100%",
+                  height: "auto",
+                  maxWidth: isMobile ? "200px" : "600px",
                 }}
-              >
-                SEE THE LINEUP!
-              </button>
-            </Link>
+                className="mx-auto"
+                priority
+              />
+            </div>
+
+            {/* CTA Button - Much closer to logo */}
+            <div 
+              style={{
+                marginTop: isMobile ? "8px" : "-20px", // Desktop: Move UP into logo area, Mobile: Very close
+              }}
+            >
+              <Link href="/lineup">
+                <button 
+                  className="bg-[#d81b8c] text-white transform transition-transform duration-200 hover:scale-105"
+                  style={{
+                    fontFamily: "'Impact', 'Franklin Gothic Bold', 'Arial Black', sans-serif",
+                    fontWeight: "900",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.15em",
+                    borderRadius: "25px",
+                    border: "none",
+                    cursor: "pointer",
+                    // Responsive sizing
+                    padding: isMobile ? "8px 20px" : "16px 32px",
+                    fontSize: isMobile ? "13px" : "20px",
+                    // Breakpoint adjustments
+                    ...(window.innerWidth >= 640 && window.innerWidth < 768 && {
+                      padding: "10px 24px",
+                      fontSize: "15px"
+                    }),
+                    ...(window.innerWidth >= 768 && window.innerWidth < 1024 && {
+                      padding: "14px 28px",
+                      fontSize: "18px"
+                    }),
+                    ...(window.innerWidth >= 1024 && {
+                      padding: "18px 36px",
+                      fontSize: "22px"
+                    }),
+                  }}
+                >
+                  SEE THE LINEUP!
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -290,6 +311,28 @@ export default function Home() {
           --rotation: 0deg;
           opacity: 0;
           animation: doodleAppear 0.6s forwards;
+        }
+
+        /* Responsive breakpoint adjustments */
+        @media (min-width: 640px) and (max-width: 767px) {
+          .festival-button-sm {
+            padding: 10px 24px !important;
+            font-size: 15px !important;
+          }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .festival-button-md {
+            padding: 14px 28px !important;
+            font-size: 18px !important;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .festival-button-lg {
+            padding: 18px 36px !important;
+            font-size: 22px !important;
+          }
         }
       `}</style>
     </main>

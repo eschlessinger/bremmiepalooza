@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     setMounted(true)
@@ -13,35 +15,38 @@ export default function Home() {
 
   if (!mounted) return null
 
-  // Calculate positions in an ellipse (smaller circle with more space from the wave)
+  // Calculate positions in an ellipse with better mobile adjustments
   const createEllipticalPositions = (count) => {
     const positions = []
     for (let i = 0; i < count; i++) {
       // Calculate angle in radians (distribute evenly around the circle)
       const angle = (i * 2 * Math.PI) / count
 
-      // Make the ellipse smaller overall (30% horizontal radius instead of 35%)
-      // And even shorter vertically (25% vertical radius) to avoid the wave
-      const xRadius = 30
-      const yRadius = 25
+      // Adjust radius based on screen size
+      const xRadius = isMobile ? 35 : 25 // DESKTOP: reduced from 30 to 25, MOBILE: unchanged at 35
+      const yRadius = isMobile ? 12 : 25 // No change
 
-      // Convert to percentage coordinates (centered in the viewport)
+      // Calculate x and y positions based on the angle and radius
       const x = 50 + xRadius * Math.cos(angle)
-      const y = 50 + yRadius * Math.sin(angle)
 
-      // Add some randomness to size and rotation
-      const size = 9 + Math.random() * 4 // Size between 9-13vmin
-      const rotation = (Math.random() - 0.5) * 30 // Rotation between -15 and 15 degrees
+      // MOBILE: Center the ellipse around the logo (moved up significantly)
+      // DESKTOP: Keep centered in the middle of the screen
+      const y = (isMobile ? 24 : 50) + yRadius * Math.sin(angle)
 
-      // Calculate animation delay based on position in the circle
-      const delay = i * 0.2 // 0.2 seconds between each doodle
+      // Doodle sizes
+      const size = isMobile
+        ? 7 + Math.random() * 2 // 7-9vmin on mobile
+        : 10 + Math.random() * 4 // 10-14vmin on desktop
+
+      const rotation = (Math.random() - 0.5) * 30
+      const delay = i * 0.2
 
       positions.push({ x, y, size, rotation, delay })
     }
     return positions
   }
 
-  // Create 10 positions in a smaller ellipse
+  // Create positions in an ellipse
   const doodlePositions = createEllipticalPositions(10)
 
   // Array of doodle image paths
@@ -59,7 +64,8 @@ export default function Home() {
   ]
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative h-screen overflow-hidden">
+      {/* Fixed height container to prevent scrolling */}
       <div
         className="absolute inset-0 animate-gradient-shift"
         style={{
@@ -68,7 +74,7 @@ export default function Home() {
         }}
       ></div>
 
-      {/* Doodles arranged in a smaller circle/ellipse */}
+      {/* Doodles arranged in an ellipse */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
         {doodlePositions.map((position, index) => {
           const doodleSrc = doodles[index % doodles.length]
@@ -99,81 +105,142 @@ export default function Home() {
         })}
       </div>
 
-      {/* Bremmie doodle positioned on the wave */}
+      {/* Main Content */}
       <div
-        className="absolute pointer-events-none z-20"
+        className="absolute inset-0 flex flex-col items-center z-10"
         style={{
-          right: "9%",
-          bottom: "32px",
-          width: "20vmin",
-          height: "20vmin",
-          transform: "translateY(0)",
+          justifyContent: isMobile ? "flex-start" : "center",
+          // MOBILE: Position logo to align with ellipse center
+          paddingTop: isMobile ? "20vh" : "0",
         }}
       >
-        <div className="relative w-full h-full">
-          <Image src="/doodles/bremmie.png" alt="Bremmie on the beach" fill style={{ objectFit: "contain" }} />
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 z-10 relative">
-        {/* Logo and CTA Button */}
-        <div className="w-full max-w-md flex flex-col items-center" style={{ marginTop: "15px" }}>
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex flex-col items-center">
           {/* Logo */}
-          <div className="w-full mb-8">
+          <div className="w-full mb-6">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image0%20%288%29-beOvenUhAfVvtgkwNbVktfwy0UfMVY.png"
+              src="/bremmiepalooza-logo-for-cta.png" // Updated to use the renamed logo file
               alt="Bremmiepalooza 2026"
               width={800}
               height={400}
-              style={{ width: "100%", height: "auto" }}
+              style={{
+                width: "100%",
+                height: "auto",
+                maxWidth: isMobile ? "200px" : "600px",
+              }}
+              className="mx-auto"
               priority
             />
           </div>
-          
-          {/* Event Details */}
-          <div className="text-center mb-8">
-            <h2 className="font-bold text-3xl text-white drop-shadow-lg mb-2">Cancún, MX</h2>
-            <h3 className="font-bold text-2xl text-white drop-shadow-lg">January 17-19, 2026</h3>
-          </div>
 
-          {/* SEE THE LINEUP Button */}
+          {/* CTA Button - Now pink with white text */}
           <Link href="/lineup">
-            <button className="bg-purple-700 hover:bg-purple-800 text-yellow-300 font-bold text-2xl py-4 px-8 rounded-full uppercase tracking-wider transform transition-transform duration-200 hover:scale-105 animate-pulse-slow">
+            <button className="bg-[#d81b8c] text-white font-bold uppercase tracking-wider py-2 px-5 rounded-full text-sm md:text-base shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl">
               SEE THE LINEUP!
             </button>
           </Link>
         </div>
-
-        {/* Note for deployment - can be removed in production */}
-        <div className="fixed bottom-4 left-4 bg-black bg-opacity-50 text-white p-2 text-xs rounded max-w-xs z-30">
-          Note: For deployment, replace the Google Font with your custom font
-        </div>
       </div>
 
-      {/* Wave Footer */}
-      <div className="absolute bottom-0 left-0 w-full h-24 md:h-32 z-10">
+      {/* Wave Footer - FIXED FOR MOBILE */}
+      <div
+        className="absolute left-0 w-full z-10"
+        style={
+          isMobile
+            ? {
+                // MOBILE: Properly attached to bottom
+                bottom: "0",
+                height: "60vh", // Tall enough to cover bottom but not too tall to cover logo
+              }
+            : {
+                // Desktop: Keep at bottom
+                bottom: "0",
+                height: "24vh",
+              }
+        }
+      >
         <svg
           width="100%"
           height="100%"
-          viewBox="0 0 1440 200"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          viewBox={isMobile ? "0 0 1440 600" : "0 0 1440 200"} // Taller viewBox for mobile
           preserveAspectRatio="none"
+          style={{ display: "block" }}
         >
-          <path
-            d="M0 100L48 87.5C96 75 192 50 288 58.3C384 66.7 480 108.3 576 125C672 141.7 768 133.3 864 116.7C960 100 1056 75 1152 66.7C1248 58.3 1344 66.7 1392 70.8L1440 75V200H1392C1344 200 1248 200 1152 200C1056 200 960 200 864 200C768 200 672 200 576 200C480 200 384 200 288 200C192 200 96 200 48 200H0V100Z"
-            fill="url(#paint0_linear)"
-          />
-          <defs>
-            <linearGradient id="paint0_linear" x1="720" y1="0" x2="720" y2="200" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#EC4899" />
-              <stop offset="0.333333" stopColor="#FACC15" />
-              <stop offset="0.666667" stopColor="#3B82F6" />
-              <stop offset="1" stopColor="#A855F7" />
-            </linearGradient>
-          </defs>
+          {isMobile ? (
+            // MOBILE: Wave with extended purple base, but starts lower
+            <>
+              <path
+                // Modified path to start lower (higher Y value)
+                d="M0 200L48 187.5C96 175 192 150 288 158.3C384 166.7 480 208.3 576 225C672 241.7 768 233.3 864 216.7C960 200 1056 175 1152 166.7C1248 158.3 1344 166.7 1392 170.8L1440 175V600H1392C1344 600 1248 600 1152 600C1056 600 960 600 864 600C768 600 672 600 576 600C480 600 384 600 288 600C192 600 96 600 48 600H0V200Z"
+                fill="url(#paint0_linear_mobile)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_mobile"
+                  x1="720"
+                  y1="100"
+                  x2="720"
+                  y2="600"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#EC4899" />
+                  <stop offset="0.15" stopColor="#FACC15" />
+                  <stop offset="0.3" stopColor="#3B82F6" />
+                  <stop offset="0.45" stopColor="#A855F7" />
+                  <stop offset="1" stopColor="#A855F7" /> {/* Extended purple base */}
+                </linearGradient>
+              </defs>
+            </>
+          ) : (
+            // DESKTOP: Original wave
+            <>
+              <path
+                d="M0 100L48 87.5C96 75 192 50 288 58.3C384 66.7 480 108.3 576 125C672 141.7 768 133.3 864 116.7C960 100 1056 75 1152 66.7C1248 58.3 1344 66.7 1392 70.8L1440 75V200H1392C1344 200 1248 200 1152 200C1056 200 960 200 864 200C768 200 672 200 576 200C480 200 384 200 288 200C192 200 96 200 48 200H0V100Z"
+                fill="url(#paint0_linear_desktop)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_desktop"
+                  x1="720"
+                  y1="0"
+                  x2="720"
+                  y2="200"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#EC4899" />
+                  <stop offset="0.333333" stopColor="#FACC15" />
+                  <stop offset="0.666667" stopColor="#3B82F6" />
+                  <stop offset="1" stopColor="#A855F7" />
+                </linearGradient>
+              </defs>
+            </>
+          )}
         </svg>
+      </div>
+
+      {/* Bremmie doodle */}
+      <div
+        className="absolute pointer-events-none z-20"
+        style={
+          isMobile
+            ? {
+                // MOBILE: Positioned to sit on the wave - UPDATED SIZE
+                right: "4%",
+                bottom: "40vh",
+                width: "20vmin", // Increased from 15vmin to 20vmin
+                height: "20vmin", // Increased from 15vmin to 20vmin
+              }
+            : {
+                // Desktop: Keep as adjusted before
+                right: "6%",
+                bottom: "60px",
+                width: "20vmin",
+                height: "20vmin",
+              }
+        }
+      >
+        <div className="relative w-full h-full">
+          <Image src="/doodles/bremmie.png" alt="Bremmie on the beach" fill style={{ objectFit: "contain" }} />
+        </div>
       </div>
 
       {/* CSS Animations */}
@@ -214,19 +281,6 @@ export default function Home() {
           --rotation: 0deg;
           opacity: 0;
           animation: doodleAppear 0.6s forwards;
-        }
-
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-          }
-          100% {
-            transform: scale(1.05);
-          }
-        }
-        
-        .animate-pulse-slow {
-          animation: pulse 2s infinite alternate ease-in-out;
         }
       `}</style>
     </main>

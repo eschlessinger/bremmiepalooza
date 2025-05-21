@@ -105,61 +105,56 @@ export default function Home() {
         })}
       </div>
 
-      {/* Main Content - PRECISE POSITIONING */}
-      <div className="absolute inset-0 z-10">
-        {/* Logo - Absolute positioned */}
-        <div 
-          className="absolute left-1/2 transform -translate-x-1/2"
+      {/* LOGO - Positioned with absolute positioning */}
+      <div 
+        className="absolute left-1/2 transform -translate-x-1/2 z-10"
+        style={{
+          top: isMobile ? "20vh" : "30vh", // CHANGED: Desktop much higher up
+          width: "100%",
+          maxWidth: isMobile ? "200px" : "600px", // Original sizes
+        }}
+      >
+        <Image
+          src="/bremmiepalooza-logo-for-cta.png"
+          alt="Bremmiepalooza 2026"
+          width={800}
+          height={400}
           style={{
-            // Desktop: Move logo down from center
-            top: isMobile ? "20vh" : "calc(50vh - 80px)", // Desktop: 80px higher than center
             width: "100%",
-            maxWidth: isMobile ? "200px" : "600px",
+            height: "auto",
           }}
-        >
-          <Image
-            src="/bremmiepalooza-logo-for-cta.png"
-            alt="Bremmiepalooza 2026"
-            width={800}
-            height={400}
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-            className="mx-auto"
-            priority
-          />
-        </div>
+          className="mx-auto"
+          priority
+        />
+      </div>
 
-        {/* CTA Button - Absolute positioned right under logo */}
-        <div 
-          className="absolute left-1/2 transform -translate-x-1/2"
-          style={{
-            // Position directly under logo
-            top: isMobile ? "calc(20vh + 50px)" : "calc(50vh + 20px)", // Right under logo
-          }}
-        >
-          <Link href="/lineup">
-            <button 
-              className="bg-[#d81b8c] text-white transform transition-transform duration-200 hover:scale-105"
-              style={{
-                fontFamily: "'Impact', 'Franklin Gothic Bold', 'Arial Black', sans-serif",
-                fontWeight: "900",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                borderRadius: "25px",
-                border: "none",
-                cursor: "pointer",
-                padding: isMobile ? "8px 20px" : "16px 32px",
-                fontSize: isMobile ? "14px" : "30px", // Increased to 30px as requested
-                lineHeight: "1",
-                whiteSpace: "nowrap",
-              }}
-            >
-              SEE THE LINEUP!
-            </button>
-          </Link>
-        </div>
+      {/* CTA BUTTON - Positioned right under logo */}
+      <div 
+        className="absolute left-1/2 transform -translate-x-1/2 z-10"
+        style={{
+          top: isMobile ? "calc(20vh + 65px)" : "calc(30vh + 120px)", // CHANGED: Right under logo
+        }}
+      >
+        <Link href="/lineup">
+          <button 
+            className="bg-[#d81b8c] text-white transform transition-transform duration-200 hover:scale-105"
+            style={{
+              fontFamily: "Arial Black, Helvetica, sans-serif", // CHANGED: More readable font
+              fontWeight: "bold", // CHANGED: Less heavy
+              textTransform: "uppercase",
+              letterSpacing: "1px", // CHANGED: Better spacing
+              borderRadius: "15px", // CHANGED: Smaller radius
+              border: "none",
+              cursor: "pointer",
+              padding: isMobile ? "4px 12px" : "8px 16px", // CHANGED: Tighter padding
+              fontSize: isMobile ? "14px" : "30px", // Keep large font
+              lineHeight: "1.2", // CHANGED: Better readability
+              whiteSpace: "nowrap",
+            }}
+          >
+            SEE THE LINEUP!
+          </button>
+        </Link>
       </div>
 
       {/* Wave Footer - FIXED FOR MOBILE */}

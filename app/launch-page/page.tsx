@@ -109,9 +109,9 @@ export default function Home() {
       <div 
         className="absolute left-1/2 transform -translate-x-1/2 z-10"
         style={{
-          top: isMobile ? "20vh" : "30vh", // CHANGED: Desktop much higher up
+          top: isMobile ? "20vh" : "40vh", // FIXED: Desktop much lower, mobile unchanged
           width: "100%",
-          maxWidth: isMobile ? "200px" : "600px", // Original sizes
+          maxWidth: isMobile ? "200px" : "400px", // FIXED: Desktop logo much smaller
         }}
       >
         <Image
@@ -132,23 +132,23 @@ export default function Home() {
       <div 
         className="absolute left-1/2 transform -translate-x-1/2 z-10"
         style={{
-          top: isMobile ? "calc(20vh + 65px)" : "calc(30vh + 120px)", // CHANGED: Right under logo
+          top: isMobile ? "calc(20vh + 50px)" : "calc(40vh + 100px)", // FIXED: Mobile much closer, desktop with separation
         }}
       >
         <Link href="/lineup">
           <button 
             className="bg-[#d81b8c] text-white transform transition-transform duration-200 hover:scale-105"
             style={{
-              fontFamily: "Arial Black, Helvetica, sans-serif", // CHANGED: More readable font
-              fontWeight: "bold", // CHANGED: Less heavy
+              fontFamily: "Arial Black, Helvetica, sans-serif",
+              fontWeight: "bold",
               textTransform: "uppercase",
-              letterSpacing: "1px", // CHANGED: Better spacing
-              borderRadius: "15px", // CHANGED: Smaller radius
+              letterSpacing: "1px",
+              borderRadius: "15px",
               border: "none",
               cursor: "pointer",
-              padding: isMobile ? "4px 12px" : "8px 16px", // CHANGED: Tighter padding
-              fontSize: isMobile ? "14px" : "30px", // Keep large font
-              lineHeight: "1.2", // CHANGED: Better readability
+              padding: isMobile ? "3px 8px" : "8px 16px", // FIXED: Mobile much smaller
+              fontSize: isMobile ? "11px" : "30px", // FIXED: Mobile smaller font
+              lineHeight: "1.2",
               whiteSpace: "nowrap",
             }}
           >

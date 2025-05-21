@@ -132,7 +132,7 @@ export default function Home() {
       <div 
         className="absolute left-1/2 transform -translate-x-1/2 z-10"
         style={{
-          top: isMobile ? "calc(20vh + 50px)" : "calc(40vh + 100px)", // FIXED: Mobile much closer, desktop with separation
+          top: isMobile ? "calc(20vh + 35px)" : "calc(40vh + 100px)", // FIXED: Mobile button moved up closer
         }}
       >
         <Link href="/lineup">
@@ -142,12 +142,12 @@ export default function Home() {
               fontFamily: "Arial Black, Helvetica, sans-serif",
               fontWeight: "bold",
               textTransform: "uppercase",
-              letterSpacing: "1px",
+              letterSpacing: isMobile ? "0.5px" : "1px", // FIXED: Tighter spacing on mobile
               borderRadius: "15px",
               border: "none",
               cursor: "pointer",
-              padding: isMobile ? "3px 8px" : "8px 16px", // FIXED: Mobile much smaller
-              fontSize: isMobile ? "11px" : "30px", // FIXED: Mobile smaller font
+              padding: isMobile ? "3px 6px" : "8px 16px", // FIXED: Even tighter mobile padding
+              fontSize: isMobile ? "11px" : "30px",
               lineHeight: "1.2",
               whiteSpace: "nowrap",
             }}

@@ -143,7 +143,7 @@ export default function Home() {
               fontWeight: "bold",
               textTransform: "uppercase",
               letterSpacing: isMobile ? "0.3px" : "1px", // FIXED: Even tighter mobile letter spacing
-              borderRadius: "15px",
+              borderRadius: "0px", // CHANGED: Rectangular corners instead of rounded
               border: "none",
               cursor: "pointer",
               padding: isMobile ? "3px 6px" : "8px 16px", // FIXED: Even tighter mobile padding

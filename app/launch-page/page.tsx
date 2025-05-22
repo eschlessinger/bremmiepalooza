@@ -143,13 +143,17 @@ export default function Home() {
               fontWeight: "bold",
               textTransform: "uppercase",
               letterSpacing: isMobile ? "0.3px" : "1px", // FIXED: Even tighter mobile letter spacing
-              borderRadius: "0px", // CHANGED: Rectangular corners instead of rounded
+              borderRadius: "15px", // CHANGED: Back to rounded corners
               border: "none",
               cursor: "pointer",
               padding: isMobile ? "3px 6px" : "8px 16px", // FIXED: Even tighter mobile padding
               fontSize: isMobile ? "11px" : "30px",
               lineHeight: "1.2",
               whiteSpace: "nowrap",
+              textAlign: "center", // ADDED: Ensure text is centered
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center", // ADDED: Center text both horizontally and vertically
             }}
           >
             SEE THE LINEUP

@@ -70,15 +70,6 @@ export default function LineupPage() {
       textColor: "text-purple-800"
     },
     { 
-      label: "TRAVEL", 
-      sublabel: "INFO",
-      href: "/travel-info", 
-      disabled: false,
-      onClick: null,
-      color: "bg-blue-400",
-      textColor: "text-white"
-    },
-    { 
       label: "FAQS", 
       sublabel: "",
       href: "/faqs", 
@@ -86,6 +77,15 @@ export default function LineupPage() {
       onClick: null,
       color: "bg-pink-400",
       textColor: "text-black"
+    },
+    { 
+      label: "TRAVEL", 
+      sublabel: "INFO",
+      href: "/travel-info", 
+      disabled: false,
+      onClick: null,
+      color: "bg-blue-400",
+      textColor: "text-white"
     },
     { 
       label: "BOOK MY", 
@@ -114,7 +114,7 @@ export default function LineupPage() {
         {/* Header with logo */}
         <header className="p-4 md:p-6 lg:p-8">
           {/* Logo */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <div className="w-full max-w-sm md:max-w-md">
               <Image
                 src="/bremmiepalooza-logo-for-cta.png"
@@ -130,67 +130,67 @@ export default function LineupPage() {
               />
             </div>
           </div>
+        </header>
 
-          {/* Vintage Festival-Style Navigation Banner */}
-          <div className="max-w-6xl mx-auto mb-8">
-            <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300 p-2 rounded-2xl shadow-2xl border-4 border-white">
-              <div className="flex flex-wrap justify-center gap-1 md:gap-2">
-                {navButtons.map((button, index) => (
-                  <button
-                    key={index}
-                    onClick={button.onClick}
-                    disabled={button.disabled}
-                    className={`
-                      relative px-3 py-4 md:px-6 md:py-6 text-center
-                      border-3 border-black rounded-xl transition-all duration-200 transform
-                      font-black uppercase tracking-wider shadow-lg overflow-hidden
-                      ${button.color} ${button.textColor}
-                      ${button.disabled 
-                        ? 'opacity-50 cursor-not-allowed' 
-                        : 'hover:scale-105 hover:shadow-xl active:scale-95'
-                      }
-                    `}
-                    style={{
-                      fontFamily: "'Impact', 'Arial Black', sans-serif",
-                      textShadow: button.disabled ? 'none' : '1px 1px 2px rgba(0,0,0,0.3)',
-                      minWidth: isMobile ? '60px' : '100px',
-                      minHeight: isMobile ? '60px' : '80px'
-                    }}
-                  >
-                    {/* Background Icon */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-20 z-0">
-                      <div className="text-4xl md:text-6xl">
-                        {button.label === 'TICKETS' && '🎫'}
-                        {button.label === 'FESTIVAL' && '🗺️'}
-                        {button.label === 'TRAVEL' && '✈️'}
-                        {button.label === 'FAQS' && '❓'}
-                        {button.label === 'BOOK MY' && '🏨'}
-                      </div>
+        {/* Full-Width Festival Navigation Banner - Right under logo */}
+        <div className="w-full mb-8">
+          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300 py-4">
+            <div className="flex flex-wrap justify-center gap-1 md:gap-2 px-2">
+              {navButtons.map((button, index) => (
+                <button
+                  key={index}
+                  onClick={button.onClick}
+                  disabled={button.disabled}
+                  className={`
+                    relative px-3 py-4 md:px-6 md:py-6 text-center
+                    border-3 border-black rounded-xl transition-all duration-200 transform
+                    font-black uppercase tracking-wider shadow-lg overflow-hidden
+                    ${button.color} ${button.textColor}
+                    ${button.disabled 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : 'hover:scale-105 hover:shadow-xl active:scale-95'
+                    }
+                  `}
+                  style={{
+                    fontFamily: "'Zolla Pro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: button.disabled ? 'none' : '1px 1px 2px rgba(0,0,0,0.3)',
+                    minWidth: isMobile ? '60px' : '100px',
+                    minHeight: isMobile ? '60px' : '80px'
+                  }}
+                >
+                  {/* Background Icon */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-20 z-0">
+                    <div className="text-4xl md:text-6xl">
+                      {button.label === 'TICKETS' && '🎫'}
+                      {button.label === 'FESTIVAL' && '🗺️'}
+                      {button.label === 'FAQS' && '❓'}
+                      {button.label === 'TRAVEL' && '✈️'}
+                      {button.label === 'BOOK MY' && '🏨'}
                     </div>
-                    
-                    {/* Button text content */}
-                    <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                      <div className={`text-xs md:text-lg font-black leading-tight`}>
-                        {button.label}
-                      </div>
-                      {button.sublabel && (
-                        <div className={`text-xs md:text-sm font-bold mt-1 leading-tight`}>
-                          {button.sublabel}
-                        </div>
-                      )}
+                  </div>
+                  
+                  {/* Button text content */}
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                    <div className={`text-xs md:text-lg font-black leading-tight`}>
+                      {button.label}
                     </div>
-                    
-                    {/* Vintage-style decorative corners */}
-                    <div className="absolute top-1 left-1 w-2 h-2 border-t-2 border-l-2 border-black rounded-tl z-10"></div>
-                    <div className="absolute top-1 right-1 w-2 h-2 border-t-2 border-r-2 border-black rounded-tr z-10"></div>
-                    <div className="absolute bottom-1 left-1 w-2 h-2 border-b-2 border-l-2 border-black rounded-bl z-10"></div>
-                    <div className="absolute bottom-1 right-1 w-2 h-2 border-b-2 border-r-2 border-black rounded-br z-10"></div>
-                  </button>
-                ))}
-              </div>
+                    {button.sublabel && (
+                      <div className={`text-xs md:text-sm font-bold mt-1 leading-tight`}>
+                        {button.sublabel}
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Vintage-style decorative corners */}
+                  <div className="absolute top-1 left-1 w-2 h-2 border-t-2 border-l-2 border-black rounded-tl z-10"></div>
+                  <div className="absolute top-1 right-1 w-2 h-2 border-t-2 border-r-2 border-black rounded-tr z-10"></div>
+                  <div className="absolute bottom-1 left-1 w-2 h-2 border-b-2 border-l-2 border-black rounded-bl z-10"></div>
+                  <div className="absolute bottom-1 right-1 w-2 h-2 border-b-2 border-r-2 border-black rounded-br z-10"></div>
+                </button>
+              ))}
             </div>
           </div>
-        </header>
+        </div>
 
         {/* Countdown Timer */}
         <section className="px-4 mb-8">
@@ -218,111 +218,28 @@ export default function LineupPage() {
           </div>
         </section>
 
-        {/* Weather Widget */}
-        <section className="px-4 mb-8">
-          <div className="max-w-2xl mx-auto bg-gradient-to-br from-blue-400 to-cyan-300 rounded-2xl p-6 shadow-xl border-4 border-white">
-            <h3 className="text-xl md:text-2xl font-black text-center mb-4 text-white uppercase tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
-              Cancun Weather
-            </h3>
-            <div className="text-center">
-              <div className="text-6xl mb-2">☀️</div>
-              <div className="text-2xl font-black text-white mb-2" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>82°F / 28°C</div>
-              <div className="text-white font-bold" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>Sunny & Perfect for a Festival!</div>
-              <div className="text-sm text-white/90 mt-2 font-semibold">
-                January 16-18, 2026 • Cancun, Mexico
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Main Lineup/Invite Section - Your Actual Invite */}
         <section className="px-4 mb-12">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.5)'}}>
+            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider zolla-outlined-font" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.5)'}}>
               THE LINEUP
             </h2>
             
-            {/* Your Festival Invite */}
+            {/* Your Actual Invite Image */}
             <div className="bg-white rounded-2xl shadow-2xl border-4 border-black overflow-hidden">
-              <div className="relative">
-                {/* Main invite content matching your design */}
-                <div 
-                  className="relative p-6 md:p-8"
+              <div className="p-4">
+                <Image
+                  src="/bremmiepalooza-invite.png" // Your actual invite file
+                  alt="Bremmiepalooza 2026 Festival Lineup"
+                  width={1200}
+                  height={800}
                   style={{
-                    background: "linear-gradient(135deg, #ff0099 0%, #ff6b9d 25%, #4ecdc4 50%, #45b7d1 75%, #96ceb4 100%)"
+                    width: "100%",
+                    height: "auto",
                   }}
-                >
-                  {/* Header */}
-                  <div className="text-center mb-8">
-                    <div className="text-sm md:text-base text-black font-bold mb-2">
-                      Cancun, MX<br />
-                      January 16-18<br />
-                      2026
-                    </div>
-                    <div className="text-4xl md:text-7xl font-black text-purple-900 mb-4 leading-none" style={{textShadow: '2px 2px 4px rgba(255,255,255,0.5)'}}>
-                      BREMMIEPALOOZA
-                    </div>
-                    <div className="text-lg md:text-2xl text-yellow-400 font-bold" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                      A festival for the festiv-all time
-                    </div>
-                  </div>
-
-                  {/* Friday - The Pregame */}
-                  <div className="mb-8 bg-pink-300/80 rounded-2xl p-4 md:p-6 border-2 border-black">
-                    <div className="flex items-center mb-4">
-                      <div className="text-lg md:text-xl font-bold text-black mr-4">Friday</div>
-                      <div className="text-2xl md:text-4xl font-black text-black">THE PREGAME</div>
-                    </div>
-                    <div className="text-sm md:text-base font-bold text-black leading-relaxed">
-                      WELCOME DRINKS AND GAMES ON THE BEACH • BEER PONG TOURNAMENT<br />
-                      KICKOFF • LADDER BALL • BAGGO / CORNHOLE / BAGS • BOCCE BALL<br />
-                      MARGARITAS • WHITE CLAW • CORONA • MILLER LITE • BUD LIGHT • GIN &<br />
-                      TONIC • LONG LIVE THE QUEEN • JELLO SHOTS • GOOD VIBES
-                    </div>
-                  </div>
-
-                  {/* Saturday - The Main Stage */}
-                  <div className="mb-8 bg-cyan-300/80 rounded-2xl p-4 md:p-6 border-2 border-black">
-                    <div className="flex items-center mb-4">
-                      <div className="text-lg md:text-xl font-bold text-black mr-4">Saturday</div>
-                      <div className="text-2xl md:text-4xl font-black text-black">THE MAIN STAGE</div>
-                    </div>
-                    <div className="text-sm md:text-base font-bold text-black leading-relaxed">
-                      THE REASON WE'RE IN CANCUN! • DANCE AND CELEBRATE WITH US UNTIL<br />
-                      THE WEE HOURS OF THE MORNING • A SPECIAL APPEARANCE TO TAKE<br />
-                      PLACE AT 6PM • THEN DANCING • DRINKING • EATING • BEER PONG<br />
-                      TOURNAMENT SEMI FINALS • SUNRISE VIEWING 5AM • YOU'LL SLEEP<br />
-                      WHEN YOU'RE DEAD (OR ON MONDAY SINCE YOU DON'T HAVE WORK!)
-                    </div>
-                  </div>
-
-                  {/* Sunday - The Aftershow */}
-                  <div className="mb-6 bg-blue-300/80 rounded-2xl p-4 md:p-6 border-2 border-black">
-                    <div className="flex items-center mb-4">
-                      <div className="text-lg md:text-xl font-bold text-black mr-4">Sunday</div>
-                      <div className="text-2xl md:text-4xl font-black text-black">THE AFTERSHOW</div>
-                    </div>
-                    <div className="text-sm md:text-base font-bold text-black leading-relaxed">
-                      WE'RE ON A BOAT! (feat. mimosas) • BREMMIEPALOOZA WOULD NOT BE<br />
-                      COMPLETE WITHOUT ONE FINAL RAVE • THIS TIME ABOARD A BOAT • DON'T<br />
-                      FORGET YOUR FLIPPIE FLOPPIES • SWIMSUIT • SUNSCREEN • WE'LL BRING THE<br />
-                      REST • EVERYBODY LOOK AT US CAUSE WE'RE SAILING ON A BOAT
-                    </div>
-                  </div>
-
-                  {/* Bottom decorative elements */}
-                  <div className="relative">
-                    {/* Fish and decorative elements */}
-                    <div className="flex justify-center space-x-4 text-2xl md:text-4xl mb-4">
-                      🐠 🐠 🐠 🐠 🐠
-                    </div>
-                    
-                    {/* Festival doodles section */}
-                    <div className="grid grid-cols-4 md:grid-cols-8 gap-2 md:gap-4 text-xl md:text-3xl">
-                      🍺 📱 🏐 💕 ⏰ 🌴 🎵 🍸
-                    </div>
-                  </div>
-                </div>
+                  className="rounded-lg"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -331,7 +248,7 @@ export default function LineupPage() {
         {/* Festival Map Section */}
         <section id="festival-map" className="px-4 mb-12">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.5)'}}>
+            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider zolla-outlined-font" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.5)'}}>
               FESTIVAL MAP
             </h2>
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border-4 border-yellow-400">
@@ -352,10 +269,92 @@ export default function LineupPage() {
             </div>
           </div>
         </section>
+
+        {/* Weather Widget - Moved to bottom */}
+        <section className="px-4 mb-12">
+          <div className="max-w-4xl mx-auto bg-gradient-to-br from-blue-400 to-cyan-300 rounded-2xl p-6 shadow-xl border-4 border-white">
+            <h3 className="text-xl md:text-2xl font-black text-center mb-6 text-white uppercase tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
+              Cancun Weather Forecast
+            </h3>
+            
+            {/* 3-Day Forecast */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                {
+                  day: "Friday",
+                  date: "Jan 16",
+                  icon: "☀️",
+                  high: "84°F",
+                  low: "73°F",
+                  condition: "Sunny & Clear"
+                },
+                {
+                  day: "Saturday", 
+                  date: "Jan 17",
+                  icon: "🌤️",
+                  high: "82°F",
+                  low: "74°F", 
+                  condition: "Partly Cloudy"
+                },
+                {
+                  day: "Sunday",
+                  date: "Jan 18", 
+                  icon: "☀️",
+                  high: "85°F",
+                  low: "75°F",
+                  condition: "Perfect for Boating!"
+                }
+              ].map((forecast, index) => (
+                <div key={index} className="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center border-2 border-white/30">
+                  <div className="text-lg font-black text-white mb-1" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
+                    {forecast.day}
+                  </div>
+                  <div className="text-sm text-white/90 mb-3 font-semibold">
+                    {forecast.date}
+                  </div>
+                  <div className="text-4xl mb-3">
+                    {forecast.icon}
+                  </div>
+                  <div className="text-xl font-black text-white mb-1" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
+                    {forecast.high} / {forecast.low}
+                  </div>
+                  <div className="text-sm text-white font-bold" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
+                    {forecast.condition}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Overall summary */}
+            <div className="text-center mt-6">
+              <div className="text-white font-bold text-lg" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
+                Perfect Festival Weather in Paradise! 🌴
+              </div>
+              <div className="text-sm text-white/90 mt-2 font-semibold">
+                Cancun, Mexico • January 16-18, 2026
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
-      {/* CSS Animations */}
+      {/* CSS Animations and Custom Fonts */}
       <style jsx global>{`
+        /* Load Zolla Fonts */
+        @font-face {
+          font-family: 'Zolla Pro';
+          src: url('/fonts/Zolla Pro.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: 'Zolla Pro Outlined';
+          src: url('/fonts/Zolla-Pro-Outlined.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
+
         @keyframes gradient-shift {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -369,6 +368,14 @@ export default function LineupPage() {
 
         .border-3 {
           border-width: 3px;
+        }
+
+        .zolla-font {
+          font-family: 'Zolla Pro', 'Impact', 'Arial Black', sans-serif;
+        }
+
+        .zolla-outlined-font {
+          font-family: 'Zolla Pro Outlined', 'Zolla Pro', 'Impact', 'Arial Black', sans-serif;
         }
       `}</style>
     </main>

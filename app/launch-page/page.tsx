@@ -102,8 +102,8 @@ export default function LineupPage() {
       {/* Content container */}
       <div className="relative z-10">
         {/* Logo */}
-        <div className="p-4 md:p-6 lg:p-8 pb-1">
-          <div className="flex justify-center mb-1">
+        <div className="p-4 md:p-6 lg:p-8">
+          <div className="flex justify-center">
             <div className="w-full max-w-sm md:max-w-md">
               <Image
                 src="/bremmiepalooza-logo-for-cta.png"
@@ -121,10 +121,18 @@ export default function LineupPage() {
           </div>
         </div>
 
-        {/* THIN Navigation Banner - Directly under logo */}
-        <div className="w-full mb-6">
-          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300 py-1">
-            <div className="flex justify-center items-center gap-4 md:gap-8 px-2">
+        {/* ABSOLUTELY POSITIONED Navigation Banner - SUPER THIN */}
+        <div 
+          className="w-full z-20"
+          style={{
+            position: 'absolute',
+            top: isMobile ? '180px' : '220px', // Adjust these values as needed
+            left: '0',
+            right: '0'
+          }}
+        >
+          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" style={{ height: isMobile ? '20px' : '25px' }}>
+            <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => (
                 <button
                   key={index}
@@ -139,11 +147,12 @@ export default function LineupPage() {
                   `}
                   style={{
                     minWidth: isMobile ? '70px' : '120px',
-                    minHeight: isMobile ? '45px' : '60px'
+                    minHeight: isMobile ? '80px' : '100px', // MUCH taller than banner
+                    marginTop: isMobile ? '-30px' : '-40px' // Move up to center on thin banner
                   }}
                 >
-                  {/* Large Icons */}
-                  <div className="text-2xl md:text-4xl mb-1">
+                  {/* LARGE Icons that overflow the banner */}
+                  <div className="text-4xl md:text-6xl mb-1">
                     {button.label === 'TICKETS' && '🎫'}
                     {button.label === 'FESTIVAL' && '🗺️'}
                     {button.label === 'FAQS' && '❓'}
@@ -151,12 +160,11 @@ export default function LineupPage() {
                     {button.label === 'BOOK MY' && '🏨'}
                   </div>
                   
-                  {/* OUTLINED ZOLLA TEXT */}
+                  {/* LARGE TEXT that overflows the banner */}
                   <div className="text-center">
                     <div 
-                      className="text-xs md:text-sm font-black uppercase tracking-wider text-black leading-tight"
+                      className="text-sm md:text-lg font-black uppercase tracking-wider text-black leading-tight zolla-outlined"
                       style={{
-                        fontFamily: "'Zolla Pro Outlined', 'Zolla Pro', 'Impact', 'Arial Black', sans-serif",
                         textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                       }}
                     >
@@ -164,9 +172,8 @@ export default function LineupPage() {
                     </div>
                     {button.sublabel && (
                       <div 
-                        className="text-xs font-bold uppercase text-black leading-tight"
+                        className="text-xs md:text-base font-bold uppercase text-black leading-tight zolla-outlined"
                         style={{
-                          fontFamily: "'Zolla Pro Outlined', 'Zolla Pro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                         }}
                       >
@@ -180,8 +187,11 @@ export default function LineupPage() {
           </div>
         </div>
 
+        {/* Add top margin to content to account for absolute positioned banner */}
+        <div style={{ marginTop: isMobile ? '100px' : '120px' }}>
+          
         {/* Simple Countdown Timer - Just numbers */}
-        <section className="px-4 mb-8">
+        <section className="px-4 mb-16">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center items-center gap-4 md:gap-8 flex-wrap">
               {[
@@ -218,9 +228,10 @@ export default function LineupPage() {
         {/* Main Lineup/Invite Section */}
         <section className="px-4 mb-12">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-pink-400 uppercase tracking-wider" style={{
+            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 uppercase tracking-wider" style={{
               fontFamily: "'Zolla Pro Outlined', 'Zolla Pro', 'Impact', sans-serif",
-              textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
+              textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+              color: '#d81b8c'
             }}>
               THE LINEUP
             </h2>
@@ -337,6 +348,8 @@ export default function LineupPage() {
             </div>
           </div>
         </section>
+
+        </div> {/* End of margin div */}
       </div>
 
       {/* CSS with Font Loading */}

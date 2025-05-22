@@ -132,7 +132,7 @@ export default function Home() {
       <div 
         className="absolute left-1/2 transform -translate-x-1/2 z-10"
         style={{
-          top: isMobile ? "calc(20vh + 42px)" : "calc(40vh + 100px)", // FIXED: Mobile button moved to middle position
+          top: isMobile ? "calc(20vh + 50px)" : "calc(40vh + 100px)", // FIXED: Mobile button back to previous position
         }}
       >
         <Link href="/lineup">

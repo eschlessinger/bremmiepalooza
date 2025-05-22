@@ -218,7 +218,7 @@ export default function LineupPage() {
         {/* Main Lineup/Invite Section */}
         <section className="px-4 mb-12">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" style={{
+            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-pink-400 uppercase tracking-wider" style={{
               fontFamily: "'Zolla Pro Outlined', 'Zolla Pro', 'Impact', sans-serif",
               textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
             }}>
@@ -343,9 +343,10 @@ export default function LineupPage() {
       <style jsx global>{`
         @font-face {
           font-family: 'Zolla Pro';
-          src: url('/fonts/Zolla Pro.woff') format('woff');
+          src: url('/fonts/Zolla%20Pro.woff') format('woff');
           font-weight: normal;
           font-style: normal;
+          font-display: swap;
         }
 
         @font-face {
@@ -353,6 +354,7 @@ export default function LineupPage() {
           src: url('/fonts/Zolla-Pro-Outlined.woff') format('woff');
           font-weight: normal;
           font-style: normal;
+          font-display: swap;
         }
 
         @keyframes gradient-shift {
@@ -364,6 +366,11 @@ export default function LineupPage() {
         .animate-gradient-shift {
           background-size: 600% 600%;
           animation: gradient-shift 10s ease infinite;
+        }
+
+        /* Force outlined font loading */
+        .zolla-outlined {
+          font-family: 'Zolla Pro Outlined', 'Zolla Pro', 'Impact', 'Arial Black', sans-serif !important;
         }
       `}</style>
     </main>

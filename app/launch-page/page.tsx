@@ -352,10 +352,10 @@ export default function LineupPage() {
         </div> {/* End of margin div */}
       </div>
 
-      {/* CSS with Font Loading */}
+      {/* CSS with Font Loading - Fixed with correct filenames */}
       <style jsx global>{`
         @font-face {
-          font-family: 'Zolla Pro';
+          font-family: 'ZollaPro';
           src: url('/fonts/Zolla%20Pro.woff') format('woff');
           font-weight: normal;
           font-style: normal;
@@ -363,11 +363,25 @@ export default function LineupPage() {
         }
 
         @font-face {
-          font-family: 'Zolla Pro Outlined';
+          font-family: 'ZollaProOutlined';
           src: url('/fonts/Zolla-Pro-Outlined.woff') format('woff');
           font-weight: normal;
           font-style: normal;
           font-display: swap;
+        }
+
+        /* Test if fonts are loading */
+        body {
+          font-family: 'ZollaPro', sans-serif;
+        }
+
+        /* Force font loading with CSS classes */
+        .zolla-regular {
+          font-family: 'ZollaPro', 'Impact', 'Arial Black', sans-serif !important;
+        }
+
+        .zolla-outlined {
+          font-family: 'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif !important;
         }
 
         @keyframes gradient-shift {
@@ -379,11 +393,6 @@ export default function LineupPage() {
         .animate-gradient-shift {
           background-size: 600% 600%;
           animation: gradient-shift 10s ease infinite;
-        }
-
-        /* Force outlined font loading */
-        .zolla-outlined {
-          font-family: 'Zolla Pro Outlined', 'Zolla Pro', 'Impact', 'Arial Black', sans-serif !important;
         }
       `}</style>
     </main>

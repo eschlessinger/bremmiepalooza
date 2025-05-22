@@ -112,9 +112,9 @@ export default function LineupPage() {
       {/* Content container */}
       <div className="relative z-10">
         {/* Header with logo */}
-        <header className="p-4 md:p-6 lg:p-8">
+        <header className="p-4 md:p-6 lg:p-8 pb-0">
           {/* Logo */}
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-2">
             <div className="w-full max-w-sm md:max-w-md">
               <Image
                 src="/bremmiepalooza-logo-for-cta.png"
@@ -132,88 +132,111 @@ export default function LineupPage() {
           </div>
         </header>
 
-        {/* Full-Width Festival Navigation Banner - Right under logo */}
-        <div className="w-full mb-8">
-          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300 py-4">
-            <div className="flex flex-wrap justify-center gap-1 md:gap-2 px-2">
+        {/* Full-Width Festival Navigation Banner - Thin band design */}
+        <div className="w-full mb-4">
+          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300 py-2">
+            <div className="flex justify-center items-center gap-4 md:gap-8 px-2">
               {navButtons.map((button, index) => (
                 <button
                   key={index}
                   onClick={button.onClick}
                   disabled={button.disabled}
                   className={`
-                    relative px-3 py-4 md:px-6 md:py-6 text-center
-                    border-3 border-black rounded-xl transition-all duration-200 transform
-                    font-black uppercase tracking-wider shadow-lg overflow-hidden
-                    ${button.color} ${button.textColor}
+                    relative flex flex-col items-center justify-center transition-all duration-200 transform
                     ${button.disabled 
                       ? 'opacity-50 cursor-not-allowed' 
-                      : 'hover:scale-105 hover:shadow-xl active:scale-95'
+                      : 'hover:scale-110 active:scale-95'
                     }
                   `}
                   style={{
-                    fontFamily: "'Zolla Pro', 'Impact', 'Arial Black', sans-serif",
-                    textShadow: button.disabled ? 'none' : '1px 1px 2px rgba(0,0,0,0.3)',
-                    minWidth: isMobile ? '60px' : '100px',
-                    minHeight: isMobile ? '60px' : '80px'
+                    minWidth: isMobile ? '70px' : '120px',
+                    minHeight: isMobile ? '50px' : '70px'
                   }}
                 >
-                  {/* Background Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-20 z-0">
-                    <div className="text-4xl md:text-6xl">
-                      {button.label === 'TICKETS' && '🎫'}
-                      {button.label === 'FESTIVAL' && '🗺️'}
-                      {button.label === 'FAQS' && '❓'}
-                      {button.label === 'TRAVEL' && '✈️'}
-                      {button.label === 'BOOK MY' && '🏨'}
-                    </div>
+                  {/* Large Background Icon */}
+                  <div className="text-3xl md:text-5xl mb-1">
+                    {button.label === 'TICKETS' && '🎫'}
+                    {button.label === 'FESTIVAL' && '🗺️'}
+                    {button.label === 'FAQS' && '❓'}
+                    {button.label === 'TRAVEL' && '✈️'}
+                    {button.label === 'BOOK MY' && '🏨'}
                   </div>
                   
-                  {/* Button text content */}
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                    <div className={`text-xs md:text-lg font-black leading-tight`}>
+                  {/* Text overlaid on graphics */}
+                  <div className="text-center">
+                    <div 
+                      className="text-xs md:text-sm font-black uppercase tracking-wider text-black leading-tight"
+                      style={{
+                        fontFamily: "'Zolla Pro Outlined', 'Zolla Pro', 'Impact', 'Arial Black', sans-serif",
+                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                      }}
+                    >
                       {button.label}
                     </div>
                     {button.sublabel && (
-                      <div className={`text-xs md:text-sm font-bold mt-1 leading-tight`}>
+                      <div 
+                        className="text-xs font-bold uppercase text-black leading-tight"
+                        style={{
+                          fontFamily: "'Zolla Pro Outlined', 'Zolla Pro', 'Impact', 'Arial Black', sans-serif",
+                          textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                        }}
+                      >
                         {button.sublabel}
                       </div>
                     )}
                   </div>
-                  
-                  {/* Vintage-style decorative corners */}
-                  <div className="absolute top-1 left-1 w-2 h-2 border-t-2 border-l-2 border-black rounded-tl z-10"></div>
-                  <div className="absolute top-1 right-1 w-2 h-2 border-t-2 border-r-2 border-black rounded-tr z-10"></div>
-                  <div className="absolute bottom-1 left-1 w-2 h-2 border-b-2 border-l-2 border-black rounded-bl z-10"></div>
-                  <div className="absolute bottom-1 right-1 w-2 h-2 border-b-2 border-r-2 border-black rounded-br z-10"></div>
                 </button>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Countdown Timer */}
+        {/* Countdown Timer - Fun and playful */}
         <section className="px-4 mb-8">
-          <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-4 border-pink-400">
-            <h2 className="text-2xl md:text-3xl font-black text-center mb-6 text-black uppercase tracking-wider">
-              Countdown to Bremmiepalooza 2026
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-4xl font-black mb-6 text-white uppercase tracking-wider zolla-outlined-font" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.5)'}}>
+              🎉 PARTY COUNTDOWN 🎉
             </h2>
-            <div className="grid grid-cols-4 gap-4 text-center">
+            <div className="flex justify-center items-center gap-2 md:gap-6 flex-wrap">
               {[
-                { label: 'Days', value: timeLeft.days },
-                { label: 'Hours', value: timeLeft.hours },
-                { label: 'Minutes', value: timeLeft.minutes },
-                { label: 'Seconds', value: timeLeft.seconds }
+                { label: 'Days', value: timeLeft.days, emoji: '📅' },
+                { label: 'Hours', value: timeLeft.hours, emoji: '⏰' },
+                { label: 'Minutes', value: timeLeft.minutes, emoji: '⏳' },
+                { label: 'Seconds', value: timeLeft.seconds, emoji: '💫' }
               ].map((item, index) => (
-                <div key={index} className="bg-gradient-to-b from-[#d81b8c] to-[#ff0099] text-white rounded-xl p-4 border-2 border-white shadow-lg">
-                  <div className="text-2xl md:text-4xl font-black font-mono">
+                <div key={index} className="text-center transform hover:scale-110 transition-transform duration-200">
+                  <div className="text-2xl mb-1">{item.emoji}</div>
+                  <div 
+                    className="text-4xl md:text-6xl font-black text-white mb-1"
+                    style={{
+                      fontFamily: "'Zolla Pro Outlined', 'Impact', sans-serif",
+                      textShadow: '2px 2px 4px rgba(0,0,0,0.7), 0 0 10px rgba(255,255,255,0.3)'
+                    }}
+                  >
                     {item.value.toString().padStart(2, '0')}
                   </div>
-                  <div className="text-xs md:text-sm uppercase tracking-wider mt-1 font-bold">
+                  <div 
+                    className="text-sm md:text-lg text-white font-bold uppercase tracking-wider"
+                    style={{
+                      fontFamily: "'Zolla Pro', 'Arial Black', sans-serif",
+                      textShadow: '1px 1px 2px rgba(0,0,0,0.7)'
+                    }}
+                  >
                     {item.label}
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="mt-6">
+              <div 
+                className="text-xl md:text-2xl text-yellow-300 font-black uppercase tracking-wider animate-pulse"
+                style={{
+                  fontFamily: "'Zolla Pro', 'Arial Black', sans-serif",
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+                }}
+              >
+                Until the Festival of a Lifetime! 🌴✨
+              </div>
             </div>
           </div>
         </section>

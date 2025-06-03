@@ -242,7 +242,7 @@ export default function LineupPage() {
               <h2 
                 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" 
                 style={{
-                  fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                   textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
                   color: '#d81b8c',
                   marginBottom: isMobile ? '6px' : '32px'
@@ -291,7 +291,7 @@ export default function LineupPage() {
               <h2 
                 className="text-3xl md:text-5xl font-black text-center mb-8 uppercase tracking-wider" 
                 style={{
-                  fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                   textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
                   color: '#d81b8c'
                 }}
@@ -325,7 +325,7 @@ export default function LineupPage() {
               <h2 
                 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" 
                 style={{
-                  fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                   textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
                   color: '#d81b8c'
                 }}
@@ -357,7 +357,7 @@ export default function LineupPage() {
               <h3 
                 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" 
                 style={{
-                  fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                   textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
                   color: '#d81b8c'
                 }}

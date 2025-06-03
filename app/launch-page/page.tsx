@@ -332,7 +332,7 @@ export default function LineupPage() {
               >
                 FESTIVAL MAP
               </h2>
-              <div className="bg-white rounded-2xl shadow-2xl border-4 border-pink-400 overflow-hidden">
+              <div className="bg-white rounded-2xl shadow-2xl border-4 border-black overflow-hidden">
                 <div className="p-4">
                   <Image
                     src="/festival_map.PNG"
@@ -365,7 +365,7 @@ export default function LineupPage() {
                 WEATHER FORECAST
               </h3>
               
-              <div className="bg-gradient-to-br from-blue-400 to-cyan-300 rounded-2xl p-6 shadow-xl border-4 border-white">
+              <div className="bg-gradient-to-br from-blue-400 to-cyan-300 rounded-2xl p-6 shadow-xl border-4 border-black">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {[
                     {

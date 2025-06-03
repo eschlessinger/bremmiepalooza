@@ -234,7 +234,7 @@ export default function LineupPage() {
         </div>
 
         {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '120px' : '80px' }}>
+        <div style={{ marginTop: isMobile ? '120px' : '120px' }}>
           
           {/* Countdown Timer */}
           <section className="px-4 mb-16">

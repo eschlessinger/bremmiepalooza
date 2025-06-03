@@ -131,7 +131,7 @@ export default function LineupPage() {
             right: '0'
           }}
         >
-          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" style={{ height: isMobile ? '20px' : '25px' }}>
+          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" style={{ height: isMobile ? '40px' : '50px' }}>
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => (
                 <button
@@ -148,7 +148,7 @@ export default function LineupPage() {
                   style={{
                     minWidth: isMobile ? '70px' : '120px',
                     minHeight: isMobile ? '80px' : '100px', // MUCH taller than banner
-                    marginTop: isMobile ? '-30px' : '-40px' // Move up to center on thin banner
+                    marginTop: isMobile ? '-20px' : '-25px' // Adjusted to center on thicker banner
                   }}
                 >
                   {/* Custom hand-drawn icons that overflow the banner */}
@@ -376,15 +376,6 @@ export default function LineupPage() {
                   </div>
                 </div>
               ))}
-            </div>
-            
-            <div className="text-center mt-6">
-              <div className="text-white font-bold text-lg" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                Perfect Festival Weather in Paradise! 🌴
-              </div>
-              <div className="text-sm text-white/90 mt-2 font-semibold">
-                Cancun, Mexico • January 16-18, 2026
-              </div>
             </div>
           </div>
         </section>

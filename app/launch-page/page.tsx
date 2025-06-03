@@ -131,7 +131,7 @@ export default function LineupPage() {
             right: '0'
           }}
         >
-          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" style={{ height: isMobile ? '40px' : '50px' }}>
+          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" style={{ height: isMobile ? '120px' : '150px' }}>
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => (
                 <button
@@ -148,7 +148,7 @@ export default function LineupPage() {
                   style={{
                     minWidth: isMobile ? '70px' : '120px',
                     minHeight: isMobile ? '80px' : '100px', // MUCH taller than banner
-                    marginTop: isMobile ? '-20px' : '-25px' // Adjusted to center on thicker banner
+                    marginTop: isMobile ? '0px' : '0px' // Icons now fit properly within banner
                   }}
                 >
                   {/* Custom hand-drawn icons that overflow the banner */}
@@ -157,8 +157,8 @@ export default function LineupPage() {
                       <Image 
                         src="/tickets_icon.PNG" 
                         alt="Tickets Icon" 
-                        width={80} 
-                        height={80} 
+                        width={isMobile ? 60 : 80} 
+                        height={isMobile ? 60 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -166,8 +166,8 @@ export default function LineupPage() {
                       <Image 
                         src="/festival_map_icon.PNG" 
                         alt="Festival Map Icon" 
-                        width={80} 
-                        height={80} 
+                        width={isMobile ? 60 : 80} 
+                        height={isMobile ? 60 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -175,8 +175,8 @@ export default function LineupPage() {
                       <Image 
                         src="/faqs_icon.PNG" 
                         alt="FAQs Icon" 
-                        width={80} 
-                        height={80} 
+                        width={isMobile ? 60 : 80} 
+                        height={isMobile ? 60 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -184,8 +184,8 @@ export default function LineupPage() {
                       <Image 
                         src="/travel_info.PNG" 
                         alt="Travel Info Icon" 
-                        width={80} 
-                        height={80} 
+                        width={isMobile ? 60 : 80} 
+                        height={isMobile ? 60 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -193,8 +193,8 @@ export default function LineupPage() {
                       <Image 
                         src="/book_my_hotel.PNG" 
                         alt="Book My Hotel Icon" 
-                        width={80} 
-                        height={80} 
+                        width={isMobile ? 60 : 80} 
+                        height={isMobile ? 60 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -203,18 +203,20 @@ export default function LineupPage() {
                   {/* TEXT that overflows the banner */}
                   <div className="text-center">
                     <div 
-                      className="text-sm md:text-lg font-black uppercase tracking-wider text-black leading-tight zolla-outlined"
+                      className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
                       style={{
                         textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                        fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
                       }}
                     >
                       {button.label}
                     </div>
                     {button.sublabel && (
                       <div 
-                        className="text-xs md:text-base font-bold uppercase text-black leading-tight zolla-outlined"
+                        className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
                         style={{
                           textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                          fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
                         }}
                       >
                         {button.sublabel}
@@ -269,7 +271,7 @@ export default function LineupPage() {
         <section className="px-4 mb-12">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-black text-center mb-8 uppercase tracking-wider" style={{
-              fontFamily: "'Zolla Pro Outlined', 'Zolla Pro', 'Impact', sans-serif",
+              fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
               textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
               color: '#d81b8c'
             }}>
@@ -300,7 +302,7 @@ export default function LineupPage() {
         <section id="festival-map" className="px-4 mb-12">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" style={{
-              fontFamily: "'Zolla Pro Outlined', 'Zolla Pro', 'Impact', sans-serif",
+              fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
               textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
             }}>
               FESTIVAL MAP
@@ -326,12 +328,16 @@ export default function LineupPage() {
 
         {/* Weather Widget at bottom */}
         <section className="px-4 mb-12">
-          <div className="max-w-4xl mx-auto bg-gradient-to-br from-blue-400 to-cyan-300 rounded-2xl p-6 shadow-xl border-4 border-white">
-            <h3 className="text-xl md:text-2xl font-black text-center mb-6 text-white uppercase tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
-              Cancun Weather Forecast
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" style={{
+              fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
+              textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
+            }}>
+              WEATHER FORECAST
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-blue-400 to-cyan-300 rounded-2xl p-6 shadow-xl border-4 border-white">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 {
                   day: "Friday",

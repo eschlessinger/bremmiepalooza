@@ -127,7 +127,7 @@ export default function LineupPage() {
           className="w-full z-20"
           style={{
             position: 'absolute',
-            top: isMobile ? '150px' : '180px',
+            top: isMobile ? '120px' : '150px',
             left: '0',
             right: '0'
           }}
@@ -234,7 +234,7 @@ export default function LineupPage() {
         </div>
 
         {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '80px' : '100px' }}>
+        <div style={{ marginTop: isMobile ? '120px' : '80px' }}>
           
           {/* Countdown Timer */}
           <section className="px-4 mb-16">

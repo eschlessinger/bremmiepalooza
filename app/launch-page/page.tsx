@@ -134,7 +134,7 @@ export default function LineupPage() {
         >
           <div 
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
-            style={{ height: isMobile ? '120px' : '150px' }}
+            style={{ height: isMobile ? '100px' : '150px' }}
           >
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => (

@@ -151,16 +151,56 @@ export default function LineupPage() {
                     marginTop: isMobile ? '-30px' : '-40px' // Move up to center on thin banner
                   }}
                 >
-                  {/* LARGE Icons that overflow the banner */}
-                  <div className="text-4xl md:text-6xl mb-1">
-                    {button.label === 'TICKETS' && '🎫'}
-                    {button.label === 'FESTIVAL' && '🗺️'}
-                    {button.label === 'FAQS' && '❓'}
-                    {button.label === 'TRAVEL' && '✈️'}
-                    {button.label === 'BOOK MY' && '🏨'}
+                  {/* Custom hand-drawn icons that overflow the banner */}
+                  <div className="mb-1">
+                    {button.label === 'TICKETS' && (
+                      <Image 
+                        src="/tickets_icon.PNG" 
+                        alt="Tickets Icon" 
+                        width={80} 
+                        height={80} 
+                        className="md:w-24 md:h-24"
+                      />
+                    )}
+                    {button.label === 'FESTIVAL' && (
+                      <Image 
+                        src="/festival_map_icon.PNG" 
+                        alt="Festival Map Icon" 
+                        width={80} 
+                        height={80} 
+                        className="md:w-24 md:h-24"
+                      />
+                    )}
+                    {button.label === 'FAQS' && (
+                      <Image 
+                        src="/faqs_icon.PNG" 
+                        alt="FAQs Icon" 
+                        width={80} 
+                        height={80} 
+                        className="md:w-24 md:h-24"
+                      />
+                    )}
+                    {button.label === 'TRAVEL' && (
+                      <Image 
+                        src="/travel_info.PNG" 
+                        alt="Travel Info Icon" 
+                        width={80} 
+                        height={80} 
+                        className="md:w-24 md:h-24"
+                      />
+                    )}
+                    {button.label === 'BOOK MY' && (
+                      <Image 
+                        src="/book_my_hotel.PNG" 
+                        alt="Book My Hotel Icon" 
+                        width={80} 
+                        height={80} 
+                        className="md:w-24 md:h-24"
+                      />
+                    )}
                   </div>
                   
-                  {/* LARGE TEXT that overflows the banner */}
+                  {/* TEXT that overflows the banner */}
                   <div className="text-center">
                     <div 
                       className="text-sm md:text-lg font-black uppercase tracking-wider text-black leading-tight zolla-outlined"

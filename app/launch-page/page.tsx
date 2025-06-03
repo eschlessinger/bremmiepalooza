@@ -258,27 +258,27 @@ export default function LineupPage() {
 
         {/* Festival Map Section */}
         <section id="festival-map" className="px-4 mb-12">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" style={{
               fontFamily: "'Zolla Pro Outlined', 'Zolla Pro', 'Impact', sans-serif",
               textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
             }}>
               FESTIVAL MAP
             </h2>
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border-4 border-yellow-400">
-              <div className="text-center">
-                <div className="text-6xl mb-4">🗺️</div>
-                <h3 className="text-xl md:text-2xl font-black mb-4 text-black uppercase">
-                  Cancun Venue Map
-                </h3>
-                <p className="text-gray-700 mb-6 font-semibold">
-                  Interactive map showing all event locations, hotels, and points of interest
-                </p>
-                <div className="bg-gradient-to-br from-blue-100 to-green-100 rounded-xl p-8 min-h-96 flex items-center justify-center border-2 border-gray-300">
-                  <p className="text-gray-600 font-semibold text-lg">
-                    [Interactive map will be embedded here]
-                  </p>
-                </div>
+            <div className="bg-white rounded-2xl shadow-2xl border-4 border-pink-400 overflow-hidden">
+              <div className="p-4">
+                <Image
+                  src="/festival_map.PNG"
+                  alt="Bremmiepalooza 2026 Festival Map - InterContinental Presidente Cancun"
+                  width={1200}
+                  height={800}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
+                  className="rounded-lg"
+                  priority
+                />
               </div>
             </div>
           </div>

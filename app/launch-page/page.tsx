@@ -43,9 +43,10 @@ export default function LineupPage() {
   }, [])
 
   const scrollToMap = () => {
-    document.getElementById('festival-map')?.scrollIntoView({ 
-      behavior: 'smooth' 
-    })
+    const mapElement = document.getElementById('festival-map')
+    if (mapElement) {
+      mapElement.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   if (!mounted) return null
@@ -121,17 +122,20 @@ export default function LineupPage() {
           </div>
         </div>
 
-        {/* ABSOLUTELY POSITIONED Navigation Banner - SUPER THIN */}
+        {/* Navigation Banner */}
         <div 
           className="w-full z-20"
           style={{
             position: 'absolute',
-            top: isMobile ? '180px' : '220px', // Adjust these values as needed
+            top: isMobile ? '180px' : '220px',
             left: '0',
             right: '0'
           }}
         >
-          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" style={{ height: isMobile ? '120px' : '150px' }}>
+          <div 
+            className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
+            style={{ height: isMobile ? '120px' : '150px' }}
+          >
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => (
                 <button
@@ -147,11 +151,11 @@ export default function LineupPage() {
                   `}
                   style={{
                     minWidth: isMobile ? '70px' : '120px',
-                    minHeight: isMobile ? '80px' : '100px', // MUCH taller than banner
-                    marginTop: isMobile ? '0px' : '0px' // Icons now fit properly within banner
+                    minHeight: isMobile ? '80px' : '100px',
+                    marginTop: '0px'
                   }}
                 >
-                  {/* Custom hand-drawn icons that overflow the banner */}
+                  {/* Custom hand-drawn icons */}
                   <div className="mb-1">
                     {button.label === 'TICKETS' && (
                       <Image 
@@ -200,7 +204,7 @@ export default function LineupPage() {
                     )}
                   </div>
                   
-                  {/* TEXT that overflows the banner */}
+                  {/* Button text */}
                   <div className="text-center">
                     <div 
                       className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
@@ -229,167 +233,177 @@ export default function LineupPage() {
           </div>
         </div>
 
-        {/* Add top margin to content to account for absolute positioned banner */}
+        {/* Content with margin for absolute positioned banner */}
         <div style={{ marginTop: isMobile ? '100px' : '120px' }}>
           
-        {/* Simple Countdown Timer - Just numbers */}
-        <section className="px-4 mb-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center items-center gap-4 md:gap-8 flex-wrap">
-              {[
-                { label: 'Days', value: timeLeft.days },
-                { label: 'Hours', value: timeLeft.hours },
-                { label: 'Minutes', value: timeLeft.minutes },
-                { label: 'Seconds', value: timeLeft.seconds }
-              ].map((item, index) => (
-                <div key={index} className="text-center">
-                  <div 
-                    className="text-4xl md:text-6xl font-black text-white mb-1"
-                    style={{
-                      fontFamily: "'Zolla Pro Outlined', 'Impact', sans-serif",
-                      textShadow: '2px 2px 4px rgba(0,0,0,0.7), 0 0 10px rgba(255,255,255,0.3)'
-                    }}
-                  >
-                    {item.value.toString().padStart(2, '0')}
+          {/* Countdown Timer */}
+          <section className="px-4 mb-16">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center items-center gap-4 md:gap-8 flex-wrap">
+                {[
+                  { label: 'Days', value: timeLeft.days },
+                  { label: 'Hours', value: timeLeft.hours },
+                  { label: 'Minutes', value: timeLeft.minutes },
+                  { label: 'Seconds', value: timeLeft.seconds }
+                ].map((item, index) => (
+                  <div key={index} className="text-center">
+                    <div 
+                      className="text-4xl md:text-6xl font-black text-white mb-1"
+                      style={{
+                        fontFamily: "'ZollaProOutlined', 'Impact', sans-serif",
+                        textShadow: '2px 2px 4px rgba(0,0,0,0.7), 0 0 10px rgba(255,255,255,0.3)'
+                      }}
+                    >
+                      {item.value.toString().padStart(2, '0')}
+                    </div>
+                    <div 
+                      className="text-sm md:text-lg text-white font-bold uppercase tracking-wider"
+                      style={{
+                        fontFamily: "'ZollaPro', 'Arial Black', sans-serif",
+                        textShadow: '1px 1px 2px rgba(0,0,0,0.7)'
+                      }}
+                    >
+                      {item.label}
+                    </div>
                   </div>
-                  <div 
-                    className="text-sm md:text-lg text-white font-bold uppercase tracking-wider"
-                    style={{
-                      fontFamily: "'Zolla Pro', 'Arial Black', sans-serif",
-                      textShadow: '1px 1px 2px rgba(0,0,0,0.7)'
-                    }}
-                  >
-                    {item.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Main Lineup/Invite Section */}
-        <section className="px-4 mb-12">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 uppercase tracking-wider" style={{
-              fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
-              textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-              color: '#d81b8c'
-            }}>
-              THE LINEUP
-            </h2>
-            
-            {/* Your Actual Invite Image */}
-            <div className="bg-white rounded-2xl shadow-2xl border-4 border-black overflow-hidden">
-              <div className="p-4">
-                <Image
-                  src="/bremmiepalooza-invite.png"
-                  alt="Bremmiepalooza 2026 Festival Lineup"
-                  width={1200}
-                  height={800}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
-                  className="rounded-lg"
-                  priority
-                />
+                ))}
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Festival Map Section */}
-        <section id="festival-map" className="px-4 mb-12">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" style={{
-              fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
-              textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
-            }}>
-              FESTIVAL MAP
-            </h2>
-            <div className="bg-white rounded-2xl shadow-2xl border-4 border-pink-400 overflow-hidden">
-              <div className="p-4">
-                <Image
-                  src="/festival_map.PNG"
-                  alt="Bremmiepalooza 2026 Festival Map - InterContinental Presidente Cancun"
-                  width={1200}
-                  height={800}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
-                  className="rounded-lg"
-                  priority
-                />
+          {/* Main Lineup/Invite Section */}
+          <section className="px-4 mb-12">
+            <div className="max-w-5xl mx-auto">
+              <h2 
+                className="text-3xl md:text-5xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                THE LINEUP
+              </h2>
+              
+              {/* Your Actual Invite Image */}
+              <div className="bg-white rounded-2xl shadow-2xl border-4 border-black overflow-hidden">
+                <div className="p-4">
+                  <Image
+                    src="/bremmiepalooza-invite.png"
+                    alt="Bremmiepalooza 2026 Festival Lineup"
+                    width={1200}
+                    height={800}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
+                    className="rounded-lg"
+                    priority
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Weather Widget at bottom */}
-        <section className="px-4 mb-12">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" style={{
-              fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
-              textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
-            }}>
-              WEATHER FORECAST
-            </h3>
-            
-            <div className="bg-gradient-to-br from-blue-400 to-cyan-300 rounded-2xl p-6 shadow-xl border-4 border-white">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[
-                {
-                  day: "Friday",
-                  date: "Jan 16",
-                  icon: "☀️",
-                  high: "84°F",
-                  low: "73°F",
-                  condition: "Sunny & Clear"
-                },
-                {
-                  day: "Saturday", 
-                  date: "Jan 17",
-                  icon: "🌤️",
-                  high: "82°F",
-                  low: "74°F", 
-                  condition: "Partly Cloudy"
-                },
-                {
-                  day: "Sunday",
-                  date: "Jan 18", 
-                  icon: "☀️",
-                  high: "85°F",
-                  low: "75°F",
-                  condition: "Perfect for Boating!"
-                }
-              ].map((forecast, index) => (
-                <div key={index} className="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center border-2 border-white/30">
-                  <div className="text-lg font-black text-white mb-1" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                    {forecast.day}
-                  </div>
-                  <div className="text-sm text-white/90 mb-3 font-semibold">
-                    {forecast.date}
-                  </div>
-                  <div className="text-4xl mb-3">
-                    {forecast.icon}
-                  </div>
-                  <div className="text-xl font-black text-white mb-1" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                    {forecast.high} / {forecast.low}
-                  </div>
-                  <div className="text-sm text-white font-bold" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                    {forecast.condition}
-                  </div>
+          {/* Festival Map Section */}
+          <section id="festival-map" className="px-4 mb-12">
+            <div className="max-w-6xl mx-auto">
+              <h2 
+                className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
+                }}
+              >
+                FESTIVAL MAP
+              </h2>
+              <div className="bg-white rounded-2xl shadow-2xl border-4 border-pink-400 overflow-hidden">
+                <div className="p-4">
+                  <Image
+                    src="/festival_map.PNG"
+                    alt="Bremmiepalooza 2026 Festival Map - InterContinental Presidente Cancun"
+                    width={1200}
+                    height={800}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
+                    className="rounded-lg"
+                    priority
+                  />
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        </div> {/* End of margin div */}
+          {/* Weather Widget */}
+          <section className="px-4 mb-12">
+            <div className="max-w-4xl mx-auto text-center">
+              <h3 
+                className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
+                }}
+              >
+                WEATHER FORECAST
+              </h3>
+              
+              <div className="bg-gradient-to-br from-blue-400 to-cyan-300 rounded-2xl p-6 shadow-xl border-4 border-white">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {[
+                    {
+                      day: "Friday",
+                      date: "Jan 16",
+                      icon: "☀️",
+                      high: "84°F",
+                      low: "73°F",
+                      condition: "Sunny & Clear"
+                    },
+                    {
+                      day: "Saturday", 
+                      date: "Jan 17",
+                      icon: "🌤️",
+                      high: "82°F",
+                      low: "74°F", 
+                      condition: "Partly Cloudy"
+                    },
+                    {
+                      day: "Sunday",
+                      date: "Jan 18", 
+                      icon: "☀️",
+                      high: "85°F",
+                      low: "75°F",
+                      condition: "Perfect for Boating!"
+                    }
+                  ].map((forecast, index) => (
+                    <div key={index} className="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center border-2 border-white/30">
+                      <div className="text-lg font-black text-white mb-1" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
+                        {forecast.day}
+                      </div>
+                      <div className="text-sm text-white/90 mb-3 font-semibold">
+                        {forecast.date}
+                      </div>
+                      <div className="text-4xl mb-3">
+                        {forecast.icon}
+                      </div>
+                      <div className="text-xl font-black text-white mb-1" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
+                        {forecast.high} / {forecast.low}
+                      </div>
+                      <div className="text-sm text-white font-bold" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
+                        {forecast.condition}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
       </div>
 
-      {/* CSS with Font Loading - Fixed with correct filenames */}
+      {/* CSS Styles */}
       <style jsx global>{`
         @font-face {
           font-family: 'ZollaPro';
@@ -407,18 +421,8 @@ export default function LineupPage() {
           font-display: swap;
         }
 
-        /* Test if fonts are loading */
         body {
           font-family: 'ZollaPro', sans-serif;
-        }
-
-        /* Force font loading with CSS classes */
-        .zolla-regular {
-          font-family: 'ZollaPro', 'Impact', 'Arial Black', sans-serif !important;
-        }
-
-        .zolla-outlined {
-          font-family: 'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif !important;
         }
 
         @keyframes gradient-shift {

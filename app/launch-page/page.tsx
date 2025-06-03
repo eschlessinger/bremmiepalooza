@@ -239,7 +239,21 @@ export default function LineupPage() {
           {/* Countdown Timer */}
           <section className="px-4 mb-16">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="flex justify-center items-center gap-4 md:gap-8 flex-wrap">
+              <h2 
+                className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c',
+                  marginBottom: isMobile ? '6px' : '32px'
+                }}
+              >
+                COUNTDOWN
+              </h2>
+              <div 
+                className="flex justify-center items-center gap-4 md:gap-8 flex-wrap"
+                style={{ marginTop: isMobile ? '0px' : '20px' }}
+              >
                 {[
                   { label: 'Days', value: timeLeft.days },
                   { label: 'Hours', value: timeLeft.hours },

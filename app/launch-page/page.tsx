@@ -127,7 +127,7 @@ export default function LineupPage() {
           className="w-full z-20"
           style={{
             position: 'absolute',
-            top: isMobile ? '180px' : '220px',
+            top: isMobile ? '150px' : '180px',
             left: '0',
             right: '0'
           }}
@@ -150,8 +150,8 @@ export default function LineupPage() {
                     }
                   `}
                   style={{
-                    minWidth: isMobile ? '70px' : '120px',
-                    minHeight: isMobile ? '80px' : '100px',
+                    minWidth: isMobile ? '50px' : '120px',
+                    minHeight: isMobile ? '70px' : '100px',
                     marginTop: '0px'
                   }}
                 >
@@ -161,8 +161,8 @@ export default function LineupPage() {
                       <Image 
                         src="/tickets_icon.PNG" 
                         alt="Tickets Icon" 
-                        width={isMobile ? 60 : 80} 
-                        height={isMobile ? 60 : 80} 
+                        width={isMobile ? 45 : 80} 
+                        height={isMobile ? 45 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -170,8 +170,8 @@ export default function LineupPage() {
                       <Image 
                         src="/festival_map_icon.PNG" 
                         alt="Festival Map Icon" 
-                        width={isMobile ? 60 : 80} 
-                        height={isMobile ? 60 : 80} 
+                        width={isMobile ? 45 : 80} 
+                        height={isMobile ? 45 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -179,8 +179,8 @@ export default function LineupPage() {
                       <Image 
                         src="/faqs_icon.PNG" 
                         alt="FAQs Icon" 
-                        width={isMobile ? 60 : 80} 
-                        height={isMobile ? 60 : 80} 
+                        width={isMobile ? 45 : 80} 
+                        height={isMobile ? 45 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -188,8 +188,8 @@ export default function LineupPage() {
                       <Image 
                         src="/travel_info.PNG" 
                         alt="Travel Info Icon" 
-                        width={isMobile ? 60 : 80} 
-                        height={isMobile ? 60 : 80} 
+                        width={isMobile ? 45 : 80} 
+                        height={isMobile ? 45 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -197,8 +197,8 @@ export default function LineupPage() {
                       <Image 
                         src="/book_my_hotel.PNG" 
                         alt="Book My Hotel Icon" 
-                        width={isMobile ? 60 : 80} 
-                        height={isMobile ? 60 : 80} 
+                        width={isMobile ? 45 : 80} 
+                        height={isMobile ? 45 : 80} 
                         className="md:w-24 md:h-24"
                       />
                     )}
@@ -234,7 +234,7 @@ export default function LineupPage() {
         </div>
 
         {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '100px' : '120px' }}>
+        <div style={{ marginTop: isMobile ? '80px' : '100px' }}>
           
           {/* Countdown Timer */}
           <section className="px-4 mb-16">
@@ -312,7 +312,8 @@ export default function LineupPage() {
                 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" 
                 style={{
                   fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
                 }}
               >
                 FESTIVAL MAP
@@ -343,7 +344,8 @@ export default function LineupPage() {
                 className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" 
                 style={{
                   fontFamily: "'ZollaProOutlined', 'ZollaPro', 'Impact', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
                 }}
               >
                 WEATHER FORECAST

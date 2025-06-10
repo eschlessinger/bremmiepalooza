@@ -238,19 +238,22 @@
         </p>
         
         <div class="signup-form">
-            <form id="signupForm" action="#" method="POST">
+            <form id="signupForm" action="https://docs.google.com/forms/d/e/1FAIpQLSceldALZ4GZkynIxEQy-JSlKdSa1Dhl6GaeL_cFGKO2pvTE6g/formResponse" method="POST" target="hidden_iframe">
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    <input type="email" id="email" name="entry.1045781291" required placeholder="your@email.com">
                 </div>
                 
                 <div class="form-group">
                     <label for="name">First Name</label>
-                    <input type="text" id="name" name="name" placeholder="What should we call you?">
+                    <input type="text" id="name" name="entry.2005620554" placeholder="What should we call you?">
                 </div>
                 
                 <button type="submit" class="submit-btn">Join the List</button>
             </form>
+            
+            <!-- Hidden iframe to handle form submission -->
+            <iframe name="hidden_iframe" style="display:none;"></iframe>
             
             <div class="success-message" id="successMessage">
                 <h3>🎉 Welcome to the Bremmiepalooza Family!</h3>
@@ -265,28 +268,12 @@
     
     <script>
         document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const email = document.getElementById('email').value;
-            const name = document.getElementById('name').value;
-            
-            // Here you would normally send the data to your server
-            // For now, we'll just show the success message
-            
-            // Hide the form and show success message
-            document.getElementById('signupForm').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // You can replace this with actual form submission to your backend
-            console.log('Email signup:', { email, name });
-            
-            // Optional: Send to your actual signup endpoint
-            // fetch('/api/signup', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ email, name })
-            // });
+            // Let the form submit naturally to Google Forms
+            // After a brief delay, show success message
+            setTimeout(function() {
+                document.getElementById('signupForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            }, 1000);
         });
     </script>
 </body>

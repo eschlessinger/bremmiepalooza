@@ -296,286 +296,285 @@ export default function BookHotelPage() {
           
           {/* Main Content */}
           <div className="px-4 pb-12">
-          <div className="max-w-5xl mx-auto">
-            <h1 
-              className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
-              style={{
-                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                color: '#d81b8c'
-              }}
-            >
-              HOTEL INFORMATION
-            </h1>
-
-            {/* Important Dates Section */}
-            <section className="mb-12">
-              <h2 
-                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+            <div className="max-w-5xl mx-auto">
+              <h1 
+                className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
                 style={{
                   fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                   textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
                   color: '#d81b8c'
                 }}
               >
-                Important Dates
-              </h2>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center bg-red-500/20 rounded-xl p-6 border-2 border-red-400/50">
-                    <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
-                      September 1, 2025
-                    </div>
-                    <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
-                      Room Block Reservation Deadline
-                    </div>
-                  </div>
-                  <div className="text-center bg-yellow-500/20 rounded-xl p-6 border-2 border-yellow-400/50">
-                    <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
-                      December 1, 2025
-                    </div>
-                    <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
-                      Full Payment Deadline
-                    </div>
-                  </div>
-                  <div className="text-center bg-green-500/20 rounded-xl p-6 border-2 border-green-400/50">
-                    <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
-                      January 16-19, 2026
-                    </div>
-                    <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
-                      Festival Weekend
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+                HOTEL INFORMATION
+              </h1>
 
-
-
-            {/* Overview Section */}
-            <section className="mb-12">
-              <h2 
-                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                Overview
-              </h2>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
-                  <p className="text-lg">
-                    We have reserved a block of rooms at Presidente Intercontinental Cancun. We highly recommend staying at the hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast!
-                  </p>
-                  <p className="text-lg">
-                    Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
-                  </p>
-                  <div className="text-center">
-                    <p className="text-lg mb-2">
-                      To take advantage of the room block rate,
-                    </p>
-                    <p className="font-bold text-xl">
-                      reservations must be made by Monday, September 1, 2025.
-                    </p>
-                  </div>
-                  <p className="text-lg">
-                    When you are ready to book, please do so at this link:
-                  </p>
-                  <div className="text-center">
-                    <a 
-                      href="https://forms.office.com/r/XTXhijAYPX?origin=lprLink"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-black text-3xl px-16 py-6 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl"
-                      style={{
-                        fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                        textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
-                      }}
-                    >
-                      BOOK HERE
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Room Block Details Section */}
-            <section className="mb-12">
-              <h2 
-                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                Room Block Details
-              </h2>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                <p className="text-white/95 text-lg mb-8" style={{fontFamily: 'Arial, sans-serif'}}>
-                  For the room block, we have reserved 2 types of rooms:
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Classic Ocean View */}
-                  <div className="bg-white/5 rounded-xl p-6 border-2 border-blue-400/30">
-                    <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
-                      Classic Ocean View
-                    </h3>
-                    <p className="text-white/90 mb-6" style={{fontFamily: 'Arial, sans-serif'}}>
-                      (guaranteed ocean view)
-                    </p>
-                    <div className="space-y-2 text-white/95" style={{fontFamily: 'Arial, sans-serif'}}>
-                      <div className="flex justify-between">
-                        <span>Single/Double Occupancy:</span>
-                        <span className="font-bold">$365 / night</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Triple Occupancy:</span>
-                        <span className="font-bold">$443.68 / night</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Classic */}
-                  <div className="bg-white/5 rounded-xl p-6 border-2 border-green-400/30">
-                    <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
-                      Classic
-                    </h3>
-                    <p className="text-white/90 mb-6" style={{fontFamily: 'Arial, sans-serif'}}>
-                      (no guaranteed view – could be garden view, resort view, or street / parking lot view. but lower cost)
-                    </p>
-                    <div className="space-y-2 text-white/95" style={{fontFamily: 'Arial, sans-serif'}}>
-                      <div className="flex justify-between">
-                        <span>Single/Double Occupancy:</span>
-                        <span className="font-bold">$322 / night</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Triple Occupancy:</span>
-                        <span className="font-bold">$400.68 / night</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 text-center">
-                  <p className="text-white/95 font-semibold text-lg" style={{fontFamily: 'Arial, sans-serif'}}>
-                    If you have a strong preference for one or the other, please book early to secure your room of choice!
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* Booking Process Details Section */}
-            <section className="mb-12">
-              <h2 
-                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                Booking Process Details
-              </h2>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
-                  <p className="text-lg">
-                    The payment process is a bit unusual (but apparently the norm for Mexico):
-                  </p>
-                  <ul className="space-y-3 ml-6">
-                    <li className="flex items-start">
-                      <span className="text-yellow-400 mr-3">•</span>
-                      <span>Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-yellow-400 mr-3">•</span>
-                      <span>All rooms must be guaranteed with payment of one night at the time of booking</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-yellow-400 mr-3">•</span>
-                      <span>The payment of the remaining nights of the room reservation must be completed before December 1, 2025</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* The Fine Print Section */}
-            <section className="mb-12">
-              <h2 
-                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                The Fine Print
-              </h2>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
-                  <ul className="space-y-4">
-                    <li className="flex items-start">
-                      <span className="text-green-400 mr-3">•</span>
-                      <span>Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-green-400 mr-3">•</span>
-                      <div>
-                        <span>A maximum of 3 adults are allowed per room</span>
-                        <ul className="mt-2 ml-6 space-y-2">
-                          <li className="flex items-start">
-                            <span className="text-blue-400 mr-2">◦</span>
-                            <span>In addition, up to 2 children 12 years of age or under may stay in each room with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-blue-400 mr-2">◦</span>
-                            <span>For each child 12 years of age or under, a $10 breakfast fee / day applies</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-green-400 mr-3">•</span>
-                      <span>Discounted room rates are applicable 3 days prior to and 3 days after January 16-19, 2026 (subject to availability)</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* Questions Section */}
-            <section className="mb-12">
-              <h2 
-                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                Questions?
-              </h2>
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
-                <p className="text-white/95 text-lg mb-4" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
-                  Interested in a different room type? Experiencing issues with booking and / or affording a room at the Presidente Intercontinental Hotel? Really want to stay elsewhere?
-                </p>
-                <p className="text-white/95 text-lg mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
-                  Please shoot us a message at info@bremmiepalooza.com so we can help!
-                </p>
-                <a 
-                  href="mailto:info@bremmiepalooza.com"
-                  className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
-                  style={{fontFamily: 'Arial, sans-serif'}}
+              {/* Important Dates Section */}
+              <section className="mb-12">
+                <h2 
+                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}
                 >
-                  📧 info@bremmiepalooza.com
-                </a>
-              </div>
-            </section>
+                  Important Dates
+                </h2>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="text-center bg-red-500/20 rounded-xl p-6 border-2 border-red-400/50">
+                      <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                        September 1, 2025
+                      </div>
+                      <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                        Room Block Reservation Deadline
+                      </div>
+                    </div>
+                    <div className="text-center bg-yellow-500/20 rounded-xl p-6 border-2 border-yellow-400/50">
+                      <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                        December 1, 2025
+                      </div>
+                      <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                        Full Payment Deadline
+                      </div>
+                    </div>
+                    <div className="text-center bg-green-500/20 rounded-xl p-6 border-2 border-green-400/50">
+                      <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                        January 16-19, 2026
+                      </div>
+                      <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                        Festival Weekend
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
+              {/* Overview Section */}
+              <section className="mb-12">
+                <h2 
+                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}
+                >
+                  Overview
+                </h2>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                  <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
+                    <p className="text-lg">
+                      We have reserved a block of rooms at Presidente Intercontinental Cancun. We highly recommend staying at the hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast!
+                    </p>
+                    <p className="text-lg">
+                      Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
+                    </p>
+                    <div className="text-center">
+                      <p className="text-lg mb-2">
+                        To take advantage of the room block rate,
+                      </p>
+                      <p className="font-bold text-xl">
+                        reservations must be made by Monday, September 1, 2025.
+                      </p>
+                    </div>
+                    <p className="text-lg">
+                      When you are ready to book, please do so at this link:
+                    </p>
+                    <div className="text-center">
+                      <a 
+                        href="https://forms.office.com/r/XTXhijAYPX?origin=lprLink"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-black text-3xl px-16 py-6 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl"
+                        style={{
+                          fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                          textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                        }}
+                      >
+                        BOOK HERE
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Room Block Details Section */}
+              <section className="mb-12">
+                <h2 
+                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}
+                >
+                  Room Block Details
+                </h2>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                  <p className="text-white/95 text-lg mb-8" style={{fontFamily: 'Arial, sans-serif'}}>
+                    For the room block, we have reserved 2 types of rooms:
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Classic Ocean View */}
+                    <div className="bg-white/5 rounded-xl p-6 border-2 border-blue-400/30">
+                      <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                        Classic Ocean View
+                      </h3>
+                      <p className="text-white/90 mb-6" style={{fontFamily: 'Arial, sans-serif'}}>
+                        (guaranteed ocean view)
+                      </p>
+                      <div className="space-y-2 text-white/95" style={{fontFamily: 'Arial, sans-serif'}}>
+                        <div className="flex justify-between">
+                          <span>Single/Double Occupancy:</span>
+                          <span className="font-bold">$365 / night</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Triple Occupancy:</span>
+                          <span className="font-bold">$443.68 / night</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Classic */}
+                    <div className="bg-white/5 rounded-xl p-6 border-2 border-green-400/30">
+                      <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                        Classic
+                      </h3>
+                      <p className="text-white/90 mb-6" style={{fontFamily: 'Arial, sans-serif'}}>
+                        (no guaranteed view – could be garden view, resort view, or street / parking lot view. but lower cost)
+                      </p>
+                      <div className="space-y-2 text-white/95" style={{fontFamily: 'Arial, sans-serif'}}>
+                        <div className="flex justify-between">
+                          <span>Single/Double Occupancy:</span>
+                          <span className="font-bold">$322 / night</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Triple Occupancy:</span>
+                          <span className="font-bold">$400.68 / night</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 text-center">
+                    <p className="text-white/95 font-semibold text-lg" style={{fontFamily: 'Arial, sans-serif'}}>
+                      If you have a strong preference for one or the other, please book early to secure your room of choice!
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Booking Process Details Section */}
+              <section className="mb-12">
+                <h2 
+                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}
+                >
+                  Booking Process Details
+                </h2>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                  <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
+                    <p className="text-lg">
+                      The payment process is a bit unusual (but apparently the norm for Mexico):
+                    </p>
+                    <ul className="space-y-3 ml-6">
+                      <li className="flex items-start">
+                        <span className="text-yellow-400 mr-3">•</span>
+                        <span>Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-yellow-400 mr-3">•</span>
+                        <span>All rooms must be guaranteed with payment of one night at the time of booking</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-yellow-400 mr-3">•</span>
+                        <span>The payment of the remaining nights of the room reservation must be completed before December 1, 2025</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* The Fine Print Section */}
+              <section className="mb-12">
+                <h2 
+                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}
+                >
+                  The Fine Print
+                </h2>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                  <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
+                    <ul className="space-y-4">
+                      <li className="flex items-start">
+                        <span className="text-green-400 mr-3">•</span>
+                        <span>Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-green-400 mr-3">•</span>
+                        <div>
+                          <span>A maximum of 3 adults are allowed per room</span>
+                          <ul className="mt-2 ml-6 space-y-2">
+                            <li className="flex items-start">
+                              <span className="text-blue-400 mr-2">◦</span>
+                              <span>In addition, up to 2 children 12 years of age or under may stay in each room with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)</span>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="text-blue-400 mr-2">◦</span>
+                              <span>For each child 12 years of age or under, a $10 breakfast fee / day applies</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-green-400 mr-3">•</span>
+                        <span>Discounted room rates are applicable 3 days prior to and 3 days after January 16-19, 2026 (subject to availability)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* Questions Section */}
+              <section className="mb-12">
+                <h2 
+                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}
+                >
+                  Questions?
+                </h2>
+                <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
+                  <p className="text-white/95 text-lg mb-4" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
+                    Interested in a different room type? Experiencing issues with booking and / or affording a room at the Presidente Intercontinental Hotel? Really want to stay elsewhere?
+                  </p>
+                  <p className="text-white/95 text-lg mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
+                    Please shoot us a message at info@bremmiepalooza.com so we can help!
+                  </p>
+                  <a 
+                    href="mailto:info@bremmiepalooza.com"
+                    className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                    style={{fontFamily: 'Arial, sans-serif'}}
+                  >
+                    📧 info@bremmiepalooza.com
+                  </a>
+                </div>
+              </section>
+
+            </div>
           </div>
         </div>
       </div>

@@ -7,8 +7,6 @@ import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function BookHotelPage() {
   const [mounted, setMounted] = useState(false)
-  const [selectedPackage, setSelectedPackage] = useState(null)
-  const [showBookingForm, setShowBookingForm] = useState(false)
   const isMobile = useIsMobile()
 
   useEffect(() => {
@@ -16,169 +14,6 @@ export default function BookHotelPage() {
   }, [])
 
   if (!mounted) return null
-
-  const packages = [
-    {
-      id: 'standard',
-      name: 'Festival Standard',
-      subtitle: 'Garden View Room',
-      price: '$899',
-      originalPrice: '$1,200',
-      nights: '3 nights',
-      features: [
-        'Garden view room with king or two double beds',
-        'All meals included (breakfast, lunch, dinner)',
-        'Premium bar drinks included',
-        'Access to all festival events',
-        'Airport shuttle service',
-        'Welcome gift bag',
-        'Pool and beach access',
-        'Fitness center access'
-      ],
-      popular: false,
-      image: '/garden-view-room.jpg'
-    },
-    {
-      id: 'oceanview',
-      name: 'Festival Premium',
-      subtitle: 'Ocean View Room',
-      price: '$1,199',
-      originalPrice: '$1,600',
-      nights: '3 nights',
-      features: [
-        'Ocean view room with private balcony',
-        'All meals at premium restaurants',
-        'Top-shelf bar service',
-        'VIP seating at ceremony',
-        'Priority airport shuttle',
-        'Premium welcome amenities',
-        'Spa credit ($100 value)',
-        'Room service included',
-        'Late checkout available'
-      ],
-      popular: true,
-      image: '/ocean-view-room.jpg'
-    },
-    {
-      id: 'suite',
-      name: 'Festival VIP',
-      subtitle: 'Presidential Suite',
-      price: '$1,899',
-      originalPrice: '$2,500',
-      nights: '3 nights',
-      features: [
-        'Presidential suite with panoramic ocean views',
-        'Private butler service',
-        'Exclusive dining experiences',
-        'Premium liquor and champagne service',
-        'Private beach cabana',
-        'Couples spa package included',
-        'Private transportation',
-        'VIP festival lounge access',
-        'Personalized concierge service',
-        'Late checkout until 4 PM'
-      ],
-      popular: false,
-      image: '/presidential-suite.jpg'
-    }
-  ]
-
-  const handleBookNow = (packageId) => {
-    setSelectedPackage(packageId)
-    setShowBookingForm(true)
-  }
-
-  const BookingForm = () => (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h3 className="text-2xl font-black text-purple-600">Book Your Stay</h3>
-          <button 
-            onClick={() => setShowBookingForm(false)}
-            className="text-gray-500 hover:text-gray-700 text-2xl"
-          >
-            ×
-          </button>
-        </div>
-        
-        <form className="space-y-4">
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">Full Name *</label>
-            <input 
-              type="text" 
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="John Doe"
-              required
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">Email *</label>
-            <input 
-              type="email" 
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="john@example.com"
-              required
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">Phone Number *</label>
-            <input 
-              type="tel" 
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="(555) 123-4567"
-              required
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">Guest Name (if different)</label>
-            <input 
-              type="text" 
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="Jane Doe"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">Special Requests</label>
-            <textarea 
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 h-24"
-              placeholder="Dietary restrictions, accessibility needs, anniversary celebration, etc."
-            />
-          </div>
-          
-          <div className="bg-purple-50 p-4 rounded-lg">
-            <h4 className="font-bold text-purple-800 mb-2">Selected Package</h4>
-            <p className="text-purple-600">{packages.find(p => p.id === selectedPackage)?.name}</p>
-            <p className="text-2xl font-black text-purple-800">{packages.find(p => p.id === selectedPackage)?.price}</p>
-          </div>
-          
-          <div className="flex gap-3">
-            <button
-              type="button"
-              onClick={() => setShowBookingForm(false)}
-              className="flex-1 py-3 border border-gray-300 rounded-lg font-bold text-gray-700 hover:bg-gray-50 transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="flex-1 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-white hover:from-purple-700 hover:to-pink-700 transition-all duration-200"
-            >
-              Submit Booking
-            </button>
-          </div>
-        </form>
-        
-        <div className="mt-4 text-center text-sm text-gray-600">
-          <p>* A $200 deposit will be required to secure your reservation</p>
-          <p>* Final payment due 30 days before arrival</p>
-        </div>
-      </div>
-    </div>
-  )
 
   return (
     <main className="relative min-h-screen">
@@ -221,176 +56,285 @@ export default function BookHotelPage() {
 
         {/* Main Content */}
         <div className="px-4 pb-12">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h1 
-              className="text-4xl md:text-6xl font-black text-center mb-4 uppercase tracking-wider" 
+              className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
               style={{
                 fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                 textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
                 color: '#d81b8c'
               }}
             >
-              BOOK YOUR STAY
+              HOTEL INFORMATION
             </h1>
-            
-            <p className="text-center text-white text-lg md:text-xl mb-12 max-w-3xl mx-auto" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-              Join us at the beautiful InterContinental Presidente Cancun for an unforgettable festival wedding weekend! Choose your perfect package below.
-            </p>
 
-            {/* Hotel Info Banner */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-12 border-2 border-white/20">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif", textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                    🏨 InterContinental Presidente Cancun
-                  </h2>
-                  <div className="space-y-2 text-white/90">
-                    <p>📍 Kukulcan Boulevard Km 7.5, Hotel Zone</p>
-                    <p>🌊 Beachfront luxury resort with stunning ocean views</p>
-                    <p>🍽️ 5 restaurants & 4 bars on-site</p>
-                    <p>🏊‍♀️ Multiple pools, spa, and fitness center</p>
-                    <p>⭐ 4.5-star AAA Diamond rated resort</p>
+            {/* Important Dates Section */}
+            <section className="mb-12">
+              <h2 
+                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                Important Dates
+              </h2>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center bg-red-500/20 rounded-xl p-6 border-2 border-red-400/50">
+                    <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                      September 1, 2025
+                    </div>
+                    <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                      Room Block Reservation Deadline
+                    </div>
                   </div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-white/20 rounded-xl p-4 inline-block">
-                    <h3 className="text-xl font-bold text-white mb-2">Festival Dates</h3>
-                    <p className="text-2xl font-black text-white" style={{fontFamily: "'ZollaPro', sans-serif"}}>
-                      January 16-18, 2026
-                    </p>
-                    <p className="text-white/90 text-sm mt-2">Check-in: Thursday 1/15 • Check-out: Monday 1/19</p>
+                  <div className="text-center bg-yellow-500/20 rounded-xl p-6 border-2 border-yellow-400/50">
+                    <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                      December 1, 2025
+                    </div>
+                    <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                      Full Payment Deadline
+                    </div>
+                  </div>
+                  <div className="text-center bg-green-500/20 rounded-xl p-6 border-2 border-green-400/50">
+                    <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                      January 16-19, 2026
+                    </div>
+                    <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                      Festival Weekend
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            {/* Package Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-              {packages.map((pkg) => (
-                <div 
-                  key={pkg.id}
-                  className={`
-                    relative bg-white rounded-2xl overflow-hidden shadow-2xl border-4 transition-all duration-300 hover:scale-105
-                    ${pkg.popular ? 'border-yellow-400' : 'border-gray-200'}
-                  `}
+            {/* Call to Action Box */}
+            <section className="mb-12">
+              <div className="bg-gradient-to-r from-pink-500/30 to-purple-500/30 backdrop-blur-sm rounded-2xl p-8 border-4 border-white/30 text-center">
+                <p className="text-white text-xl mb-6" style={{fontFamily: 'Arial, sans-serif', textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
+                  When you are ready to book, please do so at this link:
+                </p>
+                <a 
+                  href="https://forms.office.com/r/XTXhijAYPX?origin=lprLink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-black text-2xl px-12 py-4 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl"
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                  }}
                 >
-                  {pkg.popular && (
-                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-yellow-400 to-orange-400 text-center py-2 z-10">
-                      <span className="text-black font-black text-sm uppercase tracking-wider">🌟 Most Popular</span>
-                    </div>
-                  )}
-                  
-                  <div className={`p-6 ${pkg.popular ? 'pt-12' : ''}`}>
-                    <div className="text-center mb-6">
-                      <h3 className="text-2xl font-black text-gray-800 mb-1" style={{fontFamily: "'ZollaPro', sans-serif"}}>
-                        {pkg.name}
-                      </h3>
-                      <p className="text-gray-600 font-semibold">{pkg.subtitle}</p>
-                      <div className="mt-4">
-                        <span className="text-4xl font-black text-purple-600">{pkg.price}</span>
-                        <span className="text-gray-500 line-through ml-2">{pkg.originalPrice}</span>
-                        <p className="text-sm text-gray-600 mt-1">per person • {pkg.nights}</p>
+                  BOOK HERE
+                </a>
+              </div>
+            </section>
+
+            {/* Overview Section */}
+            <section className="mb-12">
+              <h2 
+                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                Overview
+              </h2>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
+                  <p className="text-lg">
+                    We have reserved a block of rooms at Presidente Intercontinental Cancun. We highly recommend staying at the hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast!
+                  </p>
+                  <p className="text-lg">
+                    Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
+                  </p>
+                  <div className="bg-yellow-500/20 rounded-lg p-4 border-l-4 border-yellow-400">
+                    <p className="font-semibold text-lg">
+                      To take advantage of the room block rate, <strong>reservations must be made by Monday, September 1, 2025</strong>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Room Block Details Section */}
+            <section className="mb-12">
+              <h2 
+                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                Room Block Details
+              </h2>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                <p className="text-white/95 text-lg mb-8" style={{fontFamily: 'Arial, sans-serif'}}>
+                  For the room block, we have reserved 2 types of rooms:
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Classic Ocean View */}
+                  <div className="bg-white/5 rounded-xl p-6 border-2 border-blue-400/30">
+                    <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                      Classic Ocean View
+                    </h3>
+                    <p className="text-white/90 mb-4" style={{fontFamily: 'Arial, sans-serif'}}>
+                      (guaranteed ocean view)
+                    </p>
+                    <div className="space-y-2 text-white/95" style={{fontFamily: 'Arial, sans-serif'}}>
+                      <div className="flex justify-between">
+                        <span>Single/Double Occupancy:</span>
+                        <span className="font-bold">$365 / night</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Triple Occupancy:</span>
+                        <span className="font-bold">$443.68 / night</span>
                       </div>
                     </div>
-                    
-                    <div className="space-y-3 mb-8">
-                      {pkg.features.map((feature, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
-                          <span className="text-gray-700 text-sm">{feature}</span>
-                        </div>
-                      ))}
+                  </div>
+
+                  {/* Classic Room */}
+                  <div className="bg-white/5 rounded-xl p-6 border-2 border-green-400/30">
+                    <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                      Classic Room
+                    </h3>
+                    <p className="text-white/90 mb-4" style={{fontFamily: 'Arial, sans-serif'}}>
+                      (no guaranteed view – could be garden view, resort view, or parking lot view. But lower cost)
+                    </p>
+                    <div className="space-y-2 text-white/95" style={{fontFamily: 'Arial, sans-serif'}}>
+                      <div className="flex justify-between">
+                        <span>Single/Double Occupancy:</span>
+                        <span className="font-bold">$322 / night</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Triple Occupancy:</span>
+                        <span className="font-bold">$400.68 / night</span>
+                      </div>
                     </div>
-                    
-                    <button
-                      onClick={() => handleBookNow(pkg.id)}
-                      className={`
-                        w-full py-4 rounded-xl font-black text-lg transition-all duration-200 transform hover:scale-105 active:scale-95
-                        ${pkg.popular 
-                          ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-black shadow-lg' 
-                          : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
-                        }
-                      `}
-                      style={{fontFamily: "'ZollaPro', sans-serif"}}
-                    >
-                      BOOK NOW
-                    </button>
                   </div>
                 </div>
-              ))}
-            </div>
 
-            {/* Additional Info */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-white/20">
-                <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif", textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                  🎉 What's Included
-                </h3>
-                <ul className="space-y-2 text-white/90">
-                  <li>• 3 nights luxury accommodation</li>
-                  <li>• All meals (breakfast, lunch, dinner)</li>
-                  <li>• Premium drinks and cocktails</li>
-                  <li>• Wedding ceremony and reception</li>
-                  <li>• Festival activities and entertainment</li>
-                  <li>• Airport shuttle transportation</li>
-                  <li>• Resort amenities access</li>
-                  <li>• Welcome gift and itinerary</li>
-                </ul>
-              </div>
-              
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-white/20">
-                <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif", textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                  💳 Booking Details
-                </h3>
-                <div className="space-y-3 text-white/90">
-                  <div>
-                    <strong>Deposit:</strong> $200 per person required to secure reservation
-                  </div>
-                  <div>
-                    <strong>Final Payment:</strong> Due 30 days before arrival
-                  </div>
-                  <div>
-                    <strong>Cancellation:</strong> Free cancellation up to 60 days before
-                  </div>
-                  <div>
-                    <strong>Payment Methods:</strong> Credit card, bank transfer, PayPal
-                  </div>
-                  <div>
-                    <strong>Group Discount:</strong> 10% off for groups of 6+ rooms
-                  </div>
+                <div className="mt-8 bg-blue-500/20 rounded-lg p-4 border-l-4 border-blue-400">
+                  <p className="text-white/95 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                    If you have a strong preference for one or the other, please book early to secure your room of choice!
+                  </p>
                 </div>
               </div>
-            </div>
+            </section>
 
-            {/* Contact Info */}
-            <div className="mt-12 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-2xl p-8 text-center border-2 border-white/20">
-              <h2 className="text-3xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif", textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
-                Need Help Booking?
+            {/* Booking Process Details Section */}
+            <section className="mb-12">
+              <h2 
+                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                Booking Process Details
               </h2>
-              <p className="text-white/90 text-lg mb-6">
-                Our festival concierge team is here to help you choose the perfect package!
-              </p>
-              <div className="flex flex-col md:flex-row gap-4 justify-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
+                  <p className="text-lg">
+                    The payment process is a bit unusual (but apparently the norm for Mexico):
+                  </p>
+                  <ul className="space-y-3 ml-6">
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 mr-3">•</span>
+                      <span>Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 mr-3">•</span>
+                      <span>All rooms must be guaranteed with payment of one night at the time of booking</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 mr-3">•</span>
+                      <span>The payment of the remaining nights of the room reservation must be completed before December 1, 2025</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* The Fine Print Section */}
+            <section className="mb-12">
+              <h2 
+                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                The Fine Print
+              </h2>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-3">•</span>
+                      <span>Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-3">•</span>
+                      <div>
+                        <span>A maximum of 3 adults are allowed per room</span>
+                        <ul className="mt-2 ml-6 space-y-2">
+                          <li className="flex items-start">
+                            <span className="text-blue-400 mr-2">◦</span>
+                            <span>In addition, up to 2 children 12 years of age or under may stay in each room with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-blue-400 mr-2">◦</span>
+                            <span>For each child 12 years of age or under, a $10 breakfast fee / day applies</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-3">•</span>
+                      <span>Discounted room rates are applicable 3 days prior to and 3 days after January 16-19, 2026 (subject to availability)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* Questions Section */}
+            <section className="mb-12">
+              <h2 
+                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                Questions?
+              </h2>
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
+                <p className="text-white/95 text-lg mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6'}}>
+                  Interested in a different room type? Experiencing issues with booking and / or affording a room at the Presidente Intercontinental Hotel? Really want to stay elsewhere? Please shoot us a message at info@bremmiepalooza.com so we can help!
+                </p>
                 <a 
-                  href="mailto:bookings@bremmiepalooza.com"
-                  className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                  href="mailto:info@bremmiepalooza.com"
+                  className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                  style={{fontFamily: 'Arial, sans-serif'}}
                 >
-                  📧 bookings@bremmiepalooza.com
-                </a>
-                <a 
-                  href="tel:+1555123456"
-                  className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
-                >
-                  📞 (555) 123-FESTIVAL
+                  📧 info@bremmiepalooza.com
                 </a>
               </div>
-            </div>
+            </section>
+
           </div>
         </div>
       </div>
-
-      {/* Booking Form Modal */}
-      {showBookingForm && <BookingForm />}
 
       {/* CSS Styles */}
       <style jsx global>{`

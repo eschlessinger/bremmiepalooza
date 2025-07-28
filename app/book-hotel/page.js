@@ -1,14 +1,4 @@
-<div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <ul className="space-y-4">
-                      <li className="flex items-start">
-                        <span className="text-green-400 mr-3">•</span>
-                        <span>Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-green-400 mr-3">•</span>
-                        <div>
-                          <span>A maximum of 3 adults are allowed per room"use client"
+"use client"
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
@@ -135,10 +125,15 @@ export default function BookHotelPage() {
                         minHeight: isMobile ? '70px' : '100px',
                         marginTop: '0px'
                       }}>
-                        {/* Custom hand-drawn icons */}
                         <div className="mb-1">
                           {button.label === 'LINEUP' && (
-                            <div className="w-20 h-20 bg-white/30 rounded-lg flex items-center justify-center text-2xl">
+                            <div 
+                              className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
+                              style={{
+                                width: isMobile ? '45px' : '80px',
+                                height: isMobile ? '45px' : '80px'
+                              }}
+                            >
                               🎵
                             </div>
                           )}
@@ -189,7 +184,6 @@ export default function BookHotelPage() {
                           )}
                         </div>
                         
-                        {/* Button text */}
                         <div className="text-center">
                           <div 
                             className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
@@ -217,7 +211,7 @@ export default function BookHotelPage() {
                   )
                 }
                 
-                // For other buttons (disabled or non-link buttons)
+                // For disabled buttons
                 return (
                   <div
                     key={index}
@@ -234,10 +228,15 @@ export default function BookHotelPage() {
                       marginTop: '0px'
                     }}
                   >
-                    {/* Custom hand-drawn icons */}
                     <div className="mb-1">
                       {button.label === 'LINEUP' && (
-                        <div className="w-20 h-20 bg-white/30 rounded-lg flex items-center justify-center text-2xl">
+                        <div 
+                          className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
+                          style={{
+                            width: isMobile ? '45px' : '80px',
+                            height: isMobile ? '45px' : '80px'
+                          }}
+                        >
                           🎵
                         </div>
                       )}
@@ -288,7 +287,6 @@ export default function BookHotelPage() {
                       )}
                     </div>
                     
-                    {/* Button text */}
                     <div className="text-center">
                       <div 
                         className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
@@ -444,7 +442,6 @@ export default function BookHotelPage() {
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Classic Ocean View */}
                     <div className="bg-white/5 rounded-xl p-6 border-2 border-blue-400/30">
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic Ocean View
@@ -464,7 +461,6 @@ export default function BookHotelPage() {
                       </div>
                     </div>
 
-                    {/* Classic */}
                     <div className="bg-white/5 rounded-xl p-6 border-2 border-green-400/30">
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic

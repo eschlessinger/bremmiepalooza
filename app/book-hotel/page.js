@@ -17,17 +17,17 @@ export default function BookHotelPage() {
 
   const navButtons = [
     { 
-      label: "LINEUP", 
-      sublabel: "",
-      href: "/launch-page", 
-      disabled: false,
-      onClick: null
-    },
-    { 
       label: "TICKETS", 
       sublabel: "(Coming Soon)",
       href: "#", 
       disabled: true,
+      onClick: null
+    },
+    { 
+      label: "LINEUP", 
+      sublabel: "",
+      href: "/launch-page", 
+      disabled: false,
       onClick: null
     },
     { 
@@ -396,14 +396,14 @@ export default function BookHotelPage() {
                       Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
                     </p>
                     <div className="text-center">
-                      <p className="mb-2" style={{color: '#d81b8c', fontWeight: 'bold'}}>
+                      <p className="mb-2" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px'}}>
                         To take advantage of the room block rate,
                       </p>
-                      <p className="font-bold text-xl" style={{color: '#d81b8c'}}>
+                      <p className="font-black text-xl" style={{color: '#d81b8c', fontSize: '18px'}}>
                         reservations must be made by Monday, September 1, 2025.
                       </p>
                     </div>
-                    <p className="text-center" style={{color: '#d81b8c', fontWeight: 'bold'}}>
+                    <p className="text-center" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px'}}>
                       When you are ready to book, please do so at this link:
                     </p>
                     <div className="text-center">
@@ -411,7 +411,7 @@ export default function BookHotelPage() {
                         href="https://forms.office.com/r/XTXhijAYPX?origin=lprLink"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-black text-2xl px-12 py-4 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white/30"
+                        className="inline-block bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-black text-3xl px-16 py-6 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white/50"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
@@ -446,7 +446,7 @@ export default function BookHotelPage() {
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic Ocean View
                       </h3>
-                      <p className="text-white/90 mb-8" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                      <p className="text-white/90 mb-12" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                         (guaranteed ocean view)
                       </p>
                       <div className="space-y-2 text-white/95" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>

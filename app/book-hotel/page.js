@@ -105,9 +105,9 @@ export default function BookHotelPage() {
         >
           <div 
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
-            style={{ height: isMobile ? '140px' : '193px' }}
+            style={{ height: isMobile ? '110px' : '110px' }}
           >
-            <div className="flex justify-center items-start gap-4 md:gap-8 px-2 h-full relative pt-2">
+            <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => {
                 // For internal page links
                 if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
@@ -210,13 +210,14 @@ export default function BookHotelPage() {
                               className="absolute"
                               style={{
                                 left: '50%',
-                                bottom: '-45px',
+                                bottom: '-8px',
                                 transform: 'translateX(-50%)',
-                                fontSize: isMobile ? '24px' : '28px'
+                                width: '60%',
+                                height: '3px',
+                                backgroundColor: '#d81b8c',
+                                borderRadius: '2px'
                               }}
-                            >
-                              🌸
-                            </div>
+                            />
                           )}
                         </div>
                       </div>
@@ -343,7 +344,7 @@ export default function BookHotelPage() {
         </div>
 
         {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '140px' : '193px' }}>
+        <div style={{ marginTop: isMobile ? '110px' : '110px' }}>
           
           {/* Main Content */}
           <div className="px-4 pb-12">

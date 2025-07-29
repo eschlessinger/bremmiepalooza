@@ -118,7 +118,7 @@ export default function LineupRevealPage() {
           {/* Logo */}
           <div className="w-full mb-6">
             <Image
-              src="/bremmiepalooza-combined-logo.png"
+              src="/bremmiepalooza-lineup-revealed-logo.png"
               alt="Bremmiepalooza 2026"
               width={800}
               height={400}

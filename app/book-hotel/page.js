@@ -210,7 +210,7 @@ export default function BookHotelPage() {
                               className="absolute"
                               style={{
                                 left: '50%',
-                                bottom: '-20px',
+                                bottom: '-45px',
                                 transform: 'translateX(-50%)',
                                 fontSize: isMobile ? '24px' : '28px'
                               }}

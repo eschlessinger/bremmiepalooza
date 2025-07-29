@@ -368,7 +368,7 @@ export default function LineupPage() {
                       >
                         {button.label}
                       </div>
-                      {button.sublabel && (
+                      {button.sublabel ? (
                         <div 
                           className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
                           style={{
@@ -378,7 +378,17 @@ export default function LineupPage() {
                         >
                           {button.sublabel}
                         </div>
-                      )}
+                      ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
+                        <div 
+                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
+                          style={{
+                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                          }}
+                        >
+                          &nbsp;
+                        </div>
+                      ) : null}
                       {button.label === 'LINEUP' && (
                         <div 
                           className="absolute"

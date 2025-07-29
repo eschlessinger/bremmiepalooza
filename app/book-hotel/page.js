@@ -352,7 +352,8 @@ export default function BookHotelPage() {
                         September 1, 2025
                       </div>
                       <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
-                        Room Block Reservation Deadline
+                        Room Block Reservation<br />
+                        Deadline
                       </div>
                     </div>
                     <div className="text-center bg-yellow-500/20 rounded-xl p-6 border-2 border-yellow-400/50">
@@ -360,7 +361,8 @@ export default function BookHotelPage() {
                         December 1, 2025
                       </div>
                       <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
-                        Full Payment Deadline
+                        Full Payment<br />
+                        Deadline
                       </div>
                     </div>
                     <div className="text-center bg-green-500/20 rounded-xl p-6 border-2 border-green-400/50">
@@ -368,7 +370,8 @@ export default function BookHotelPage() {
                         January 16-19, 2026
                       </div>
                       <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
-                        Festival Weekend
+                        Festival<br />
+                        Weekend
                       </div>
                     </div>
                   </div>
@@ -399,11 +402,11 @@ export default function BookHotelPage() {
                       <p className="mb-1" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
                         To take advantage of the room block rate,
                       </p>
-                      <p className="font-black mb-6" style={{color: '#d81b8c', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                      <p className="font-bold mb-1" style={{color: '#d81b8c', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
                         reservations must be made by Monday, September 1, 2025.
                       </p>
                     </div>
-                    <p className="text-center mb-6" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                    <p className="text-center mb-6" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginTop: '1.5rem'}}>
                       When you are ready to book, please do so at this link:
                     </p>
                     <div className="text-center">
@@ -449,7 +452,8 @@ export default function BookHotelPage() {
                       </h3>
                       <div style={{height: '60px', display: 'flex', alignItems: 'start'}}>
                         <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
-                          (guaranteed ocean view)
+                          (guaranteed ocean view,<br />
+                          but higher cost)
                         </p>
                       </div>
                       <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
@@ -513,15 +517,15 @@ export default function BookHotelPage() {
                     </p>
                     <ul className="space-y-3 ml-6">
                       <li className="flex items-start">
-                        <span className="text-yellow-400 mr-4">•</span>
+                        <span className="text-yellow-400 mr-6">•</span>
                         <span>Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-yellow-400 mr-4">•</span>
+                        <span className="text-yellow-400 mr-6">•</span>
                         <span>All rooms must be guaranteed with payment of one night at the time of booking</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-yellow-400 mr-4">•</span>
+                        <span className="text-yellow-400 mr-6">•</span>
                         <span>The payment of the remaining nights of the room reservation must be completed before December 1, 2025</span>
                       </li>
                     </ul>
@@ -545,27 +549,27 @@ export default function BookHotelPage() {
                   <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
                     <ul className="space-y-4">
                       <li className="flex items-start">
-                        <span className="text-green-400 mr-4">•</span>
+                        <span className="text-green-400 mr-6">•</span>
                         <span>Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-400 mr-4">•</span>
+                        <span className="text-green-400 mr-6">•</span>
                         <div>
                           <span>A maximum of 3 adults are allowed per room</span>
                           <ul className="mt-2 ml-6 space-y-2">
                             <li className="flex items-start">
-                              <span className="text-blue-400 mr-3">◦</span>
+                              <span className="text-blue-400 mr-6">◦</span>
                               <span>In addition, up to 2 children 12 years of age or under may stay in each room with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)</span>
                             </li>
                             <li className="flex items-start">
-                              <span className="text-blue-400 mr-3">◦</span>
+                              <span className="text-blue-400 mr-6">◦</span>
                               <span>For each child 12 years of age or under, a $10 breakfast fee / day applies</span>
                             </li>
                           </ul>
                         </div>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-400 mr-4">•</span>
+                        <span className="text-green-400 mr-6">•</span>
                         <span>Discounted room rates are applicable 3 days prior to and 3 days after January 16-19, 2026 (subject to availability)</span>
                       </li>
                     </ul>
@@ -603,7 +607,7 @@ export default function BookHotelPage() {
                     className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
                     style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
                   >
-                    📧 info@bremmiepalooza.com
+                    Email Us
                   </a>
                 </div>
               </section>

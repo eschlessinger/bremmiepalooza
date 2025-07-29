@@ -16,6 +16,51 @@ export default function TravelInfoPage() {
 
   if (!mounted) return null
 
+  const navButtons = [
+    { 
+      label: "TICKETS", 
+      sublabel: "(Coming Soon)",
+      href: "#", 
+      disabled: true,
+      onClick: null
+    },
+    { 
+      label: "LINEUP", 
+      sublabel: "",
+      href: "/launch-page", 
+      disabled: false,
+      onClick: null
+    },
+    { 
+      label: "FESTIVAL", 
+      sublabel: "MAP",
+      href: "/festival-map", 
+      disabled: false,
+      onClick: null
+    },
+    { 
+      label: "FAQS", 
+      sublabel: "",
+      href: "/faq", 
+      disabled: false,
+      onClick: null
+    },
+    { 
+      label: "TRAVEL", 
+      sublabel: "INFO",
+      href: "/travel-info", 
+      disabled: false,
+      onClick: null
+    },
+    { 
+      label: "BOOK MY", 
+      sublabel: "HOTEL",
+      href: "/book-hotel", 
+      disabled: false,
+      onClick: null
+    }
+  ]
+
   const tabs = [
     { id: 'flights', label: 'Flights', icon: '✈️' },
     { id: 'airport', label: 'Airport', icon: '🛬' },
@@ -422,70 +467,301 @@ export default function TravelInfoPage() {
       <div className="relative z-10">
         {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <div className="w-32 md:w-48">
-                <Image
-                  src="/bremmiepalooza-logo-for-cta.png"
-                  alt="Bremmiepalooza 2026"
-                  width={200}
-                  height={100}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
-                />
-              </div>
-            </Link>
-            <Link 
-              href="/"
-              className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white font-bold hover:bg-white/30 transition-all duration-200"
-            >
-              ← Back to Festival
+          <div className="flex justify-center">
+            <Link href="/launch-page" className="w-full max-w-sm md:max-w-md">
+              <Image
+                src="/bremmiepalooza-logo-for-cta.png"
+                alt="Bremmiepalooza 2026"
+                width={400}
+                height={200}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+                className="mx-auto cursor-pointer hover:opacity-90 transition-opacity"
+                priority
+              />
             </Link>
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="px-4 pb-12">
-          <div className="max-w-6xl mx-auto">
-            <h1 
-              className="text-4xl md:text-6xl font-black text-center mb-8 uppercase tracking-wider" 
-              style={{
-                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                color: '#d81b8c'
-              }}
-            >
-              TRAVEL INFO
-            </h1>
-
-            {/* Tab Navigation */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`
-                    px-4 py-2 rounded-full font-bold transition-all duration-200 flex items-center gap-2
-                    ${activeTab === tab.id 
-                      ? 'bg-white text-purple-600 shadow-lg' 
-                      : 'bg-white/20 text-white hover:bg-white/30'
-                    }
-                  `}
-                  style={{
-                    fontFamily: "'ZollaPro', sans-serif"
-                  }}
-                >
-                  <span>{tab.icon}</span>
-                  <span className={isMobile ? 'text-sm' : 'text-base'}>{tab.label}</span>
-                </button>
-              ))}
+        {/* Navigation Banner */}
+        <div 
+          className="w-full z-20"
+          style={{
+            position: 'absolute',
+            top: isMobile ? '120px' : '150px',
+            left: '0',
+            right: '0'
+          }}
+        >
+          <div 
+            className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
+            style={{ height: isMobile ? '120px' : '160px' }}
+          >
+            <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
+              {navButtons.map((button, index) => {
+                // For internal page links
+                if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
+                  return (
+                    <Link key={index} href={button.href}>
+                      <div className={`
+                        relative flex flex-col items-center justify-center transition-all duration-200 transform cursor-pointer
+                        ${button.disabled 
+                          ? 'opacity-50 cursor-not-allowed' 
+                          : 'hover:scale-110 active:scale-95'
+                        }
+                      `}
+                      style={{
+                        minWidth: isMobile ? '50px' : '120px',
+                        minHeight: isMobile ? '70px' : '100px',
+                        marginTop: '-10px'
+                      }}>
+                        <div className="mb-1">
+                          {button.label === 'LINEUP' && (
+                            <div 
+                              className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
+                              style={{
+                                width: isMobile ? '45px' : '80px',
+                                height: isMobile ? '45px' : '80px'
+                              }}
+                            >
+                              🎵
+                            </div>
+                          )}
+                          {button.label === 'TICKETS' && (
+                            <Image 
+                              src="/tickets_icon.PNG" 
+                              alt="Tickets Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
+                          )}
+                          {button.label === 'TRAVEL' && (
+                            <Image 
+                              src="/travel_info.PNG" 
+                              alt="Travel Info Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
+                          )}
+                          {button.label === 'BOOK MY' && (
+                            <Image 
+                              src="/book_my_hotel.PNG" 
+                              alt="Book My Hotel Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
+                          )}
+                        </div>
+                        
+                        <div className="text-center relative">
+                          <div 
+                            className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
+                            style={{
+                              textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                              fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                            }}
+                          >
+                            {button.label}
+                          </div>
+                          {button.sublabel && (
+                            <div 
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
+                              style={{
+                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                              }}
+                            >
+                              {button.sublabel}
+                            </div>
+                          )}
+                          {button.label === 'TRAVEL' && (
+                            <div 
+                              className="absolute"
+                              style={{
+                                left: '50%',
+                                bottom: '-8px',
+                                transform: 'translateX(-50%)',
+                                width: '60%',
+                                height: '3px',
+                                backgroundColor: '#d81b8c',
+                                borderRadius: '2px'
+                              }}
+                            />
+                          )}
+                        </div>
+                      </div>
+                    </Link>
+                  )
+                }
+                
+                // For disabled buttons
+                return (
+                  <div
+                    key={index}
+                    className={`
+                      relative flex flex-col items-center justify-center transition-all duration-200 transform
+                      ${button.disabled 
+                        ? 'opacity-50 cursor-not-allowed' 
+                        : 'hover:scale-110 active:scale-95 cursor-pointer'
+                      }
+                    `}
+                    style={{
+                      minWidth: isMobile ? '50px' : '120px',
+                      minHeight: isMobile ? '70px' : '100px',
+                      marginTop: '-10px'
+                    }}
+                  >
+                    <div className="mb-1">
+                      {button.label === 'LINEUP' && (
+                        <div 
+                          className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
+                          style={{
+                            width: isMobile ? '45px' : '80px',
+                            height: isMobile ? '45px' : '80px'
+                          }}
+                        >
+                          🎵
+                        </div>
+                      )}
+                      {button.label === 'TICKETS' && (
+                        <Image 
+                          src="/tickets_icon.PNG" 
+                          alt="Tickets Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                      {button.label === 'FESTIVAL' && (
+                        <Image 
+                          src="/festival_map_icon.PNG" 
+                          alt="Festival Map Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                      {button.label === 'FAQS' && (
+                        <Image 
+                          src="/faqs_icon.PNG" 
+                          alt="FAQs Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                      {button.label === 'TRAVEL' && (
+                        <Image 
+                          src="/travel_info.PNG" 
+                          alt="Travel Info Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                      {button.label === 'BOOK MY' && (
+                        <Image 
+                          src="/book_my_hotel.PNG" 
+                          alt="Book My Hotel Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                    </div>
+                    
+                    <div className="text-center relative">
+                      <div 
+                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
+                        style={{
+                          textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                          fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                        }}
+                      >
+                        {button.label}
+                      </div>
+                      {button.sublabel && (
+                        <div 
+                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
+                          style={{
+                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                          }}
+                        >
+                          {button.sublabel}
+                        </div>
+                      )}
+                      {button.label === 'TRAVEL' && (
+                        <div 
+                          className="absolute"
+                          style={{
+                            left: '50%',
+                            bottom: '-8px',
+                            transform: 'translateX(-50%)',
+                            width: '60%',
+                            height: '3px',
+                            backgroundColor: '#d81b8c',
+                            borderRadius: '2px'
+                          }}
+                        />
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
             </div>
+          </div>
+        </div>
 
-            {/* Tab Content */}
-            <div className="mt-8">
-              {renderContent()}
+        {/* Content with margin for absolute positioned banner */}
+        <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
+
+          {/* Main Content */}
+          <div className="px-4 pb-12">
+            <div className="max-w-6xl mx-auto">
+              <h1 
+                className="text-4xl md:text-6xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                TRAVEL INFO
+              </h1>
+
+              {/* Tab Navigation */}
+              <div className="flex flex-wrap justify-center gap-2 mb-8">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`
+                      px-4 py-2 rounded-full font-bold transition-all duration-200 flex items-center gap-2
+                      ${activeTab === tab.id 
+                        ? 'bg-white text-purple-600 shadow-lg' 
+                        : 'bg-white/20 text-white hover:bg-white/30'
+                      }
+                    `}
+                    style={{
+                      fontFamily: "'ZollaPro', sans-serif"
+                    }}
+                  >
+                    <span>{tab.icon}</span>
+                    <span className={isMobile ? 'text-sm' : 'text-base'}>{tab.label}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Tab Content */}
+              <div className="mt-8">
+                {renderContent()}
+              </div>
             </div>
           </div>
         </div>
@@ -523,3 +799,20 @@ export default function TravelInfoPage() {
     </main>
   )
 }
+                            />
+                          )}
+                          {button.label === 'FESTIVAL' && (
+                            <Image 
+                              src="/festival_map_icon.PNG" 
+                              alt="Festival Map Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
+                          )}
+                          {button.label === 'FAQS' && (
+                            <Image 
+                              src="/faqs_icon.PNG" 
+                              alt="FAQs Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80}

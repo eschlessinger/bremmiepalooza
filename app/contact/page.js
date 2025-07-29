@@ -194,13 +194,13 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`inline-block bg-black hover:bg-gray-800 text-white font-black text-2xl px-16 py-6 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white ${
+                    className={`inline-block bg-black hover:bg-gray-800 text-white font-black text-2xl px-20 py-6 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white ${
                       isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                     }`}
                     style={{
                       fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                       textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                      minWidth: '200px'
+                      minWidth: '240px'
                     }}
                   >
                     {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}

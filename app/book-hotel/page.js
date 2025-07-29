@@ -396,14 +396,14 @@ export default function BookHotelPage() {
                       Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
                     </p>
                     <div className="text-center">
-                      <p className="mb-2" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px'}}>
+                      <p className="mb-2" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
                         To take advantage of the room block rate,
                       </p>
-                      <p className="font-black text-xl" style={{color: '#d81b8c', fontSize: '18px'}}>
+                      <p className="font-black mb-6" style={{color: '#d81b8c', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
                         reservations must be made by Monday, September 1, 2025.
                       </p>
                     </div>
-                    <p className="text-center" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px'}}>
+                    <p className="text-center mb-6" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
                       When you are ready to book, please do so at this link:
                     </p>
                     <div className="text-center">
@@ -411,10 +411,11 @@ export default function BookHotelPage() {
                         href="https://forms.office.com/r/XTXhijAYPX?origin=lprLink"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-black text-3xl px-16 py-6 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white/50"
+                        className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                          textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                          textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                          minWidth: '280px'
                         }}
                       >
                         BOOK HERE
@@ -446,10 +447,12 @@ export default function BookHotelPage() {
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic Ocean View
                       </h3>
-                      <p className="text-white/90 mb-12" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
-                        (guaranteed ocean view)
-                      </p>
-                      <div className="space-y-2 text-white/95" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                      <div style={{height: '60px', display: 'flex', alignItems: 'end'}}>
+                        <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                          (guaranteed ocean view)
+                        </p>
+                      </div>
+                      <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                         <div className="flex justify-between">
                           <span>Single/Double Occupancy:</span>
                           <span className="font-bold">$365 / night</span>
@@ -465,10 +468,12 @@ export default function BookHotelPage() {
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic
                       </h3>
-                      <p className="text-white/90 mb-8" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
-                        (no guaranteed view – could be garden view, resort view, or street / parking lot view. but lower cost)
-                      </p>
-                      <div className="space-y-2 text-white/95" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                      <div style={{height: '60px', display: 'flex', alignItems: 'end'}}>
+                        <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                          (no guaranteed view – could be garden view, resort view, or street / parking lot view. but lower cost)
+                        </p>
+                      </div>
+                      <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                         <div className="flex justify-between">
                           <span>Single/Double Occupancy:</span>
                           <span className="font-bold">$322 / night</span>
@@ -581,8 +586,14 @@ export default function BookHotelPage() {
                   Questions?
                 </h2>
                 <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
-                  <p className="text-white/95 mb-4" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    Interested in a different room type? Experiencing issues with booking and / or affording a room at the Presidente Intercontinental Hotel? Really want to stay elsewhere?
+                  <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    Interested in a different room type?
+                  </p>
+                  <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    Experiencing issues with booking and / or affording a room at the Presidente Intercontinental Hotel?
+                  </p>
+                  <p className="text-white/95 mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    Really want to stay elsewhere?
                   </p>
                   <p className="text-white/95 mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
                     Please shoot us a message at info@bremmiepalooza.com so we can help!

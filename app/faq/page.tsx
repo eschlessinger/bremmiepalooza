@@ -20,6 +20,51 @@ export default function FAQsPage() {
 
   if (!mounted) return null
 
+  const navButtons = [
+    { 
+      label: "TICKETS", 
+      sublabel: "(Coming Soon)",
+      href: "#", 
+      disabled: true,
+      onClick: null
+    },
+    { 
+      label: "LINEUP", 
+      sublabel: "",
+      href: "/launch-page", 
+      disabled: false,
+      onClick: null
+    },
+    { 
+      label: "FESTIVAL", 
+      sublabel: "MAP",
+      href: "/festival-map", 
+      disabled: false,
+      onClick: null
+    },
+    { 
+      label: "FAQS", 
+      sublabel: "",
+      href: "/faq", 
+      disabled: false,
+      onClick: null
+    },
+    { 
+      label: "TRAVEL", 
+      sublabel: "INFO",
+      href: "/travel-info", 
+      disabled: false,
+      onClick: null
+    },
+    { 
+      label: "BOOK MY", 
+      sublabel: "HOTEL",
+      href: "/book-hotel", 
+      disabled: false,
+      onClick: null
+    }
+  ]
+
   const faqs = [
     {
       question: "What is Bremmiepalooza?",
@@ -98,107 +143,356 @@ export default function FAQsPage() {
       <div className="relative z-10">
         {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <div className="w-32 md:w-48">
-                <Image
-                  src="/bremmiepalooza-logo-for-cta.png"
-                  alt="Bremmiepalooza 2026"
-                  width={200}
-                  height={100}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
-                />
-              </div>
-            </Link>
-            <Link 
-              href="/"
-              className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white font-bold hover:bg-white/30 transition-all duration-200"
-            >
-              ← Back to Festival
+          <div className="flex justify-center">
+            <Link href="/launch-page" className="w-full max-w-sm md:max-w-md">
+              <Image
+                src="/bremmiepalooza-logo-for-cta.png"
+                alt="Bremmiepalooza 2026"
+                width={400}
+                height={200}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+                className="mx-auto cursor-pointer hover:opacity-90 transition-opacity"
+                priority
+              />
             </Link>
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="px-4 pb-12">
-          <div className="max-w-4xl mx-auto">
-            <h1 
-              className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
-              style={{
-                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                color: '#d81b8c'
-              }}
-            >
-              FESTIVAL FAQs
-            </h1>
-
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden border-2 border-white/20">
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-4 text-left hover:bg-white/5 transition-all duration-200 flex justify-between items-center"
-                  >
-                    <h3 
-                      className="text-lg md:text-xl font-black text-white pr-4"
+        {/* Navigation Banner */}
+        <div 
+          className="w-full z-20"
+          style={{
+            position: 'absolute',
+            top: isMobile ? '120px' : '150px',
+            left: '0',
+            right: '0'
+          }}
+        >
+          <div 
+            className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
+            style={{ height: isMobile ? '120px' : '160px' }}
+          >
+            <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
+              {navButtons.map((button, index) => {
+                // For internal page links
+                if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
+                  return (
+                    <Link key={index} href={button.href}>
+                      <div className={`
+                        relative flex flex-col items-center justify-center transition-all duration-200 transform cursor-pointer
+                        ${button.disabled 
+                          ? 'opacity-50 cursor-not-allowed' 
+                          : 'hover:scale-110 active:scale-95'
+                        }
+                      `}
                       style={{
-                        fontFamily: "'ZollaPro', 'Arial Black', sans-serif",
-                        textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
-                      }}
-                    >
-                      {faq.question}
-                    </h3>
-                    <div 
-                      className={`text-2xl text-white transition-transform duration-200 ${
-                        openFAQ === index ? 'rotate-180' : ''
-                      }`}
-                    >
-                      ▼
+                        minWidth: isMobile ? '50px' : '120px',
+                        minHeight: isMobile ? '70px' : '100px',
+                        marginTop: '-10px'
+                      }}>
+                        <div className="mb-1">
+                          {button.label === 'LINEUP' && (
+                            <div 
+                              className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
+                              style={{
+                                width: isMobile ? '45px' : '80px',
+                                height: isMobile ? '45px' : '80px'
+                              }}
+                            >
+                              🎵
+                            </div>
+                          )}
+                          {button.label === 'TICKETS' && (
+                            <Image 
+                              src="/tickets_icon.PNG" 
+                              alt="Tickets Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
+                          )}
+                          {button.label === 'FESTIVAL' && (
+                            <Image 
+                              src="/festival_map_icon.PNG" 
+                              alt="Festival Map Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
+                          )}
+                          {button.label === 'FAQS' && (
+                            <Image 
+                              src="/faqs_icon.PNG" 
+                              alt="FAQs Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
+                          )}
+                          {button.label === 'TRAVEL' && (
+                            <Image 
+                              src="/travel_info.PNG" 
+                              alt="Travel Info Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
+                          )}
+                          {button.label === 'BOOK MY' && (
+                            <Image 
+                              src="/book_my_hotel.PNG" 
+                              alt="Book My Hotel Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
+                          )}
+                        </div>
+                        
+                        <div className="text-center relative">
+                          <div 
+                            className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
+                            style={{
+                              textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                              fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                            }}
+                          >
+                            {button.label}
+                          </div>
+                          {button.sublabel && (
+                            <div 
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
+                              style={{
+                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                              }}
+                            >
+                              {button.sublabel}
+                            </div>
+                          )}
+                          {button.label === 'FAQS' && (
+                            <div 
+                              className="absolute"
+                              style={{
+                                left: '50%',
+                                bottom: '-8px',
+                                transform: 'translateX(-50%)',
+                                width: '60%',
+                                height: '3px',
+                                backgroundColor: '#d81b8c',
+                                borderRadius: '2px'
+                              }}
+                            />
+                          )}
+                        </div>
+                      </div>
+                    </Link>
+                  )
+                }
+                
+                // For disabled buttons
+                return (
+                  <div
+                    key={index}
+                    className={`
+                      relative flex flex-col items-center justify-center transition-all duration-200 transform
+                      ${button.disabled 
+                        ? 'opacity-50 cursor-not-allowed' 
+                        : 'hover:scale-110 active:scale-95 cursor-pointer'
+                      }
+                    `}
+                    style={{
+                      minWidth: isMobile ? '50px' : '120px',
+                      minHeight: isMobile ? '70px' : '100px',
+                      marginTop: '-10px'
+                    }}
+                  >
+                    <div className="mb-1">
+                      {button.label === 'LINEUP' && (
+                        <div 
+                          className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
+                          style={{
+                            width: isMobile ? '45px' : '80px',
+                            height: isMobile ? '45px' : '80px'
+                          }}
+                        >
+                          🎵
+                        </div>
+                      )}
+                      {button.label === 'TICKETS' && (
+                        <Image 
+                          src="/tickets_icon.PNG" 
+                          alt="Tickets Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                      {button.label === 'FESTIVAL' && (
+                        <Image 
+                          src="/festival_map_icon.PNG" 
+                          alt="Festival Map Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                      {button.label === 'FAQS' && (
+                        <Image 
+                          src="/faqs_icon.PNG" 
+                          alt="FAQs Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                      {button.label === 'TRAVEL' && (
+                        <Image 
+                          src="/travel_info.PNG" 
+                          alt="Travel Info Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                      {button.label === 'BOOK MY' && (
+                        <Image 
+                          src="/book_my_hotel.PNG" 
+                          alt="Book My Hotel Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
                     </div>
-                  </button>
-                  
-                  {openFAQ === index && (
-                    <div className="px-6 pb-4">
-                      <p className="text-white/90 leading-relaxed text-base md:text-lg">
-                        {faq.answer}
-                      </p>
+                    
+                    <div className="text-center relative">
+                      <div 
+                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
+                        style={{
+                          textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                          fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                        }}
+                      >
+                        {button.label}
+                      </div>
+                      {button.sublabel && (
+                        <div 
+                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
+                          style={{
+                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                          }}
+                        >
+                          {button.sublabel}
+                        </div>
+                      )}
+                      {button.label === 'FAQS' && (
+                        <div 
+                          className="absolute"
+                          style={{
+                            left: '50%',
+                            bottom: '-8px',
+                            transform: 'translateX(-50%)',
+                            width: '60%',
+                            height: '3px',
+                            backgroundColor: '#d81b8c',
+                            borderRadius: '2px'
+                          }}
+                        />
+                      )}
                     </div>
-                  )}
-                </div>
-              ))}
+                  </div>
+                )
+              })}
             </div>
+          </div>
+        </div>
 
-            {/* Contact Section */}
-            <div className="mt-12 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-2xl p-8 text-center border-2 border-white/20">
-              <h2 
-                className="text-2xl md:text-3xl font-black text-white mb-4"
+        {/* Content with margin for absolute positioned banner */}
+        <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
+
+          {/* Main Content */}
+          <div className="px-4 pb-12">
+            <div className="max-w-4xl mx-auto">
+              <h1 
+                className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
                 style={{
-                  fontFamily: "'ZollaPro', 'Arial Black', sans-serif",
-                  textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
                 }}
               >
-                Still Have Questions?
-              </h2>
-              <p className="text-white/90 text-lg mb-6">
-                We're here to help make your festival experience amazing!
-              </p>
-              <div className="flex flex-col md:flex-row gap-4 justify-center">
-                <a 
-                  href="mailto:hello@bremmiepalooza.com"
-                  className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                FESTIVAL FAQs
+              </h1>
+
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden border-2 border-white/20">
+                    <button
+                      onClick={() => toggleFAQ(index)}
+                      className="w-full px-6 py-4 text-left hover:bg-white/5 transition-all duration-200 flex justify-between items-center"
+                    >
+                      <h3 
+                        className="text-lg md:text-xl font-black text-white pr-4"
+                        style={{
+                          fontFamily: "'ZollaPro', 'Arial Black', sans-serif",
+                          textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+                        }}
+                      >
+                        {faq.question}
+                      </h3>
+                      <div 
+                        className={`text-2xl text-white transition-transform duration-200 ${
+                          openFAQ === index ? 'rotate-180' : ''
+                        }`}
+                      >
+                        ▼
+                      </div>
+                    </button>
+                    
+                    {openFAQ === index && (
+                      <div className="px-6 pb-4">
+                        <p className="text-white/90 leading-relaxed text-base md:text-lg">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Contact Section */}
+              <div className="mt-12 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-2xl p-8 text-center border-2 border-white/20">
+                <h2 
+                  className="text-2xl md:text-3xl font-black text-white mb-4"
+                  style={{
+                    fontFamily: "'ZollaPro', 'Arial Black', sans-serif",
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                  }}
                 >
-                  📧 Email Us
-                </a>
-                <a 
-                  href="tel:+1234567890"
-                  className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
-                >
-                  📞 Call Us
-                </a>
+                  Still Have Questions?
+                </h2>
+                <p className="text-white/90 text-lg mb-6">
+                  We're here to help make your festival experience amazing!
+                </p>
+                <div className="flex flex-col md:flex-row gap-4 justify-center">
+                  <a 
+                    href="/contact"
+                    className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                  >
+                    Email Us
+                  </a>
+                  <a 
+                    href="tel:+1234567890"
+                    className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                  >
+                    📞 Call Us
+                  </a>
+                </div>
               </div>
             </div>
           </div>

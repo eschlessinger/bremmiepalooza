@@ -390,3 +390,12 @@ export default function TicketsPage() {
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
         }
+
+        .animate-gradient-shift {
+          background-size: 600% 600%;
+          animation: gradient-shift 10s ease infinite;
+        }
+      `}</style>
+    </main>
+  )
+}

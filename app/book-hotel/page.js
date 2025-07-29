@@ -396,7 +396,7 @@ export default function BookHotelPage() {
                       Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
                     </p>
                     <div className="text-center">
-                      <p className="mb-2" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
                         To take advantage of the room block rate,
                       </p>
                       <p className="font-black mb-6" style={{color: '#d81b8c', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
@@ -447,7 +447,7 @@ export default function BookHotelPage() {
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic Ocean View
                       </h3>
-                      <div style={{height: '60px', display: 'flex', alignItems: 'end'}}>
+                      <div style={{height: '60px', display: 'flex', alignItems: 'start'}}>
                         <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                           (guaranteed ocean view)
                         </p>
@@ -468,7 +468,7 @@ export default function BookHotelPage() {
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic
                       </h3>
-                      <div style={{height: '60px', display: 'flex', alignItems: 'end'}}>
+                      <div style={{height: '60px', display: 'flex', alignItems: 'start'}}>
                         <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                           (no guaranteed view – could be garden view, resort view, or street / parking lot view. but lower cost)
                         </p>
@@ -513,15 +513,15 @@ export default function BookHotelPage() {
                     </p>
                     <ul className="space-y-3 ml-6">
                       <li className="flex items-start">
-                        <span className="text-yellow-400 mr-3">•</span>
+                        <span className="text-yellow-400 mr-4">•</span>
                         <span>Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-yellow-400 mr-3">•</span>
+                        <span className="text-yellow-400 mr-4">•</span>
                         <span>All rooms must be guaranteed with payment of one night at the time of booking</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-yellow-400 mr-3">•</span>
+                        <span className="text-yellow-400 mr-4">•</span>
                         <span>The payment of the remaining nights of the room reservation must be completed before December 1, 2025</span>
                       </li>
                     </ul>
@@ -545,27 +545,27 @@ export default function BookHotelPage() {
                   <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
                     <ul className="space-y-4">
                       <li className="flex items-start">
-                        <span className="text-green-400 mr-3">•</span>
+                        <span className="text-green-400 mr-4">•</span>
                         <span>Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-400 mr-3">•</span>
+                        <span className="text-green-400 mr-4">•</span>
                         <div>
                           <span>A maximum of 3 adults are allowed per room</span>
                           <ul className="mt-2 ml-6 space-y-2">
                             <li className="flex items-start">
-                              <span className="text-blue-400 mr-2">◦</span>
+                              <span className="text-blue-400 mr-3">◦</span>
                               <span>In addition, up to 2 children 12 years of age or under may stay in each room with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)</span>
                             </li>
                             <li className="flex items-start">
-                              <span className="text-blue-400 mr-2">◦</span>
+                              <span className="text-blue-400 mr-3">◦</span>
                               <span>For each child 12 years of age or under, a $10 breakfast fee / day applies</span>
                             </li>
                           </ul>
                         </div>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-400 mr-3">•</span>
+                        <span className="text-green-400 mr-4">•</span>
                         <span>Discounted room rates are applicable 3 days prior to and 3 days after January 16-19, 2026 (subject to availability)</span>
                       </li>
                     </ul>

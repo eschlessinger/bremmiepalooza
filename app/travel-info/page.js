@@ -235,15 +235,14 @@ export default function TravelInfoPage() {
                       }}>
                         <div className="mb-1">
                           {button.label === 'LINEUP' && (
-                            <div 
-                              className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
-                              style={{
-                                width: isMobile ? '45px' : '80px',
-                                height: isMobile ? '45px' : '80px'
-                              }}
-                            >
-                              🎵
-                            </div>
+                            <Image 
+                              src="/Lineup.png" 
+                              alt="Lineup Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                              style={{ marginTop: '-2px' }}
+                            />
                           )}
                           {button.label === 'TICKETS' && (
                             <Image 
@@ -302,7 +301,7 @@ export default function TravelInfoPage() {
                           >
                             {button.label}
                           </div>
-                          {button.sublabel && (
+                          {button.sublabel ? (
                             <div 
                               className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
                               style={{
@@ -312,7 +311,17 @@ export default function TravelInfoPage() {
                             >
                               {button.sublabel}
                             </div>
-                          )}
+                          ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
+                            <div 
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
+                              style={{
+                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                              }}
+                            >
+                              &nbsp;
+                            </div>
+                          ) : null}
                           {button.label === 'TRAVEL' && (
                             <div 
                               className="absolute"
@@ -352,15 +361,14 @@ export default function TravelInfoPage() {
                   >
                     <div className="mb-1">
                       {button.label === 'LINEUP' && (
-                        <div 
-                          className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
-                          style={{
-                            width: isMobile ? '45px' : '80px',
-                            height: isMobile ? '45px' : '80px'
-                          }}
-                        >
-                          🎵
-                        </div>
+                        <Image 
+                          src="/Lineup.png" 
+                          alt="Lineup Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                          style={{ marginTop: '-2px' }}
+                        />
                       )}
                       {button.label === 'TICKETS' && (
                         <Image 
@@ -419,7 +427,7 @@ export default function TravelInfoPage() {
                       >
                         {button.label}
                       </div>
-                      {button.sublabel && (
+                      {button.sublabel ? (
                         <div 
                           className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
                           style={{
@@ -429,7 +437,17 @@ export default function TravelInfoPage() {
                         >
                           {button.sublabel}
                         </div>
-                      )}
+                      ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
+                        <div 
+                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
+                          style={{
+                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                          }}
+                        >
+                          &nbsp;
+                        </div>
+                      ) : null}
                       {button.label === 'TRAVEL' && (
                         <div 
                           className="absolute"

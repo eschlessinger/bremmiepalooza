@@ -105,7 +105,7 @@ export default function BookHotelPage() {
         >
           <div 
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
-            style={{ height: isMobile ? '100px' : '150px' }}
+            style={{ height: isMobile ? '120px' : '170px' }}
           >
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => {
@@ -184,29 +184,15 @@ export default function BookHotelPage() {
                           )}
                         </div>
                         
-                        <div className="text-center">
+                        <div className="text-center relative">
                           <div 
-                            className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight relative`}
+                            className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
                             style={{
                               textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                               fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
                             }}
                           >
                             {button.label}
-                            {button.label === 'BOOK MY' && (
-                              <span 
-                                className="absolute"
-                                style={{
-                                  right: '-18px',
-                                  top: `calc(50% + ${isMobile ? '4px' : '6px'})`,
-                                  width: '10px',
-                                  height: '10px',
-                                  backgroundColor: '#d81b8c',
-                                  borderRadius: '50%',
-                                  transform: 'translateY(-50%)'
-                                }}
-                              />
-                            )}
                           </div>
                           {button.sublabel && (
                             <div 
@@ -217,6 +203,19 @@ export default function BookHotelPage() {
                               }}
                             >
                               {button.sublabel}
+                            </div>
+                          )}
+                          {button.label === 'BOOK MY' && (
+                            <div 
+                              className="absolute"
+                              style={{
+                                left: '50%',
+                                bottom: '-15px',
+                                transform: 'translateX(-50%)',
+                                fontSize: isMobile ? '14px' : '16px'
+                              }}
+                            >
+                              🌸
                             </div>
                           )}
                         </div>
@@ -301,29 +300,15 @@ export default function BookHotelPage() {
                       )}
                     </div>
                     
-                    <div className="text-center">
+                    <div className="text-center relative">
                       <div 
-                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight relative`}
+                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
                         style={{
                           textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                           fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
                         }}
                       >
                         {button.label}
-                        {button.label === 'BOOK MY' && (
-                          <span 
-                            className="absolute"
-                            style={{
-                              right: '-18px',
-                              top: `calc(50% + ${isMobile ? '4px' : '6px'})`,
-                              width: '10px',
-                              height: '10px',
-                              backgroundColor: '#d81b8c',
-                              borderRadius: '50%',
-                              transform: 'translateY(-50%)'
-                            }}
-                          />
-                        )}
                       </div>
                       {button.sublabel && (
                         <div 
@@ -334,6 +319,19 @@ export default function BookHotelPage() {
                           }}
                         >
                           {button.sublabel}
+                        </div>
+                      )}
+                      {button.label === 'BOOK MY' && (
+                        <div 
+                          className="absolute"
+                          style={{
+                            left: '50%',
+                            bottom: '-15px',
+                            transform: 'translateX(-50%)',
+                            fontSize: isMobile ? '14px' : '16px'
+                          }}
+                        >
+                          🌸
                         </div>
                       )}
                     </div>
@@ -427,7 +425,7 @@ export default function BookHotelPage() {
                       Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
                     </p>
                     <div className="text-center">
-                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: '400', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
                         To take advantage of the room block rate,
                       </p>
                       <p className="mb-1" style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
@@ -478,7 +476,7 @@ export default function BookHotelPage() {
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic Ocean View
                       </h3>
-                      <div style={{height: '60px', display: 'flex', alignItems: 'start'}}>
+                      <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>
                         <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                           (guaranteed ocean view,<br />
                           but higher cost)
@@ -500,7 +498,7 @@ export default function BookHotelPage() {
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic
                       </h3>
-                      <div style={{height: '60px', display: 'flex', alignItems: 'start'}}>
+                      <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>
                         <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                           (no guaranteed view – could be garden view, resort view, or street / parking lot view. but lower cost)
                         </p>

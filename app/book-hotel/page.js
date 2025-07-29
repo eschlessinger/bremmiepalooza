@@ -98,14 +98,14 @@ export default function BookHotelPage() {
           className="w-full z-20"
           style={{
             position: 'absolute',
-            top: isMobile ? '120px' : '160px',
+            top: isMobile ? '120px' : '150px',
             left: '0',
             right: '0'
           }}
         >
           <div 
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
-            style={{ height: isMobile ? '120px' : '160px' }}
+            style={{ height: isMobile ? '140px' : '180px' }}
           >
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => {
@@ -344,7 +344,7 @@ export default function BookHotelPage() {
         </div>
 
         {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
+        <div style={{ marginTop: isMobile ? '140px' : '180px' }}>
           
           {/* Main Content */}
           <div className="px-4 pb-12">

@@ -1,4 +1,25 @@
-"use client"
+{button.label === 'LINEUP' && (
+                            <div 
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
+                              style={{
+                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                              }}
+                            >
+                              &nbsp;
+                            </div>
+                          )}
+                          {button.label === 'FAQS' && (
+                            <div 
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
+                              style={{
+                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                              }}
+                            >
+                              &nbsp;
+                            </div>
+                          )}"use client"
 
 import { useState, useEffect } from "react"
 import Image from "next/image"

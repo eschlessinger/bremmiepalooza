@@ -536,7 +536,7 @@ export default function BookHotelPage() {
                     </div>
                   </div>
 
-                  <div className="mt-8 text-center">
+                  <div className="mt-12 text-center">
                     <p className="text-white/95 font-semibold" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#d81b8c'}}>
                       If you have a strong preference for one or the other, please book early to secure your room of choice!
                     </p>

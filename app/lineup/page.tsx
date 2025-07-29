@@ -163,15 +163,13 @@ export default function LineupPage() {
                       }}>
                         <div className="mb-1">
                           {button.label === 'LINEUP' && (
-                            <div 
-                              className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
-                              style={{
-                                width: isMobile ? '45px' : '80px',
-                                height: isMobile ? '45px' : '80px'
-                              }}
-                            >
-                              🎵
-                            </div>
+                            <Image 
+                              src="/Lineup.png" 
+                              alt="Lineup Icon" 
+                              width={isMobile ? 45 : 80} 
+                              height={isMobile ? 45 : 80} 
+                              className="md:w-24 md:h-24"
+                            />
                           )}
                           {button.label === 'TICKETS' && (
                             <Image 
@@ -282,15 +280,13 @@ export default function LineupPage() {
                   >
                     <div className="mb-1">
                       {button.label === 'LINEUP' && (
-                        <div 
-                          className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
-                          style={{
-                            width: isMobile ? '45px' : '80px',
-                            height: isMobile ? '45px' : '80px'
-                          }}
-                        >
-                          🎵
-                        </div>
+                        <Image 
+                          src="/Lineup.png" 
+                          alt="Lineup Icon" 
+                          width={isMobile ? 45 : 80} 
+                          height={isMobile ? 45 : 80} 
+                          className="md:w-24 md:h-24"
+                        />
                       )}
                       {button.label === 'TICKETS' && (
                         <Image 

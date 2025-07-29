@@ -106,17 +106,6 @@ export default function ContactPage() {
             </h1>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-              <h2 
-                className="text-2xl md:text-3xl font-black text-center mb-6 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                Questions About Hotel Booking?
-              </h2>
-              
               <p className="text-white/95 text-center mb-8" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', lineHeight: '1.6'}}>
                 We're here to help! Send us a message and we'll get back to you as soon as possible.
               </p>

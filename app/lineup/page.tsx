@@ -169,6 +169,7 @@ export default function LineupPage() {
                               width={isMobile ? 45 : 80} 
                               height={isMobile ? 45 : 80} 
                               className="md:w-24 md:h-24"
+                              style={{ marginTop: '-2px' }}
                             />
                           )}
                           {button.label === 'TICKETS' && (
@@ -286,6 +287,7 @@ export default function LineupPage() {
                           width={isMobile ? 45 : 80} 
                           height={isMobile ? 45 : 80} 
                           className="md:w-24 md:h-24"
+                          style={{ marginTop: '-2px' }}
                         />
                       )}
                       {button.label === 'TICKETS' && (

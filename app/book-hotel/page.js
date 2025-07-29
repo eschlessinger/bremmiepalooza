@@ -197,12 +197,13 @@ export default function BookHotelPage() {
                               <span 
                                 className="absolute"
                                 style={{
-                                  right: '-16px',
-                                  top: '0px',
+                                  right: '-18px',
+                                  top: `calc(50% + ${isMobile ? '4px' : '6px'})`,
                                   width: '10px',
                                   height: '10px',
                                   backgroundColor: '#d81b8c',
-                                  borderRadius: '50%'
+                                  borderRadius: '50%',
+                                  transform: 'translateY(-50%)'
                                 }}
                               />
                             )}
@@ -313,12 +314,13 @@ export default function BookHotelPage() {
                           <span 
                             className="absolute"
                             style={{
-                              right: '-16px',
-                              top: '0px',
+                              right: '-18px',
+                              top: `calc(50% + ${isMobile ? '4px' : '6px'})`,
                               width: '10px',
                               height: '10px',
                               backgroundColor: '#d81b8c',
-                              borderRadius: '50%'
+                              borderRadius: '50%',
+                              transform: 'translateY(-50%)'
                             }}
                           />
                         )}
@@ -541,7 +543,7 @@ export default function BookHotelPage() {
                     <p>
                       The payment process is a bit unusual (but apparently the norm for Mexico):
                     </p>
-                    <ul className="space-y-3 ml-6 list-disc list-outside">
+                    <ul className="space-y-3 ml-6 custom-bullets">
                       <li>
                         Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link
                       </li>
@@ -570,14 +572,14 @@ export default function BookHotelPage() {
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <ul className="space-y-4 list-disc list-outside ml-6">
+                    <ul className="space-y-4 custom-bullets ml-6">
                       <li>
                         Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant
                       </li>
                       <li>
                         <div>
                           A maximum of 3 adults are allowed per room
-                          <ul className="mt-2 ml-6 space-y-2 list-disc list-outside">
+                          <ul className="mt-2 ml-6 space-y-2 custom-bullets">
                             <li>
                               In addition, up to 2 children 12 years of age or under may stay in each room with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)
                             </li>
@@ -621,8 +623,7 @@ export default function BookHotelPage() {
                     Please shoot us a message at info@bremmiepalooza.com so we can help!
                   </p>
                   <a 
-                    href="mailto:info@bremmiepalooza.com?subject=Bremmiepalooza%20Hotel%20Question"
-                    target="_blank"
+                    href="mailto:info@bremmiepalooza.com"
                     className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
                     style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
                   >
@@ -665,13 +666,29 @@ export default function BookHotelPage() {
           animation: gradient-shift 10s ease infinite;
         }
 
-        /* Fix bullet point styling */
-        ul li::marker {
-          color: white;
+        /* Custom bullet styling for better visibility */
+        ul.custom-bullets {
+          list-style: none;
+          padding-left: 0;
         }
         
-        ul li {
-          color: white;
+        ul.custom-bullets li {
+          position: relative;
+          padding-left: 1.5rem;
+          color: black;
+        }
+        
+        ul.custom-bullets li::before {
+          content: "•";
+          color: black;
+          position: absolute;
+          left: 0;
+          font-weight: bold;
+        }
+        
+        ul.custom-bullets ul.custom-bullets li::before {
+          content: "◦";
+          color: black;
         }
       `}</style>
     </main>

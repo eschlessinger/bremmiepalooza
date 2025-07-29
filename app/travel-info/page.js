@@ -27,7 +27,7 @@ export default function TravelInfoPage() {
     { 
       label: "LINEUP", 
       sublabel: "",
-      href: "/launch-page", 
+      href: "/lineup", 
       disabled: false,
       onClick: null
     },
@@ -184,7 +184,7 @@ export default function TravelInfoPage() {
         {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
-            <Link href="/launch-page" className="w-full max-w-sm md:max-w-md">
+            <Link href="/lineup" className="w-full max-w-sm md:max-w-md">
               <Image
                 src="/bremmiepalooza-logo-for-cta.png"
                 alt="Bremmiepalooza 2026"

@@ -36,7 +36,7 @@ export default function ContactPage() {
     try {
       const result = await emailjs.send(
         'service_82dfb16', // Your Service ID
-        'template_1sfxu2j', // Your Template ID
+        'template_lsfxu2j', // Your Template ID
         {
           name: formData.name,
           email: formData.email,

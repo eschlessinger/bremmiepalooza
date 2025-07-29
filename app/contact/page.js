@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
+import emailjs from '@emailjs/browser'
 
 export default function ContactPage() {
   const [mounted, setMounted] = useState(false)
@@ -33,13 +34,22 @@ export default function ContactPage() {
     setSubmitStatus('')
 
     try {
-      // EmailJS integration will go here
-      // For now, we'll simulate the form submission
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
+      const result = await emailjs.send(
+        'service_82dfb16', // Your Service ID
+        'template_1sfxu2j', // Your Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        'yyooiTbTgb78rhpg0' // Your Public Key
+      )
+
+      console.log('Email sent successfully:', result.text)
       setSubmitStatus('success')
       setFormData({ name: '', email: '', message: '' })
     } catch (error) {
+      console.error('Email send failed:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)

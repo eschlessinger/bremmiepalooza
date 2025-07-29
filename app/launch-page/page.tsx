@@ -69,9 +69,9 @@ export default function LineupPage() {
     { 
       label: "FESTIVAL", 
       sublabel: "MAP",
-      href: "#festival-map", 
+      href: "/festival-map", 
       disabled: false,
-      onClick: scrollToMap
+      onClick: null
     },
     { 
       label: "FAQS", 
@@ -454,38 +454,6 @@ export default function LineupPage() {
                   <Image
                     src="/bremmiepalooza-invite.png"
                     alt="Bremmiepalooza 2026 Festival Lineup"
-                    width={1200}
-                    height={800}
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                    }}
-                    className="rounded-lg"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Festival Map Section */}
-          <section id="festival-map" className="px-4 mb-12">
-            <div className="max-w-6xl mx-auto">
-              <h2 
-                className="text-3xl md:text-5xl font-black text-center mb-8 text-white uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                FESTIVAL MAP
-              </h2>
-              <div className="bg-white rounded-2xl shadow-2xl border-4 border-black overflow-hidden">
-                <div className="p-4">
-                  <Image
-                    src="/festival_map.PNG"
-                    alt="Bremmiepalooza 2026 Festival Map - InterContinental Presidente Cancun"
                     width={1200}
                     height={800}
                     style={{

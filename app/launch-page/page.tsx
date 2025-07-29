@@ -60,6 +60,13 @@ export default function LineupPage() {
       onClick: null
     },
     { 
+      label: "LINEUP", 
+      sublabel: "",
+      href: "/launch-page", 
+      disabled: false,
+      onClick: null
+    },
+    { 
       label: "FESTIVAL", 
       sublabel: "MAP",
       href: "#festival-map", 
@@ -102,10 +109,10 @@ export default function LineupPage() {
 
       {/* Content container */}
       <div className="relative z-10">
-        {/* Logo */}
+        {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
-            <div className="w-full max-w-sm md:max-w-md">
+            <Link href="/launch-page" className="w-full max-w-sm md:max-w-md">
               <Image
                 src="/bremmiepalooza-logo-for-cta.png"
                 alt="Bremmiepalooza 2026"
@@ -115,10 +122,10 @@ export default function LineupPage() {
                   width: "100%",
                   height: "auto",
                 }}
-                className="mx-auto"
+                className="mx-auto cursor-pointer hover:opacity-90 transition-opacity"
                 priority
               />
-            </div>
+            </Link>
           </div>
         </div>
 
@@ -134,11 +141,11 @@ export default function LineupPage() {
         >
           <div 
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
-            style={{ height: isMobile ? '100px' : '150px' }}
+            style={{ height: isMobile ? '120px' : '160px' }}
           >
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => {
-                // For internal page links (FAQs, Travel Info, Book Hotel)
+                // For internal page links
                 if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
                   return (
                     <Link key={index} href={button.href}>
@@ -152,10 +159,20 @@ export default function LineupPage() {
                       style={{
                         minWidth: isMobile ? '50px' : '120px',
                         minHeight: isMobile ? '70px' : '100px',
-                        marginTop: '0px'
+                        marginTop: '-10px'
                       }}>
-                        {/* Custom hand-drawn icons */}
                         <div className="mb-1">
+                          {button.label === 'LINEUP' && (
+                            <div 
+                              className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
+                              style={{
+                                width: isMobile ? '45px' : '80px',
+                                height: isMobile ? '45px' : '80px'
+                              }}
+                            >
+                              🎵
+                            </div>
+                          )}
                           {button.label === 'TICKETS' && (
                             <Image 
                               src="/tickets_icon.PNG" 
@@ -203,8 +220,7 @@ export default function LineupPage() {
                           )}
                         </div>
                         
-                        {/* Button text */}
-                        <div className="text-center">
+                        <div className="text-center relative">
                           <div 
                             className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
                             style={{
@@ -216,7 +232,7 @@ export default function LineupPage() {
                           </div>
                           {button.sublabel && (
                             <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
                               style={{
                                 textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                                 fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
@@ -224,6 +240,20 @@ export default function LineupPage() {
                             >
                               {button.sublabel}
                             </div>
+                          )}
+                          {button.label === 'LINEUP' && (
+                            <div 
+                              className="absolute"
+                              style={{
+                                left: '50%',
+                                bottom: '-8px',
+                                transform: 'translateX(-50%)',
+                                width: '60%',
+                                height: '3px',
+                                backgroundColor: '#d81b8c',
+                                borderRadius: '2px'
+                              }}
+                            />
                           )}
                         </div>
                       </div>
@@ -247,11 +277,21 @@ export default function LineupPage() {
                     style={{
                       minWidth: isMobile ? '50px' : '120px',
                       minHeight: isMobile ? '70px' : '100px',
-                      marginTop: '0px'
+                      marginTop: '-10px'
                     }}
                   >
-                    {/* Custom hand-drawn icons */}
                     <div className="mb-1">
+                      {button.label === 'LINEUP' && (
+                        <div 
+                          className="bg-white/30 rounded-lg flex items-center justify-center text-2xl"
+                          style={{
+                            width: isMobile ? '45px' : '80px',
+                            height: isMobile ? '45px' : '80px'
+                          }}
+                        >
+                          🎵
+                        </div>
+                      )}
                       {button.label === 'TICKETS' && (
                         <Image 
                           src="/tickets_icon.PNG" 
@@ -299,8 +339,7 @@ export default function LineupPage() {
                       )}
                     </div>
                     
-                    {/* Button text */}
-                    <div className="text-center">
+                    <div className="text-center relative">
                       <div 
                         className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
                         style={{
@@ -321,6 +360,20 @@ export default function LineupPage() {
                           {button.sublabel}
                         </div>
                       )}
+                      {button.label === 'LINEUP' && (
+                        <div 
+                          className="absolute"
+                          style={{
+                            left: '50%',
+                            bottom: '-8px',
+                            transform: 'translateX(-50%)',
+                            width: '60%',
+                            height: '3px',
+                            backgroundColor: '#d81b8c',
+                            borderRadius: '2px'
+                          }}
+                        />
+                      )}
                     </div>
                   </button>
                 )
@@ -330,7 +383,7 @@ export default function LineupPage() {
         </div>
 
         {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '120px' : '120px' }}>
+        <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
           
           {/* Countdown Timer */}
           <section className="px-4 mb-16">

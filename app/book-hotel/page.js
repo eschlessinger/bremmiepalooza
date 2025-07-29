@@ -55,7 +55,7 @@ export default function BookHotelPage() {
       label: "BOOK MY", 
       sublabel: "HOTEL",
       href: "/book-hotel", 
-      disabled: true,
+      disabled: false,
       onClick: null
     }
   ]
@@ -186,17 +186,31 @@ export default function BookHotelPage() {
                         
                         <div className="text-center">
                           <div 
-                            className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
+                            className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight relative`}
                             style={{
                               textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                               fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
                             }}
                           >
                             {button.label}
+                            {button.label === 'BOOK MY' && (
+                              <span 
+                                className="absolute"
+                                style={{
+                                  right: '-12px',
+                                  top: '50%',
+                                  transform: 'translateY(-50%)',
+                                  width: '6px',
+                                  height: '6px',
+                                  backgroundColor: '#d81b8c',
+                                  borderRadius: '50%'
+                                }}
+                              />
+                            )}
                           </div>
                           {button.sublabel && (
                             <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
                               style={{
                                 textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                                 fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
@@ -289,13 +303,27 @@ export default function BookHotelPage() {
                     
                     <div className="text-center">
                       <div 
-                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
+                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight relative`}
                         style={{
                           textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                           fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
                         }}
                       >
                         {button.label}
+                        {button.label === 'BOOK MY' && (
+                          <span 
+                            className="absolute"
+                            style={{
+                              right: '-12px',
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              width: '6px',
+                              height: '6px',
+                              backgroundColor: '#d81b8c',
+                              borderRadius: '50%'
+                            }}
+                          />
+                        )}
                       </div>
                       {button.sublabel && (
                         <div 
@@ -352,8 +380,8 @@ export default function BookHotelPage() {
                         September 1, 2025
                       </div>
                       <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
-                        Room Block Reservation<br />
-                        Deadline
+                        Room Block<br />
+                        Reservation Deadline
                       </div>
                     </div>
                     <div className="text-center bg-yellow-500/20 rounded-xl p-6 border-2 border-yellow-400/50">
@@ -399,14 +427,14 @@ export default function BookHotelPage() {
                       Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
                     </p>
                     <div className="text-center">
-                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: '400', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
                         To take advantage of the room block rate,
                       </p>
-                      <p className="font-bold mb-1" style={{color: '#d81b8c', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
                         reservations must be made by Monday, September 1, 2025.
                       </p>
                     </div>
-                    <p className="text-center mb-6" style={{color: '#d81b8c', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginTop: '1.5rem'}}>
+                    <p className="text-center mb-6" style={{color: '#000', fontWeight: '400', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginTop: '1.5rem'}}>
                       When you are ready to book, please do so at this link:
                     </p>
                     <div className="text-center">
@@ -515,18 +543,15 @@ export default function BookHotelPage() {
                     <p>
                       The payment process is a bit unusual (but apparently the norm for Mexico):
                     </p>
-                    <ul className="space-y-3 ml-6">
-                      <li className="flex items-start">
-                        <span className="text-yellow-400 mr-6">•</span>
-                        <span>Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link</span>
+                    <ul className="space-y-3 ml-6 list-disc list-outside">
+                      <li>
+                        Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link
                       </li>
-                      <li className="flex items-start">
-                        <span className="text-yellow-400 mr-6">•</span>
-                        <span>All rooms must be guaranteed with payment of one night at the time of booking</span>
+                      <li>
+                        All rooms must be guaranteed with payment of one night at the time of booking
                       </li>
-                      <li className="flex items-start">
-                        <span className="text-yellow-400 mr-6">•</span>
-                        <span>The payment of the remaining nights of the room reservation must be completed before December 1, 2025</span>
+                      <li>
+                        The payment of the remaining nights of the room reservation must be completed before December 1, 2025
                       </li>
                     </ul>
                   </div>
@@ -547,30 +572,25 @@ export default function BookHotelPage() {
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <ul className="space-y-4">
-                      <li className="flex items-start">
-                        <span className="text-green-400 mr-6">•</span>
-                        <span>Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant</span>
+                    <ul className="space-y-4 list-disc list-outside ml-6">
+                      <li>
+                        Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant
                       </li>
-                      <li className="flex items-start">
-                        <span className="text-green-400 mr-6">•</span>
+                      <li>
                         <div>
-                          <span>A maximum of 3 adults are allowed per room</span>
-                          <ul className="mt-2 ml-6 space-y-2">
-                            <li className="flex items-start">
-                              <span className="text-blue-400 mr-6">◦</span>
-                              <span>In addition, up to 2 children 12 years of age or under may stay in each room with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)</span>
+                          A maximum of 3 adults are allowed per room
+                          <ul className="mt-2 ml-6 space-y-2 list-disc list-outside">
+                            <li>
+                              In addition, up to 2 children 12 years of age or under may stay in each room with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)
                             </li>
-                            <li className="flex items-start">
-                              <span className="text-blue-400 mr-6">◦</span>
-                              <span>For each child 12 years of age or under, a $10 breakfast fee / day applies</span>
+                            <li>
+                              For each child 12 years of age or under, a $10 breakfast fee / day applies
                             </li>
                           </ul>
                         </div>
                       </li>
-                      <li className="flex items-start">
-                        <span className="text-green-400 mr-6">•</span>
-                        <span>Discounted room rates are applicable 3 days prior to and 3 days after January 16-19, 2026 (subject to availability)</span>
+                      <li>
+                        Discounted room rates are applicable 3 days prior to and 3 days after January 16-19, 2026 (subject to availability)
                       </li>
                     </ul>
                   </div>
@@ -603,7 +623,7 @@ export default function BookHotelPage() {
                     Please shoot us a message at info@bremmiepalooza.com so we can help!
                   </p>
                   <a 
-                    href="mailto:info@bremmiepalooza.com"
+                    href="mailto:info@bremmiepalooza.com?subject=Bremmiepalooza%20Hotel%20Question"
                     className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
                     style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
                   >

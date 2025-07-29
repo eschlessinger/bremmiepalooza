@@ -623,7 +623,7 @@ export default function BookHotelPage() {
                     Please shoot us a message at info@bremmiepalooza.com so we can help!
                   </p>
                   <a 
-                    href="mailto:info@bremmiepalooza.com"
+                    href="/contact"
                     className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
                     style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
                   >

@@ -222,15 +222,15 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Back to Hotel Info */}
+            {/* Go Back */}
             <div className="text-center mt-8">
-              <Link 
-                href="/book-hotel"
-                className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+              <button 
+                onClick={() => window.history.back()}
+                className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30 cursor-pointer"
                 style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
               >
-                ← Back to Hotel Info
-              </Link>
+                ← Go Back
+              </button>
             </div>
           </div>
         </div>

@@ -1,25 +1,4 @@
-{button.label === 'LINEUP' && (
-                            <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
-                              style={{
-                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                              }}
-                            >
-                              &nbsp;
-                            </div>
-                          )}
-                          {button.label === 'FAQS' && (
-                            <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
-                              style={{
-                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                              }}
-                            >
-                              &nbsp;
-                            </div>
-                          )}"use client"
+"use client"
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
@@ -63,13 +42,6 @@ export default function LineupPage() {
     return () => clearInterval(interval)
   }, [])
 
-  const scrollToMap = () => {
-    const mapElement = document.getElementById('festival-map')
-    if (mapElement) {
-      mapElement.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   if (!mounted) return null
 
   const navButtons = [
@@ -83,7 +55,7 @@ export default function LineupPage() {
     { 
       label: "LINEUP", 
       sublabel: "",
-      href: "/launch-page", 
+      href: "/lineup", 
       disabled: false,
       onClick: null
     },
@@ -133,7 +105,7 @@ export default function LineupPage() {
         {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
-            <Link href="/launch-page" className="w-full max-w-sm md:max-w-md">
+            <Link href="/lineup" className="w-full max-w-sm md:max-w-md">
               <Image
                 src="/bremmiepalooza-logo-for-cta.png"
                 alt="Bremmiepalooza 2026"
@@ -250,7 +222,7 @@ export default function LineupPage() {
                           >
                             {button.label}
                           </div>
-                          {button.sublabel && (
+                          {button.sublabel ? (
                             <div 
                               className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
                               style={{
@@ -260,7 +232,17 @@ export default function LineupPage() {
                             >
                               {button.sublabel}
                             </div>
-                          )}
+                          ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
+                            <div 
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
+                              style={{
+                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                              }}
+                            >
+                              &nbsp;
+                            </div>
+                          ) : null}
                           {button.label === 'LINEUP' && (
                             <div 
                               className="absolute"
@@ -281,17 +263,15 @@ export default function LineupPage() {
                   )
                 }
                 
-                // For other buttons (like Festival Map with onClick or disabled buttons)
+                // For disabled buttons
                 return (
-                  <button
+                  <div
                     key={index}
-                    onClick={button.onClick}
-                    disabled={button.disabled}
                     className={`
                       relative flex flex-col items-center justify-center transition-all duration-200 transform
                       ${button.disabled 
                         ? 'opacity-50 cursor-not-allowed' 
-                        : 'hover:scale-110 active:scale-95'
+                        : 'hover:scale-110 active:scale-95 cursor-pointer'
                       }
                     `}
                     style={{
@@ -404,7 +384,7 @@ export default function LineupPage() {
                         />
                       )}
                     </div>
-                  </button>
+                  </div>
                 )
               })}
             </div>

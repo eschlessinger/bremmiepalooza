@@ -107,7 +107,7 @@ export default function BookHotelPage() {
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
             style={{ height: isMobile ? '140px' : '193px' }}
           >
-            <div className="flex justify-center items-start gap-4 md:gap-8 px-2 h-full relative pt-4">
+            <div className="flex justify-center items-start gap-4 md:gap-8 px-2 h-full relative pt-2">
               {navButtons.map((button, index) => {
                 // For internal page links
                 if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
@@ -210,7 +210,7 @@ export default function BookHotelPage() {
                               className="absolute"
                               style={{
                                 left: '50%',
-                                bottom: '-35px',
+                                bottom: '-20px',
                                 transform: 'translateX(-50%)',
                                 fontSize: isMobile ? '24px' : '28px'
                               }}
@@ -326,7 +326,7 @@ export default function BookHotelPage() {
                           className="absolute"
                           style={{
                             left: '50%',
-                            bottom: '-35px',
+                            bottom: '-20px',
                             transform: 'translateX(-50%)',
                             fontSize: isMobile ? '24px' : '28px'
                           }}

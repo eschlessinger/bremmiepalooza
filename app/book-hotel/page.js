@@ -123,7 +123,7 @@ export default function BookHotelPage() {
                       style={{
                         minWidth: isMobile ? '50px' : '120px',
                         minHeight: isMobile ? '70px' : '100px',
-                        marginTop: '0px'
+                        marginTop: '-10px'
                       }}>
                         <div className="mb-1">
                           {button.label === 'LINEUP' && (
@@ -239,7 +239,7 @@ export default function BookHotelPage() {
                     style={{
                       minWidth: isMobile ? '50px' : '120px',
                       minHeight: isMobile ? '70px' : '100px',
-                      marginTop: '0px'
+                      marginTop: '-10px'
                     }}
                   >
                     <div className="mb-1">

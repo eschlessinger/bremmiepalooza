@@ -107,7 +107,7 @@ export default function BookHotelPage() {
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
             style={{ height: isMobile ? '160px' : '220px' }}
           >
-            <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
+            <div className="flex justify-center items-start gap-4 md:gap-8 px-2 h-full relative pt-4">
               {navButtons.map((button, index) => {
                 // For internal page links
                 if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
@@ -210,7 +210,7 @@ export default function BookHotelPage() {
                               className="absolute"
                               style={{
                                 left: '50%',
-                                bottom: '-25px',
+                                bottom: '-35px',
                                 transform: 'translateX(-50%)',
                                 fontSize: isMobile ? '24px' : '28px'
                               }}
@@ -326,7 +326,7 @@ export default function BookHotelPage() {
                           className="absolute"
                           style={{
                             left: '50%',
-                            bottom: '-25px',
+                            bottom: '-35px',
                             transform: 'translateX(-50%)',
                             fontSize: isMobile ? '24px' : '28px'
                           }}
@@ -343,7 +343,7 @@ export default function BookHotelPage() {
         </div>
 
         {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '120px' : '120px' }}>
+        <div style={{ marginTop: isMobile ? '160px' : '220px' }}>
           
           {/* Main Content */}
           <div className="px-4 pb-12">
@@ -483,13 +483,13 @@ export default function BookHotelPage() {
                         </p>
                       </div>
                       <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between items-end">
                           <span>Single/Double Occupancy:</span>
-                          <span className="font-bold text-right">$365.00 / night</span>
+                          <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$365.00 / night</span>
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between items-end">
                           <span>Triple Occupancy:</span>
-                          <span className="font-bold text-right">$443.68 / night</span>
+                          <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$443.68 / night</span>
                         </div>
                       </div>
                     </div>
@@ -504,13 +504,13 @@ export default function BookHotelPage() {
                         </p>
                       </div>
                       <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between items-end">
                           <span>Single/Double Occupancy:</span>
-                          <span className="font-bold text-right">$322.00 / night</span>
+                          <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$322.00 / night</span>
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between items-end">
                           <span>Triple Occupancy:</span>
-                          <span className="font-bold text-right">$400.68 / night</span>
+                          <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$400.68 / night</span>
                         </div>
                       </div>
                     </div>

@@ -197,11 +197,10 @@ export default function BookHotelPage() {
                               <span 
                                 className="absolute"
                                 style={{
-                                  right: '-12px',
-                                  top: '50%',
-                                  transform: 'translateY(-50%)',
-                                  width: '6px',
-                                  height: '6px',
+                                  right: '-16px',
+                                  top: '0px',
+                                  width: '10px',
+                                  height: '10px',
                                   backgroundColor: '#d81b8c',
                                   borderRadius: '50%'
                                 }}
@@ -314,11 +313,10 @@ export default function BookHotelPage() {
                           <span 
                             className="absolute"
                             style={{
-                              right: '-12px',
-                              top: '50%',
-                              transform: 'translateY(-50%)',
-                              width: '6px',
-                              height: '6px',
+                              right: '-16px',
+                              top: '0px',
+                              width: '10px',
+                              height: '10px',
                               backgroundColor: '#d81b8c',
                               borderRadius: '50%'
                             }}
@@ -624,6 +622,7 @@ export default function BookHotelPage() {
                   </p>
                   <a 
                     href="mailto:info@bremmiepalooza.com?subject=Bremmiepalooza%20Hotel%20Question"
+                    target="_blank"
                     className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
                     style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
                   >
@@ -664,6 +663,15 @@ export default function BookHotelPage() {
         .animate-gradient-shift {
           background-size: 600% 600%;
           animation: gradient-shift 10s ease infinite;
+        }
+
+        /* Fix bullet point styling */
+        ul li::marker {
+          color: white;
+        }
+        
+        ul li {
+          color: white;
         }
       `}</style>
     </main>

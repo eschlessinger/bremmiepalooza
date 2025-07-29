@@ -74,7 +74,7 @@ export default function ContactPage() {
         {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
-            <Link href="/launch-page" className="w-full max-w-sm md:max-w-md">
+            <Link href="/lineup" className="w-full max-w-sm md:max-w-md">
               <Image
                 src="/bremmiepalooza-logo-for-cta.png"
                 alt="Bremmiepalooza 2026"
@@ -208,8 +208,8 @@ export default function ContactPage() {
                 </div>
               </form>
 
-              <div className="mt-8 text-center">
-                <p className="text-white/80 mb-2" style={{fontFamily: 'Arial, sans-serif', fontSize: '16px'}}>
+              <div className="mt-12 text-center">
+                <p className="text-white/80 mb-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '16px'}}>
                   Prefer to email us directly?
                 </p>
                 <a 
@@ -223,7 +223,7 @@ export default function ContactPage() {
             </div>
 
             {/* Go Back */}
-            <div className="text-center mt-8">
+            <div className="text-center mt-16">
               <button 
                 onClick={() => window.history.back()}
                 className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30 cursor-pointer"

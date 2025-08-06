@@ -198,13 +198,13 @@ export default function TravelInfoPage() {
                 
                 <div>
                   <h4 className="font-bold text-lg mb-2" style={{color: 'black'}}>Keep In Mind:</h4>
-                  <ul className="space-y-2 ml-6 custom-bullets">
+                  <ul className="space-y-2 ml-6" style={{ listStyleType: 'disc' }}>
                     <li>Make sure to book directly and avoid third party sites</li>
                     <li>Bring printed or digital copies of your quote and communication</li>
                     <li>Purchasing TPL Insurance is required in Mexico (even if you are booking with a Credit Card that offers insurance coverage – which may or may not be valid for Mexico); some rental car companies will take advantage of this and try to massively upcharge you for it upon pickup (see below for our recommendation on which rental car company to use to avoid this)</li>
                     <li>Drive cautiously — follow speed limits, keep headlights on (even during the day), and avoid night driving in rural areas</li>
                     <li>There are a number of scams of which to be aware if you decide you want to rent a car:
-                      <ul className="ml-6 space-y-2" style={{ listStyleType: 'decimal' }}>
+                      <ul className="ol className="ml-6 space-y-2 list-decimal list-outside">
                         <li>Rental Car Pickup: Check and photograph the car thoroughly during pickup, including scratches, tires, windshield, fuel level, and mileage</li>
                         <li>Police Stops: It's not uncommon for tourists to be pulled over and asked to pay a fine on the spot — sometimes unjustly. These are often "mordidas" (bribes) rather than legitimate tickets. If stopped:
                           <ul className="ml-6 space-y-1" style={{ listStyleType: 'circle' }}>

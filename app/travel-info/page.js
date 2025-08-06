@@ -1,4 +1,27 @@
-"use client"
+/* Custom bullet styling for better visibility */
+        ul.custom-bullets {
+          list-style: none;
+          padding-left: 0;
+        }
+        
+        ul.custom-bullets li {
+          position: relative;
+          padding-left: 1.5rem;
+          color: black;
+        }
+        
+        ul.custom-bullets li::before {
+          content: "•";
+          color: black;
+          position: absolute;
+          left: 0;
+          font-weight: bold;
+        }
+        
+        ul.custom-bullets ul.custom-bullets li::before {
+          content: "◦";
+          color: black;
+        }"use client"
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
@@ -102,11 +125,11 @@ export default function TravelInfoPage() {
         return (
           <div className="space-y-8">
             {/* Introduction - No Container */}
-            <div className="text-white/95 text-center" style={{fontFamily: 'Arial, sans-serif', fontSize: '20px', lineHeight: '1.6'}}>
-              <p className="mb-4 font-bold">
+            <div className="text-center mb-12" style={{fontFamily: 'Arial, sans-serif', fontSize: '20px', lineHeight: '1.8'}}>
+              <p className="mb-6 font-bold text-white">
                 Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
               </p>
-              <p className="mb-8 font-bold">
+              <p className="mb-8 font-bold text-white">
                 After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
               </p>
             </div>
@@ -129,14 +152,14 @@ export default function TravelInfoPage() {
                 
                 <div>
                   <h4 className="font-bold text-lg mb-2" style={{color: 'black'}}>Keep In Mind:</h4>
-                  <ul className="space-y-2 ml-6 list-disc">
+                  <ul className="space-y-2 ml-6 custom-bullets">
                     <li>For additional / unforeseen transportation needs, can use Ubers (plentiful around the hotel & cheap) and / or Taxis</li>
                   </ul>
                 </div>
 
                 <div>
                   <h4 className="font-bold text-lg text-white mb-4" style={{color: '#d81b8c'}}>Our Pick: USA Transfers</h4>
-                  <ul className="space-y-2 ml-6 list-disc">
+                  <ul className="space-y-2 ml-6 custom-bullets">
                     <li>Appears to be the most beloved and reliable Transfer service</li>
                     <li>Round trip for 6 people to and from the hotel is $95 for a Private Van or $170 for a Private SUV (which, relative to the Van, boasts leather seats, a stepping stool, 5-volt power outlets, and fresh towels on arrival)</li>
                   </ul>
@@ -203,16 +226,16 @@ export default function TravelInfoPage() {
                 
                 <div>
                   <h4 className="font-bold text-lg mb-2" style={{color: 'black'}}>Keep In Mind:</h4>
-                  <ul className="space-y-2 ml-6 list-disc">
+                  <ul className="space-y-2 ml-6 custom-bullets">
                     <li>Make sure to book directly and avoid third party sites</li>
                     <li>Bring printed or digital copies of your quote and communication</li>
                     <li>Purchasing TPL Insurance is required in Mexico (even if you are booking with a Credit Card that offers insurance coverage – which may or may not be valid for Mexico); some rental car companies will take advantage of this and try to massively upcharge you for it upon pickup (see below for our recommendation on which rental car company to use to avoid this)</li>
                     <li>Drive cautiously — follow speed limits, keep headlights on (even during the day), and avoid night driving in rural areas</li>
                     <li>There are a number of scams of which to be aware if you decide you want to rent a car:
-                      <ul className="mt-2 ml-6 space-y-2 list-disc">
+                      <ul className="mt-2 ml-6 space-y-2 custom-bullets">
                         <li>Rental Car Pickup: Check and photograph the car thoroughly during pickup, including scratches, tires, windshield, fuel level, and mileage</li>
                         <li>Police Stops: It's not uncommon for tourists to be pulled over and asked to pay a fine on the spot — sometimes unjustly. These are often "mordidas" (bribes) rather than legitimate tickets. If stopped:
-                          <ul className="mt-1 ml-6 space-y-1 list-disc">
+                          <ul className="mt-1 ml-6 space-y-1 custom-bullets">
                             <li>Ask for a written ticket</li>
                             <li>Do not pay in cash on the roadside</li>
                             <li>Stay calm, polite, and firm</li>
@@ -221,7 +244,7 @@ export default function TravelInfoPage() {
                         <li>Speed Traps & Sudden Signage Changes: Some highways have sudden speed limit drops (especially near towns or police checkpoints) where speed traps are common</li>
                         <li>Speed Bumps: Many aren't well-marked and can damage your car if hit at full speed</li>
                         <li>Gas Stations:
-                          <ul className="mt-1 ml-6 space-y-1 list-disc">
+                          <ul className="mt-1 ml-6 space-y-1 custom-bullets">
                             <li>Always check the meter is zeroed before fueling</li>
                             <li>Always pay in cash (using 200 peso notes or smaller bills, not 500+ peso notes), say the amount you are paying as you are handing it to the attendant, and count your change</li>
                             <li>Avoid airport-adjacent gas stations</li>
@@ -234,7 +257,7 @@ export default function TravelInfoPage() {
 
                 <div>
                   <h4 className="font-bold text-lg text-white mb-4" style={{color: '#d81b8c'}}>Our Pick: Avant Rental Cars</h4>
-                  <ul className="space-y-2 ml-6 list-disc">
+                  <ul className="space-y-2 ml-6 custom-bullets">
                     <li>Highly rated across platforms, with reviews indicating they book clean, modern vehicles with no hidden fees and provide responsive support and pickup instructions via WhatsApp or email</li>
                     <li>Rates starting at ~$103 for 3 days, inclusive of mandatory insurance</li>
                     <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">HERE</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>

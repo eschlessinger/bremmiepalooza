@@ -102,7 +102,7 @@ case 'airport':
   return (
     <div className="space-y-8">
       {/* Spacer before intro */}
-      <p className="mb-8">&nbsp;</p>
+      <p className="mb-4">&nbsp;</p>
 
       <div
         className="text-center mb-16"
@@ -116,7 +116,7 @@ case 'airport':
         </p>
 
         {/* Spacer after intro */}
-        <p className="mb-8">&nbsp;</p>
+        <p className="mb-4">&nbsp;</p>
       </div>
 
             {/* Pre-Arranged Transfer Section */}

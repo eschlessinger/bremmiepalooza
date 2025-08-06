@@ -457,7 +457,7 @@ export default function BookHotelPage() {
                     </p>
                     <div className="text-center">
                       <a 
-                        href="https://forms.office.com/r/XTXhijAYPX?origin=lprLink"
+                        href="https://forms.office.com/r/tuSCB07uW9?origin=lprLink"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"

@@ -99,17 +99,23 @@ export default function TravelInfoPage() {
         )
 
       case 'airport':
-        return (
-          <div className="space-y-8">
-            {/* Introduction - No Container */}
-            <div className="text-center mb-16" style={{fontFamily: 'Arial, sans-serif', fontSize: '20px', lineHeight: '1.8'}}>
-              <p className="mb-8 font-bold" style={{color: 'white'}}>
-                Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
-              </p>
-              <p className="mb-12 font-bold" style={{color: 'white'}}>
-                After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
-              </p>
-            </div>
+  return (
+    <div className="space-y-8">
+      {/* Spacer between nav buttons and text */}
+      <div className="mt-8"></div> 
+
+      {/* Introduction - No Container */}
+      <div
+        className="text-center mb-16"
+        style={{ fontFamily: 'Arial, sans-serif', fontSize: '20px', lineHeight: '1.8' }}
+      >
+        <p className="mb-8 font-bold" style={{ color: 'white' }}>
+          Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
+        </p>
+        <p className="mb-12 font-bold" style={{ color: 'white' }}>
+          After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
+        </p>
+      </div>
 
             {/* Pre-Arranged Transfer Section */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">

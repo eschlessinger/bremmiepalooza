@@ -592,17 +592,21 @@ export default function BookHotelPage() {
                   <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
                     <ul className="space-y-4 custom-bullets ml-6">
                       <li>
-                        Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant
+                        <div>
+                          Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant
+                          <ul className="mt-2 ml-6 space-y-2 custom-bullets">
+                            <li>
+                              For each child up to 12 years of age, a $13 / day fee applies to cover breakfast
+                            </li>
+                          </ul>
+                        </div>
                       </li>
                       <li>
                         <div>
                           A maximum of 3 adults are allowed per room
                           <ul className="mt-2 ml-6 space-y-2 custom-bullets">
                             <li>
-                              In addition, up to 2 children 12 years of age or under may stay in each room with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)
-                            </li>
-                            <li>
-                              For each child 12 years of age or under, a $10 breakfast fee / day applies
+                              In addition, up to 2 children 12 years of age or under may stay in each room for free with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)
                             </li>
                           </ul>
                         </div>

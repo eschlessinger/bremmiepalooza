@@ -158,11 +158,21 @@ export default function TravelInfoPage() {
                     <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50">
                       <p className="italic mb-2" style={{color: 'black'}}>"Check out USA transfers. Legit company, owned by a Canadian guy. Easy to get a quote on their website or app. Super reliable"</p>
                       <p className="text-sm mb-2" style={{color: 'black'}}>- KrazyKen62, 2023 (Reddit)</p>
-                      <div className="ml-6 space-y-1">
-                        <p className="text-sm italic" style={{color: 'black'}}>"2nd." - TSAngels1993, 2023 (Reddit)</p>
-                        <p className="text-sm italic" style={{color: 'black'}}>"Used them 3 times. Always had a good experience." - Unknown User, 2023 (Reddit)</p>
-                        <p className="text-sm italic" style={{color: 'black'}}>"Used them as well. Reliable and we extended our stay last minute and they were super accommodative." - redhiker2009, 2023 (Reddit)</p>
-                      </div>
+                    </div>
+                    
+                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50 ml-6">
+                      <p className="italic mb-2" style={{color: 'black'}}>"2nd."</p>
+                      <p className="text-sm" style={{color: 'black'}}>- TSAngels1993, 2023 (Reddit)</p>
+                    </div>
+                    
+                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50 ml-6">
+                      <p className="italic mb-2" style={{color: 'black'}}>"Used them 3 times. Always had a good experience."</p>
+                      <p className="text-sm" style={{color: 'black'}}>- Unknown User, 2023 (Reddit)</p>
+                    </div>
+                    
+                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50 ml-6">
+                      <p className="italic mb-2" style={{color: 'black'}}>"Used them as well. Reliable and we extended our stay last minute and they were super accommodative."</p>
+                      <p className="text-sm" style={{color: 'black'}}>- redhiker2009, 2023 (Reddit)</p>
                     </div>
                   </div>
                 </div>
@@ -237,7 +247,7 @@ export default function TravelInfoPage() {
                   <ul className="space-y-2 ml-6 custom-bullets">
                     <li>Highly rated across platforms, with reviews indicating they book clean, modern vehicles with no hidden fees and provide responsive support and pickup instructions via WhatsApp or email</li>
                     <li>Rates starting at ~$103 for 3 days, inclusive of mandatory insurance</li>
-                    <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">HERE</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>
+                    <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">here</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>
                   </ul>
                 </div>
 
@@ -706,6 +716,11 @@ export default function TravelInfoPage() {
         
         ul.custom-bullets ul.custom-bullets li::before {
           content: "◦";
+          color: black;
+        }
+        
+        ul.custom-bullets ul.custom-bullets ul.custom-bullets li::before {
+          content: "—";
           color: black;
         }
 

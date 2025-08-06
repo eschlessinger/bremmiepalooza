@@ -222,7 +222,7 @@ export default function TravelInfoPage() {
                             <li>Avoid airport-adjacent gas stations</li>
                           </ul>
                         </li>
-                      </ul>
+                      </ol>
                     </li>
                   </ul>
                 </div>

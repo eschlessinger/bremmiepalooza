@@ -100,27 +100,26 @@ export default function TravelInfoPage() {
 
 case 'airport':
   return (
-    <div className="space-y-6"> {/* smaller space between major sections */}
-      {/* Line Break Before Intro */}
-      <div className="mt-4" /> {/* smaller top margin */}
+    <div className="space-y-7"> {/* Slightly tighter than space-y-8 */}
+      {/* Spacer before the intro */}
+      <div className="mt-6" /> {/* Not as tall as mt-8, taller than mt-4 */}
 
-      {/* Intro Block */}
+      {/* Introductory Text */}
       <div
         className="text-center"
         style={{
           fontFamily: 'Arial, sans-serif',
           fontSize: '20px',
-          lineHeight: '1.6', // slightly tighter line spacing
+          lineHeight: '1.7', // Slightly more relaxed than 1.6
         }}
       >
-        <p className="mb-2 font-bold text-white">
+        <p className="mb-4 font-bold text-white">
           Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
         </p>
-        <p className="mb-2 font-bold text-white">
+        <p className="mb-6 font-bold text-white">
           After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
         </p>
       </div>
-
             {/* Pre-Arranged Transfer Section */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
               <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 

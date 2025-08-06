@@ -98,13 +98,12 @@ export default function TravelInfoPage() {
           </div>
         )
 
-      case 'airport':
+case 'airport':
   return (
     <div className="space-y-8">
-      {/* Spacer between nav buttons and text */}
-      <div className="mt-8"></div> 
-
       {/* Introduction - No Container */}
+      <p className="mb-8">&nbsp;</p> {/* This creates a visual blank line */}
+
       <div
         className="text-center mb-16"
         style={{ fontFamily: 'Arial, sans-serif', fontSize: '20px', lineHeight: '1.8' }}

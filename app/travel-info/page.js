@@ -101,8 +101,8 @@ export default function TravelInfoPage() {
 case 'airport':
   return (
     <div className="space-y-8">
-      {/* Introduction - No Container */}
-      <p className="mb-8">&nbsp;</p> {/* This creates a visual blank line */}
+      {/* Spacer before intro */}
+      <p className="mb-8">&nbsp;</p>
 
       <div
         className="text-center mb-16"
@@ -114,6 +114,9 @@ case 'airport':
         <p className="mb-12 font-bold" style={{ color: 'white' }}>
           After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
         </p>
+
+        {/* Spacer after intro */}
+        <p className="mb-8">&nbsp;</p>
       </div>
 
             {/* Pre-Arranged Transfer Section */}

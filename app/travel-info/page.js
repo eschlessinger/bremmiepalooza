@@ -159,21 +159,6 @@ export default function TravelInfoPage() {
                       <p className="italic mb-2" style={{color: 'black'}}>"Check out USA transfers. Legit company, owned by a Canadian guy. Easy to get a quote on their website or app. Super reliable"</p>
                       <p className="text-sm mb-2" style={{color: 'black'}}>- KrazyKen62, 2023 (Reddit)</p>
                     </div>
-                    
-                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50 ml-6">
-                      <p className="italic mb-2" style={{color: 'black'}}>"2nd."</p>
-                      <p className="text-sm" style={{color: 'black'}}>- TSAngels1993, 2023 (Reddit)</p>
-                    </div>
-                    
-                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50 ml-6">
-                      <p className="italic mb-2" style={{color: 'black'}}>"Used them 3 times. Always had a good experience."</p>
-                      <p className="text-sm" style={{color: 'black'}}>- Unknown User, 2023 (Reddit)</p>
-                    </div>
-                    
-                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50 ml-6">
-                      <p className="italic mb-2" style={{color: 'black'}}>"Used them as well. Reliable and we extended our stay last minute and they were super accommodative."</p>
-                      <p className="text-sm" style={{color: 'black'}}>- redhiker2009, 2023 (Reddit)</p>
-                    </div>
                   </div>
                 </div>
 

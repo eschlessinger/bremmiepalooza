@@ -74,23 +74,91 @@ export default function TravelInfoPage() {
       case 'flights':
         return (
           <div className="space-y-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-white/20">
-              <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif", textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                ✈️ Getting to Cancun
+            {/* Airport Name & Code Section */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+              <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}>
+                Airport Name & Code
               </h3>
-              <div className="space-y-4 text-white/90">
+              <div className="text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                <p className="text-center">
+                  You should plan to fly into Cancún International Airport (CUN) — this is the only major airport in the area.
+                </p>
+              </div>
+            </div>
+
+            {/* Recommended Arrival & Departure Dates Section */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+              <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}>
+                Recommended Arrival & Departure Dates
+              </h3>
+              <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                <ul className="space-y-3 ml-6 custom-bullets">
+                  <li>
+                    If you are planning to attend The Pregame on Friday, we recommend taking a Friday AM flight landing at CUN by ~3:00PM local time so that you have plenty of time to get to the hotel, check in, settle in, and freshen up before the party begins
+                  </li>
+                  <li>
+                    If you are planning to attend The After Show on Sunday, we recommend flying out on Monday (ideally a late morning or afternoon flight so that you can take full advantage of complimentary breakfast & beach / pool / etc. on Monday AM)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Flights & Tickets Section */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+              <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}>
+                Flights & Tickets
+              </h3>
+              <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
                 <div>
-                  <h4 className="font-bold text-lg text-white mb-2">Airport: Cancun International (CUN)</h4>
-                  <p>Most major US cities have direct flights to Cancun. Flight times are typically 2-5 hours depending on your departure city.</p>
+                  <h4 className="font-bold text-lg mb-2" style={{color: 'black'}}>There are direct flights available from:</h4>
+                  <ul className="space-y-1 ml-6 custom-bullets">
+                    <li>Chicago (ORD, MDW)</li>
+                    <li>New York (JFK, EWR)</li>
+                    <li>Boston (BOS)</li>
+                    <li>Atlanta (ATL)</li>
+                    <li>San Francisco (SFO)</li>
+                    <li>Seattle (SEA)</li>
+                    <li>London (LGW)</li>
+                  </ul>
                 </div>
+
                 <div>
-                  <h4 className="font-bold text-lg text-white mb-2">Best Airlines for Direct Flights:</h4>
-                  <ul className="list-disc list-inside space-y-1 ml-4">
-                    <li>American Airlines (Dallas, Miami, Phoenix, Charlotte)</li>
-                    <li>Delta (Atlanta, Detroit, Minneapolis, New York)</li>
-                    <li>United (Chicago, Denver, Houston, Newark)</li>
-                    <li>Southwest (Baltimore, Denver, Houston)</li>
-                    <li>JetBlue (Boston, Fort Lauderdale, New York)</li>
+                  <h4 className="font-bold text-lg mb-2" style={{color: 'black'}}>There are 1-stop flights available from:</h4>
+                  <ul className="space-y-1 ml-6 custom-bullets">
+                    <li>The Quad Cities (MLI)</li>
+                    <li>Montrose (MTJ) / Grand Junction (GJT)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-lg mb-2" style={{color: 'black'}}>Flight Pricing & Booking Tips:</h4>
+                  <ul className="space-y-2 ml-6 custom-bullets">
+                    <li>ChatGPT suggests that typical round trip flights to Cancun from New York & Chicago for MLK weekend are in the range of $300-400
+                      <ul className="mt-2 ml-6 space-y-1 custom-bullets">
+                        <li>As of August 6, 2025, flight prices appear somewhat elevated (especially for Chicago departures)</li>
+                      </ul>
+                    </li>
+                    <li>Our best advice is to wait a bit to book, but not too long — January is peak season in Mexico, and last-minute fares are often pricey
+                      <ul className="mt-2 ml-6 space-y-1 custom-bullets">
+                        <li>We recommend setting a Google Flights alert to track deals for your route</li>
+                      </ul>
+                    </li>
+                    <li>Flying in early or leaving a day later might lead to cheaper fares — and gives you more time to soak up the sun. Win-win!</li>
                   </ul>
                 </div>
               </div>
@@ -98,28 +166,33 @@ export default function TravelInfoPage() {
           </div>
         )
 
-case 'airport':
-  return (
-    <div className="space-y-7"> {/* Slightly tighter than space-y-8 */}
-      {/* Spacer before the intro */}
-      <div className="mt-6" /> {/* Not as tall as mt-8, taller than mt-4 */}
+      case 'airport':
+        return (
+          <div className="space-y-10"> {/* Increased from space-y-7 to space-y-10 */}
+            {/* Spacer and improved intro section */}
+            <div className="mt-8" /> {/* Increased from mt-6 to mt-8 */}
 
-      {/* Introductory Text */}
-      <div
-        className="text-center"
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '20px',
-          lineHeight: '1.7', // Slightly more relaxed than 1.6
-        }}
-      >
-        <p className="mb-4 font-bold text-white">
-          Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
-        </p>
-        <p className="mb-6 font-bold text-white">
-          After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
-        </p>
-      </div>
+            {/* Introductory Text with better spacing */}
+            <div
+              className="text-center"
+              style={{
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '20px',
+                lineHeight: '1.8', // Increased from 1.7
+              }}
+            >
+              <div className="mb-6"> {/* Added wrapper for better spacing */}
+                <p className="mb-6 font-bold text-white"> {/* Increased from mb-4 to mb-6 */}
+                  Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
+                </p>
+              </div>
+              <div className="mb-8"> {/* Increased from mb-6 to mb-8 */}
+                <p className="mb-0 font-bold text-white">
+                  After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
+                </p>
+              </div>
+            </div>
+
             {/* Pre-Arranged Transfer Section */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
               <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
@@ -245,13 +318,12 @@ case 'airport':
   </ul>
 </div>
 
-
                 <div>
                   <h4 className="font-bold text-lg text-white mb-4" style={{color: '#d81b8c'}}>Our Pick: Avant Rental Cars</h4>
                   <ul className="space-y-2 ml-6 custom-bullets">
                     <li>Highly rated across platforms, with reviews indicating they book clean, modern vehicles with no hidden fees and provide responsive support and pickup instructions via WhatsApp or email</li>
                     <li>Rates starting at ~$103 for 3 days, inclusive of mandatory insurance</li>
-                    <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">here</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>
+                    <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="underline" style={{color: '#d81b8c'}}>here</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>
                   </ul>
                 </div>
 
@@ -345,6 +417,67 @@ case 'airport':
     }
   }
 
+  const renderQuestionsBox = () => {
+    switch(activeTab) {
+      case 'flights':
+        return (
+          <section className="mb-12">
+            <h2 
+              className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+              style={{
+                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                color: '#d81b8c'
+              }}
+            >
+              Questions?
+            </h2>
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
+              <p className="text-white/95 mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
+                Experiencing issues with finding, booking, and / or affording flights to Cancun? Please shoot us a message at info@bremmiepalooza.com so we can help!
+              </p>
+              <a 
+                href="/contact"
+                className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
+              >
+                Email Us
+              </a>
+            </div>
+          </section>
+        )
+      case 'airport':
+        return (
+          <section className="mb-12">
+            <h2 
+              className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+              style={{
+                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                color: '#d81b8c'
+              }}
+            >
+              Questions?
+            </h2>
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
+              <p className="text-white/95 mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
+                Confused about the best transportation approach for you? Want to discuss other potential options? Please shoot us a message at info@bremmiepalooza.com so we can help!
+              </p>
+              <a 
+                href="/contact"
+                className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
+              >
+                Email Us
+              </a>
+            </div>
+          </section>
+        )
+      default:
+        return null
+    }
+  }
+
   return (
     <main className="relative min-h-screen">
       {/* Background gradient */}
@@ -413,348 +546,4 @@ case 'airport':
                         <div className="mb-1">
                           {button.label === 'LINEUP' && (
                             <Image 
-                              src="/Lineup.png" 
-                              alt="Lineup Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                              style={{ marginTop: '-2px' }}
-                            />
-                          )}
-                          {button.label === 'TICKETS' && (
-                            <Image 
-                              src="/tickets_icon.PNG" 
-                              alt="Tickets Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'FESTIVAL' && (
-                            <Image 
-                              src="/festival_map_icon.PNG" 
-                              alt="Festival Map Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'FAQS' && (
-                            <Image 
-                              src="/faqs_icon.PNG" 
-                              alt="FAQs Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'TRAVEL' && (
-                            <Image 
-                              src="/travel_info.PNG" 
-                              alt="Travel Info Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'BOOK MY' && (
-                            <Image 
-                              src="/book_my_hotel.PNG" 
-                              alt="Book My Hotel Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                        </div>
-                        
-                        <div className="text-center relative">
-                          <div 
-                            className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
-                            style={{
-                              textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                              fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                            }}
-                          >
-                            {button.label}
-                          </div>
-                          {button.sublabel ? (
-                            <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
-                              style={{
-                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                              }}
-                            >
-                              {button.sublabel}
-                            </div>
-                          ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
-                            <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
-                              style={{
-                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                              }}
-                            >
-                              &nbsp;
-                            </div>
-                          ) : null}
-                          {button.label === 'TRAVEL' && (
-                            <div 
-                              className="absolute"
-                              style={{
-                                left: '50%',
-                                bottom: '-8px',
-                                transform: 'translateX(-50%)',
-                                width: '60%',
-                                height: '3px',
-                                backgroundColor: '#d81b8c',
-                                borderRadius: '2px'
-                              }}
-                            />
-                          )}
-                        </div>
-                      </div>
-                    </Link>
-                  )
-                }
-                
-                // For disabled buttons
-                return (
-                  <div
-                    key={index}
-                    className={`
-                      relative flex flex-col items-center justify-center transition-all duration-200 transform
-                      ${button.disabled 
-                        ? 'opacity-50 cursor-not-allowed' 
-                        : 'hover:scale-110 active:scale-95 cursor-pointer'
-                      }
-                    `}
-                    style={{
-                      minWidth: isMobile ? '50px' : '120px',
-                      minHeight: isMobile ? '70px' : '100px',
-                      marginTop: '-10px'
-                    }}
-                  >
-                    <div className="mb-1">
-                      {button.label === 'LINEUP' && (
-                        <Image 
-                          src="/Lineup.png" 
-                          alt="Lineup Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                          style={{ marginTop: '-2px' }}
-                        />
-                      )}
-                      {button.label === 'TICKETS' && (
-                        <Image 
-                          src="/tickets_icon.PNG" 
-                          alt="Tickets Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'FESTIVAL' && (
-                        <Image 
-                          src="/festival_map_icon.PNG" 
-                          alt="Festival Map Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'FAQS' && (
-                        <Image 
-                          src="/faqs_icon.PNG" 
-                          alt="FAQs Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'TRAVEL' && (
-                        <Image 
-                          src="/travel_info.PNG" 
-                          alt="Travel Info Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'BOOK MY' && (
-                        <Image 
-                          src="/book_my_hotel.PNG" 
-                          alt="Book My Hotel Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                    </div>
-                    
-                    <div className="text-center relative">
-                      <div 
-                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
-                        style={{
-                          textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                          fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                        }}
-                      >
-                        {button.label}
-                      </div>
-                      {button.sublabel ? (
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                          }}
-                        >
-                          {button.sublabel}
-                        </div>
-                      ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                          }}
-                        >
-                          &nbsp;
-                        </div>
-                      ) : null}
-                      {button.label === 'TRAVEL' && (
-                        <div 
-                          className="absolute"
-                          style={{
-                            left: '50%',
-                            bottom: '-8px',
-                            transform: 'translateX(-50%)',
-                            width: '60%',
-                            height: '3px',
-                            backgroundColor: '#d81b8c',
-                            borderRadius: '2px'
-                          }}
-                        />
-                      )}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-
-        {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
-
-          {/* Main Content */}
-          <div className="px-4 pb-12">
-            <div className="max-w-6xl mx-auto">
-              <h1 
-                className="text-4xl md:text-6xl font-black text-center mb-8 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                TRAVEL INFO
-              </h1>
-
-              {/* Tab Navigation */}
-              <div className="flex flex-wrap justify-center gap-2 mb-8">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`
-                      px-4 py-2 rounded-full font-bold transition-all duration-200 flex items-center gap-2
-                      ${activeTab === tab.id 
-                        ? 'bg-white text-purple-600 shadow-lg' 
-                        : 'bg-white/20 text-white hover:bg-white/30'
-                      }
-                    `}
-                    style={{
-                      fontFamily: "Arial, sans-serif"
-                    }}
-                  >
-                    <span>{tab.icon}</span>
-                    <span className={isMobile ? 'text-sm' : 'text-base'}>{tab.label}</span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Tab Content */}
-              <div className="mt-8">
-                {renderContent()}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* CSS Styles */}
-      <style jsx global>{`
-        /* Custom bullet styling for better visibility */
-        ul.custom-bullets {
-          list-style: none;
-          padding-left: 0;
-        }
-        
-        ul.custom-bullets li {
-          position: relative;
-          padding-left: 1.5rem;
-          color: black;
-        }
-        
-        ul.custom-bullets li::before {
-          content: "•";
-          color: black;
-          position: absolute;
-          left: 0;
-          font-weight: bold;
-        }
-        
-        ul.custom-bullets ul.custom-bullets li::before {
-          content: "◦";
-          color: black;
-        }
-        
-        ul.custom-bullets ul.custom-bullets ul.custom-bullets li::before {
-          content: "—";
-          color: black;
-        }
-
-        @font-face {
-          font-family: 'ZollaPro';
-          src: url('/fonts/Zolla%20Pro.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @font-face {
-          font-family: 'ZollaProOutlined';
-          src: url('/fonts/Zolla-Pro-Outlined.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @keyframes gradient-shift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-
-        .animate-gradient-shift {
-          background-size: 600% 600%;
-          animation: gradient-shift 10s ease infinite;
-        }
-      `}</style>
-    </main>
-  )
-}
+                              src="/Lineup.png

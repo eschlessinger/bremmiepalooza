@@ -60,6 +60,14 @@ export default function FlightsPage() {
     }
   ]
 
+  const travelTabs = [
+    { id: 'flights', label: 'Flights', icon: '✈️', href: '/travel-info/flights', active: true },
+    { id: 'ground-transportation', label: 'Ground Transportation', icon: '🛬', href: '/travel-info/ground-transportation', active: false },
+    { id: 'documents', label: 'Documents', icon: '📄', href: '/travel-info/documents', active: false },
+    { id: 'packing', label: 'Packing', icon: '🧳', href: '/travel-info/packing', active: false },
+    { id: 'activities', label: 'Activities', icon: '🏖️', href: '/travel-info/activities', active: false }
+  ]
+
   return (
     <main className="relative min-h-screen">
       {/* Background gradient */}
@@ -365,6 +373,45 @@ export default function FlightsPage() {
                 FLIGHTS
               </h1>
 
+              {/* Travel Sub-Navigation */}
+              <div className="flex flex-wrap justify-center gap-2 mb-12">
+                {travelTabs.map((tab) => (
+                  <Link key={tab.id} href={tab.href}>
+                    <div className="relative">
+                      <button
+                        className={`
+                          px-4 py-2 rounded-full font-bold transition-all duration-200 flex items-center gap-2
+                          ${tab.active 
+                            ? 'bg-white text-purple-600 shadow-lg' 
+                            : 'bg-white/20 text-white hover:bg-white/30'
+                          }
+                        `}
+                        style={{
+                          fontFamily: "Arial, sans-serif"
+                        }}
+                      >
+                        <span>{tab.icon}</span>
+                        <span className={isMobile ? 'text-sm' : 'text-base'}>{tab.label}</span>
+                      </button>
+                      {tab.active && (
+                        <div 
+                          className="absolute"
+                          style={{
+                            left: '50%',
+                            bottom: '-8px',
+                            transform: 'translateX(-50%)',
+                            width: '60%',
+                            height: '3px',
+                            backgroundColor: '#d81b8c',
+                            borderRadius: '2px'
+                          }}
+                        />
+                      )}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
               {/* Airport Name & Code Section */}
               <section className="mb-12">
                 <h2 
@@ -378,7 +425,7 @@ export default function FlightsPage() {
                   Airport Name & Code
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <p className="text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                  <p className="text-black text-center" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
                     You should plan to fly into <strong>Cancún International Airport (CUN)</strong> — this is the only major airport in the area.
                   </p>
                 </div>
@@ -397,8 +444,8 @@ export default function FlightsPage() {
                   Recommended Arrival & Departure Dates
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <ul className="space-y-4 custom-bullets ml-6">
+                  <div className="space-y-4 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    <ul className="space-y-4 custom-bullets">
                       <li>
                         If you are planning to attend <strong>The Pregame</strong> on Friday, we recommend taking a Friday AM flight landing at CUN by ~3:00PM local time so that you have plenty of time to get to the hotel, check in, settle in, and freshen up before the party begins
                       </li>
@@ -423,7 +470,7 @@ export default function FlightsPage() {
                   Flights & Tickets
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                  <div className="space-y-6 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
                     <div>
                       <p className="mb-3">There are direct flights available from:</p>
                       <ul className="space-y-2 custom-bullets ml-6">
@@ -445,16 +492,16 @@ export default function FlightsPage() {
                       </ul>
                     </div>
 
-                    <ul className="space-y-4 custom-bullets ml-6">
+                    <ul className="space-y-4 custom-bullets">
                       <li>
                         ChatGPT suggests that typical round trip flights to Cancun from New York & Chicago for MLK weekend are in the range of $300-400
-                        <ul className="mt-2 ml-6 space-y-2 custom-bullets">
+                        <ul className="mt-2 space-y-2 custom-bullets ml-12">
                           <li>As of August 6, 2025, flight prices appear somewhat elevated (especially for Chicago departures)</li>
                         </ul>
                       </li>
                       <li>
                         Our best advice is to wait a bit to book, but not too long — January is peak season in Mexico, and last-minute fares are often pricey
-                        <ul className="mt-2 ml-6 space-y-2 custom-bullets">
+                        <ul className="mt-2 space-y-2 custom-bullets ml-12">
                           <li>We recommend setting a Google Flights alert to track deals for your route</li>
                         </ul>
                       </li>
@@ -479,8 +526,11 @@ export default function FlightsPage() {
                   Questions?
                 </h2>
                 <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
-                  <p className="text-white/95 mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    Experiencing issues with finding, booking, and / or affording flights to Cancun? Please shoot us a message at info@bremmiepalooza.com so we can help!
+                  <p className="text-black mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    Experiencing issues with finding, booking, and / or affording flights to Cancun?
+                  </p>
+                  <p className="text-black mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
+                    Please shoot us a message at info@bremmiepalooza.com so we can help!
                   </p>
                   <Link 
                     href="/contact"
@@ -526,7 +576,7 @@ export default function FlightsPage() {
           animation: gradient-shift 10s ease infinite;
         }
 
-        /* Custom bullet styling for better visibility */
+        /* Custom bullet styling */
         ul.custom-bullets {
           list-style: none;
           padding-left: 0;
@@ -535,12 +585,12 @@ export default function FlightsPage() {
         ul.custom-bullets li {
           position: relative;
           padding-left: 1.5rem;
-          color: rgba(255, 255, 255, 0.95);
+          color: black;
         }
         
         ul.custom-bullets li::before {
           content: "•";
-          color: rgba(255, 255, 255, 0.95);
+          color: black;
           position: absolute;
           left: 0;
           font-weight: bold;
@@ -548,7 +598,7 @@ export default function FlightsPage() {
         
         ul.custom-bullets ul.custom-bullets li::before {
           content: "◦";
-          color: rgba(255, 255, 255, 0.95);
+          color: black;
         }
       `}</style>
     </main>

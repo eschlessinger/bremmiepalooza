@@ -190,6 +190,17 @@ export default function FlightsPage() {
                             />
                           )}
                         </div>
+
+              <h1 
+                className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                FLIGHTS
+              </h1>
                         
                         <div className="text-center relative">
                           <div 
@@ -362,19 +373,8 @@ export default function FlightsPage() {
           {/* Main Content */}
           <div className="px-4 pb-12">
             <div className="max-w-5xl mx-auto">
-              <h1 
-                className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                FLIGHTS
-              </h1>
-
               {/* Travel Sub-Navigation */}
-              <div className="flex flex-wrap justify-center gap-2 mb-12">
+              <div className="flex flex-wrap justify-center gap-2 mb-8">
                 {travelTabs.map((tab) => (
                   <Link key={tab.id} href={tab.href}>
                     <div className="relative">
@@ -471,28 +471,28 @@ export default function FlightsPage() {
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="space-y-6 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <div>
-                      <p className="mb-3">There are direct flights available from:</p>
-                      <ul className="space-y-2 custom-bullets ml-6">
-                        <li>Chicago (ORD, MDW)</li>
-                        <li>New York (JFK, EWR)</li>
-                        <li>Boston (BOS)</li>
-                        <li>Atlanta (ATL)</li>
-                        <li>San Francisco (SFO)</li>
-                        <li>Seattle (SEA)</li>
-                        <li>London (LGW)</li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <p className="mb-3">There are 1-stop flights available from:</p>
-                      <ul className="space-y-2 custom-bullets ml-6">
-                        <li>The Quad Cities (MLI)</li>
-                        <li>Montrose (MTJ) / Grand Junction (GJT)</li>
-                      </ul>
-                    </div>
-
                     <ul className="space-y-4 custom-bullets">
+                      <li>
+                        There are direct flights available from:
+                        <ul className="mt-2 space-y-2 custom-bullets ml-12">
+                          <li>Chicago (ORD, MDW)</li>
+                          <li>New York (JFK, EWR)</li>
+                          <li>Boston (BOS)</li>
+                          <li>Atlanta (ATL)</li>
+                          <li>San Francisco (SFO)</li>
+                          <li>Seattle (SEA)</li>
+                          <li>London (LGW)</li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        There are 1-stop flights available from:
+                        <ul className="mt-2 space-y-2 custom-bullets ml-12">
+                          <li>The Quad Cities (MLI)</li>
+                          <li>Montrose (MTJ) / Grand Junction (GJT)</li>
+                        </ul>
+                      </li>
+
                       <li>
                         ChatGPT suggests that typical round trip flights to Cancun from New York & Chicago for MLK weekend are in the range of $300-400
                         <ul className="mt-2 space-y-2 custom-bullets ml-12">

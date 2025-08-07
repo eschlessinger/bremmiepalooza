@@ -63,7 +63,7 @@ export default function TravelInfoPage() {
 
   const tabs = [
     { id: 'flights', label: 'Flights', icon: '✈️' },
-    { id: 'airport', label: 'Airport', icon: '🛬' },
+    { id: 'airport', label: 'Airport Transportation', icon: '🛬' },
     { id: 'documents', label: 'Documents', icon: '📄' },
     { id: 'packing', label: 'Packing', icon: '🧳' },
     { id: 'activities', label: 'Activities', icon: '🏖️' }
@@ -101,17 +101,183 @@ export default function TravelInfoPage() {
       case 'airport':
         return (
           <div className="space-y-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-white/20">
-              <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif", textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
-                🛬 Airport Arrival & Transportation
+            {/* Introduction - No Container */}
+            <div className="text-white/95" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', lineHeight: '1.6'}}>
+              <p className="mb-4">
+                Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
+              </p>
+              <p className="mb-8">
+                After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
+              </p>
+            </div>
+
+            {/* Pre-Arranged Transfer Section */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+              <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}>
+                Pre-Arranged Transfer
               </h3>
-              <div className="space-y-6 text-white/90">
+              
+              <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                <p>
+                  Great option if you are only planning to drive to / from the hotel!
+                </p>
+                
                 <div>
-                  <h4 className="font-bold text-lg text-white mb-2">Airport Shuttle Service</h4>
-                  <div className="bg-green-500/20 rounded-lg p-4 border-l-4 border-green-400">
-                    <p className="font-bold text-white mb-2">✅ INCLUDED IN YOUR PACKAGE!</p>
-                    <p>Look for the "Bremmiepalooza" shuttle service when you arrive. Our coordinators will be waiting with festival signs in the arrivals area.</p>
+                  <h4 className="font-bold text-lg text-white mb-2">Keep In Mind:</h4>
+                  <ul className="space-y-2 ml-6 list-disc">
+                    <li>For additional / unforeseen transportation needs, can use Ubers (plentiful around the hotel & cheap) and / or Taxis</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-lg text-white mb-4" style={{color: '#d81b8c'}}>Our Pick: USA Transfers</h4>
+                  <ul className="space-y-2 ml-6 list-disc">
+                    <li>Appears to be the most beloved and reliable Transfer service
+                      <ul className="mt-2 ml-6 space-y-1 list-disc">
+                        <li>Round trip for 6 people to and from the hotel is $95 for a Private Van or $170 for a Private SUV (which, relative to the Van, boasts leather seats, a stepping stool, 5-volt power outlets, and fresh towels on arrival)</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-lg text-white mb-2">Customer Testimonials</h4>
+                  <div className="space-y-4 ml-6">
+                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50">
+                      <p className="text-white/90 italic mb-2">"Book USA Transfers every time. We go to Mexico 2 to 3 times a year, they are always there waiting for you. It's a private transfer so no waiting for a bus (Sometimes there's a short wait for your shuttle). It's around $100 round trip. They have always done a great job for us. You can book it online on their website. Once you get your checked bags, you put your head down and keep walking past all the rental car places, don't talk to anyone, until you are outside. USA is usually towards the back of the crowd of shuttle people. Once you are outside, you can ask anyone out there "Where is USA Transfers" and they will point you right to them."</p>
+                      <p className="text-white/70 text-sm">- RobbieG52726, February 2025 (Reddit)</p>
+                    </div>
+                    
+                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50">
+                      <p className="text-white/90 italic mb-2">"USA Transfers booked roundtrip for 5 of us, arriving on foreign and domestic flights, plus Maya Train, and leaving from 4 terminals. They knew about every terminal, each delay, etc. They can turn on a dime, and arrive on time."</p>
+                      <p className="text-white/70 text-sm">- truckforbiketrader, February 2025 (Reddit)</p>
+                    </div>
+                    
+                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50">
+                      <p className="text-white/90 italic mb-2">"Check out USA transfers. Legit company, owned by a Canadian guy. Easy to get a quote on their website or app. Super reliable"</p>
+                      <p className="text-white/70 text-sm">- KrazyKen62, 2023 (Reddit)</p>
+                      <div className="mt-2 space-y-1">
+                        <p className="text-white/80 text-sm">"2nd." - TSAngels1993, 2023 (Reddit)</p>
+                        <p className="text-white/80 text-sm">"Used them 3 times. Always had a good experience." - Unknown User, 2023 (Reddit)</p>
+                        <p className="text-white/80 text-sm">"Used them as well. Reliable and we extended our stay last minute and they were super accommodative." - redhiker2009, 2023 (Reddit)</p>
+                      </div>
+                    </div>
                   </div>
+                </div>
+
+                <div className="text-center mt-8">
+                  <a 
+                    href="https://booking.usa-transfers.com/affiliate_1082"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                    style={{
+                      fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                      textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                      minWidth: '280px'
+                    }}
+                  >
+                    BOOK NOW
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Rental Car Section */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+              <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}>
+                Rental Car
+              </h3>
+              
+              <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                <p>
+                  Great option if you are interested in additional flexibility to drive not only to / from the hotel, but also around Cancun!
+                </p>
+                
+                <div>
+                  <h4 className="font-bold text-lg text-white mb-2">Keep In Mind:</h4>
+                  <ul className="space-y-2 ml-6 list-disc">
+                    <li>Make sure to book directly and avoid third party sites</li>
+                    <li>Bring printed or digital copies of your quote and communication</li>
+                    <li>Purchasing TPL Insurance is required in Mexico (even if you are booking with a Credit Card that offers insurance coverage – which may or may not be valid for Mexico); some rental car companies will take advantage of this and try to massively upcharge you for it upon pickup (see below for our recommendation on which rental car company to use to avoid this)</li>
+                    <li>Drive cautiously — follow speed limits, keep headlights on (even during the day), and avoid night driving in rural areas</li>
+                    <li>There are a number of scams of which to be aware if you decide you want to rent a car:
+                      <ul className="mt-2 ml-6 space-y-2 list-disc">
+                        <li>Rental Car Pickup: Check and photograph the car thoroughly during pickup, including scratches, tires, windshield, fuel level, and mileage</li>
+                        <li>Police Stops: It's not uncommon for tourists to be pulled over and asked to pay a fine on the spot — sometimes unjustly. These are often "mordidas" (bribes) rather than legitimate tickets. If stopped:
+                          <ul className="mt-1 ml-6 space-y-1 list-disc">
+                            <li>Ask for a written ticket</li>
+                            <li>Do not pay in cash on the roadside</li>
+                            <li>Stay calm, polite, and firm</li>
+                          </ul>
+                        </li>
+                        <li>Speed Traps & Sudden Signage Changes: Some highways have sudden speed limit drops (especially near towns or police checkpoints) where speed traps are common</li>
+                        <li>Speed Bumps: Many aren't well-marked and can damage your car if hit at full speed</li>
+                        <li>Gas Stations
+                          <ul className="mt-1 ml-6 space-y-1 list-disc">
+                            <li>Always check the meter is zeroed before fueling</li>
+                            <li>Always pay in cash (using 200 peso notes or smaller bills, not 500+ peso notes), say the amount you are paying as you are handing it to the attendant, and count your change</li>
+                            <li>Avoid airport-adjacent gas stations</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-lg text-white mb-4" style={{color: '#d81b8c'}}>Our Pick: Avant Rental Cars</h4>
+                  <ul className="space-y-2 ml-6 list-disc">
+                    <li>Highly rated across platforms, with reviews indicating they book clean, modern vehicles with no hidden fees and provide responsive support and pickup instructions via WhatsApp or email</li>
+                    <li>Rates starting at ~$103 for 3 days, inclusive of mandatory insurance</li>
+                    <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">HERE</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-lg text-white mb-2">Customer Testimonials</h4>
+                  <div className="space-y-4 ml-6">
+                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-green-400/50">
+                      <p className="text-white/90 italic mb-2">"After doing quite a bit of research and comparing prices, I rented from Avant because of the reviews, the competitive price, and the fact that insurance was included. We had a wonderful experience renting from them. The staff was professional and kind. They charged exactly what they said they would for the car rental, did not try to scam us with extra charges or extra scratches when we returned the car. It was a well-maintained vehicle in good condition. Would definitely rent again!"</p>
+                      <p className="text-white/70 text-sm">– Christen Diehl, July 2025 (Google)</p>
+                    </div>
+                    
+                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-green-400/50">
+                      <p className="text-white/90 italic mb-2">"An amazing car rental company. Much better than the big brand places at the airport. No hidden costs or surprises, they were so professional and friendly with excellent communication. I totally recommend using Avant…The office is a short ride by shuttle from the airport and we didn't have to wait"</p>
+                      <p className="text-white/70 text-sm">– Mathew Bailey, July 2025 (Google)</p>
+                    </div>
+                    
+                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-green-400/50">
+                      <p className="text-white/90 italic mb-2">"Look into Avant Rental Car. I had an awesome experience and the price they quoted was the price I paid. No hidden fees. It was like $200 for 4 days. They even dropped the car off for me in PDC and I returned it to them at CUN airport. They have a location right outside the airport and shuttle you over to the terminal"</p>
+                      <p className="text-white/70 text-sm">– westwoodft, January 2025 (Reddit)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center mt-8">
+                  <a 
+                    href="https://www.avantrentacar.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                    style={{
+                      fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                      textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                      minWidth: '280px'
+                    }}
+                  >
+                    BOOK NOW
+                  </a>
                 </div>
               </div>
             </div>
@@ -501,7 +667,7 @@ export default function TravelInfoPage() {
                       }
                     `}
                     style={{
-                      fontFamily: "'ZollaPro', sans-serif"
+                      fontFamily: "Arial, sans-serif"
                     }}
                   >
                     <span>{tab.icon}</span>

@@ -98,31 +98,29 @@ export default function TravelInfoPage() {
           </div>
         )
 
-      case 'airport':
-        return (
-          <div className="space-y-10">
-            <div className="mt-8" />
+case 'airport':
+  return (
+    <div className="space-y-12"> {/* Increased from space-y-7 to space-y-12 for more space between containers */}
+      {/* Spacer before the intro */}
+      <div className="mt-6" />
 
-            <div
-              className="text-center"
-              style={{
-                fontFamily: 'Arial, sans-serif',
-                fontSize: '20px',
-                lineHeight: '1.8',
-              }}
-            >
-              <div className="mb-6">
-                <p className="mb-6 font-bold text-white">
-                  Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
-                </p>
-              </div>
-              <div className="mb-8">
-                <p className="mb-0 font-bold text-white">
-                  After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
-                </p>
-              </div>
-            </div>
-
+      {/* Introductory Text - Updated styling */}
+      <div
+        className="text-center"
+        style={{
+          fontFamily: 'Arial, sans-serif',
+          fontSize: '20px',
+          lineHeight: '1.8', // Slightly more spacing
+        }}
+      >
+        <p className="mb-6 font-bold" style={{color: '#d81b8c'}}> {/* Changed to pink color */}
+          Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
+        </p>
+        <p className="mb-8 font-bold" style={{color: '#d81b8c'}}> {/* Changed to pink color and increased bottom margin */}
+          After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
+        </p>
+      </div>
+            {/* Pre-Arranged Transfer Section */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
               <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
                   style={{
@@ -191,6 +189,7 @@ export default function TravelInfoPage() {
               </div>
             </div>
 
+            {/* Rental Car Section */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
               <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
                   style={{
@@ -206,45 +205,46 @@ export default function TravelInfoPage() {
                   Great option if you are interested in additional flexibility to drive not only to / from the hotel, but also around Cancun!
                 </p>
                 
-                <div>
-                  <h4 className="font-bold text-lg mb-2" style={{ color: 'black' }}>Keep In Mind:</h4>
-                  <ul style={{ listStyleType: 'disc', marginLeft: '1.5rem' }}>
-                    <li>Make sure to book directly and avoid third party sites</li>
-                    <li>Bring printed or digital copies of your quote and communication</li>
-                    <li>Purchasing TPL Insurance is required in Mexico (even if you are booking with a Credit Card that offers insurance coverage – which may or may not be valid for Mexico); some rental car companies will take advantage of this and try to massively upcharge you for it upon pickup (see below for our recommendation on which rental car company to use to avoid this)</li>
-                    <li>Drive cautiously — follow speed limits, keep headlights on (even during the day), and avoid night driving in rural areas</li>
-                    <li>
-                      There are a number of scams of which to be aware if you decide you want to rent a car:
-                      <ol style={{ listStyleType: 'decimal', marginLeft: '1.5rem' }}>
-                        <li>
-                          Rental Car Pickup: Check and photograph the car thoroughly during pickup, including scratches, tires, windshield, fuel level, and mileage
-                        </li>
-                        <li>
-                          Police Stops: It's not uncommon for tourists to be pulled over and asked to pay a fine on the spot — sometimes unjustly. These are often "mordidas" (bribes) rather than legitimate tickets. If stopped:
-                          <ul style={{ listStyleType: 'circle', marginLeft: '1.5rem' }}>
-                            <li>Ask for a written ticket</li>
-                            <li>Do not pay in cash on the roadside</li>
-                            <li>Stay calm, polite, and firm</li>
-                          </ul>
-                        </li>
-                        <li>
-                          Speed Traps & Sudden Signage Changes: Some highways have sudden speed limit drops (especially near towns or police checkpoints) where speed traps are common
-                        </li>
-                        <li>
-                          Speed Bumps: Many aren't well-marked and can damage your car if hit at full speed
-                        </li>
-                        <li>
-                          Gas Stations:
-                          <ul style={{ listStyleType: 'circle', marginLeft: '1.5rem' }}>
-                            <li>Always check the meter is zeroed before fueling</li>
-                            <li>Always pay in cash (using 200 peso notes or smaller bills, not 500+ peso notes), say the amount you are paying as you are handing it to the attendant, and count your change</li>
-                            <li>Avoid airport-adjacent gas stations</li>
-                          </ul>
-                        </li>
-                      </ol>
-                    </li>
-                  </ul>
-                </div>
+              <div>
+  <h4 className="font-bold text-lg mb-2" style={{ color: 'black' }}>Keep In Mind:</h4>
+  <ul style={{ listStyleType: 'disc', marginLeft: '1.5rem' }}>
+    <li>Make sure to book directly and avoid third party sites</li>
+    <li>Bring printed or digital copies of your quote and communication</li>
+    <li>Purchasing TPL Insurance is required in Mexico (even if you are booking with a Credit Card that offers insurance coverage – which may or may not be valid for Mexico); some rental car companies will take advantage of this and try to massively upcharge you for it upon pickup (see below for our recommendation on which rental car company to use to avoid this)</li>
+    <li>Drive cautiously — follow speed limits, keep headlights on (even during the day), and avoid night driving in rural areas</li>
+    <li>
+      There are a number of scams of which to be aware if you decide you want to rent a car:
+      <ol style={{ listStyleType: 'decimal', marginLeft: '1.5rem' }}>
+        <li>
+          Rental Car Pickup: Check and photograph the car thoroughly during pickup, including scratches, tires, windshield, fuel level, and mileage
+        </li>
+        <li>
+          Police Stops: It's not uncommon for tourists to be pulled over and asked to pay a fine on the spot — sometimes unjustly. These are often "mordidas" (bribes) rather than legitimate tickets. If stopped:
+          <ul style={{ listStyleType: 'circle', marginLeft: '1.5rem' }}>
+            <li>Ask for a written ticket</li>
+            <li>Do not pay in cash on the roadside</li>
+            <li>Stay calm, polite, and firm</li>
+          </ul>
+        </li>
+        <li>
+          Speed Traps & Sudden Signage Changes: Some highways have sudden speed limit drops (especially near towns or police checkpoints) where speed traps are common
+        </li>
+        <li>
+          Speed Bumps: Many aren't well-marked and can damage your car if hit at full speed
+        </li>
+        <li>
+          Gas Stations:
+          <ul style={{ listStyleType: 'circle', marginLeft: '1.5rem' }}>
+            <li>Always check the meter is zeroed before fueling</li>
+            <li>Always pay in cash (using 200 peso notes or smaller bills, not 500+ peso notes), say the amount you are paying as you are handing it to the attendant, and count your change</li>
+            <li>Avoid airport-adjacent gas stations</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ul>
+</div>
+
 
                 <div>
                   <h4 className="font-bold text-lg text-white mb-4" style={{color: '#d81b8c'}}>Our Pick: Avant Rental Cars</h4>
@@ -292,6 +292,38 @@ export default function TravelInfoPage() {
                 </div>
               </div>
             </div>
+
+            {/* Questions Section */}
+            <section className="mb-12">
+              <h2 
+                className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                Questions?
+              </h2>
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
+                <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                  Confused about the best transportation approach for you?
+                </p>
+                <p className="text-white/95 mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                  Want to discuss other potential options?
+                </p>
+                <p className="text-white/95 mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
+                  Please shoot us a message at info@bremmiepalooza.com so we can help!
+                </p>
+                <a 
+                  href="/contact"
+                  className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                  style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
+                >
+                  Email Us
+                </a>
+              </div>
+            </section>
           </div>
         )
 
@@ -347,6 +379,7 @@ export default function TravelInfoPage() {
 
   return (
     <main className="relative min-h-screen">
+      {/* Background gradient */}
       <div
         className="fixed inset-0 animate-gradient-shift"
         style={{
@@ -355,7 +388,9 @@ export default function TravelInfoPage() {
         }}
       />
 
+      {/* Content container */}
       <div className="relative z-10">
+        {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
             <Link href="/lineup" className="w-full max-w-sm md:max-w-md">
@@ -375,6 +410,7 @@ export default function TravelInfoPage() {
           </div>
         </div>
 
+        {/* Navigation Banner */}
         <div 
           className="w-full z-20"
           style={{
@@ -390,6 +426,7 @@ export default function TravelInfoPage() {
           >
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
               {navButtons.map((button, index) => {
+                // For internal page links
                 if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
                   return (
                     <Link key={index} href={button.href}>
@@ -413,166 +450,6 @@ export default function TravelInfoPage() {
                               width={isMobile ? 45 : 80} 
                               height={isMobile ? 45 : 80} 
                               className="md:w-24 md:h-24"
-                        />
-                      )}
-                    </div>
-                    
-                    <div className="text-center relative">
-                      <div 
-                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
-                        style={{
-                          textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                          fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                        }}
-                      >
-                        {button.label}
-                      </div>
-                      {button.sublabel ? (
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                          }}
-                        >
-                          {button.sublabel}
-                        </div>
-                      ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                          }}
-                        >
-                          &nbsp;
-                        </div>
-                      ) : null}
-                      {button.label === 'TRAVEL' && (
-                        <div 
-                          className="absolute"
-                          style={{
-                            left: '50%',
-                            bottom: '-8px',
-                            transform: 'translateX(-50%)',
-                            width: '60%',
-                            height: '3px',
-                            backgroundColor: '#d81b8c',
-                            borderRadius: '2px'
-                          }}
-                      )}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-
-        <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
-          <div className="px-4 pb-12">
-            <div className="max-w-6xl mx-auto">
-              <h1 
-                className="text-4xl md:text-6xl font-black text-center mb-8 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                TRAVEL INFO
-              </h1>
-
-              <div className="flex flex-wrap justify-center gap-2 mb-8">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`
-                      px-4 py-2 rounded-full font-bold transition-all duration-200 flex items-center gap-2
-                      ${activeTab === tab.id 
-                        ? 'bg-white text-purple-600 shadow-lg' 
-                        : 'bg-white/20 text-white hover:bg-white/30'
-                      }
-                    `}
-                    style={{
-                      fontFamily: "Arial, sans-serif"
-                    }}
-                  >
-                    <span>{tab.icon}</span>
-                    <span className={isMobile ? 'text-sm' : 'text-base'}>{tab.label}</span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-8">
-                {renderContent()}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <style jsx global>{`
-        ul.custom-bullets {
-          list-style: none;
-          padding-left: 0;
-        }
-        
-        ul.custom-bullets li {
-          position: relative;
-          padding-left: 1.5rem;
-          color: black;
-        }
-        
-        ul.custom-bullets li::before {
-          content: "•";
-          color: black;
-          position: absolute;
-          left: 0;
-          font-weight: bold;
-        }
-        
-        ul.custom-bullets ul.custom-bullets li::before {
-          content: "◦";
-          color: black;
-        }
-        
-        ul.custom-bullets ul.custom-bullets ul.custom-bullets li::before {
-          content: "—";
-          color: black;
-        }
-
-        @font-face {
-          font-family: 'ZollaPro';
-          src: url('/fonts/Zolla%20Pro.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @font-face {
-          font-family: 'ZollaProOutlined';
-          src: url('/fonts/Zolla-Pro-Outlined.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @keyframes gradient-shift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-
-        .animate-gradient-shift {
-          background-size: 600% 600%;
-          animation: gradient-shift 10s ease infinite;
-        }
-      `}</style>
-    </main>
-  )
-}24"
                               style={{ marginTop: '-2px' }}
                             />
                           )}
@@ -674,6 +551,7 @@ export default function TravelInfoPage() {
                   )
                 }
                 
+                // For disabled buttons
                 return (
                   <div
                     key={index}
@@ -743,4 +621,172 @@ export default function TravelInfoPage() {
                           alt="Book My Hotel Icon" 
                           width={isMobile ? 45 : 80} 
                           height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-
+                          className="md:w-24 md:h-24"
+                        />
+                      )}
+                    </div>
+                    
+                    <div className="text-center relative">
+                      <div 
+                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
+                        style={{
+                          textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                          fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                        }}
+                      >
+                        {button.label}
+                      </div>
+                      {button.sublabel ? (
+                        <div 
+                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
+                          style={{
+                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                          }}
+                        >
+                          {button.sublabel}
+                        </div>
+                      ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
+                        <div 
+                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
+                          style={{
+                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                          }}
+                        >
+                          &nbsp;
+                        </div>
+                      ) : null}
+                      {button.label === 'TRAVEL' && (
+                        <div 
+                          className="absolute"
+                          style={{
+                            left: '50%',
+                            bottom: '-8px',
+                            transform: 'translateX(-50%)',
+                            width: '60%',
+                            height: '3px',
+                            backgroundColor: '#d81b8c',
+                            borderRadius: '2px'
+                          }}
+                        />
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Content with margin for absolute positioned banner */}
+        <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
+
+          {/* Main Content */}
+          <div className="px-4 pb-12">
+            <div className="max-w-6xl mx-auto">
+              <h1 
+                className="text-4xl md:text-6xl font-black text-center mb-8 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                TRAVEL INFO
+              </h1>
+
+              {/* Tab Navigation */}
+              <div className="flex flex-wrap justify-center gap-2 mb-8">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`
+                      px-4 py-2 rounded-full font-bold transition-all duration-200 flex items-center gap-2
+                      ${activeTab === tab.id 
+                        ? 'bg-white text-purple-600 shadow-lg' 
+                        : 'bg-white/20 text-white hover:bg-white/30'
+                      }
+                    `}
+                    style={{
+                      fontFamily: "Arial, sans-serif"
+                    }}
+                  >
+                    <span>{tab.icon}</span>
+                    <span className={isMobile ? 'text-sm' : 'text-base'}>{tab.label}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Tab Content */}
+              <div className="mt-8">
+                {renderContent()}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CSS Styles */}
+      <style jsx global>{`
+        /* Custom bullet styling for better visibility */
+        ul.custom-bullets {
+          list-style: none;
+          padding-left: 0;
+        }
+        
+        ul.custom-bullets li {
+          position: relative;
+          padding-left: 1.5rem;
+          color: black;
+        }
+        
+        ul.custom-bullets li::before {
+          content: "•";
+          color: black;
+          position: absolute;
+          left: 0;
+          font-weight: bold;
+        }
+        
+        ul.custom-bullets ul.custom-bullets li::before {
+          content: "◦";
+          color: black;
+        }
+        
+        ul.custom-bullets ul.custom-bullets ul.custom-bullets li::before {
+          content: "—";
+          color: black;
+        }
+
+        @font-face {
+          font-family: 'ZollaPro';
+          src: url('/fonts/Zolla%20Pro.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'ZollaProOutlined';
+          src: url('/fonts/Zolla-Pro-Outlined.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @keyframes gradient-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradient-shift {
+          background-size: 600% 600%;
+          animation: gradient-shift 10s ease infinite;
+        }
+      `}</style>
+    </main>
+  )
+}

@@ -100,28 +100,28 @@ export default function TravelInfoPage() {
 
 case 'airport':
   return (
-    <div className="space-y-12"> {/* Increased from space-y-7 to space-y-12 for more space between containers */}
+    <div className="space-y-8">
       {/* Spacer before the intro */}
-      <div className="mt-6" />
+      <div className="mt-8" /> {/* Increased spacing */}
 
-      {/* Introductory Text - Updated styling */}
+      {/* Introductory Text - Fixed styling */}
       <div
-        className="text-center"
+        className="text-center px-6 py-8" {/* Added padding around the text */}
         style={{
           fontFamily: 'Arial, sans-serif',
           fontSize: '20px',
-          lineHeight: '1.8', // Slightly more spacing
+          lineHeight: '1.8',
         }}
       >
-        <p className="mb-6 font-bold" style={{color: '#d81b8c'}}> {/* Changed to pink color */}
+        <p className="mb-8 font-bold text-white"> {/* Changed back to white */}
           Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
         </p>
-        <p className="mb-8 font-bold" style={{color: '#d81b8c'}}> {/* Changed to pink color and increased bottom margin */}
+        <p className="mb-12 font-bold text-white"> {/* Changed back to white and increased spacing */}
           After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
         </p>
       </div>
             {/* Pre-Arranged Transfer Section */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-12"> {/* Added mb-12 for spacing */}
               <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
@@ -190,7 +190,7 @@ case 'airport':
             </div>
 
             {/* Rental Car Section */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-12"> {/* Added mb-12 for spacing */}
               <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
@@ -294,7 +294,7 @@ case 'airport':
             </div>
 
             {/* Questions Section */}
-            <section className="mb-12">
+            <div className="mb-12">
               <h2 
                 className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
                 style={{
@@ -323,7 +323,7 @@ case 'airport':
                   Email Us
                 </a>
               </div>
-            </section>
+            </div>
           </div>
         )
 

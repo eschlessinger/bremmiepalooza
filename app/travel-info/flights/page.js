@@ -359,26 +359,22 @@ export default function FlightsPage() {
         {/* Content with margin for absolute positioned banner */}
         <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
           
-          {/* Travel Info Header */}
-          <div className="px-4 py-1">
-            <h1 
-              className="text-4xl md:text-6xl font-black text-center uppercase tracking-wider" 
-              style={{
-                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                color: '#d81b8c'
-              }}
-            >
-              TRAVEL INFO
-            </h1>
-          </div>
-          
           {/* Main Content */}
           <div className="px-4 pb-12">
             <div className="max-w-5xl mx-auto">
+              <h1 
+                className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
+                style={{
+                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  color: '#d81b8c'
+                }}
+              >
+                TRAVEL INFO
+              </h1>
 
               {/* Travel Sub-Navigation */}
-              <div className="flex flex-wrap justify-center gap-2 mb-8 mt-8">
+              <div className="flex flex-wrap justify-center gap-2 mb-8 mt-12">
                 {travelTabs.map((tab) => (
                   <Link key={tab.id} href={tab.href}>
                     <div className="relative">

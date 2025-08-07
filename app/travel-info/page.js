@@ -102,16 +102,16 @@ case 'airport':
   return (
     <div className="space-y-8">
       {/* Introductory Text */}
-      <div className="text-center max-w-4xl mx-auto py-12">
-        <p className="text-white font-bold text-xl leading-relaxed mb-8">
+      <div className="text-center max-w-4xl mx-auto py-8">
+        <p className="text-white font-bold mb-6" style={{fontFamily: 'Arial, sans-serif', fontSize: '20px', lineHeight: '1.4'}}>
           Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
         </p>
-        <p className="text-white font-bold text-xl leading-relaxed mb-12">
+        <p className="text-white font-bold mb-8" style={{fontFamily: 'Arial, sans-serif', fontSize: '20px', lineHeight: '1.4'}}>
           After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
         </p>
       </div>
             {/* Pre-Arranged Transfer Section */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-12">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-16">
               <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
@@ -241,7 +241,7 @@ case 'airport':
                   <ul className="space-y-2 ml-6 custom-bullets">
                     <li>Highly rated across platforms, with reviews indicating they book clean, modern vehicles with no hidden fees and provide responsive support and pickup instructions via WhatsApp or email</li>
                     <li>Rates starting at ~$103 for 3 days, inclusive of mandatory insurance</li>
-                    <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="underline" style={{color: '#d81b8c'}}>here</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>
+                    <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="underline font-bold" style={{color: '#d81b8c'}}>here</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>
                   </ul>
                 </div>
 
@@ -284,7 +284,7 @@ case 'airport':
             </div>
 
             {/* Questions Section */}
-            <div className="mb-12">
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
               <h2 
                 className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
                 style={{
@@ -295,24 +295,22 @@ case 'airport':
               >
                 Questions?
               </h2>
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
-                <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                  Confused about the best transportation approach for you?
-                </p>
-                <p className="text-white/95 mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                  Want to discuss other potential options?
-                </p>
-                <p className="text-white/95 mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
-                  Please shoot us a message at info@bremmiepalooza.com so we can help!
-                </p>
-                <a 
-                  href="/contact"
-                  className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
-                  style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
-                >
-                  Email Us
-                </a>
-              </div>
+              <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                Confused about the best transportation approach for you?
+              </p>
+              <p className="text-white/95 mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                Want to discuss other potential options?
+              </p>
+              <p className="text-white/95 mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
+                Please shoot us a message at info@bremmiepalooza.com so we can help!
+              </p>
+              <a 
+                href="/contact"
+                className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
+              >
+                Email Us
+              </a>
             </div>
           </div>
         )

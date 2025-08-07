@@ -360,7 +360,7 @@ export default function FlightsPage() {
         <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
           
           {/* Travel Info Header */}
-          <div className="px-4 py-2">
+          <div className="px-4 py-1">
             <h1 
               className="text-4xl md:text-6xl font-black text-center uppercase tracking-wider" 
               style={{
@@ -378,7 +378,7 @@ export default function FlightsPage() {
             <div className="max-w-5xl mx-auto">
 
               {/* Travel Sub-Navigation */}
-              <div className="flex flex-wrap justify-center gap-2 mb-8">
+              <div className="flex flex-wrap justify-center gap-2 mb-8 mt-8">
                 {travelTabs.map((tab) => (
                   <Link key={tab.id} href={tab.href}>
                     <div className="relative">

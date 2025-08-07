@@ -414,10 +414,10 @@ export default function GroundTransportationPage() {
 
               {/* Introduction Text */}
               <div className="mb-8 text-center text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                <p className="mb-4">
+                <p className="mb-4 font-bold">
                   Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
                 </p>
-                <p>
+                <p className="font-bold">
                   After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
                 </p>
               </div>
@@ -436,7 +436,7 @@ export default function GroundTransportationPage() {
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="space-y-6 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <p>Great option if you are only planning to drive to / from the hotel!</p>
+                    <p className="text-center italic">Great option if you are only planning to drive to / from the hotel!</p>
                     
                     <div>
                       <h4 className="font-bold text-lg text-black mb-3">Keep In Mind:</h4>
@@ -482,18 +482,13 @@ export default function GroundTransportationPage() {
                         <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50">
                           <p className="text-black italic mb-2">"Check out USA transfers. Legit company, owned by a Canadian guy. Easy to get a quote on their website or app. Super reliable"</p>
                           <p className="text-black/70 text-sm">- KrazyKen62, 2023 (Reddit)</p>
-                          <div className="mt-2 space-y-1">
-                            <p className="text-black/80 text-sm">"2nd." - TSAngels1993, 2023 (Reddit)</p>
-                            <p className="text-black/80 text-sm">"Used them 3 times. Always had a good experience." - Unknown User, 2023 (Reddit)</p>
-                            <p className="text-black/80 text-sm">"Used them as well. Reliable and we extended our stay last minute and they were super accommodative." - redhiker2009, 2023 (Reddit)</p>
-                          </div>
                         </div>
                       </div>
                     </div>
 
                     <div className="text-center mt-8">
                       <a 
-                        href="https://booking.usa-transfers.com/affiliate_1082"
+                        href="https://usa-transfers.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
@@ -524,7 +519,7 @@ export default function GroundTransportationPage() {
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="space-y-6 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <p>Great option if you are interested in additional flexibility to drive not only to / from the hotel, but also around Cancun!</p>
+                    <p className="text-center italic">Great option if you are interested in additional flexibility to drive not only to / from the hotel, but also around Cancun!</p>
                     
                     <div>
                       <h4 className="font-bold text-lg text-black mb-3">Keep In Mind:</h4>
@@ -567,7 +562,7 @@ export default function GroundTransportationPage() {
                       <ul className="space-y-3 custom-bullets">
                         <li>Highly rated across platforms, with reviews indicating they book clean, modern vehicles with no hidden fees and provide responsive support and pickup instructions via WhatsApp or email</li>
                         <li>Rates starting at ~$103 for 3 days, inclusive of mandatory insurance</li>
-                        <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-500 underline">HERE</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>
+                        <li>Review <a href="https://www.avantrentacar.com/policies" target="_blank" rel="noopener noreferrer" className="font-bold underline" style={{color: '#d81b8c'}}>here</a> for a detailed breakdown of Avant's policies, including Insurance coverage</li>
                       </ul>
                     </div>
 

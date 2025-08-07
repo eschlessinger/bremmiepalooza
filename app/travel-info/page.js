@@ -460,7 +460,6 @@ export default function TravelInfoPage() {
                             backgroundColor: '#d81b8c',
                             borderRadius: '2px'
                           }}
-                        />
                       )}
                     </div>
                   </div>

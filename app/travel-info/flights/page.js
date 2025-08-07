@@ -412,17 +412,6 @@ export default function FlightsPage() {
                 ))}
               </div>
 
-              <h1 
-                className="text-4xl md:text-6xl font-black text-center mb-12 mt-12 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                FLIGHTS
-              </h1>
-
               {/* Airport Name & Code Section */}
               <section className="mb-12">
                 <h2 

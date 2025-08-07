@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
 
-export default function FlightsPage() {
+export default function BookHotelPage() {
   const [mounted, setMounted] = useState(false)
   const isMobile = useIsMobile()
 
@@ -58,14 +58,6 @@ export default function FlightsPage() {
       disabled: false,
       onClick: null
     }
-  ]
-
-  const travelTabs = [
-    { id: 'flights', label: 'Flights', icon: '✈️', href: '/travel-info/flights', active: true },
-    { id: 'ground-transportation', label: 'Ground Transportation', icon: '🛬', href: '/travel-info/ground-transportation', active: false },
-    { id: 'documents', label: 'Documents', icon: '📄', href: '/travel-info/documents', active: false },
-    { id: 'packing', label: 'Packing', icon: '🧳', href: '/travel-info/packing', active: false },
-    { id: 'activities', label: 'Activities', icon: '🏖️', href: '/travel-info/activities', active: false }
   ]
 
   return (
@@ -222,7 +214,7 @@ export default function FlightsPage() {
                               &nbsp;
                             </div>
                           ) : null}
-                          {button.label === 'TRAVEL' && (
+                          {button.label === 'BOOK MY' && (
                             <div 
                               className="absolute"
                               style={{
@@ -348,6 +340,20 @@ export default function FlightsPage() {
                           &nbsp;
                         </div>
                       ) : null}
+                      {button.label === 'BOOK MY' && (
+                        <div 
+                          className="absolute"
+                          style={{
+                            left: '50%',
+                            bottom: '-8px',
+                            transform: 'translateX(-50%)',
+                            width: '60%',
+                            height: '3px',
+                            backgroundColor: '#d81b8c',
+                            borderRadius: '2px'
+                          }}
+                        />
+                      )}
                     </div>
                   </div>
                 )
@@ -370,60 +376,10 @@ export default function FlightsPage() {
                   color: '#d81b8c'
                 }}
               >
-                TRAVEL INFO
+                BOOK MY HOTEL
               </h1>
 
-              {/* Travel Sub-Navigation */}
-              <div className="flex flex-wrap justify-center gap-2 mb-8 mt-12">
-                {travelTabs.map((tab) => (
-                  <Link key={tab.id} href={tab.href}>
-                    <div className="relative">
-                      <button
-                        className={`
-                          px-4 py-2 rounded-full font-bold transition-all duration-200 flex items-center gap-2
-                          ${tab.active 
-                            ? 'bg-white text-purple-600 shadow-lg' 
-                            : 'bg-white/20 text-white hover:bg-white/30'
-                          }
-                        `}
-                        style={{
-                          fontFamily: "Arial, sans-serif"
-                        }}
-                      >
-                        <span>{tab.icon}</span>
-                        <span className={isMobile ? 'text-sm' : 'text-base'}>{tab.label}</span>
-                      </button>
-                      {tab.active && (
-                        <div 
-                          className="absolute"
-                          style={{
-                            left: '50%',
-                            bottom: '-8px',
-                            transform: 'translateX(-50%)',
-                            width: '60%',
-                            height: '3px',
-                            backgroundColor: '#d81b8c',
-                            borderRadius: '2px'
-                          }}
-                        />
-                      )}
-                    </div>
-                  </Link>
-                ))}
-              </div>
-
-              <h1 
-                className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
-                style={{
-                  fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
-                }}
-              >
-                FLIGHTS
-              </h1>
-
-              {/* Airport Name & Code Section */}
+              {/* Important Dates Section */}
               <section className="mb-12">
                 <h2 
                   className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
@@ -433,16 +389,42 @@ export default function FlightsPage() {
                     color: '#d81b8c'
                   }}
                 >
-                  Airport Name & Code
+                  Important Dates
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <p className="text-black text-center" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    You should plan to fly into <strong>Cancún International Airport (CUN)</strong> — this is the only major airport in the area.
-                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="text-center bg-red-500/20 rounded-xl p-6 border-2 border-red-400/50">
+                      <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                        September 1, 2025
+                      </div>
+                      <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                        Room Block<br />
+                        Reservation Deadline
+                      </div>
+                    </div>
+                    <div className="text-center bg-yellow-500/20 rounded-xl p-6 border-2 border-yellow-400/50">
+                      <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                        December 1, 2025
+                      </div>
+                      <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                        Full Payment<br />
+                        Deadline
+                      </div>
+                    </div>
+                    <div className="text-center bg-green-500/20 rounded-xl p-6 border-2 border-green-400/50">
+                      <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                        January 16-19, 2026
+                      </div>
+                      <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                        Festival<br />
+                        Weekend
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </section>
 
-              {/* Recommended Arrival & Departure Dates Section */}
+              {/* Overview Section */}
               <section className="mb-12">
                 <h2 
                   className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
@@ -452,23 +434,149 @@ export default function FlightsPage() {
                     color: '#d81b8c'
                   }}
                 >
-                  Recommended Arrival & Departure Dates
+                  Overview
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-4 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <ul className="space-y-4 custom-bullets">
+                  <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    <p>
+                      We have reserved a block of rooms at Presidente Intercontinental Cancun. We highly recommend staying at the hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast!
+                    </p>
+                    <p>
+                      Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
+                    </p>
+                    <div className="text-center">
+                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                        To take advantage of the room block rate,
+                      </p>
+                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                        reservations must be made by Monday, September 1, 2025.
+                      </p>
+                    </div>
+                    <p className="text-center mb-6" style={{color: '#000', fontWeight: '400', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginTop: '1.5rem'}}>
+                      When you are ready to book, please do so at this link:
+                    </p>
+                    <div className="text-center">
+                      <a 
+                        href="https://forms.office.com/r/tuSCB07uW9?origin=lprLink"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                        style={{
+                          fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                          textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                          minWidth: '280px'
+                        }}
+                      >
+                        BOOK HERE
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Room Block Details Section */}
+              <section className="mb-12">
+                <h2 
+                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}
+                >
+                  Room Block Details
+                </h2>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                  <p className="text-white/95 mb-8" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                    For the room block, we have reserved 2 types of rooms:
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="bg-white/5 rounded-xl p-6 border-2 border-blue-400/30">
+                      <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                        Classic Ocean View
+                      </h3>
+                      <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>
+                        <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                          (guaranteed ocean view,<br />
+                          but higher cost)
+                        </p>
+                      </div>
+                      <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                        <div className="flex justify-between items-end">
+                          <span>Single/Double Occupancy:</span>
+                          <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$365.00 / night</span>
+                        </div>
+                        <div className="flex justify-between items-end">
+                          <span>Triple Occupancy:</span>
+                          <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$443.68 / night</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white/5 rounded-xl p-6 border-2 border-green-400/30">
+                      <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                        Classic
+                      </h3>
+                      <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>
+                        <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                          (no guaranteed view – could be garden view, resort view, or street / parking lot view. but lower cost)
+                        </p>
+                      </div>
+                      <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                        <div className="flex justify-between items-end">
+                          <span>Single/Double Occupancy:</span>
+                          <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$322.00 / night</span>
+                        </div>
+                        <div className="flex justify-between items-end">
+                          <span>Triple Occupancy:</span>
+                          <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$400.68 / night</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-12 text-center">
+                    <p className="text-white/95 font-semibold" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#d81b8c'}}>
+                      If you have a strong preference for one or the other, please book early to secure your room of choice!
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Booking Process Details Section */}
+              <section className="mb-12">
+                <h2 
+                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}
+                >
+                  Booking Process Details
+                </h2>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+                  <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    <p>
+                      The payment process is a bit unusual (but apparently the norm for Mexico):
+                    </p>
+                    <ul className="space-y-3 ml-6 custom-bullets">
                       <li>
-                        If you are planning to attend <strong>The Pregame</strong> on Friday, we recommend taking a Friday AM flight landing at CUN by ~3:00PM local time so that you have plenty of time to get to the hotel, check in, settle in, and freshen up before the party begins
+                        Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link
                       </li>
                       <li>
-                        If you are planning to attend <strong>The After Show</strong> on Sunday, we recommend flying out on Monday (ideally a late morning or afternoon flight so that you can take full advantage of complimentary breakfast & beach / pool / etc. on Monday AM)
+                        All rooms must be guaranteed with payment of one night at the time of booking
+                      </li>
+                      <li>
+                        The payment of the remaining nights of the room reservation must be completed before December 1, 2025
                       </li>
                     </ul>
                   </div>
                 </div>
               </section>
 
-              {/* Flights & Tickets Section */}
+              {/* The Fine Print Section */}
               <section className="mb-12">
                 <h2 
                   className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
@@ -478,46 +586,33 @@ export default function FlightsPage() {
                     color: '#d81b8c'
                   }}
                 >
-                  Flights & Tickets
+                  The Fine Print
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-6 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <ul className="space-y-4 custom-bullets">
+                  <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    <ul className="space-y-4 custom-bullets ml-6">
                       <li>
-                        There are direct flights available from:
-                        <ul className="mt-2 space-y-2 custom-bullets ml-12">
-                          <li>Chicago (ORD, MDW)</li>
-                          <li>New York (JFK, EWR)</li>
-                          <li>Boston (BOS)</li>
-                          <li>Atlanta (ATL)</li>
-                          <li>San Francisco (SFO)</li>
-                          <li>Seattle (SEA)</li>
-                          <li>London (LGW)</li>
-                        </ul>
-                      </li>
-
-                      <li>
-                        There are 1-stop flights available from:
-                        <ul className="mt-2 space-y-2 custom-bullets ml-12">
-                          <li>The Quad Cities (MLI)</li>
-                          <li>Montrose (MTJ) / Grand Junction (GJT)</li>
-                        </ul>
-                      </li>
-
-                      <li>
-                        ChatGPT suggests that typical round trip flights to Cancun from New York & Chicago for MLK weekend are in the range of $300-400
-                        <ul className="mt-2 space-y-2 custom-bullets ml-12">
-                          <li>As of August 6, 2025, flight prices appear somewhat elevated (especially for Chicago departures)</li>
-                        </ul>
+                        <div>
+                          Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant
+                          <ul className="mt-2 ml-6 space-y-2 custom-bullets">
+                            <li>
+                              For each child up to 12 years of age, a $13 / day fee applies to cover breakfast
+                            </li>
+                          </ul>
+                        </div>
                       </li>
                       <li>
-                        Our best advice is to wait a bit to book, but not too long — January is peak season in Mexico, and last-minute fares are often pricey
-                        <ul className="mt-2 space-y-2 custom-bullets ml-12">
-                          <li>We recommend setting a Google Flights alert to track deals for your route</li>
-                        </ul>
+                        <div>
+                          A maximum of 3 adults are allowed per room
+                          <ul className="mt-2 ml-6 space-y-2 custom-bullets">
+                            <li>
+                              In addition, up to 2 children 12 years of age or under may stay in each room for free with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)
+                            </li>
+                          </ul>
+                        </div>
                       </li>
                       <li>
-                        Flying in early or leaving a day later might lead to cheaper fares — and gives you more time to soak up the sun. Win-win!
+                        Discounted room rates are applicable 3 days prior to and 3 days after January 16-19, 2026 (subject to availability)
                       </li>
                     </ul>
                   </div>
@@ -537,19 +632,25 @@ export default function FlightsPage() {
                   Questions?
                 </h2>
                 <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
-                  <p className="text-black mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    Experiencing issues with finding, booking, and / or affording flights to Cancun?
+                  <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    Interested in a different room type?
                   </p>
-                  <p className="text-black mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
+                  <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    Experiencing issues with booking and / or affording a room at the Presidente Intercontinental Hotel?
+                  </p>
+                  <p className="text-white/95 mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    Really want to stay elsewhere?
+                  </p>
+                  <p className="text-white/95 mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
                     Please shoot us a message at info@bremmiepalooza.com so we can help!
                   </p>
-                  <Link 
+                  <a 
                     href="/contact"
                     className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
                     style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
                   >
                     Email Us
-                  </Link>
+                  </a>
                 </div>
               </section>
 
@@ -587,7 +688,7 @@ export default function FlightsPage() {
           animation: gradient-shift 10s ease infinite;
         }
 
-        /* Custom bullet styling */
+        /* Custom bullet styling for better visibility */
         ul.custom-bullets {
           list-style: none;
           padding-left: 0;

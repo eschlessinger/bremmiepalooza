@@ -360,7 +360,7 @@ export default function FlightsPage() {
         <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
           
           {/* Travel Info Header */}
-          <div className="px-4 py-8">
+          <div className="px-4 py-2">
             <h1 
               className="text-4xl md:text-6xl font-black text-center uppercase tracking-wider" 
               style={{

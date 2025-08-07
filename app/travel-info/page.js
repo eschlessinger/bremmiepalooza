@@ -101,27 +101,17 @@ export default function TravelInfoPage() {
 case 'airport':
   return (
     <div className="space-y-8">
-      {/* Spacer before the intro */}
-      <div className="mt-8" /> {/* Increased spacing */}
-
-      {/* Introductory Text - Fixed styling */}
-      <div
-        className="text-center px-6 py-8" {/* Added padding around the text */}
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '20px',
-          lineHeight: '1.8',
-        }}
-      >
-        <p className="mb-8 font-bold text-white"> {/* Changed back to white */}
+      {/* Introductory Text */}
+      <div className="text-center max-w-4xl mx-auto py-12">
+        <p className="text-white font-bold text-xl leading-relaxed mb-8">
           Once you arrive at Cancun International Airport, the Presidente Intercontinental Hotel is a ~30 minute car ride away.
         </p>
-        <p className="mb-12 font-bold text-white"> {/* Changed back to white and increased spacing */}
+        <p className="text-white font-bold text-xl leading-relaxed mb-12">
           After extensive Reddit / Google / ChatGPT research, we would recommend the following transportation methods:
         </p>
       </div>
             {/* Pre-Arranged Transfer Section */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-12"> {/* Added mb-12 for spacing */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-12">
               <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
@@ -190,7 +180,7 @@ case 'airport':
             </div>
 
             {/* Rental Car Section */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-12"> {/* Added mb-12 for spacing */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-12">
               <h3 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",

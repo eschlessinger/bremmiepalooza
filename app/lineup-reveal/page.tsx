@@ -149,11 +149,24 @@ export default function LineupRevealPage() {
             </Link>
           </div>
 
-          {/* Mobile button - with obvious test styling */}
+          {/* Mobile button - built from scratch */}
           <div className="block md:hidden">
-            <button style={{backgroundColor: 'lime', color: 'black', fontSize: '20px'}}>
-              MOBILE TEST
-            </button>
+            <Link href="/lineup">
+              <button style={{
+                backgroundColor: '#e4017e',
+                color: 'white',
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '10px',
+                padding: '4px 8px',
+                borderRadius: '20px',
+                border: 'none',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>
+                SEE THE LINEUP!
+              </button>
+            </Link>
           </div>
         </div>
       </div>

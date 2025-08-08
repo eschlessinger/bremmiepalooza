@@ -47,7 +47,7 @@ export default function ActivitiesPage() {
     { 
       label: "TRAVEL", 
       sublabel: "INFO",
-      href: "/travel-info/flights", 
+      href: "/travel-info", 
       disabled: false,
       onClick: null
     },
@@ -640,8 +640,8 @@ export default function ActivitiesPage() {
                       <p><strong>Cost:</strong> Free</p>
                       <p><strong>Why It Makes The List:</strong> Lively local square where Cancún residents actually hang out—street food, crafts, and performances without the Hotel Zone markup.</p>
                       <p><strong>Testimonials:</strong></p>
-                      <div className="ml-12">
-                        <p><em>"Go to Parque de las Palapas in the evening…there's local craft people having tables set up and selling their wares along with a bunch of various food carts and some walk up places on the edge of park. Also has entertainment, typically a clown doing his act, and also for the kids, they have electric cars to rent and ride around…things sorta wind down around 10 or 11 but if looking to do more, there's bars and restaurants all around as well" -Healthy_Turnover_627, Reddit, June 2025</em></p>
+                      <div style={{marginLeft: '3rem'}}>
+                        <p style={{marginBottom: '1rem'}}><em>"Go to Parque de las Palapas in the evening…there's local craft people having tables set up and selling their wares along with a bunch of various food carts and some walk up places on the edge of park. Also has entertainment, typically a clown doing his act, and also for the kids, they have electric cars to rent and ride around…things sorta wind down around 10 or 11 but if looking to do more, there's bars and restaurants all around as well" -Healthy_Turnover_627, Reddit, June 2025</em></p>
                         
                         <p><em>"Go to Parque Las Palapas, enjoy some street food like "marquesita" a crispy crepe with sweet and salty cheese known as queso de bola" -Rafapaf, Reddit, June 2025</em></p>
                       </div>
@@ -663,7 +663,7 @@ export default function ActivitiesPage() {
                       <p><strong>Why It Makes The List:</strong> A thrilling and scenic way to explore Nichupté Lagoon's mangrove channels while piloting your own speedboat / jet ski, with an optional snorkeling stop at Punta Nizuc coral reef and MUSA.</p>
                       <p><strong>URL:</strong> <a href="https://jungletourcancun.com/mangrove-speedboat-tour.html" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://jungletourcancun.com/mangrove-speedboat-tour.html</a></p>
                       <p><strong>Additional notes:</strong></p>
-                      <div className="ml-12">
+                      <div style={{marginLeft: '3rem'}}>
                         <p>• It appears you may be able to add a tequila tasting to the experience essentially for free… (see next activity / this link: <a href="https://cancuntequilatasting.com/cancun-tequila-tasting-and-speedboat-tour-combo/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://cancuntequilatasting.com/cancun-tequila-tasting-and-speedboat-tour-combo/</a>)</p>
                       </div>
                     </div>
@@ -718,7 +718,7 @@ export default function ActivitiesPage() {
                       <p><strong>Why It Makes The List:</strong> Jungle thrills—zip-lines, ATVs, cenote swims—in a single, well-run park.</p>
                       <p><strong>URL:</strong> <a href="https://www.selvatica.com.mx/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://www.selvatica.com.mx/</a></p>
                       <p><strong>Additional notes:</strong></p>
-                      <div className="ml-12">
+                      <div style={{marginLeft: '3rem', marginTop: '0.5rem'}}>
                         <p>• They will pick you up and drop you off at your hotel for ~$15-20 total</p>
                         <p>• Reviews suggest you can also add-on insurance, towels, photos, etc.</p>
                         <p>• The "Gimmie All" package seems most compelling if you have time for it (may be easiest to fit in if you are extending a day or 2 before and /or after Bremmiepalooza, but probably POSSIBLE to do on Saturday if you wake up early)</p>

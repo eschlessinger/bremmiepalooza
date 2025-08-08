@@ -47,7 +47,7 @@ export default function ActivitiesPage() {
     { 
       label: "TRAVEL", 
       sublabel: "INFO",
-      href: "/travel-info", 
+      href: "/travel-info/flights", 
       disabled: false,
       onClick: null
     },

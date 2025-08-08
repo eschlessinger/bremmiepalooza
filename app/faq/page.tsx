@@ -138,7 +138,7 @@ export default function FAQsPage() {
       )
     },
     {
-      question: "Where is Bremmie registered?",
+      question: "Where are Bremmie registered?",
       answer: "Your presence at Bremmiepalooza is the greatest gift we could ask for! We're so excited to celebrate with you, and we don't want you to worry about bringing anything other than your dancing shoes and positive energy <3"
     }
   ]

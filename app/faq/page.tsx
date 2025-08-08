@@ -70,7 +70,7 @@ export default function FAQsPage() {
       question: "What should I wear for Bremmiepalooza?",
       answer: (
         <div>
-          <p>Bremmiepalooza will be a fun, colorful, and joyful weekend. We hope it will be filled with lots of fun bright colors, patterns, and textures. We also hope that everyone will feel 100% comfortable throughout the whole weekend (reminder: typically early evening temperatures in the mid-to-upper 70s / low 80s falling to lows in the mid-to-upper 60s / low 70s overnight).</p>
+          <p>Bremmiepalooza will be a fun, colorful, and joyful weekend. We hope it will be filled with lots of fun bright colors, patterns, and textures. We also hope that everyone will feel 100% comfortable throughout the whole weekend (reminder: typical evening temperatures range from mid 70s to low 80s and fall to nighttime temperatures in the upper 60s to low 70s).</p>
           <p>Check back soon for more specific, event-by-event inspiration!</p>
         </div>
       )
@@ -80,9 +80,9 @@ export default function FAQsPage() {
       answer: (
         <div>
           <p>We have booked a room block at the Presidente Intercontinental Hotel in Cancun. We highly recommend staying at this hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast!</p>
-          <p>Specifically, The Pregame and The Main Stage will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for The Aftershow.</p>
+          <p>The Pregame and The Main Stage will take place at the Presidente Intercontinental Hotel. A bus will take festival goers from the Presidente Intercontinental Hotel to the Marina for The Aftershow.</p>
           <p><strong className="text-pink-600 font-bold">Please note that to secure the reduced rate for the room block, all hotel reservations must be confirmed by Monday, September 1, 2025.</strong></p>
-          <p>Additionally, for anyone interested in extending their stay in Mexico, the reduced rate at the hotel will be valid (subject to availability) for the 3 days leading up to Bremmiepalooza and the 3 days following Bremmiepalooza.</p>
+          <p>If anyone wants to extend their stay in Mexico, the reduced rate at the hotel will be valid for 3 days up to and following Bremmiepalooza, subject to availability.</p>
           <p>All additional details related to the hotel can be found on our <a href="https://www.bremmiepalooza.com/book-hotel" className="text-pink-600 hover:text-pink-800 underline font-bold">Book My Hotel</a> page.</p>
         </div>
       )
@@ -112,7 +112,7 @@ export default function FAQsPage() {
       answer: "Yes! All guests traveling to Mexico need a valid passport. Mexico requires that passports are valid for the duration of your stay in Mexico, but it is safest to ensure it is valid for at least 6 months beyond your travel date in case your airline requires that (you can check with your airline to be sure). No visa is required for U.S. or UK citizens staying less than 180 days."
     },
     {
-      question: "When do tickets to Bremmiepalooza go on sale?",
+      question: "When can I reserve my Bremmiepalooza tickets?",
       answer: "Keep an eye on your email for updates regarding booking your tickets."
     },
     {
@@ -120,8 +120,8 @@ export default function FAQsPage() {
       answer: "We want Bremmiepalooza to be a weekend to remember for you and your loved ones. That means everyone gets a +1 and kids are invited! When tickets are released, please feel free to reserve tickets for you, your significant other and / or bestie, and / or your kiddos – whatever will optimize your Bremmiepalooza experience!"
     },
     {
-      question: "Is Bremmiepalooza fully outdoor?",
-      answer: "Yes! The Pregame, The Main Stage, and the Aftershow will all take place outdoor. The Pregame and the Main Stage will take place on the beach, so be sure to plan your shoes (or lack of shoes) accordingly."
+      question: "Is Bremmiepalooza fully outdoors?",
+      answer: "Yes! The Pregame, The Main Stage, and the Aftershow will all take place outdoors. The Pregame and the Main Stage will take place on the beach, so be sure to plan your shoes (or lack of shoes) accordingly."
     },
     {
       question: "Where do I need to be and when?",

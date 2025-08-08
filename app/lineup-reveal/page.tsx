@@ -135,7 +135,7 @@ export default function LineupRevealPage() {
           {/* CTA Button */}
           {/* Desktop button */}
           <div className="hidden md:block">
-            <Link href="/lineup">
+            <Link href="/">
               <button 
                 className="bg-[#e4017e] text-white font-bold uppercase tracking-wider rounded-full shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl"
                 style={{ 
@@ -151,7 +151,7 @@ export default function LineupRevealPage() {
 
           {/* Mobile button - built from scratch */}
           <div className="block md:hidden">
-            <Link href="/lineup">
+            <Link href="/">
               <button style={{
                 backgroundColor: '#e4017e',
                 color: 'white',

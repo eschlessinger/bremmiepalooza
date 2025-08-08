@@ -524,6 +524,7 @@ export default function GroundTransportationPage() {
                     <div>
                       <h4 className="font-bold text-lg text-black mb-3">Keep In Mind:</h4>
                       <ul className="space-y-3 custom-bullets">
+                        <li>The Presidente Intercontinental Cancun offers free parking</li>
                         <li>Make sure to book directly and avoid third party sites</li>
                         <li>Bring printed or digital copies of your quote and communication</li>
                         <li>Purchasing TPL Insurance is required in Mexico (even if you are booking with a Credit Card that offers insurance coverage – which may or may not be valid for Mexico); some rental car companies will take advantage of this and try to massively upcharge you for it upon pickup (see below for our recommendation on which rental car company to use to avoid this)</li>

@@ -48,7 +48,7 @@ export default function TravelInfoPage() {
     { 
       label: "TRAVEL", 
       sublabel: "INFO",
-      href: "/travel-info", 
+      href: "/travel-info/flights", 
       disabled: false,
       onClick: null
     },

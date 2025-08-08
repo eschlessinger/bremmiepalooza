@@ -133,19 +133,28 @@ export default function LineupRevealPage() {
           </div>
 
           {/* CTA Button */}
-          <Link href="/lineup">
-            <button 
-              className="bg-[#e4017e] text-white font-bold uppercase tracking-wider rounded-full shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl"
-              style={{ 
-                fontFamily: 'Arial, sans-serif',
-                padding: isMobile ? '6px 12px' : '8px 16px',
-                fontSize: isMobile ? '12px' : '14px',
-                width: 'auto'
-              }}
-            >
-              SEE THE LINEUP!
+          {/* Desktop button */}
+          <div className="hidden md:block">
+            <Link href="/lineup">
+              <button 
+                className="bg-[#e4017e] text-white font-bold uppercase tracking-wider rounded-full shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl"
+                style={{ 
+                  fontFamily: 'Arial, sans-serif',
+                  padding: '8px 16px',
+                  fontSize: '14px'
+                }}
+              >
+                SEE THE LINEUP!
+              </button>
+            </Link>
+          </div>
+
+          {/* Mobile button - with obvious test styling */}
+          <div className="block md:hidden">
+            <button style={{backgroundColor: 'lime', color: 'black', fontSize: '20px'}}>
+              MOBILE TEST
             </button>
-          </Link>
+          </div>
         </div>
       </div>
 

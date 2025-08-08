@@ -81,7 +81,7 @@ export default function FAQsPage() {
         <div>
           <p>We have booked a room block at the Presidente Intercontinental Hotel in Cancun. We highly recommend staying at this hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast!</p>
           <p>Specifically, The Pregame and The Main Stage will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for The Aftershow.</p>
-          <p>Please note that to secure the reduced rate for the room block, all hotel reservations must be confirmed by Monday, September 1, 2025.</p>
+          <p><strong className="text-pink-600 font-bold">Please note that to secure the reduced rate for the room block, all hotel reservations must be confirmed by Monday, September 1, 2025.</strong></p>
           <p>Additionally, for anyone interested in extending their stay in Mexico, the reduced rate at the hotel will be valid (subject to availability) for the 3 days leading up to Bremmiepalooza and the 3 days following Bremmiepalooza.</p>
           <p>All additional details related to the hotel can be found on our <a href="https://www.bremmiepalooza.com/book-hotel" className="text-pink-600 hover:text-pink-800 underline font-bold">Book My Hotel</a> page.</p>
         </div>

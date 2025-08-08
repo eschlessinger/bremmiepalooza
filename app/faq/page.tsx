@@ -486,7 +486,7 @@ export default function FAQsPage() {
                     
                     {openFAQ === index && (
                       <div className="px-6 pb-4">
-                        <div className="text-white/90 leading-relaxed text-base md:text-lg faq-content">
+                        <div className="text-black leading-relaxed text-base md:text-lg faq-content">
                           {typeof faq.answer === 'string' ? (
                             <p>{faq.answer}</p>
                           ) : (
@@ -512,13 +512,10 @@ export default function FAQsPage() {
                   Questions?
                 </h2>
                 <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
-                  <p className="text-white mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    Still Have Questions?
+                  <p className="text-black mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    Still have questions? We're here to help make your festival experience amazing!
                   </p>
-                  <p className="text-white mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    We're here to help make your festival experience amazing!
-                  </p>
-                  <p className="text-white mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
+                  <p className="text-black mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
                     Please shoot us a message at info@bremmiepalooza.com so we can help!
                   </p>
                   <Link 

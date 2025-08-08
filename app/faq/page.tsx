@@ -31,7 +31,7 @@ export default function FAQsPage() {
     { 
       label: "LINEUP", 
       sublabel: "",
-      href: "/lineup", 
+      href: "/", 
       disabled: false,
       onClick: null
     },
@@ -159,7 +159,7 @@ export default function FAQsPage() {
         {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
-            <Link href="/lineup" className="w-full max-w-sm md:max-w-md">
+            <Link href="/" className="w-full max-w-sm md:max-w-md">
               <Image
                 src="/bremmiepalooza-logo-for-cta.png"
                 alt="Bremmiepalooza 2026"

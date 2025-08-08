@@ -52,7 +52,7 @@ export default function FAQsPage() {
     { 
       label: "TRAVEL", 
       sublabel: "INFO",
-      href: "/travel-info", 
+      href: "/travel-info/flights", 
       disabled: false,
       onClick: null
     },
@@ -67,64 +67,52 @@ export default function FAQsPage() {
 
   const faqs = [
     {
-      question: "What is Bremmiepalooza?",
-      answer: "Bremmiepalooza is our wedding celebration with a music festival twist! We're bringing together our favorite people for a weekend of love, music, and unforgettable memories in Cancun, Mexico."
+      question: "What should I wear for Bremmiepalooza?",
+      answer: "Bremmiepalooza will be a fun, colorful, and joyful weekend. We hope it will be filled with lots of fun bright colors, patterns, and textures. We also hope that everyone will feel 100% comfortable throughout the whole weekend (reminder: typically early evening temperatures in the mid-to-upper 70s falling to lows in the mid-to-upper 60s overnight). Check back soon for more specific, event-by-event inspiration!"
     },
     {
-      question: "When and where is the festival?",
-      answer: "The festival runs from January 16-18, 2026, at the InterContinental Presidente Cancun. The main ceremony will be on [Day], with festivities continuing throughout the weekend."
+      question: "Where should I stay for Bremmiepalooza?",
+      answer: "We have booked a room block at the Presidente Intercontinental Hotel in Cancun. We highly recommend staying at this hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast! Specifically, The Pregame and The Main Stage will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for The Aftershow. Please note that to secure the reduced rate for the room block, all hotel reservations must be confirmed by Monday, September 1, 2025. Additionally, for anyone interested in extending their stay in Mexico, the reduced rate at the hotel will be valid (subject to availability) for the 3 days leading up to Bremmiepalooza and the 3 days following Bremmiepalooza. All additional details related to the hotel can be found on our Book My Hotel page."
     },
     {
-      question: "What should I wear?",
-      answer: "Think festival chic meets tropical paradise! Comfortable, breathable clothing in bright colors. Don't forget sunscreen, sunglasses, and comfortable shoes for dancing. We'll have more detailed packing lists in your welcome bags."
+      question: "What are the addresses of the festival events?",
+      answer: "The Pregame and The Main Stage will take place on the beach at the Presidente Intercontinental Hotel in Cancun, which is located at Blvd. Kukulcan Km 7.5, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico. The Aftershow will take place offsite. A bus will be provided to transport festival-goers from the Presidente Intercontinental Hotel to the Marina, which is located at API Maritime Terminal Puerto Juarez (Supermanzana 84, Naval, 77525 Cancún, Q.R.)."
     },
     {
-      question: "Are kids welcome?",
-      answer: "We love your little ones, but we've planned this as an adults-only celebration so everyone can party late into the night! We recommend enjoying this as a kid-free vacation."
-    },
-    {
-      question: "What's included in my stay?",
-      answer: "Your hotel package includes accommodations, all meals, drinks, and access to all festival events. Transportation to and from the airport is also included with your booking."
-    },
-    {
-      question: "Will there be vegetarian/vegan options?",
-      answer: "Absolutely! The resort offers extensive vegetarian and vegan options. Please let us know about any dietary restrictions when you RSVP so we can ensure special arrangements if needed."
-    },
-    {
-      question: "What activities are planned?",
-      answer: "Beyond the wedding ceremony, we have pool parties, beach activities, live music, dancing, group excursions, and surprise performances throughout the weekend. Check the festival schedule for details!"
+      question: "Do I need my own method of transportation?",
+      answer: "If you are staying at the Presidente Intercontinental Cancun, the only transportation you will need to get to / from Bremmiepalooza is a ride from and to Cancun International Airport. 2 Bremmiepalooza events are being held onsite at the Presidente Intercontinental Cancun, and the third is being held offsite, but there will be bus transportation provided to and from that event. The area immediately around the hotel is very walkable – to shopping as well as to the nightlife area where there are some good restaurants to try for lunch if you are interested. There are also inexpensive Ubers available to go to restaurants / etc. nearby the hotel. If you want to rent a car, there is free onsite parking available at the Presidente Intercontinental Hotel."
     },
     {
       question: "Do I need a passport?",
-      answer: "Yes! All guests traveling to Mexico need a valid passport. Make sure it's valid for at least 6 months beyond your travel date. No visa is required for US citizens staying less than 180 days."
+      answer: "Yes! All guests traveling to Mexico need a valid passport. Mexico requires that passports are valid for the duration of your stay in Mexico, but it is safest to ensure it is valid for at least 6 months beyond your travel date in case your airline requires that (you can check with your airline to be sure). No visa is required for US citizens staying less than 180 days."
     },
     {
-      question: "What about gratuities?",
-      answer: "Tips are included in your package for most services. We'll provide specific guidance about additional tipping in your welcome materials."
+      question: "When do tickets to Bremmiepalooza go on sale?",
+      answer: "Keep an eye on your email for updates regarding booking your tickets."
     },
     {
-      question: "Can I bring a plus-one?",
-      answer: "If your invitation includes a plus-one, absolutely! If not, we're keeping the guest list intimate due to venue capacity. Reach out to us if you have questions about your invitation."
+      question: "Who is invited to Bremmiepalooza?",
+      answer: "We want Bremmiepalooza to be a weekend to remember for you and your loved ones. That means everyone gets a +1 and kids are invited! When tickets are released, please feel free to reserve tickets for you, your significant other and / or bestie, and / or your kiddos – whatever will optimize your Bremmiepalooza experience!"
     },
     {
-      question: "What if I have mobility concerns?",
-      answer: "The resort is fully accessible with elevators, ramps, and accessible rooms available. Please let us know about any specific needs when booking so we can ensure everything is arranged."
+      question: "Is Bremmiepalooza fully outdoor?",
+      answer: "Yes! The Pregame, The Main Stage, and the Aftershow will all take place outdoor. The Pregame and the Main Stage will take place on the beach, so be sure to plan your shoes (or lack of shoes) accordingly."
     },
     {
-      question: "Weather concerns?",
-      answer: "January is one of the best times to visit Cancun! Average temperatures are in the 80s with low humidity. We have indoor backup plans for all events just in case."
+      question: "Where do I need to be and when?",
+      answer: "A detailed schedule will be released closer to Bremmiepalooza. Generally speaking, you can expect festivities to start around 5PM Cancun Time on Friday, January 16th and run through the evening of Sunday, Jan 18th, with The Main Stage taking place on the evening of Saturday, January 17th."
     },
     {
-      question: "How do I get from the airport?",
-      answer: "Airport transportation is included in your package! Look for our festival shuttle service when you arrive. Details will be sent with your booking confirmation."
+      question: "What if I want to stay at The Main Stage until 4AM but my kids don't?",
+      answer: "We are in the process of working with our Planner and the Hotel to arrange for babysitting services and / or recommendations. We will keep you posted as we learn more!"
     },
     {
-      question: "Can I extend my stay?",
-      answer: "Yes! Contact the resort directly to add extra nights at a discounted rate. We recommend booking early as January is peak season in Cancun."
+      question: "Is there anything to do in Cancun during my downtime?",
+      answer: "There is a lot to do! You can start off each morning with a complimentary breakfast at the Caribeño Restaurant before lounging by the pool / beach, going shopping in town (admittedly most of the 'cool shopping locations' that ChatGPT found seem to sell junky souvenirs – haven't yet found any cool artisanal shops ☹), or potentially embarking on some excursions (although we recommend you save a good portion of your energy for Bremmiepalooza events – and especially The Main Stage). See Travel Info – Activities for more specific recommendations!"
     },
     {
-      question: "Gift registry?",
-      answer: "Your presence is our present! If you'd like to contribute to our honeymoon fund or house fund, we'll share those details closer to the wedding date."
+      question: "Where is Bremmie registered?",
+      answer: "Your presence at Bremmiepalooza is the greatest gift we could ask for! We're so excited to celebrate with you, and we don't want you to worry about bringing anything other than your dancing shoes and positive energy <3"
     }
   ]
 
@@ -455,9 +443,9 @@ export default function FAQsPage() {
                       className="w-full px-6 py-4 text-left hover:bg-white/5 transition-all duration-200 flex justify-between items-center"
                     >
                       <h3 
-                        className="text-lg md:text-xl font-black text-white pr-4"
+                        className="text-lg md:text-xl font-bold text-white pr-4"
                         style={{
-                          fontFamily: "'ZollaPro', 'Arial Black', sans-serif",
+                          fontFamily: "Arial, sans-serif",
                           textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
                         }}
                       >
@@ -483,35 +471,38 @@ export default function FAQsPage() {
                 ))}
               </div>
 
-              {/* Contact Section */}
-              <div className="mt-12 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-2xl p-8 text-center border-2 border-white/20">
+              {/* Questions Section */}
+              <section className="mt-12">
                 <h2 
-                  className="text-2xl md:text-3xl font-black text-white mb-4"
+                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
                   style={{
-                    fontFamily: "'ZollaPro', 'Arial Black', sans-serif",
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
                   }}
                 >
-                  Still Have Questions?
+                  Questions?
                 </h2>
-                <p className="text-white/90 text-lg mb-6">
-                  We're here to help make your festival experience amazing!
-                </p>
-                <div className="flex flex-col md:flex-row gap-4 justify-center">
-                  <a 
+                <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
+                  <p className="text-white mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    Still Have Questions?
+                  </p>
+                  <p className="text-white mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    We're here to help make your festival experience amazing!
+                  </p>
+                  <p className="text-white mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
+                    Please shoot us a message at info@bremmiepalooza.com so we can help!
+                  </p>
+                  <Link 
                     href="/contact"
-                    className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                    className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
+                    style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
                   >
                     Email Us
-                  </a>
-                  <a 
-                    href="tel:+1234567890"
-                    className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
-                  >
-                    📞 Call Us
-                  </a>
+                  </Link>
                 </div>
-              </div>
+              </section>
+
             </div>
           </div>
         </div>

@@ -52,7 +52,7 @@ export default function FAQsPage() {
     { 
       label: "TRAVEL", 
       sublabel: "INFO",
-      href: "/travel-info/flights", 
+      href: "/travel-info", 
       disabled: false,
       onClick: null
     },

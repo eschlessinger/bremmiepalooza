@@ -117,7 +117,12 @@ export default function FAQsPage() {
     },
     {
       question: "Who is invited to Bremmiepalooza?",
-      answer: "We want Bremmiepalooza to be a weekend to remember for you and your loved ones. That means everyone gets a +1 and kids are invited! When tickets are released, please feel free to reserve tickets for you, your significant other and / or bestie, and / or your kiddos – whatever will optimize your Bremmiepalooza experience!"
+      answer: (
+        <div>
+          <p>We want Bremmiepalooza to be a weekend to remember for you and your loved ones. That means everyone gets a +1 and kids are invited!</p>
+          <p>When tickets are released, please feel free to reserve tickets for you, your significant other and / or bestie, and / or your kiddos – whatever will optimize your Bremmiepalooza experience!</p>
+        </div>
+      )
     },
     {
       question: "Is Bremmiepalooza fully outdoors?",

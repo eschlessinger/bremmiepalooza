@@ -460,7 +460,7 @@ export default function PackingPage() {
                       <li>🧼 <strong>Wet bag</strong> (for storing damp swimsuits)</li>
                       <li>🩳 <strong>Fun cover-ups / sarongs / oversized shirts</strong></li>
                       <li>🏖️ <strong>Beach tote</strong></li>
-                      <li>🧖‍♀️ <strong>Light towel / travel towel</strong> (most hotels have them, but useful for excursions)</li>
+
                     </ul>
                   </div>
                 </div>

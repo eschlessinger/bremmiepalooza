@@ -47,7 +47,7 @@ export default function PackingPage() {
     { 
       label: "TRAVEL", 
       sublabel: "INFO",
-      href: "/travel-info", 
+      href: "/travel-info/flights", 
       disabled: false,
       onClick: null
     },
@@ -533,7 +533,7 @@ export default function PackingPage() {
                     color: '#d81b8c'
                   }}
                 >
-                  <span className="text-4xl md:text-5xl ml-2 md:ml-0">✈️</span>
+                  <span className="text-4xl md:text-5xl mr-3 md:mr-0">✈️</span>
                   Carry-On Tips
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">

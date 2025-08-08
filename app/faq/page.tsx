@@ -113,7 +113,7 @@ export default function FAQsPage() {
     },
     {
       question: "When can I reserve my Bremmiepalooza tickets?",
-      answer: "Keep an eye on your email for updates regarding booking your tickets."
+      answer: "Keep an eye on your email for updates regarding reserving your tickets."
     },
     {
       question: "Who is invited to Bremmiepalooza?",

@@ -568,7 +568,6 @@ export default function ActivitiesPage() {
                       <p><strong>Description:</strong> A beachy, chill spot known for massive customizable burritos, tacos, smoothies, and cocktails. Friendly, casual, and always open.</p>
                       <p><strong>Must-orders:</strong> Build-your-own burrito, Coconut shrimp, Fajita nachos, Fish tacos, Tropical cocktails</p>
                       <p><strong>URL:</strong> <a href="https://the-surfin-burrito.res-menu.com/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://the-surfin-burrito.res-menu.com/</a></p>
-</invoke>
                     </div>
 
                     {/* Tacos Chachalacos */}

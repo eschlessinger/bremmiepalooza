@@ -52,7 +52,7 @@ export default function FAQsPage() {
     { 
       label: "TRAVEL", 
       sublabel: "INFO",
-      href: "/travel-info", 
+      href: "/travel-info/flights", 
       disabled: false,
       onClick: null
     },
@@ -68,19 +68,43 @@ export default function FAQsPage() {
   const faqs = [
     {
       question: "What should I wear for Bremmiepalooza?",
-      answer: "Bremmiepalooza will be a fun, colorful, and joyful weekend. We hope it will be filled with lots of fun bright colors, patterns, and textures. We also hope that everyone will feel 100% comfortable throughout the whole weekend (reminder: typically early evening temperatures in the mid-to-upper 70s falling to lows in the mid-to-upper 60s overnight). Check back soon for more specific, event-by-event inspiration!"
+      answer: (
+        <div>
+          <p>Bremmiepalooza will be a fun, colorful, and joyful weekend. We hope it will be filled with lots of fun bright colors, patterns, and textures. We also hope that everyone will feel 100% comfortable throughout the whole weekend (reminder: typically early evening temperatures in the mid-to-upper 70s falling to lows in the mid-to-upper 60s overnight).</p>
+          <p>Check back soon for more specific, event-by-event inspiration!</p>
+        </div>
+      )
     },
     {
       question: "Where should I stay for Bremmiepalooza?",
-      answer: "We have booked a room block at the Presidente Intercontinental Hotel in Cancun. We highly recommend staying at this hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast! Specifically, The Pregame and The Main Stage will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for The Aftershow. Please note that to secure the reduced rate for the room block, all hotel reservations must be confirmed by Monday, September 1, 2025. Additionally, for anyone interested in extending their stay in Mexico, the reduced rate at the hotel will be valid (subject to availability) for the 3 days leading up to Bremmiepalooza and the 3 days following Bremmiepalooza. All additional details related to the hotel can be found on our Book My Hotel page."
+      answer: (
+        <div>
+          <p>We have booked a room block at the Presidente Intercontinental Hotel in Cancun. We highly recommend staying at this hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast!</p>
+          <p>Specifically, The Pregame and The Main Stage will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for The Aftershow.</p>
+          <p>Please note that to secure the reduced rate for the room block, all hotel reservations must be confirmed by Monday, September 1, 2025.</p>
+          <p>Additionally, for anyone interested in extending their stay in Mexico, the reduced rate at the hotel will be valid (subject to availability) for the 3 days leading up to Bremmiepalooza and the 3 days following Bremmiepalooza.</p>
+          <p>All additional details related to the hotel can be found on our Book My Hotel page.</p>
+        </div>
+      )
     },
     {
       question: "What are the addresses of the festival events?",
-      answer: "The Pregame and The Main Stage will take place on the beach at the Presidente Intercontinental Hotel in Cancun, which is located at Blvd. Kukulcan Km 7.5, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico. The Aftershow will take place offsite. A bus will be provided to transport festival-goers from the Presidente Intercontinental Hotel to the Marina, which is located at API Maritime Terminal Puerto Juarez (Supermanzana 84, Naval, 77525 Cancún, Q.R.)."
+      answer: (
+        <div>
+          <p>The Pregame and The Main Stage will take place on the beach at the Presidente Intercontinental Hotel in Cancun, which is located at Blvd. Kukulcan Km 7.5, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico.</p>
+          <p>The Aftershow will take place offsite. A bus will be provided to transport festival-goers from the Presidente Intercontinental Hotel to the Marina, which is located at API Maritime Terminal Puerto Juarez (Supermanzana 84, Naval, 77525 Cancún, Q.R.).</p>
+        </div>
+      )
     },
     {
       question: "Do I need my own method of transportation?",
-      answer: "If you are staying at the Presidente Intercontinental Cancun, the only transportation you will need to get to / from Bremmiepalooza is a ride from and to Cancun International Airport. 2 Bremmiepalooza events are being held onsite at the Presidente Intercontinental Cancun, and the third is being held offsite, but there will be bus transportation provided to and from that event. The area immediately around the hotel is very walkable – to shopping as well as to the nightlife area where there are some good restaurants to try for lunch if you are interested. There are also inexpensive Ubers available to go to restaurants / etc. nearby the hotel. If you want to rent a car, there is free onsite parking available at the Presidente Intercontinental Hotel."
+      answer: (
+        <div>
+          <p>If you are staying at the Presidente Intercontinental Cancun, the only transportation you will need to get to / from Bremmiepalooza is a ride from and to Cancun International Airport. 2 Bremmiepalooza events are being held onsite at the Presidente Intercontinental Cancun, and the third is being held offsite, but there will be bus transportation provided to and from that event.</p>
+          <p>The area immediately around the hotel is very walkable – to shopping as well as to the nightlife area where there are some good restaurants to try for lunch if you are interested. There are also inexpensive Ubers available to go to restaurants / etc. nearby the hotel.</p>
+          <p>If you want to rent a car, there is free onsite parking available at the Presidente Intercontinental Hotel.</p>
+        </div>
+      )
     },
     {
       question: "Do I need a passport?",
@@ -462,9 +486,13 @@ export default function FAQsPage() {
                     
                     {openFAQ === index && (
                       <div className="px-6 pb-4">
-                        <p className="text-white/90 leading-relaxed text-base md:text-lg">
-                          {faq.answer}
-                        </p>
+                        <div className="text-white/90 leading-relaxed text-base md:text-lg">
+                          {typeof faq.answer === 'string' ? (
+                            <p>{faq.answer}</p>
+                          ) : (
+                            faq.answer
+                          )}
+                        </div>
                       </div>
                     )}
                   </div>

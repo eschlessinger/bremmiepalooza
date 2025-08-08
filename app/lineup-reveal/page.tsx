@@ -111,7 +111,7 @@ export default function LineupRevealPage() {
         style={{
           justifyContent: isMobile ? "flex-start" : "center",
           // MOBILE: Position logo to align with ellipse center
-          paddingTop: isMobile ? "16vh" : "0",
+          paddingTop: isMobile ? "18vh" : "0",
         }}
       >
         <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex flex-col items-center">

@@ -114,7 +114,7 @@ export default function LineupRevealPage() {
           paddingTop: isMobile ? "20vh" : "0",
         }}
       >
-        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex flex-col items-center">
+        <div className="flex flex-col items-center">
           {/* Logo */}
           <div className="w-full mb-6">
             <Image

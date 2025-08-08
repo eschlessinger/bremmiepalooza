@@ -567,7 +567,8 @@ export default function ActivitiesPage() {
                       <p><strong>Hours:</strong> 7-3AM</p>
                       <p><strong>Description:</strong> A beachy, chill spot known for massive customizable burritos, tacos, smoothies, and cocktails. Friendly, casual, and always open.</p>
                       <p><strong>Must-orders:</strong> Build-your-own burrito, Coconut shrimp, Fajita nachos, Fish tacos, Tropical cocktails</p>
-                      <p><strong>URL:</strong> <a href="https://the-surfin-burrito.res-menu.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://the-surfin-burrito.res-menu.com/</a></p>
+                      <p><strong>URL:</strong> <a href="https://the-surfin-burrito.res-menu.com/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://the-surfin-burrito.res-menu.com/</a></p>
+</invoke>
                     </div>
 
                     {/* Tacos Chachalacos */}
@@ -585,7 +586,7 @@ export default function ActivitiesPage() {
                       <p><strong>Hours:</strong> 10-2AM</p>
                       <p><strong>Description:</strong> Known for its generously stuffed tacos and authentic taste, Tacos Chachalacos is a perfect late-night option after a night out.</p>
                       <p><strong>Must-orders:</strong> Tacos al Pastor, Gringas, Arrachera Tacos, Chorizo Tacos</p>
-                      <p><strong>URL:</strong> <a href="https://loschachalacos.com.mx/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://loschachalacos.com.mx/</a></p>
+                      <p><strong>URL:</strong> <a href="https://loschachalacos.com.mx/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://loschachalacos.com.mx/</a></p>
                     </div>
 
                     {/* Los Tarascos */}
@@ -603,7 +604,7 @@ export default function ActivitiesPage() {
                       <p><strong>Hours:</strong> Daily, approximately 1 PM–1 AM</p>
                       <p><strong>Description:</strong> A local favorite for tacos al pastor (trompo-style) with a casual, welcoming atmosphere—late-night cravings, covered.</p>
                       <p><strong>Must-orders:</strong> Tacos al Pastor, Quesataco, Gringas</p>
-                      <p><strong>URL:</strong> <a href="https://lostarascos.com.mx/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://lostarascos.com.mx/</a></p>
+                      <p><strong>URL:</strong> <a href="https://lostarascos.com.mx/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://lostarascos.com.mx/</a></p>
                     </div>
 
                   </div>
@@ -658,9 +659,9 @@ export default function ActivitiesPage() {
                       <p><strong>Description:</strong> Guided 90-minute excursions through lush mangrove canals where you can spot wildlife and enjoy the thrill of up to 50 km/h on calm waters. Many packages include snorkeling at the Mesoamerican Barrier Reef and visits to the MUSA underwater museum sculptures.</p>
                       <p><strong>Cost:</strong> ~$45–180 USD per person, depending on solo or shared boat, +$20 / person national park surcharge & dock fee</p>
                       <p><strong>Why It Makes The List:</strong> A thrilling and scenic way to explore Nichupté Lagoon's mangrove channels while piloting your own speedboat / jet ski, with an optional snorkeling stop at Punta Nizuc coral reef and MUSA.</p>
-                      <p><strong>URL:</strong> <a href="https://jungletourcancun.com/mangrove-speedboat-tour.html" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://jungletourcancun.com/mangrove-speedboat-tour.html</a></p>
+                      <p><strong>URL:</strong> <a href="https://jungletourcancun.com/mangrove-speedboat-tour.html" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://jungletourcancun.com/mangrove-speedboat-tour.html</a></p>
                       <p><strong>Additional notes:</strong></p>
-                      <p>• It appears you may be able to add a tequila tasting to the experience essentially for free… (see next activity / this link: <a href="https://cancuntequilatasting.com/cancun-tequila-tasting-and-speedboat-tour-combo/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://cancuntequilatasting.com/cancun-tequila-tasting-and-speedboat-tour-combo/</a>)</p>
+                      <p>• It appears you may be able to add a tequila tasting to the experience essentially for free… (see next activity / this link: <a href="https://cancuntequilatasting.com/cancun-tequila-tasting-and-speedboat-tour-combo/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://cancuntequilatasting.com/cancun-tequila-tasting-and-speedboat-tour-combo/</a>)</p>
                     </div>
 
                     {/* Cancun Tequila Tasting */}
@@ -677,7 +678,7 @@ export default function ActivitiesPage() {
                       <p><strong>Description:</strong> Learn the history, process, and flavors of authentic tequila in a friendly, engaging setting. Guests rave about the knowledgeable hosts, generous pours, and light bites like guacamole and chips. Unique flavored tequilas (coffee, pistachio, walnut) are a highlight. Great for groups, celebrations, or curious first-timers.</p>
                       <p><strong>Cost:</strong> ~US$49–72+ per person, depending on package</p>
                       <p><strong>Why It Makes The List:</strong> A top-rated, intimate tequila experience led by expert hosts like Yasmin and Sergio—equal parts fun, educational, and delicious.</p>
-                      <p><strong>URL:</strong> <a href="https://cancuntequilatasting.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://cancuntequilatasting.com/</a></p>
+                      <p><strong>URL:</strong> <a href="https://cancuntequilatasting.com/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://cancuntequilatasting.com/</a></p>
                     </div>
 
                     {/* MUSA */}
@@ -694,7 +695,7 @@ export default function ActivitiesPage() {
                       <p><strong>Description:</strong> Snorkel, dive, or glass-bottom-boat past 500+ sculptures—great visibility on calm days; best booked with reputable operators.</p>
                       <p><strong>Cost:</strong> ~$35-139 USD +$20 docking / natural protected area fee per person, depending on tour type</p>
                       <p><strong>Why It Makes The List:</strong> Surreal submerged sculpture garden that doubles as an artificial reef—art meets conservation.</p>
-                      <p><strong>URL:</strong> <a href="https://musamexico.org" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://musamexico.org</a></p>
+                      <p><strong>URL:</strong> <a href="https://musamexico.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://musamexico.org</a></p>
                     </div>
 
                     {/* Selvatica Eco Park */}
@@ -711,7 +712,7 @@ export default function ActivitiesPage() {
                       <p><strong>Description:</strong> Very strongly reviewed (see especially the Google Review from Rhiannon Byrd) Action-packed jungle adventure park with zip-lining, cenote swims, ATV rides, and bungee swings. Great for thrill seekers.</p>
                       <p><strong>Cost:</strong> Packages from ~$99 USD–$159 USD depending on experience</p>
                       <p><strong>Why It Makes The List:</strong> Jungle thrills—zip-lines, ATVs, cenote swims—in a single, well-run park.</p>
-                      <p><strong>URL:</strong> <a href="https://www.selvatica.com.mx/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://www.selvatica.com.mx/</a></p>
+                      <p><strong>URL:</strong> <a href="https://www.selvatica.com.mx/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://www.selvatica.com.mx/</a></p>
                       <p><strong>Additional notes:</strong></p>
                       <p>• They will pick you up and drop you off at your hotel for ~$15-20 total</p>
                       <p>• Reviews suggest you can also add-on insurance, towels, photos, etc.</p>

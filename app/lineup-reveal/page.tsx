@@ -114,7 +114,7 @@ export default function LineupRevealPage() {
           paddingTop: isMobile ? "20vh" : "0",
         }}
       >
-        <div className="flex flex-col items-center">
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex flex-col items-center">
           {/* Logo */}
           <div className="w-full mb-6">
             <Image
@@ -135,8 +135,13 @@ export default function LineupRevealPage() {
           {/* CTA Button */}
           <Link href="/lineup">
             <button 
-              className="bg-[#e4017e] text-white font-bold uppercase tracking-wider px-4 py-2 rounded-full text-sm shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl"
-              style={{ fontFamily: 'Arial, sans-serif' }}
+              className="bg-[#e4017e] text-white font-bold uppercase tracking-wider rounded-full shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl"
+              style={{ 
+                fontFamily: 'Arial, sans-serif',
+                padding: isMobile ? '6px 12px' : '8px 16px',
+                fontSize: isMobile ? '12px' : '14px',
+                width: 'auto'
+              }}
             >
               SEE THE LINEUP!
             </button>

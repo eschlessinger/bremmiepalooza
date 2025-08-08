@@ -442,7 +442,7 @@ export default function ActivitiesPage() {
                       <p><strong>Hours:</strong> 7:30-12AM</p>
                       <p><strong>Description:</strong> High-energy restaurant with live performers and Mexican decor. A favorite among locals and tourists alike.</p>
                       <p><strong>Must-orders:</strong> Fried shrimp tacos, Huevos Rancheros, Mexican Coffee</p>
-                      <p><strong>URL:</strong> <a href="https://mextrememexico.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://mextrememexico.com/</a></p>
+                      <p><strong>URL:</strong> <a href="https://mextrememexico.com/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://mextrememexico.com/</a></p>
                     </div>
 
                     {/* Marakame */}
@@ -460,7 +460,7 @@ export default function ActivitiesPage() {
                       <p><strong>Hours:</strong> M-F: 8-12AM, Sat/Sun: 9-12AM</p>
                       <p><strong>Description:</strong> Treehouse-style venue with live music, lush courtyard seating, and beautifully presented food.</p>
                       <p><strong>Must-orders:</strong> Molcajete de Cochinita, Sweet-Sour Chicken Pizza, Chilaquiles</p>
-                      <p><strong>URL:</strong> <a href="https://marakame.mx/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://marakame.mx/</a></p>
+                      <p><strong>URL:</strong> <a href="https://marakame.mx/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://marakame.mx/</a></p>
                     </div>
 
                     {/* Taquería Tres Reyes */}
@@ -495,7 +495,7 @@ export default function ActivitiesPage() {
                       <p><strong>Hours:</strong> 12:30-11PM</p>
                       <p><strong>Description:</strong> Dining right on the sand with the ocean just steps away, Puerto Santo delivers a casual yet elegant experience with fresh seafood, generous portions, and attentive service. The ambiance is enhanced by live music and beautiful lighting in the evenings. Perfect for a relaxed seaside lunch or a sunset dinner.</p>
                       <p><strong>Must-orders:</strong> Tuna Tartare, Shrimp Ceviche, Seafood Esquites</p>
-                      <p><strong>URL:</strong> <a href="https://puertosanto.com.mx/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">https://puertosanto.com.mx/</a></p>
+                      <p><strong>URL:</strong> <a href="https://puertosanto.com.mx/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">https://puertosanto.com.mx/</a></p>
                     </div>
 
                     {/* Barbacoa "La Laja" */}
@@ -549,7 +549,7 @@ export default function ActivitiesPage() {
                       <p><strong>Hours:</strong> 2PM-5AM</p>
                       <p><strong>Description:</strong> A well-loved taco spot in the Hotel Zone with consistently fresh tortillas, generous fillings, and great salsas—perfect for a casual, satisfying bite</p>
                       <p><strong>Must-orders:</strong> According to our Wedding Planner, the Arracherra (Beef) Taco. According to Emmie, the Al Pastor Taco. According to Brett, the crispy cheese and the melted cheese. (Order all of them!)</p>
-                      <p><strong>URL:</strong> <a href="http://www.tacofactory.mx/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">http://www.tacofactory.mx/</a></p>
+                      <p><strong>URL:</strong> <a href="http://www.tacofactory.mx/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 underline">http://www.tacofactory.mx/</a></p>
                     </div>
 
                     {/* The Surfin Burrito */}

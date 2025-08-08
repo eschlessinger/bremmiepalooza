@@ -83,7 +83,7 @@ export default function FAQsPage() {
           <p>Specifically, The Pregame and The Main Stage will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for The Aftershow.</p>
           <p>Please note that to secure the reduced rate for the room block, all hotel reservations must be confirmed by Monday, September 1, 2025.</p>
           <p>Additionally, for anyone interested in extending their stay in Mexico, the reduced rate at the hotel will be valid (subject to availability) for the 3 days leading up to Bremmiepalooza and the 3 days following Bremmiepalooza.</p>
-          <p>All additional details related to the hotel can be found on our Book My Hotel page.</p>
+          <p>All additional details related to the hotel can be found on our <a href="https://www.bremmiepalooza.com/book-hotel" className="text-pink-600 hover:text-pink-800 underline font-bold">Book My Hotel</a> page.</p>
         </div>
       )
     },
@@ -100,15 +100,16 @@ export default function FAQsPage() {
       question: "Do I need my own method of transportation?",
       answer: (
         <div>
-          <p>If you are staying at the Presidente Intercontinental Cancun, the only transportation you will need to get to / from Bremmiepalooza is a ride from and to Cancun International Airport. 2 Bremmiepalooza events are being held onsite at the Presidente Intercontinental Cancun, and the third is being held offsite, but there will be bus transportation provided to and from that event.</p>
+          <p>If you are staying at the Presidente Intercontinental Cancun, the only transportation you will need to get to / from Bremmiepalooza is a ride from and to Cancun International Airport. Two Bremmiepalooza events are being held onsite at the Presidente Intercontinental Cancun, and the third is being held offsite, but there will be bus transportation provided to and from that event.</p>
           <p>The area immediately around the hotel is very walkable – to shopping as well as to the nightlife area where there are some good restaurants to try for lunch if you are interested. There are also inexpensive Ubers available to go to restaurants / etc. nearby the hotel.</p>
           <p>If you want to rent a car, there is free onsite parking available at the Presidente Intercontinental Hotel.</p>
+          <p>See <a href="https://www.bremmiepalooza.com/travel-info/ground-transportation" className="text-pink-600 hover:text-pink-800 underline font-bold">Travel Info - Ground Transportation</a> for more details.</p>
         </div>
       )
     },
     {
       question: "Do I need a passport?",
-      answer: "Yes! All guests traveling to Mexico need a valid passport. Mexico requires that passports are valid for the duration of your stay in Mexico, but it is safest to ensure it is valid for at least 6 months beyond your travel date in case your airline requires that (you can check with your airline to be sure). No visa is required for US citizens staying less than 180 days."
+      answer: "Yes! All guests traveling to Mexico need a valid passport. Mexico requires that passports are valid for the duration of your stay in Mexico, but it is safest to ensure it is valid for at least 6 months beyond your travel date in case your airline requires that (you can check with your airline to be sure). No visa is required for U.S. or UK citizens staying less than 180 days."
     },
     {
       question: "When do tickets to Bremmiepalooza go on sale?",
@@ -132,7 +133,9 @@ export default function FAQsPage() {
     },
     {
       question: "Is there anything to do in Cancun during my downtime?",
-      answer: "There is a lot to do! You can start off each morning with a complimentary breakfast at the Caribeño Restaurant before lounging by the pool / beach, going shopping in town (admittedly most of the 'cool shopping locations' that ChatGPT found seem to sell junky souvenirs – haven't yet found any cool artisanal shops ☹), or potentially embarking on some excursions (although we recommend you save a good portion of your energy for Bremmiepalooza events – and especially The Main Stage). See Travel Info – Activities for more specific recommendations!"
+      answer: (
+        <p>There is a lot to do! You can start off each morning with a complimentary breakfast at the Caribeño Restaurant before lounging by the pool / beach, going shopping in town (admittedly most of the 'cool shopping locations' that ChatGPT found seem to sell junky souvenirs – haven't yet found any cool artisanal shops ☹), or potentially embarking on some excursions (although we recommend you save a good portion of your energy for Bremmiepalooza events – and especially The Main Stage). See <a href="https://www.bremmiepalooza.com/travel-info/activities" className="text-pink-600 hover:text-pink-800 underline font-bold">Travel Info – Activities</a> for more specific recommendations!</p>
+      )
     },
     {
       question: "Where is Bremmie registered?",
@@ -486,7 +489,7 @@ export default function FAQsPage() {
                     
                     {openFAQ === index && (
                       <div className="px-6 pb-4">
-                        <div className="text-black leading-relaxed text-base md:text-lg faq-content">
+                        <div className="text-black leading-relaxed text-base md:text-lg faq-content" style={{fontFamily: 'Arial, sans-serif'}}>
                           {typeof faq.answer === 'string' ? (
                             <p>{faq.answer}</p>
                           ) : (

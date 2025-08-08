@@ -52,7 +52,7 @@ export default function FAQsPage() {
     { 
       label: "TRAVEL", 
       sublabel: "INFO",
-      href: "/travel-info/flights", 
+      href: "/travel-info", 
       disabled: false,
       onClick: null
     },
@@ -486,7 +486,7 @@ export default function FAQsPage() {
                     
                     {openFAQ === index && (
                       <div className="px-6 pb-4">
-                        <div className="text-white/90 leading-relaxed text-base md:text-lg">
+                        <div className="text-white/90 leading-relaxed text-base md:text-lg faq-content">
                           {typeof faq.answer === 'string' ? (
                             <p>{faq.answer}</p>
                           ) : (
@@ -563,6 +563,15 @@ export default function FAQsPage() {
         .animate-gradient-shift {
           background-size: 600% 600%;
           animation: gradient-shift 10s ease infinite;
+        }
+
+        /* FAQ paragraph spacing */
+        .faq-content p {
+          margin-bottom: 1rem;
+        }
+        
+        .faq-content p:last-child {
+          margin-bottom: 0;
         }
       `}</style>
     </main>

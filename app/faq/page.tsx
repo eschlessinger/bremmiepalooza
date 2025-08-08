@@ -70,7 +70,7 @@ export default function FAQsPage() {
       question: "What should I wear for Bremmiepalooza?",
       answer: (
         <div>
-          <p>Bremmiepalooza will be a fun, colorful, and joyful weekend. We hope it will be filled with lots of fun bright colors, patterns, and textures. We also hope that everyone will feel 100% comfortable throughout the whole weekend (reminder: typically early evening temperatures in the mid-to-upper 70s falling to lows in the mid-to-upper 60s overnight).</p>
+          <p>Bremmiepalooza will be a fun, colorful, and joyful weekend. We hope it will be filled with lots of fun bright colors, patterns, and textures. We also hope that everyone will feel 100% comfortable throughout the whole weekend (reminder: typically early evening temperatures in the mid-to-upper 70s / low 80s falling to lows in the mid-to-upper 60s / low 70s overnight).</p>
           <p>Check back soon for more specific, event-by-event inspiration!</p>
         </div>
       )

@@ -441,7 +441,7 @@ export default function DocumentsPage() {
                 </div>
               </section>
 
-              {/* For U.K. Travelers Section */}
+              {/* For UK Travelers Section */}
               <section className="mb-12">
                 <h2 
                   className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
@@ -451,7 +451,7 @@ export default function DocumentsPage() {
                     color: '#d81b8c'
                   }}
                 >
-                  For U.K. Travelers
+                  For UK Travelers
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="space-y-6 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
@@ -466,7 +466,7 @@ export default function DocumentsPage() {
                       <li>
                         No visa required for short stays
                         <ul className="mt-2 space-y-2 custom-circles ml-12">
-                          <li>U.K. citizens do not need a visa to visit Mexico for tourism up to 180 days</li>
+                          <li>UK citizens do not need a visa to visit Mexico for tourism up to 180 days</li>
                         </ul>
                       </li>
                       <li>Return or onward ticket (not always asked for, but recommended)</li>

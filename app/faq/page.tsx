@@ -134,7 +134,7 @@ export default function FAQsPage() {
     {
       question: "Is there anything to do in Cancun during my downtime?",
       answer: (
-        <p>There is a lot to do! You can start off each morning with a complimentary breakfast at the Caribeño Restaurant before lounging by the pool / beach, going shopping in town (admittedly most of the 'cool shopping locations' that ChatGPT found seem to sell junky souvenirs – haven't yet found any cool artisanal shops ☹), or potentially embarking on some excursions (although we recommend you save a good portion of your energy for Bremmiepalooza events – and especially The Main Stage). See <a href="https://www.bremmiepalooza.com/travel-info/activities" className="text-pink-600 hover:text-pink-800 underline font-bold">Travel Info – Activities</a> for more specific recommendations!</p>
+        <p>There is a lot to do! You can start off each morning with a complimentary breakfast at the Caribeño Restaurant before lounging by the pool / beach, going shopping in town (admittedly most of the 'cool shopping locations' that ChatGPT found seem to sell junky souvenirs – haven't yet found any cool artisanal shops 😞), or potentially embarking on some excursions (although we recommend you save a good portion of your energy for Bremmiepalooza events – and especially The Main Stage). See <a href="https://www.bremmiepalooza.com/travel-info/activities" className="text-pink-600 hover:text-pink-800 underline font-bold">Travel Info – Activities</a> for more specific recommendations!</p>
       )
     },
     {

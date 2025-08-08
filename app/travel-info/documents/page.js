@@ -431,7 +431,8 @@ export default function DocumentsPage() {
                         Passport
                         <ul className="mt-2 space-y-2 custom-circles ml-12">
                           <li>Must be valid at the time of entry</li>
-                          <li>It's recommended to have at least 6 months of validity remaining (even though Mexico technically only requires it to be valid during your stay)</li>
+                          <li>It's recommended to have at least 6 months of validity remaining (even though Mexico technically only requires it to be valid during your stay) in case your airline requires that (you can check with your airline to be sure)
+</li>
                           <li>Must be an actual passport book (passport cards won't work for international air travel)</li>
                         </ul>
                       </li>
@@ -460,7 +461,8 @@ export default function DocumentsPage() {
                         Passport
                         <ul className="mt-2 space-y-2 custom-circles ml-12">
                           <li>Must be valid at the time of entry</li>
-                          <li>It's recommended to have at least 6 months of validity remaining (even though Mexico technically only requires it to be valid during your stay)</li>
+                          <li>It's recommended to have at least 6 months of validity remaining (even though Mexico technically only requires it to be valid during your stay) in case your airline requires that (you can check with your airline to be sure)
+</li>
                         </ul>
                       </li>
                       <li>

@@ -134,7 +134,10 @@ export default function LineupRevealPage() {
 
           {/* CTA Button */}
           <Link href="/lineup">
-            <button className="bg-[#e4017e] text-white font-bold uppercase tracking-wider py-2 px-5 rounded-full text-sm md:text-base shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl">
+            <button 
+              className="bg-[#e4017e] text-white font-bold uppercase tracking-wider py-1 px-3 md:py-2 md:px-5 rounded-full text-xs md:text-sm lg:text-base shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
               SEE THE LINEUP!
             </button>
           </Link>

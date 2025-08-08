@@ -412,7 +412,7 @@ export default function ActivitiesPage() {
                 ))}
               </div>
 
-              {/* Wedding Weekend Bites Section */}
+              {/* Bites Section */}
               <section className="mb-12">
                 <h2 
                   className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
@@ -422,7 +422,7 @@ export default function ActivitiesPage() {
                     color: '#d81b8c'
                   }}
                 >
-                  Wedding Weekend Bites
+                  Bites
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="space-y-8 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '16px'}}>
@@ -438,7 +438,7 @@ export default function ActivitiesPage() {
                       </h3>
                       <p><strong>Distance:</strong> ~9 min walk / ~4 min drive from Presidente Intercontinental Hotel</p>
                       <p><strong>Avg. Cost:</strong> ~$10–20 USD per person</p>
-                      <p><strong>Why It Makes The List:</strong> Part restaurant, part fiesta—great food, live performers, and a festive vibe that fits perfectly with the wedding weekend energy.</p>
+                      <p><strong>Why It Makes The List:</strong> Part restaurant, part fiesta—great food, live performers, and a festive vibe that fits perfectly with Bremmiepalooza energy.</p>
                       <p><strong>Hours:</strong> 7:30-12AM</p>
                       <p><strong>Description:</strong> High-energy restaurant with live performers and Mexican decor. A favorite among locals and tourists alike.</p>
                       <p><strong>Must-orders:</strong> Fried shrimp tacos, Huevos Rancheros, Mexican Coffee</p>

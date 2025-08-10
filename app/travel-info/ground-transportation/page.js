@@ -491,7 +491,7 @@ export default function GroundTransportationPage() {
                         href="https://usa-transfers.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black text-4xl md:text-5xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
@@ -592,7 +592,7 @@ export default function GroundTransportationPage() {
                         href="https://www.avantrentacar.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black text-4xl md:text-5xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '2px 2px 4px rgba(0,0,0,0.5)',

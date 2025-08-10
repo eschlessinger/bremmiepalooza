@@ -393,7 +393,7 @@ export default function BookHotelPage() {
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="text-center bg-red-500/20 rounded-xl p-6 border-2 border-red-400/50">
+                    <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-6 border-2 border-white/20">
                       <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
                         September 1, 2025
                       </div>
@@ -402,7 +402,7 @@ export default function BookHotelPage() {
                         Reservation Deadline
                       </div>
                     </div>
-                    <div className="text-center bg-yellow-500/20 rounded-xl p-6 border-2 border-yellow-400/50">
+                    <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-6 border-2 border-white/20">
                       <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
                         December 1, 2025
                       </div>
@@ -411,7 +411,7 @@ export default function BookHotelPage() {
                         Deadline
                       </div>
                     </div>
-                    <div className="text-center bg-green-500/20 rounded-xl p-6 border-2 border-green-400/50">
+                    <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-6 border-2 border-white/20">
                       <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
                         January 16-19, 2026
                       </div>
@@ -460,7 +460,7 @@ export default function BookHotelPage() {
                         href="https://forms.office.com/r/tuSCB07uW9?origin=lprLink"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
@@ -492,7 +492,7 @@ export default function BookHotelPage() {
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-white/5 rounded-xl p-6 border-2 border-blue-400/30">
+                    <div className="bg-white/5 rounded-xl p-6 border-2 border-white/20">
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic Ocean View
                       </h3>
@@ -514,7 +514,7 @@ export default function BookHotelPage() {
                       </div>
                     </div>
 
-                    <div className="bg-white/5 rounded-xl p-6 border-2 border-green-400/30">
+                    <div className="bg-white/5 rounded-xl p-6 border-2 border-white/20">
                       <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
                         Classic
                       </h3>

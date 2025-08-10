@@ -62,7 +62,7 @@ export default function GroundTransportationPage() {
 
   const travelTabs = [
     { id: 'flights', label: 'Flights', icon: '✈️', href: '/travel-info/flights', active: false },
-    { id: 'ground-transportation', label: 'Ground Transportation', icon: '🛬', href: '/travel-info/ground-transportation', active: true },
+    { id: 'ground-transportation', label: 'Ground Transportation', icon: '🚗', href: '/travel-info/ground-transportation', active: true },
     { id: 'documents', label: 'Documents', icon: '📄', href: '/travel-info/documents', active: false },
     { id: 'packing', label: 'Packing', icon: '🧳', href: '/travel-info/packing', active: false },
     { id: 'activities', label: 'Activities', icon: '🏖️', href: '/travel-info/activities', active: false }
@@ -469,17 +469,17 @@ export default function GroundTransportationPage() {
                     <div>
                       <h4 className="font-bold text-lg text-black mb-3">Customer Testimonials</h4>
                       <div className="space-y-4">
-                        <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50">
+                        <div className="bg-white/5 rounded-lg p-4">
                           <p className="text-black italic mb-2">"Book USA Transfers every time. We go to Mexico 2 to 3 times a year, they are always there waiting for you. It's a private transfer so no waiting for a bus (Sometimes there's a short wait for your shuttle). It's around $100 round trip. They have always done a great job for us. You can book it online on their website. Once you get your checked bags, you put your head down and keep walking past all the rental car places, don't talk to anyone, until you are outside. USA is usually towards the back of the crowd of shuttle people. Once you are outside, you can ask anyone out there "Where is USA Transfers" and they will point you right to them."</p>
                           <p className="text-black/70 text-sm">- RobbieG52726, February 2025 (Reddit)</p>
                         </div>
                         
-                        <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50">
+                        <div className="bg-white/5 rounded-lg p-4">
                           <p className="text-black italic mb-2">"USA Transfers booked roundtrip for 5 of us, arriving on foreign and domestic flights, plus Maya Train, and leaving from 4 terminals. They knew about every terminal, each delay, etc. They can turn on a dime, and arrive on time."</p>
                           <p className="text-black/70 text-sm">- truckforbiketrader, February 2025 (Reddit)</p>
                         </div>
                         
-                        <div className="bg-white/5 rounded-lg p-4 border-l-4 border-blue-400/50">
+                        <div className="bg-white/5 rounded-lg p-4">
                           <p className="text-black italic mb-2">"Check out USA transfers. Legit company, owned by a Canadian guy. Easy to get a quote on their website or app. Super reliable"</p>
                           <p className="text-black/70 text-sm">- KrazyKen62, 2023 (Reddit)</p>
                         </div>
@@ -491,7 +491,7 @@ export default function GroundTransportationPage() {
                         href="https://usa-transfers.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black text-4xl md:text-5xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
@@ -570,17 +570,17 @@ export default function GroundTransportationPage() {
                     <div>
                       <h4 className="font-bold text-lg text-black mb-3">Customer Testimonials</h4>
                       <div className="space-y-4">
-                        <div className="bg-white/5 rounded-lg p-4 border-l-4 border-green-400/50">
+                        <div className="bg-white/5 rounded-lg p-4">
                           <p className="text-black italic mb-2">"After doing quite a bit of research and comparing prices, I rented from Avant because of the reviews, the competitive price, and the fact that insurance was included. We had a wonderful experience renting from them. The staff was professional and kind. They charged exactly what they said they would for the car rental, did not try to scam us with extra charges or extra scratches when we returned the car. It was a well-maintained vehicle in good condition. Would definitely rent again!"</p>
                           <p className="text-black/70 text-sm">– Christen Diehl, July 2025 (Google)</p>
                         </div>
                         
-                        <div className="bg-white/5 rounded-lg p-4 border-l-4 border-green-400/50">
+                        <div className="bg-white/5 rounded-lg p-4">
                           <p className="text-black italic mb-2">"An amazing car rental company. Much better than the big brand places at the airport. No hidden costs or surprises, they were so professional and friendly with excellent communication. I totally recommend using Avant…The office is a short ride by shuttle from the airport and we didn't have to wait"</p>
                           <p className="text-black/70 text-sm">– Mathew Bailey, July 2025 (Google)</p>
                         </div>
                         
-                        <div className="bg-white/5 rounded-lg p-4 border-l-4 border-green-400/50">
+                        <div className="bg-white/5 rounded-lg p-4">
                           <p className="text-black italic mb-2">"Look into Avant Rental Car. I had an awesome experience and the price they quoted was the price I paid. No hidden fees. It was like $200 for 4 days. They even dropped the car off for me in PDC and I returned it to them at CUN airport. They have a location right outside the airport and shuttle you over to the terminal"</p>
                           <p className="text-black/70 text-sm">– westwoodft, January 2025 (Reddit)</p>
                         </div>
@@ -592,7 +592,7 @@ export default function GroundTransportationPage() {
                         href="https://www.avantrentacar.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black text-4xl md:text-5xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '2px 2px 4px rgba(0,0,0,0.5)',

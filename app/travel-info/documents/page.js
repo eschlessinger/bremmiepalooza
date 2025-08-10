@@ -62,7 +62,7 @@ export default function DocumentsPage() {
 
   const travelTabs = [
     { id: 'flights', label: 'Flights', icon: '✈️', href: '/travel-info/flights', active: false },
-    { id: 'ground-transportation', label: 'Ground Transportation', icon: '🛬', href: '/travel-info/ground-transportation', active: false },
+    { id: 'ground-transportation', label: 'Ground Transportation', icon: '🚗', href: '/travel-info/ground-transportation', active: false },
     { id: 'documents', label: 'Documents', icon: '📄', href: '/travel-info/documents', active: true },
     { id: 'packing', label: 'Packing', icon: '🧳', href: '/travel-info/packing', active: false },
     { id: 'activities', label: 'Activities', icon: '🏖️', href: '/travel-info/activities', active: false }

@@ -1,7 +1,5 @@
 "use client"
-
 import type React from "react"
-import "./globals.css"
 import { Rubik_Spray_Paint } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -20,7 +18,7 @@ export default function ClientLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={`${festivalFont.variable}`}>
+      <body className={`${festivalFont.variable} bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           {children}
         </ThemeProvider>

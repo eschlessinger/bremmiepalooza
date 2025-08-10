@@ -460,12 +460,11 @@ export default function BookHotelPage() {
                         href="https://forms.office.com/r/tuSCB07uW9?origin=lprLink"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black text-4xl md:text-5xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                          minWidth: '280px',
-                          fontSize: '4xl'
+                          minWidth: '280px'
                         }}
                       >
                         BOOK HERE
@@ -494,7 +493,7 @@ export default function BookHotelPage() {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-white/5 rounded-xl p-6 border-2 border-white/20">
-                      <h3 className="text-2xl font-black mb-4" style={{fontFamily: "'ZollaPro', sans-serif", color: '#000'}}>
+                      <h3 className="text-2xl font-black mb-4" style={{fontFamily: "'ZollaPro', sans-serif", color: '#fff'}}>
                         Classic Ocean View
                       </h3>
                       <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>
@@ -516,7 +515,7 @@ export default function BookHotelPage() {
                     </div>
 
                     <div className="bg-white/5 rounded-xl p-6 border-2 border-white/20">
-                      <h3 className="text-2xl font-black mb-4" style={{fontFamily: "'ZollaPro', sans-serif", color: '#000'}}>
+                      <h3 className="text-2xl font-black mb-4" style={{fontFamily: "'ZollaPro', sans-serif", color: '#fff'}}>
                         Classic
                       </h3>
                       <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>

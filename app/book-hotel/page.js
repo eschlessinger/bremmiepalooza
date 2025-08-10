@@ -107,7 +107,10 @@ export default function BookHotelPage() {
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
             style={{ height: isMobile ? '120px' : '160px' }}
           >
-            <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
+            <div 
+              className="flex justify-center items-center px-2 h-full relative"
+              style={{ gap: isMobile ? '16px' : '32px' }}
+            >
               {navButtons.map((button, index) => {
                 // For internal page links
                 if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
@@ -366,35 +369,49 @@ export default function BookHotelPage() {
         <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
           
           {/* Main Content */}
-          <div className="px-4 pb-12">
-            <div className="max-w-5xl mx-auto">
+          <div style={{ padding: '0 1rem 3rem 1rem' }}>
+            <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
               <h1 
-                className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
+                className="text-4xl md:text-6xl font-black text-center uppercase tracking-wider" 
                 style={{
                   fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                   textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
+                  color: '#d81b8c',
+                  marginBottom: '3rem'
                 }}
               >
                 BOOK MY HOTEL
               </h1>
 
               {/* Important Dates Section */}
-              <section className="mb-12">
+              <section style={{ marginBottom: '3rem' }}>
                 <h2 
-                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  className="text-3xl md:text-4xl font-black text-center uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                     textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                    color: '#d81b8c'
+                    color: '#d81b8c',
+                    marginBottom: '2rem'
                   }}
                 >
                   Important Dates
                 </h2>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="text-center bg-red-500/20 rounded-xl p-6 border-2 border-red-400/50">
-                      <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                <div 
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl border-2 border-white/20"
+                  style={{ padding: '2rem' }}
+                >
+                  <div 
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr',
+                      gap: isMobile ? '1.5rem' : '1.5rem'
+                    }}
+                  >
+                    <div 
+                      className="text-center bg-red-500/20 rounded-xl border-2 border-red-400/50"
+                      style={{ padding: '1.5rem' }}
+                    >
+                      <div className="text-2xl md:text-3xl font-black text-white" style={{fontFamily: 'Arial, sans-serif', marginBottom: '0.5rem'}}>
                         September 1, 2025
                       </div>
                       <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -402,8 +419,11 @@ export default function BookHotelPage() {
                         Reservation Deadline
                       </div>
                     </div>
-                    <div className="text-center bg-yellow-500/20 rounded-xl p-6 border-2 border-yellow-400/50">
-                      <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                    <div 
+                      className="text-center bg-yellow-500/20 rounded-xl border-2 border-yellow-400/50"
+                      style={{ padding: '1.5rem' }}
+                    >
+                      <div className="text-2xl md:text-3xl font-black text-white" style={{fontFamily: 'Arial, sans-serif', marginBottom: '0.5rem'}}>
                         December 1, 2025
                       </div>
                       <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -411,8 +431,11 @@ export default function BookHotelPage() {
                         Deadline
                       </div>
                     </div>
-                    <div className="text-center bg-green-500/20 rounded-xl p-6 border-2 border-green-400/50">
-                      <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
+                    <div 
+                      className="text-center bg-green-500/20 rounded-xl border-2 border-green-400/50"
+                      style={{ padding: '1.5rem' }}
+                    >
+                      <div className="text-2xl md:text-3xl font-black text-white" style={{fontFamily: 'Arial, sans-serif', marginBottom: '0.5rem'}}>
                         January 16-19, 2026
                       </div>
                       <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -425,34 +448,38 @@ export default function BookHotelPage() {
               </section>
 
               {/* Overview Section */}
-              <section className="mb-12">
+              <section style={{ marginBottom: '3rem' }}>
                 <h2 
-                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  className="text-3xl md:text-4xl font-black text-center uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                     textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                    color: '#d81b8c'
+                    color: '#d81b8c',
+                    marginBottom: '2rem'
                   }}
                 >
                   Overview
                 </h2>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <p>
+                <div 
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl border-2 border-white/20"
+                  style={{ padding: '2rem' }}
+                >
+                  <div style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: 'rgba(255,255,255,0.95)'}}>
+                    <p style={{ marginBottom: '1.5rem' }}>
                       We have reserved a block of rooms at Presidente Intercontinental Cancun. We highly recommend staying at the hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast!
                     </p>
-                    <p>
+                    <p style={{ marginBottom: '1.5rem' }}>
                       Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
                     </p>
-                    <div className="text-center">
-                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                    <div className="text-center" style={{ marginBottom: '1.5rem' }}>
+                      <p style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginBottom: '0.25rem'}}>
                         To take advantage of the room block rate,
                       </p>
-                      <p className="mb-1" style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
+                      <p style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginBottom: '0.25rem'}}>
                         reservations must be made by Monday, September 1, 2025.
                       </p>
                     </div>
-                    <p className="text-center mb-6" style={{color: '#000', fontWeight: '400', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginTop: '1.5rem'}}>
+                    <p className="text-center" style={{color: '#000', fontWeight: '400', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginTop: '1.5rem', marginBottom: '1.5rem'}}>
                       When you are ready to book, please do so at this link:
                     </p>
                     <div className="text-center">
@@ -460,11 +487,13 @@ export default function BookHotelPage() {
                         href="https://forms.office.com/r/tuSCB07uW9?origin=lprLink"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-black hover:bg-gray-800 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                        className="inline-block bg-black hover:bg-gray-800 text-white font-black rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                          minWidth: '280px'
+                          fontSize: '2rem',
+                          padding: '2rem 5rem',
+                          minWidth: '320px'
                         }}
                       >
                         BOOK HERE
@@ -475,60 +504,76 @@ export default function BookHotelPage() {
               </section>
 
               {/* Room Block Details Section */}
-              <section className="mb-12">
+              <section style={{ marginBottom: '3rem' }}>
                 <h2 
-                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  className="text-3xl md:text-4xl font-black text-center uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                     textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                    color: '#d81b8c'
+                    color: '#d81b8c',
+                    marginBottom: '2rem'
                   }}
                 >
                   Room Block Details
                 </h2>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <p className="text-white/95 mb-8" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                <div 
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl border-2 border-white/20"
+                  style={{ padding: '2rem' }}
+                >
+                  <p className="text-white/95" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', marginBottom: '2rem'}}>
                     For the room block, we have reserved 2 types of rooms:
                   </p>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-white/5 rounded-xl p-6 border-2 border-blue-400/30">
-                      <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                  <div 
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+                      gap: isMobile ? '1.5rem' : '2rem'
+                    }}
+                  >
+                    <div 
+                      className="bg-white/5 rounded-xl border-2 border-blue-400/30"
+                      style={{ padding: '1.5rem' }}
+                    >
+                      <h3 className="text-2xl font-black text-white" style={{fontFamily: "'ZollaPro', sans-serif", marginBottom: '1rem'}}>
                         Classic Ocean View
                       </h3>
-                      <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>
-                        <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                      <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start', marginBottom: '1rem'}}>
+                        <p className="text-white/90" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', margin: '0'}}>
                           (guaranteed ocean view,<br />
                           but higher cost)
                         </p>
                       </div>
-                      <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
-                        <div className="flex justify-between items-end">
+                      <div style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: 'rgba(255,255,255,0.95)'}}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: '0.5rem' }}>
                           <span>Single/Double Occupancy:</span>
                           <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$365.00 / night</span>
                         </div>
-                        <div className="flex justify-between items-end">
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end' }}>
                           <span>Triple Occupancy:</span>
                           <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$443.68 / night</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="bg-white/5 rounded-xl p-6 border-2 border-green-400/30">
-                      <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                    <div 
+                      className="bg-white/5 rounded-xl border-2 border-green-400/30"
+                      style={{ padding: '1.5rem' }}
+                    >
+                      <h3 className="text-2xl font-black text-white" style={{fontFamily: "'ZollaPro', sans-serif", marginBottom: '1rem'}}>
                         Classic
                       </h3>
-                      <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>
-                        <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                      <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start', marginBottom: '1rem'}}>
+                        <p className="text-white/90" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', margin: '0'}}>
                           (no guaranteed view – could be garden view, resort view, or street / parking lot view. but lower cost)
                         </p>
                       </div>
-                      <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
-                        <div className="flex justify-between items-end">
+                      <div style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: 'rgba(255,255,255,0.95)'}}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: '0.5rem' }}>
                           <span>Single/Double Occupancy:</span>
                           <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$322.00 / night</span>
                         </div>
-                        <div className="flex justify-between items-end">
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end' }}>
                           <span>Triple Occupancy:</span>
                           <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$400.68 / night</span>
                         </div>
@@ -536,7 +581,7 @@ export default function BookHotelPage() {
                     </div>
                   </div>
 
-                  <div className="mt-12 text-center">
+                  <div className="text-center" style={{ marginTop: '3rem' }}>
                     <p className="text-white/95 font-semibold" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#d81b8c'}}>
                       If you have a strong preference for one or the other, please book early to secure your room of choice!
                     </p>
@@ -545,27 +590,31 @@ export default function BookHotelPage() {
               </section>
 
               {/* Booking Process Details Section */}
-              <section className="mb-12">
+              <section style={{ marginBottom: '3rem' }}>
                 <h2 
-                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  className="text-3xl md:text-4xl font-black text-center uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                     textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                    color: '#d81b8c'
+                    color: '#d81b8c',
+                    marginBottom: '2rem'
                   }}
                 >
                   Booking Process Details
                 </h2>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <p>
+                <div 
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl border-2 border-white/20"
+                  style={{ padding: '2rem' }}
+                >
+                  <div style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: 'rgba(255,255,255,0.95)'}}>
+                    <p style={{ marginBottom: '1rem' }}>
                       The payment process is a bit unusual (but apparently the norm for Mexico):
                     </p>
-                    <ul className="space-y-3 ml-6 custom-bullets">
-                      <li>
+                    <ul className="custom-bullets" style={{ marginLeft: '1.5rem' }}>
+                      <li style={{ marginBottom: '0.75rem' }}>
                         Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link
                       </li>
-                      <li>
+                      <li style={{ marginBottom: '0.75rem' }}>
                         All rooms must be guaranteed with payment of one night at the time of booking
                       </li>
                       <li>
@@ -577,35 +626,39 @@ export default function BookHotelPage() {
               </section>
 
               {/* The Fine Print Section */}
-              <section className="mb-12">
+              <section style={{ marginBottom: '3rem' }}>
                 <h2 
-                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  className="text-3xl md:text-4xl font-black text-center uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                     textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                    color: '#d81b8c'
+                    color: '#d81b8c',
+                    marginBottom: '2rem'
                   }}
                 >
                   The Fine Print
                 </h2>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <ul className="space-y-4 custom-bullets ml-6">
-                      <li>
+                <div 
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl border-2 border-white/20"
+                  style={{ padding: '2rem' }}
+                >
+                  <div style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: 'rgba(255,255,255,0.95)'}}>
+                    <ul className="custom-bullets" style={{ marginLeft: '1.5rem' }}>
+                      <li style={{ marginBottom: '1rem' }}>
                         <div>
                           Hotel room rates include daily access to the Breakfast Buffet at Caribeño Restaurant
-                          <ul className="mt-2 ml-6 space-y-2 custom-bullets">
-                            <li>
+                          <ul className="custom-bullets" style={{ marginTop: '0.5rem', marginLeft: '1.5rem' }}>
+                            <li style={{ marginBottom: '0.5rem' }}>
                               For each child up to 12 years of age, a $13 / day fee applies to cover breakfast
                             </li>
                           </ul>
                         </div>
                       </li>
-                      <li>
+                      <li style={{ marginBottom: '1rem' }}>
                         <div>
                           A maximum of 3 adults are allowed per room
-                          <ul className="mt-2 ml-6 space-y-2 custom-bullets">
-                            <li>
+                          <ul className="custom-bullets" style={{ marginTop: '0.5rem', marginLeft: '1.5rem' }}>
+                            <li style={{ marginBottom: '0.5rem' }}>
                               In addition, up to 2 children 12 years of age or under may stay in each room for free with a maximum of 4 people per room (2 adults + 2 children 12 years of age or younger, or 3 adults + 1 child 12 years of age or under)
                             </li>
                           </ul>
@@ -620,34 +673,38 @@ export default function BookHotelPage() {
               </section>
 
               {/* Questions Section */}
-              <section className="mb-12">
+              <section style={{ marginBottom: '3rem' }}>
                 <h2 
-                  className="text-3xl md:text-4xl font-black text-center mb-8 uppercase tracking-wider" 
+                  className="text-3xl md:text-4xl font-black text-center uppercase tracking-wider" 
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                     textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                    color: '#d81b8c'
+                    color: '#d81b8c',
+                    marginBottom: '2rem'
                   }}
                 >
                   Questions?
                 </h2>
-                <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
-                  <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                <div 
+                  className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl border-2 border-white/20 text-center"
+                  style={{ padding: '2rem' }}
+                >
+                  <p className="text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', marginBottom: '0.5rem'}}>
                     Interested in a different room type?
                   </p>
-                  <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                  <p className="text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', marginBottom: '0.5rem'}}>
                     Experiencing issues with booking and / or affording a room at the Presidente Intercontinental Hotel?
                   </p>
-                  <p className="text-white/95 mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                  <p className="text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', marginBottom: '1.5rem'}}>
                     Really want to stay elsewhere?
                   </p>
-                  <p className="text-white/95 mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>
+                  <p className="text-white/95 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c', marginBottom: '1.5rem'}}>
                     Please shoot us a message at info@bremmiepalooza.com so we can help!
                   </p>
                   <a 
                     href="/contact"
-                    className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full px-8 py-3 text-white font-bold transition-all duration-200 border-2 border-white/30"
-                    style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}
+                    className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-bold transition-all duration-200 border-2 border-white/30"
+                    style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', padding: '0.75rem 2rem'}}
                   >
                     Email Us
                   </a>

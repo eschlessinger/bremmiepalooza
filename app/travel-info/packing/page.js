@@ -62,7 +62,7 @@ export default function PackingPage() {
 
   const travelTabs = [
     { id: 'flights', label: 'Flights', icon: '✈️', href: '/travel-info/flights', active: false },
-    { id: 'ground-transportation', label: 'Ground Transportation', icon: '🛬', href: '/travel-info/ground-transportation', active: false },
+    { id: 'ground-transportation', label: 'Ground Transportation', icon: '🚗', href: '/travel-info/ground-transportation', active: false },
     { id: 'documents', label: 'Documents', icon: '📄', href: '/travel-info/documents', active: false },
     { id: 'packing', label: 'Packing', icon: '🧳', href: '/travel-info/packing', active: true },
     { id: 'activities', label: 'Activities', icon: '🏖️', href: '/travel-info/activities', active: false }
@@ -483,7 +483,7 @@ export default function PackingPage() {
                   <div className="space-y-6 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
                     <ul className="space-y-3 custom-bullets">
                       <li>💃 <strong>Outfits & jewelry</strong> (<a href="https://www.bremmiepalooza.com/faq" className="text-purple-600 hover:text-purple-800 underline font-bold">see FAQ page for more details</a>)</li>
-                      <li>👡 <strong>Comfortable shoes</strong> (especially for sand or dancing)</li>
+                      <li>👡 <strong>Comfortable shoes</strong> (for dancing & sand)</li>
                       <li>👜 <strong>Small purse and / or clutch and / or fanny pack</strong></li>
                       <li>💇‍♀️ <strong>Hair tools</strong> (blow dryer, straightener, curling iron, brush)</li>
                       <li>🪥 <strong>Toiletries</strong> (toothbrush, toothpaste, razor, shaver, makeup, deodorant, face wash, moisturizer, etc.)</li>

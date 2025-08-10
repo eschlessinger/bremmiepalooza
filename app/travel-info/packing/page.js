@@ -482,7 +482,7 @@ export default function PackingPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="space-y-6 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
                     <ul className="space-y-3 custom-bullets">
-                      <li>💃 <strong>Outfits & jewelry</strong> (see <Link href="/faq" style={{color: '#d81b8c', fontWeight: 'normal', textDecoration: 'underline'}}>FAQ page</Link> for more details)</li>
+                      <li>💃 <strong>Outfits & jewelry</strong> (see <Link href="/faq" style={{color: '#d81b8c', fontWeight: 'bold', textDecoration: 'underline'}}>FAQ Page</Link> for more details)</li>
                       <li>👡 <strong>Comfortable shoes</strong> (for dancing & sand)</li>
                       <li>👜 <strong>Small purse and / or clutch and / or fanny pack</strong></li>
                       <li>💇‍♀️ <strong>Hair tools</strong> (blow dryer, straightener, curling iron, brush)</li>

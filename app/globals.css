@@ -25,6 +25,29 @@
     --radius: 0.5rem;
   }
 }
+
+/* === Temporary color shims (safe, targeted) === */
+/* Make those red/yellow/green tinted cards look like "glass" again */
+.bg-red-500\/20, .bg-yellow-500\/20, .bg-green-500\/20 {
+  background-color: rgb(255 255 255 / 0.10) !important; /* ~bg-white/10 */
+  backdrop-filter: blur(8px); /* glassy vibe */
+}
+
+.border-red-400\/50, .border-yellow-400\/50, .border-green-400\/50 {
+  border-color: rgb(255 255 255 / 0.20) !important; /* ~border-white/20 */
+}
+
+/* Make "black fill" CTAs behave like your outline button */
+.rounded-full.border-2.bg-black {
+  background-color: transparent !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+/* Optional: make big transparent buttons on hover show a subtle glass */
+.rounded-full.border-2.bg-black:hover {
+  background-color: rgb(255 255 255 / 0.10) !important;
+}
 @layer base {
   * {
     @apply border-border;

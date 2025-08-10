@@ -511,10 +511,10 @@ export default function PackingPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="space-y-6 text-black" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
                     <ul className="space-y-3 custom-bullets">
-                      <li>🔌 <strong>International power adapter</strong> (especially for U.K. guests!) and / or <strong>travel power strip</strong></li>
+                      <li>🔌 <strong>International power adapter</strong> (especially for UK guests!) and / or <strong>travel power strip</strong></li>
                       <li>🔋 <strong>Portable phone charger / power bank</strong></li>
-                      <li>📺 <strong>HDMI cable</strong> (to connect your own device to the hotel TV if you're not into their channel selection)</li>
-                      <li>🔐 <strong>Zippered pouch or mini safe</strong> for valuables at the beach</li>
+                      <li>📺 <strong>HDMI cable</strong> (to connect your own device to the hotel TV)</li>
+                      <li>🔐 <strong>Zippered pouch or mini safe</strong> (for valuables at the beach)</li>
                       <li>📱 <strong>Offline maps or screenshots of hotel/venue info</strong> (in case of no service)</li>
                       <li>🧴 <strong>Hand sanitizer</strong></li>
                       <li>📑 <strong>Printed copy of your passport + travel docs</strong></li>

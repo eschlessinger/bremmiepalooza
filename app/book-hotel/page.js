@@ -437,11 +437,11 @@ export default function BookHotelPage() {
                   Overview
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-6 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <p>
+                  <div className="space-y-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    <p style={{color: '#000'}}>
                       We have reserved a block of rooms at Presidente Intercontinental Cancun. We highly recommend staying at the hotel, as it will make it logistically easiest for you to enjoy all aspects of the Bremmiepalooza Festival. Plus, in true Bremmie form, we got them to throw in daily breakfast!
                     </p>
-                    <p>
+                    <p style={{color: '#000'}}>
                       Specifically, <strong>The Pregame</strong> and <strong>The Main Stage</strong> will take place at the Presidente Intercontinental Hotel. Additionally, there will be a bus departing from the Presidente Intercontinental Hotel to take festival goers to and from the Marina for <strong>The Aftershow</strong>.
                     </p>
                     <div className="text-center">
@@ -460,11 +460,12 @@ export default function BookHotelPage() {
                         href="https://forms.office.com/r/tuSCB07uW9?origin=lprLink"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black text-3xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
+                        className="inline-block bg-transparent hover:bg-white/10 text-white font-black px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white"
                         style={{
                           fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                           textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                          minWidth: '280px'
+                          minWidth: '280px',
+                          fontSize: '4xl'
                         }}
                       >
                         BOOK HERE
@@ -487,22 +488,22 @@ export default function BookHotelPage() {
                   Room Block Details
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <p className="text-white/95 mb-8" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                  <p style={{color: '#000', marginBottom: '2rem', fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                     For the room block, we have reserved 2 types of rooms:
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-white/5 rounded-xl p-6 border-2 border-white/20">
-                      <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                      <h3 className="text-2xl font-black mb-4" style={{fontFamily: "'ZollaPro', sans-serif", color: '#000'}}>
                         Classic Ocean View
                       </h3>
                       <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>
-                        <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                        <p className="mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#000'}}>
                           (guaranteed ocean view,<br />
                           but higher cost)
                         </p>
                       </div>
-                      <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                      <div className="space-y-2 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#000'}}>
                         <div className="flex justify-between items-end">
                           <span>Single/Double Occupancy:</span>
                           <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$365.00 / night</span>
@@ -515,15 +516,15 @@ export default function BookHotelPage() {
                     </div>
 
                     <div className="bg-white/5 rounded-xl p-6 border-2 border-white/20">
-                      <h3 className="text-2xl font-black text-white mb-4" style={{fontFamily: "'ZollaPro', sans-serif"}}>
+                      <h3 className="text-2xl font-black mb-4" style={{fontFamily: "'ZollaPro', sans-serif", color: '#000'}}>
                         Classic
                       </h3>
                       <div style={{height: isMobile ? 'auto' : '60px', display: 'flex', alignItems: 'start'}}>
-                        <p className="text-white/90 mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                        <p className="mb-0" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#000'}}>
                           (no guaranteed view – could be garden view, resort view, or street / parking lot view. but lower cost)
                         </p>
                       </div>
-                      <div className="space-y-2 text-white/95 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                      <div className="space-y-2 mt-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#000'}}>
                         <div className="flex justify-between items-end">
                           <span>Single/Double Occupancy:</span>
                           <span className="font-bold" style={{textAlign: 'right', minWidth: '120px'}}>$322.00 / night</span>
@@ -537,7 +538,7 @@ export default function BookHotelPage() {
                   </div>
 
                   <div className="mt-12 text-center">
-                    <p className="text-white/95 font-semibold" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#d81b8c'}}>
+                    <p className="font-semibold" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#d81b8c'}}>
                       If you have a strong preference for one or the other, please book early to secure your room of choice!
                     </p>
                   </div>
@@ -557,8 +558,8 @@ export default function BookHotelPage() {
                   Booking Process Details
                 </h2>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                  <div className="space-y-4 text-white/95" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
-                    <p>
+                  <div className="space-y-4" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                    <p style={{color: '#000'}}>
                       The payment process is a bit unusual (but apparently the norm for Mexico):
                     </p>
                     <ul className="space-y-3 ml-6 custom-bullets">
@@ -632,13 +633,13 @@ export default function BookHotelPage() {
                   Questions?
                 </h2>
                 <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 text-center">
-                  <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                  <p className="mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#000'}}>
                     Interested in a different room type?
                   </p>
-                  <p className="text-white/95 mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                  <p className="mb-2" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#000'}}>
                     Experiencing issues with booking and / or affording a room at the Presidente Intercontinental Hotel?
                   </p>
-                  <p className="text-white/95 mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px'}}>
+                  <p className="mb-6" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#000'}}>
                     Really want to stay elsewhere?
                   </p>
                   <p className="text-white/95 mb-6 font-bold" style={{fontFamily: 'Arial, sans-serif', lineHeight: '1.6', fontSize: '18px', color: '#d81b8c'}}>

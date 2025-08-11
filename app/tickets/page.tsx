@@ -298,9 +298,9 @@ export default function RSVPPage() {
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
             style={{ height: isMobile ? '120px' : '160px' }}
           >
-            <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
+            <div className="flex justify-center items-center h-full relative">
               {/* Left side doodles */}
-              <div className="flex gap-4 md:gap-6">
+              <div className="flex gap-4 md:gap-6 items-center">
                 {doodles.slice(0, 4).map((doodle, index) => (
                   <div
                     key={`left-${index}`}
@@ -322,8 +322,8 @@ export default function RSVPPage() {
                 ))}
               </div>
 
-              {/* Center title - simple header style */}
-              <div className="text-center px-8">
+              {/* Center title - with equal spacing on both sides */}
+              <div className="text-center px-12 md:px-16">
                 <h1 
                   className="text-2xl md:text-4xl font-black uppercase tracking-wider" 
                   style={{
@@ -337,7 +337,7 @@ export default function RSVPPage() {
               </div>
 
               {/* Right side doodles */}
-              <div className="flex gap-4 md:gap-6">
+              <div className="flex gap-4 md:gap-6 items-center">
                 {doodles.slice(4, 8).map((doodle, index) => (
                   <div
                     key={`right-${index}`}

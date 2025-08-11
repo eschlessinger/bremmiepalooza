@@ -13,6 +13,7 @@ export default function SuccessPage() {
 
   return (
     <main className="relative min-h-screen">
+      {/* Gradient Background Component */}
       <div
         className="fixed inset-0 animate-gradient-shift"
         style={{
@@ -85,8 +86,8 @@ export default function SuccessPage() {
         </div>
       </div>
 
-      {/* Wave Footer - Fixed to bottom */}
-      <div className="fixed left-0 w-full bottom-0 z-10" style={{ height: "24vh" }}>
+      {/* Wave Footer using CSS variables */}
+      <div className="fixed left-0 w-full bottom-0 z-10" style={{ height: "var(--wave-h)" }}>
         <svg
           width="100%"
           height="100%"
@@ -116,14 +117,14 @@ export default function SuccessPage() {
         </svg>
       </div>
 
-      {/* Bremmie doodle - Fixed to bottom */}
+      {/* Bremmie doodle using CSS variables */}
       <div
         className="fixed pointer-events-none z-20"
         style={{
-          right: "6%",
-          bottom: "60px",
-          width: "20vmin",
-          height: "20vmin",
+          right: "var(--bremmie-right)",
+          bottom: "var(--bremmie-bottom)",
+          width: "var(--bremmie-size)",
+          height: "var(--bremmie-size)",
         }}
       >
         <div className="relative w-full h-full">

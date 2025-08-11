@@ -1,13 +1,37 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { useIsMobile } from "@/hooks/use-mobile"
 
-export default function TicketsPage() {
+export default function RSVPPage() {
   const [mounted, setMounted] = useState(false)
-  const isMobile = useIsMobile()
+  const [formData, setFormData] = useState({
+    passType: '',
+    events: [],
+    guestName: '',
+    hasPlusOne: '',
+    plusOneName: '',
+    hasKids: '',
+    numKids: '',
+    kidNames: [],
+    wantsBabysitting: '',
+    babysittingEvents: [],
+    dietaryRestrictions: {},
+    musicPreferences: '',
+    mailingAddress: {
+      name: '',
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      country: 'United States'
+    },
+    phone: '',
+    email: ''
+  })
+  const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('')
+  const isMobile = false // For demo purposes
 
   useEffect(() => {
     setMounted(true)
@@ -15,50 +39,222 @@ export default function TicketsPage() {
 
   if (!mounted) return null
 
-  const navButtons = [
-    { 
-      label: "TICKETS", 
-      sublabel: "(Coming Soon)",
-      href: "#", 
-      disabled: true,
-      onClick: null
-    },
-    { 
-      label: "LINEUP", 
-      sublabel: "",
-      href: "/lineup", 
-      disabled: false,
-      onClick: null
-    },
-    { 
-      label: "FESTIVAL", 
-      sublabel: "MAP",
-      href: "/festival-map", 
-      disabled: false,
-      onClick: null
-    },
-    { 
-      label: "FAQS", 
-      sublabel: "",
-      href: "/faq", 
-      disabled: false,
-      onClick: null
-    },
-    { 
-      label: "TRAVEL", 
-      sublabel: "INFO",
-      href: "/travel-info", 
-      disabled: false,
-      onClick: null
-    },
-    { 
-      label: "BOOK MY", 
-      sublabel: "HOTEL",
-      href: "/book-hotel", 
-      disabled: false,
-      onClick: null
-    }
+  const events = [
+    { id: 'pregame', label: 'Friday, January 16: The Pregame' },
+    { id: 'mainstage', label: 'Saturday, January 17: The Mainstage' },
+    { id: 'aftershow', label: 'Sunday, January 18: The Aftershow' }
   ]
+
+  const dietaryOptions = [
+    'None', 'Vegan', 'Vegetarian', 'Gluten-Free', 'Kosher', 'Nut Allergies', 'Dairy-Free', 'Other'
+  ]
+
+  // Create doodle positions in a line above header
+  const createLinearPositions = (count) => {
+    const positions = []
+    const spacing = 80 / (count - 1) // Distribute across 80% of width
+    for (let i = 0; i < count; i++) {
+      positions.push({
+        x: 10 + (spacing * i), // Start at 10%, end at 90%
+        y: 12,
+        size: 8,
+        rotation: (Math.random() - 0.5) * 20,
+        delay: i * 0.1
+      })
+    }
+    return positions
+  }
+
+  const doodlePositions = createLinearPositions(8)
+  const doodles = [
+    "/doodles/tree.png",
+    "/doodles/bikini.png", 
+    "/doodles/heart.png",
+    "/doodles/whiteclaw.png",
+    "/doodles/ball.png",
+    "/doodles/sunglasses.png",
+    "/doodles/star-blue.png",
+    "/doodles/music.png"
+  ]
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target
+    
+    if (type === 'checkbox') {
+      if (name === 'events') {
+        const updatedEvents = checked 
+          ? [...formData.events, value]
+          : formData.events.filter(event => event !== value)
+        setFormData(prev => ({ ...prev, events: updatedEvents }))
+      } else if (name === 'babysittingEvents') {
+        const updatedEvents = checked
+          ? [...formData.babysittingEvents, value]
+          : formData.babysittingEvents.filter(event => event !== value)
+        setFormData(prev => ({ ...prev, babysittingEvents: updatedEvents }))
+      }
+    } else if (name.startsWith('kidName_')) {
+      const index = parseInt(name.split('_')[1])
+      const updatedKidNames = [...formData.kidNames]
+      updatedKidNames[index] = value
+      setFormData(prev => ({ ...prev, kidNames: updatedKidNames }))
+    } else if (name.startsWith('address_')) {
+      const field = name.split('_')[1]
+      setFormData(prev => ({
+        ...prev,
+        mailingAddress: { ...prev.mailingAddress, [field]: value }
+      }))
+    } else if (name === 'numKids') {
+      const num = parseInt(value) || 0
+      const kidNames = Array(num).fill('')
+      setFormData(prev => ({ ...prev, numKids: value, kidNames }))
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }))
+    }
+  }
+
+  const handleDietaryChange = (guestKey, restriction, isOther = false, otherValue = '') => {
+    setFormData(prev => {
+      const currentRestrictions = prev.dietaryRestrictions[guestKey] || []
+      let updatedRestrictions
+      
+      if (isOther && otherValue) {
+        updatedRestrictions = [...currentRestrictions.filter(r => !r.startsWith('Other:')), `Other: ${otherValue}`]
+      } else if (restriction === 'None') {
+        updatedRestrictions = ['None']
+      } else {
+        if (currentRestrictions.includes('None')) {
+          updatedRestrictions = [restriction]
+        } else if (currentRestrictions.includes(restriction)) {
+          updatedRestrictions = currentRestrictions.filter(r => r !== restriction)
+        } else {
+          updatedRestrictions = [...currentRestrictions, restriction]
+        }
+      }
+      
+      return {
+        ...prev,
+        dietaryRestrictions: {
+          ...prev.dietaryRestrictions,
+          [guestKey]: updatedRestrictions
+        }
+      }
+    })
+  }
+
+  const formatPhoneNumber = (value) => {
+    const cleaned = value.replace(/\D/g, '')
+    if (cleaned.startsWith('44')) {
+      // UK format
+      const match = cleaned.match(/^44(\d{4})(\d{3})(\d{3})$/)
+      if (match) return `+44 ${match[1]} ${match[2]} ${match[3]}`
+    } else {
+      // US format
+      const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
+      if (match) return `(${match[1]}) ${match[2]}-${match[3]}`
+    }
+    return value
+  }
+
+  const handlePhoneChange = (e) => {
+    const formatted = formatPhoneNumber(e.target.value)
+    setFormData(prev => ({ ...prev, phone: formatted }))
+  }
+
+  const validateForm = () => {
+    const newErrors = {}
+    
+    if (!formData.passType) newErrors.passType = 'Please select a pass type'
+    if (formData.passType !== '3-Day' && formData.events.length === 0) {
+      newErrors.events = 'Please select events'
+    }
+    if (formData.passType === '1-Day' && formData.events.length !== 1) {
+      newErrors.events = 'Please select exactly 1 event for 1-Day pass'
+    }
+    if (formData.passType === '2-Day' && formData.events.length !== 2) {
+      newErrors.events = 'Please select exactly 2 events for 2-Day pass'
+    }
+    if (!formData.guestName.trim()) newErrors.guestName = 'Name is required'
+    if (!formData.hasPlusOne) newErrors.hasPlusOne = 'Please indicate if you have a +1'
+    if (formData.hasPlusOne === 'yes' && !formData.plusOneName.trim()) {
+      newErrors.plusOneName = '+1 name is required'
+    }
+    if (!formData.hasKids) newErrors.hasKids = 'Please indicate if you have kids'
+    if (formData.hasKids === 'yes' && !formData.numKids) {
+      newErrors.numKids = 'Number of kids is required'
+    }
+    if (formData.hasKids === 'yes' && formData.kidNames.some(name => !name.trim())) {
+      newErrors.kidNames = 'All kid names are required'
+    }
+    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required'
+    if (!formData.email.trim()) newErrors.email = 'Email is required'
+    
+    // Address validation
+    if (!formData.mailingAddress.name.trim()) newErrors.addressName = 'Name is required'
+    if (!formData.mailingAddress.street.trim()) newErrors.addressStreet = 'Street address is required'
+    if (!formData.mailingAddress.city.trim()) newErrors.addressCity = 'City is required'
+    if (!formData.mailingAddress.state.trim()) newErrors.addressState = 'State/Province is required'
+    if (!formData.mailingAddress.zip.trim()) newErrors.addressZip = 'ZIP/Postal code is required'
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!validateForm()) return
+    
+    setIsSubmitting(true)
+    setSubmitStatus('')
+
+    try {
+      // Prepare form data for submission
+      const submitData = {
+        ...formData,
+        // Add auto-filled events for 3-Day pass
+        events: formData.passType === '3-Day' ? ['pregame', 'mainstage', 'aftershow'] : formData.events,
+        timestamp: new Date().toISOString()
+      }
+
+      // For demo purposes - in real implementation, this would go to Vercel Forms
+      console.log('Form submitted:', submitData)
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      setSubmitStatus('success')
+      
+      // In real implementation, redirect to success page
+      setTimeout(() => {
+        alert('Form submitted successfully! In a real implementation, this would redirect to the success page.')
+      }, 1000)
+      
+    } catch (error) {
+      console.error('Submission failed:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const getAllGuests = () => {
+    const guests = []
+    if (formData.guestName.trim()) {
+      guests.push({ key: 'main', name: formData.guestName })
+    }
+    if (formData.hasPlusOne === 'yes' && formData.plusOneName.trim()) {
+      guests.push({ key: 'plus_one', name: formData.plusOneName })
+    }
+    formData.kidNames.forEach((name, index) => {
+      if (name.trim()) {
+        guests.push({ key: `kid_${index}`, name: name })
+      }
+    })
+    return guests
+  }
+
+  const attendingEvents = formData.passType === '3-Day' 
+    ? events 
+    : events.filter(event => formData.events.includes(event.id))
 
   return (
     <main className="relative min-h-screen">
@@ -71,317 +267,588 @@ export default function TicketsPage() {
         }}
       />
 
+      {/* Doodles in a line */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+        {doodlePositions.map((position, index) => (
+          <div
+            key={index}
+            className="absolute doodle-animation"
+            style={{
+              left: `${position.x}%`,
+              top: `${position.y}%`,
+              width: `${position.size}vmin`,
+              height: `${position.size}vmin`,
+              transform: `translate(-50%, -50%) rotate(${position.rotation}deg)`,
+              animationDelay: `${position.delay}s`,
+              '--rotation': `${position.rotation}deg`
+            }}
+          >
+            <div className="relative w-full h-full">
+              <img
+                src={doodles[index % doodles.length]}
+                alt="Festival doodle"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Content container */}
       <div className="relative z-10">
         {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
-            <Link href="/lineup" className="w-full max-w-sm md:max-w-md">
-              <Image
+            <a href="/" className="w-full max-w-sm md:max-w-md">
+              <img
                 src="/bremmiepalooza-logo-for-cta.png"
                 alt="Bremmiepalooza 2026"
-                width={400}
-                height={200}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                }}
-                className="mx-auto cursor-pointer hover:opacity-90 transition-opacity"
-                priority
+                className="w-full h-auto mx-auto cursor-pointer hover:opacity-90 transition-opacity"
               />
-            </Link>
+            </a>
           </div>
         </div>
 
-        {/* Navigation Banner */}
-        <div 
-          className="w-full z-20"
-          style={{
-            position: 'absolute',
-            top: isMobile ? '120px' : '150px',
-            left: '0',
-            right: '0'
-          }}
-        >
-          <div 
-            className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
-            style={{ height: isMobile ? '120px' : '160px' }}
-          >
-            <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
-              {navButtons.map((button, index) => {
-                // For internal page links
-                if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
-                  return (
-                    <Link key={index} href={button.href}>
-                      <div className={`
-                        relative flex flex-col items-center justify-center transition-all duration-200 transform cursor-pointer
-                        ${button.disabled 
-                          ? 'opacity-50 cursor-not-allowed' 
-                          : 'hover:scale-110 active:scale-95'
-                        }
-                      `}
-                      style={{
-                        minWidth: isMobile ? '50px' : '120px',
-                        minHeight: isMobile ? '70px' : '100px',
-                        marginTop: '-10px'
-                      }}>
-                        <div className="mb-1">
-                          {button.label === 'LINEUP' && (
-                            <Image 
-                              src="/Lineup.png" 
-                              alt="Lineup Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                              style={{ marginTop: '-2px' }}
-                            />
-                          )}
-                          {button.label === 'TICKETS' && (
-                            <Image 
-                              src="/tickets_icon.PNG" 
-                              alt="Tickets Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'FESTIVAL' && (
-                            <Image 
-                              src="/festival_map_icon.PNG" 
-                              alt="Festival Map Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'FAQS' && (
-                            <Image 
-                              src="/faqs_icon.PNG" 
-                              alt="FAQs Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'TRAVEL' && (
-                            <Image 
-                              src="/travel_info.PNG" 
-                              alt="Travel Info Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'BOOK MY' && (
-                            <Image 
-                              src="/book_my_hotel.PNG" 
-                              alt="Book My Hotel Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                        </div>
-                        
-                        <div className="text-center relative">
-                          <div 
-                            className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
-                            style={{
-                              textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                              fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                            }}
-                          >
-                            {button.label}
-                          </div>
-                          {button.sublabel ? (
-                            <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
-                              style={{
-                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                              }}
-                            >
-                              {button.sublabel}
-                            </div>
-                          ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
-                            <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
-                              style={{
-                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                              }}
-                            >
-                              &nbsp;
-                            </div>
-                          ) : null}
-                          {button.label === 'TICKETS' && (
-                            <div 
-                              className="absolute"
-                              style={{
-                                left: '50%',
-                                bottom: '-8px',
-                                transform: 'translateX(-50%)',
-                                width: '60%',
-                                height: '3px',
-                                backgroundColor: '#d81b8c',
-                                borderRadius: '2px'
-                              }}
-                            />
-                          )}
-                        </div>
-                      </div>
-                    </Link>
-                  )
-                }
-                
-                // For disabled buttons
-                return (
-                  <div
-                    key={index}
-                    className={`
-                      relative flex flex-col items-center justify-center transition-all duration-200 transform
-                      ${button.disabled 
-                        ? 'opacity-50 cursor-not-allowed' 
-                        : 'hover:scale-110 active:scale-95 cursor-pointer'
-                      }
-                    `}
-                    style={{
-                      minWidth: isMobile ? '50px' : '120px',
-                      minHeight: isMobile ? '70px' : '100px',
-                      marginTop: '-10px'
-                    }}
-                  >
-                    <div className="mb-1">
-                      {button.label === 'LINEUP' && (
-                        <Image 
-                          src="/Lineup.png" 
-                          alt="Lineup Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                          style={{ marginTop: '-2px' }}
-                        />
-                      )}
-                      {button.label === 'TICKETS' && (
-                        <Image 
-                          src="/tickets_icon.PNG" 
-                          alt="Tickets Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'FESTIVAL' && (
-                        <Image 
-                          src="/festival_map_icon.PNG" 
-                          alt="Festival Map Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'FAQS' && (
-                        <Image 
-                          src="/faqs_icon.PNG" 
-                          alt="FAQs Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'TRAVEL' && (
-                        <Image 
-                          src="/travel_info.PNG" 
-                          alt="Travel Info Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'BOOK MY' && (
-                        <Image 
-                          src="/book_my_hotel.PNG" 
-                          alt="Book My Hotel Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                    </div>
-                    
-                    <div className="text-center relative">
-                      <div 
-                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
-                        style={{
-                          textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                          fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                        }}
-                      >
-                        {button.label}
-                      </div>
-                      {button.sublabel ? (
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                          }}
-                        >
-                          {button.sublabel}
-                        </div>
-                      ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                          }}
-                        >
-                          &nbsp;
-                        </div>
-                      ) : null}
-                      {button.label === 'TICKETS' && (
-                        <div 
-                          className="absolute"
-                          style={{
-                            left: '50%',
-                            bottom: '-8px',
-                            transform: 'translateX(-50%)',
-                            width: '60%',
-                            height: '3px',
-                            backgroundColor: '#d81b8c',
-                            borderRadius: '2px'
-                          }}
-                        />
-                      )}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
+        {/* Main Content */}
+        <div className="px-4 pb-12 pt-8" style={{ marginTop: '4rem' }}>
+          <div className="max-w-4xl mx-auto">
+            <h1 
+              className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
+              style={{
+                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                color: '#d81b8c'
+              }}
+            >
+              Secure Your Tickets
+            </h1>
 
-        {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
-
-          {/* Main Content */}
-          <div className="px-4 pb-12">
-            <div className="max-w-5xl mx-auto">
-              <h1 
-                className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
+            {/* Event Descriptions */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-8">
+              <h2 
+                className="text-2xl md:text-3xl font-black text-center mb-6 uppercase tracking-wider" 
                 style={{
                   fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                  textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
                   color: '#d81b8c'
                 }}
               >
-                TICKETS
-              </h1>
+                Festival Events
+              </h2>
+              <div className="space-y-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
+                <div style={{color: '#000'}}>
+                  <strong>Friday, January 16th: The Pregame</strong> - <em>Welcome drinks & games on the beach. Think beer pong, ladder ball, baggo / cornhole / bags with hamburgers, hot dogs, and french fries!</em>
+                </div>
+                <div style={{color: '#000'}}>
+                  <strong>Saturday, January 17th: The Main Stage</strong> - <em>Dance & celebrate with us all night!</em>
+                </div>
+                <div style={{color: '#000'}}>
+                  <strong>Sunday, January 18th: The Aftershow</strong> - <em>Final celebration...on a boat!</em>
+                </div>
+              </div>
+            </div>
 
-              {/* Placeholder content - ready for your future vision! */}
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <div className="mb-6 p-4 bg-green-500/20 border-2 border-green-400/50 rounded-xl text-center">
+                <p className="text-white font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                  ✅ RSVP submitted successfully! We'll send you a confirmation email soon.
+                </p>
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="mb-6 p-4 bg-red-500/20 border-2 border-red-400/50 rounded-xl text-center">
+                <p className="text-white font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
+                  ❌ Sorry, there was an error submitting your RSVP. Please try again or email us at info@bremmiepalooza.com
+                </p>
+              </div>
+            )}
+
+            {/* RSVP Form */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
+              {/* Question 1: Pass Type */}
+              <div className="mb-8">
+                <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                  1. Are you interested in 1-Day, 2-Day, or 3-Day passes? *
+                </label>
+                <div className="space-y-3">
+                  {['1-Day', '2-Day', '3-Day'].map(option => (
+                    <label key={option} className="flex items-center text-white text-lg cursor-pointer" style={{fontFamily: 'Arial, sans-serif'}}>
+                      <input
+                        type="radio"
+                        name="passType"
+                        value={option}
+                        checked={formData.passType === option}
+                        onChange={handleInputChange}
+                        className="mr-3 w-5 h-5"
+                        style={{accentColor: '#d81b8c'}}
+                      />
+                      {option} Pass
+                    </label>
+                  ))}
+                </div>
+                {errors.passType && <p className="text-red-300 mt-2">{errors.passType}</p>}
+              </div>
+
+              {/* Question 2: Event Selection (conditional) */}
+              {formData.passType && formData.passType !== '3-Day' && (
+                <div className="mb-8">
+                  <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                    2. Which events do you plan to attend? * 
+                    <span className="text-sm font-normal"> (Select {formData.passType === '1-Day' ? '1' : '2'} event{formData.passType === '2-Day' ? 's' : ''})</span>
+                  </label>
+                  <div className="space-y-3">
+                    {events.map(event => (
+                      <label key={event.id} className="flex items-center text-white text-lg cursor-pointer" style={{fontFamily: 'Arial, sans-serif'}}>
+                        <input
+                          type="checkbox"
+                          name="events"
+                          value={event.id}
+                          checked={formData.events.includes(event.id)}
+                          onChange={handleInputChange}
+                          className="mr-3 w-5 h-5"
+                          style={{accentColor: '#d81b8c'}}
+                        />
+                        {event.label}
+                      </label>
+                    ))}
+                  </div>
+                  {errors.events && <p className="text-red-300 mt-2">{errors.events}</p>}
+                </div>
+              )}
+
+              {/* Question 3: Guest Name */}
+              <div className="mb-8">
+                <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                  3. Name of Person *
+                </label>
+                <input
+                  type="text"
+                  name="guestName"
+                  value={formData.guestName}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                  style={{fontFamily: 'Arial, sans-serif'}}
+                  placeholder="Your full name"
+                />
+                {errors.guestName && <p className="text-red-300 mt-2">{errors.guestName}</p>}
+              </div>
+
+              {/* Question 4: Plus One */}
+              <div className="mb-8">
+                <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                  4. Are you bringing a +1? *
+                </label>
+                <div className="space-y-3">
+                  {['yes', 'no'].map(option => (
+                    <label key={option} className="flex items-center text-white text-lg cursor-pointer" style={{fontFamily: 'Arial, sans-serif'}}>
+                      <input
+                        type="radio"
+                        name="hasPlusOne"
+                        value={option}
+                        checked={formData.hasPlusOne === option}
+                        onChange={handleInputChange}
+                        className="mr-3 w-5 h-5"
+                        style={{accentColor: '#d81b8c'}}
+                      />
+                      {option.charAt(0).toUpperCase() + option.slice(1)}
+                    </label>
+                  ))}
+                </div>
+                {errors.hasPlusOne && <p className="text-red-300 mt-2">{errors.hasPlusOne}</p>}
+              </div>
+
+              {/* Question 5: Plus One Name (conditional) */}
+              {formData.hasPlusOne === 'yes' && (
+                <div className="mb-8">
+                  <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                    5. What is the name of the +1? *
+                  </label>
+                  <input
+                    type="text"
+                    name="plusOneName"
+                    value={formData.plusOneName}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                    style={{fontFamily: 'Arial, sans-serif'}}
+                    placeholder="Full name of your +1"
+                  />
+                  {errors.plusOneName && <p className="text-red-300 mt-2">{errors.plusOneName}</p>}
+                </div>
+              )}
+
+              {/* Question 6: Kids */}
+              <div className="mb-8">
+                <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                  6. Are you bringing kids? *
+                </label>
+                <div className="space-y-3">
+                  {['yes', 'no'].map(option => (
+                    <label key={option} className="flex items-center text-white text-lg cursor-pointer" style={{fontFamily: 'Arial, sans-serif'}}>
+                      <input
+                        type="radio"
+                        name="hasKids"
+                        value={option}
+                        checked={formData.hasKids === option}
+                        onChange={handleInputChange}
+                        className="mr-3 w-5 h-5"
+                        style={{accentColor: '#d81b8c'}}
+                      />
+                      {option.charAt(0).toUpperCase() + option.slice(1)}
+                    </label>
+                  ))}
+                </div>
+                {errors.hasKids && <p className="text-red-300 mt-2">{errors.hasKids}</p>}
+              </div>
+
+              {/* Questions 7-8: Kids Details (conditional) */}
+              {formData.hasKids === 'yes' && (
+                <>
+                  {/* Question 7: Number of Kids */}
+                  <div className="mb-8">
+                    <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                      7. How many kids? *
+                    </label>
+                    <select
+                      name="numKids"
+                      value={formData.numKids}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                      style={{fontFamily: 'Arial, sans-serif'}}
+                    >
+                      <option value="">Select number of kids</option>
+                      {[1,2,3,4,5].map(num => (
+                        <option key={num} value={num} className="bg-gray-800">{num}</option>
+                      ))}
+                    </select>
+                    {errors.numKids && <p className="text-red-300 mt-2">{errors.numKids}</p>}
+                  </div>
+
+                  {/* Question 8: Kid Names */}
+                  {formData.numKids && (
+                    <div className="mb-8">
+                      <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                        8. What are the names of the kids? *
+                      </label>
+                      <div className="space-y-3">
+                        {Array.from({length: parseInt(formData.numKids)}, (_, index) => (
+                          <input
+                            key={index}
+                            type="text"
+                            name={`kidName_${index}`}
+                            value={formData.kidNames[index] || ''}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                            style={{fontFamily: 'Arial, sans-serif'}}
+                            placeholder={`Name of Kid #${index + 1}`}
+                          />
+                        ))}
+                      </div>
+                      {errors.kidNames && <p className="text-red-300 mt-2">{errors.kidNames}</p>}
+                    </div>
+                  )}
+
+                  {/* Question 9: Babysitting */}
+                  <div className="mb-8">
+                    <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                      9. Are you interested in babysitting services for your kids? *
+                    </label>
+                    <div className="space-y-3">
+                      {['yes', 'no'].map(option => (
+                        <label key={option} className="flex items-center text-white text-lg cursor-pointer" style={{fontFamily: 'Arial, sans-serif'}}>
+                          <input
+                            type="radio"
+                            name="wantsBabysitting"
+                            value={option}
+                            checked={formData.wantsBabysitting === option}
+                            onChange={handleInputChange}
+                            className="mr-3 w-5 h-5"
+                            style={{accentColor: '#d81b8c'}}
+                          />
+                          {option.charAt(0).toUpperCase() + option.slice(1)}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Question 10: Babysitting Events (conditional) */}
+                  {formData.wantsBabysitting === 'yes' && attendingEvents.length > 0 && (
+                    <div className="mb-8">
+                      <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                        10. For which events? *
+                      </label>
+                      <div className="space-y-3">
+                        {attendingEvents.map(event => (
+                          <label key={event.id} className="flex items-center text-white text-lg cursor-pointer" style={{fontFamily: 'Arial, sans-serif'}}>
+                            <input
+                              type="checkbox"
+                              name="babysittingEvents"
+                              value={event.id}
+                              checked={formData.babysittingEvents.includes(event.id)}
+                              onChange={handleInputChange}
+                              className="mr-3 w-5 h-5"
+                              style={{accentColor: '#d81b8c'}}
+                            />
+                            {event.label}
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* Question 11: Dietary Restrictions */}
+              {getAllGuests().length > 0 && (
+                <div className="mb-8">
+                  <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                    11. Do you or your guests have any dietary restrictions? *
+                  </label>
+                  <div className="space-y-6">
+                    {getAllGuests().map(guest => (
+                      <div key={guest.key} className="bg-white/5 rounded-lg p-4">
+                        <h4 className="text-white font-semibold mb-3 text-lg" style={{fontFamily: 'Arial, sans-serif'}}>
+                          {guest.name}
+                        </h4>
+                        <div className="space-y-2">
+                          {dietaryOptions.map(option => (
+                            <label key={option} className="flex items-center text-white cursor-pointer" style={{fontFamily: 'Arial, sans-serif'}}>
+                              <input
+                                type="checkbox"
+                                checked={(formData.dietaryRestrictions[guest.key] || []).includes(option)}
+                                onChange={() => handleDietaryChange(guest.key, option)}
+                                className="mr-2 w-4 h-4"
+                                style={{accentColor: '#d81b8c'}}
+                              />
+                              {option}
+                            </label>
+                          ))}
+                          {(formData.dietaryRestrictions[guest.key] || []).some(r => r.startsWith('Other')) && (
+                            <input
+                              type="text"
+                              placeholder="Please specify..."
+                              className="w-full px-3 py-2 rounded bg-white/20 border border-white/30 text-white placeholder-white/60 text-sm"
+                              style={{fontFamily: 'Arial, sans-serif'}}
+                              onChange={(e) => handleDietaryChange(guest.key, 'Other', true, e.target.value)}
+                            />
+                          )}
+                        </div>
+                        {/* Show selected restrictions */}
+                        {(formData.dietaryRestrictions[guest.key] || []).length > 0 && (
+                          <div className="flex flex-wrap gap-2 mt-3">
+                            {(formData.dietaryRestrictions[guest.key] || []).map(restriction => (
+                              <span key={restriction} className="bg-pink-500/30 text-white px-2 py-1 rounded text-sm flex items-center">
+                                {restriction}
+                                <button
+                                  type="button"
+                                  onClick={() => handleDietaryChange(guest.key, restriction)}
+                                  className="ml-2 text-white hover:text-red-300"
+                                >
+                                  ×
+                                </button>
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Question 12: Music Preferences */}
+              <div className="mb-8">
+                <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                  12. What songs are you most excited to hear at Bremmiepalooza?
+                </label>
+                <textarea
+                  name="musicPreferences"
+                  value={formData.musicPreferences}
+                  onChange={handleInputChange}
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm resize-vertical text-lg"
+                  style={{fontFamily: 'Arial, sans-serif'}}
+                  placeholder="Tell us your favorite songs, artists, or genres..."
+                />
+              </div>
+
+              {/* Question 13: Mailing Address */}
+              <div className="mb-8">
+                <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                  13. What is your complete mailing address? *
+                </label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="address_name"
+                    value={formData.mailingAddress.name}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                    style={{fontFamily: 'Arial, sans-serif'}}
+                    placeholder="Full Name"
+                  />
+                  {errors.addressName && <p className="text-red-300 mt-2 md:col-span-2">{errors.addressName}</p>}
+                  <input
+                    type="text"
+                    name="address_street"
+                    value={formData.mailingAddress.street}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg md:col-span-2"
+                    style={{fontFamily: 'Arial, sans-serif'}}
+                    placeholder="Street Address"
+                  />
+                  {errors.addressStreet && <p className="text-red-300 mt-2 md:col-span-2">{errors.addressStreet}</p>}
+                  <input
+                    type="text"
+                    name="address_city"
+                    value={formData.mailingAddress.city}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                    style={{fontFamily: 'Arial, sans-serif'}}
+                    placeholder="City"
+                  />
+                  {errors.addressCity && <p className="text-red-300 mt-2">{errors.addressCity}</p>}
+                  <input
+                    type="text"
+                    name="address_state"
+                    value={formData.mailingAddress.state}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                    style={{fontFamily: 'Arial, sans-serif'}}
+                    placeholder="State/Province"
+                  />
+                  {errors.addressState && <p className="text-red-300 mt-2">{errors.addressState}</p>}
+                  <input
+                    type="text"
+                    name="address_zip"
+                    value={formData.mailingAddress.zip}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                    style={{fontFamily: 'Arial, sans-serif'}}
+                    placeholder="ZIP/Postal Code"
+                  />
+                  {errors.addressZip && <p className="text-red-300 mt-2">{errors.addressZip}</p>}
+                  <select
+                    name="address_country"
+                    value={formData.mailingAddress.country}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                    style={{fontFamily: 'Arial, sans-serif'}}
+                  >
+                    <option value="United States" className="bg-gray-800">United States</option>
+                    <option value="United Kingdom" className="bg-gray-800">United Kingdom</option>
+                    <option value="Canada" className="bg-gray-800">Canada</option>
+                    <option value="Australia" className="bg-gray-800">Australia</option>
+                    <option value="Other" className="bg-gray-800">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Question 14: Phone Number */}
+              <div className="mb-8">
+                <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                  14. Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handlePhoneChange}
+                  className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                  style={{fontFamily: 'Arial, sans-serif'}}
+                  placeholder="(XXX) XXX-XXXX or +44 XXXX XXX XXX"
+                />
+                {errors.phone && <p className="text-red-300 mt-2">{errors.phone}</p>}
+              </div>
+
+              {/* Question 15: Email */}
+              <div className="mb-8">
+                <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
+                  15. Email Address *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
+                  style={{fontFamily: 'Arial, sans-serif'}}
+                  placeholder="your.email@example.com"
+                />
+                {errors.email && <p className="text-red-300 mt-2">{errors.email}</p>}
+              </div>
+
+              {/* Submit Button */}
+              <div className="text-center pt-8">
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className={`bg-black hover:bg-gray-800 text-white font-black text-2xl md:text-3xl px-12 py-6 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                    minWidth: '280px'
+                  }}
+                >
+                  {isSubmitting ? 'SECURING...' : 'SECURE MY TICKETS'}
+                </button>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Wave Footer */}
+      <div className="absolute left-0 w-full bottom-0 z-10" style={{ height: "24vh" }}>
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 1440 200"
+          preserveAspectRatio="none"
+          style={{ display: "block" }}
+        >
+          <path
+            d="M0 100L48 87.5C96 75 192 50 288 58.3C384 66.7 480 108.3 576 125C672 141.7 768 133.3 864 116.7C960 100 1056 75 1152 66.7C1248 58.3 1344 66.7 1392 70.8L1440 75V200H1392C1344 200 1248 200 1152 200C1056 200 960 200 864 200C768 200 672 200 576 200C480 200 384 200 288 200C192 200 96 200 48 200H0V100Z"
+            fill="url(#paint0_linear_desktop)"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_desktop"
+              x1="720"
+              y1="0"
+              x2="720"
+              y2="200"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#EC4899" />
+              <stop offset="0.333333" stopColor="#FACC15" />
+              <stop offset="0.666667" stopColor="#3B82F6" />
+              <stop offset="1" stopColor="#A855F7" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      {/* Bremmie doodle */}
+      <div
+        className="absolute pointer-events-none z-20"
+        style={{
+          right: "6%",
+          bottom: "60px",
+          width: "20vmin",
+          height: "20vmin",
+        }}
+      >
+        <div className="relative w-full h-full">
+          <img 
+            src="/doodles/bremmie.png" 
+            alt="Bremmie on the beach" 
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
 
@@ -390,14 +857,6 @@ export default function TicketsPage() {
         @font-face {
           font-family: 'ZollaPro';
           src: url('/fonts/Zolla%20Pro.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @font-face {
-          font-family: 'ZollaProOutlined';
-          src: url('/fonts/Zolla-Pro-Outlined.woff') format('woff');
           font-weight: normal;
           font-style: normal;
           font-display: swap;
@@ -413,7 +872,26 @@ export default function TicketsPage() {
           background-size: 600% 600%;
           animation: gradient-shift 10s ease infinite;
         }
+
+        @keyframes doodleAppear {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0) rotate(0deg);
+          }
+          70% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2) rotate(var(--rotation));
+          }
+          100% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1) rotate(var(--rotation));
+          }
+        }
+
+        .doodle-animation {
+          --rotation: 0deg;
+          opacity: 0;
+          animation: doodleAppear 0.6s forwards;
+        }
       `}</style>
     </main>
-  )
-}

@@ -23,7 +23,7 @@ export default function SuccessPage() {
 
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Logo Section */}
-        <div className="px-4 md:px-6 lg:px-8 pt-12 md:pt-16 lg:pt-20">
+        <div className="px-4 md:px-6 lg:px-8 pt-4 md:pt-6 lg:pt-8">
           <div className="flex justify-center">
             <a href="/" className="w-full max-w-sm md:max-w-md">
               <img

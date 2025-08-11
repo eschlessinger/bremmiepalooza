@@ -325,13 +325,13 @@ export default function RSVPPage() {
                   <h1
                     className="
                       font-black uppercase leading-[0.95] tracking-tight sm:tracking-wider text-center
+                      text-[clamp(16px,6.8vw,38px)]
                       md:whitespace-nowrap md:text-[54px] lg:text-[64px]
                     "
                     style={{
                       fontFamily: "'ZollaPro','Impact','Arial Black',sans-serif",
                       color: '#d81b8c',
                       textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                      fontSize: 'clamp(16px, 6.8vw, 38px)',
                     }}
                   >
                     <span className="hidden md:inline">SECURE YOUR TICKETS</span>

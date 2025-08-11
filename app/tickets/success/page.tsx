@@ -22,7 +22,7 @@ export default function SuccessPage() {
         }}
       />
 
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-10 flex flex-col min-h-[calc(100dvh-var(--wave-h))]">
         {/* Logo Section */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
@@ -37,7 +37,7 @@ export default function SuccessPage() {
         </div>
 
         {/* Centered Success Message */}
-        <div className="flex-1 grid place-items-center px-4" style={{ minHeight: 'calc(100dvh - var(--wave-h))' }}>
+        <div className="flex-1 grid place-items-center px-4">
           <div className="text-center">
             <h1 
               className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-8"
@@ -151,6 +151,10 @@ export default function SuccessPage() {
           font-weight: normal;
           font-style: normal;
           font-display: swap;
+        }
+
+        :root {
+          --wave-h: 24vh;
         }
 
         @keyframes gradient-shift {

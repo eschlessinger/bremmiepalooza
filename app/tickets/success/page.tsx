@@ -36,10 +36,10 @@ export default function SuccessPage() {
         </div>
 
         {/* Centered Success Message */}
-        <div className="flex-1 flex items-center justify-center px-4">
+        <div className="flex-1 flex items-center justify-center px-4 py-8">
           <div className="text-center">
             <h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-6"
+              className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-8"
               style={{
                 fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                 textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
@@ -50,7 +50,7 @@ export default function SuccessPage() {
             </h1>
             
             <p 
-              className="text-xl md:text-2xl lg:text-3xl font-bold mb-4"
+              className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-wider mb-6"
               style={{
                 fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                 textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
@@ -61,7 +61,7 @@ export default function SuccessPage() {
             </p>
             
             <p 
-              className="text-lg md:text-xl lg:text-2xl font-bold"
+              className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-wider mb-12"
               style={{
                 fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                 textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
@@ -69,6 +69,17 @@ export default function SuccessPage() {
               }}
             >
               We can't wait to see you at Bremmiepalooza!
+            </p>
+
+            <p 
+              className="text-lg md:text-xl lg:text-2xl font-semibold"
+              style={{
+                fontFamily: 'Arial, sans-serif',
+                textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+                color: '#fff'
+              }}
+            >
+              Check your email for your ticket registration confirmation!
             </p>
           </div>
         </div>

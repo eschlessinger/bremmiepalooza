@@ -12,7 +12,7 @@ export default function SuccessPage() {
   if (!mounted) return null
 
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen" style={{ overflowY: 'scroll' }}>
       <div
         className="fixed inset-0 animate-gradient-shift"
         style={{

@@ -22,7 +22,7 @@ export default function SuccessPage() {
       />
 
       <div className="relative z-10" style={{
-        ["--header-h" as any]: "clamp(72px,10vw,120px)",
+        ["--header-h" as any]: "clamp(96px, 12vw, 168px)",
         ["--wave-h" as any]: "24vh", // must match the fixed wave container height
       } as React.CSSProperties}>
         {/* Logo Section */}

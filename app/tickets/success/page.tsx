@@ -1,32 +1,51 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import BeachFooter from "../../../components/BeachFooter"
 import BremmieDoodle from "../../../components/BremmieDoodle"
 
 export default function SuccessPage() {
   const [mounted, setMounted] = useState(false)
+  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setMounted(true)
+  }, [])
+
+  // keep the --logo-h var in sync with actual header height
+  useEffect(() => {
+    if (!headerRef.current) return
+    const set = () =>
+      document.documentElement.style.setProperty(
+        "--logo-h",
+        `${headerRef.current?.offsetHeight ?? 0}px`
+      )
+    set()
+    const ro = new ResizeObserver(set)
+    ro.observe(headerRef.current)
+    window.addEventListener("resize", set)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener("resize", set)
+    }
   }, [])
 
   if (!mounted) return null
 
   return (
     <main className="relative min-h-screen">
-      {/* Gradient Background Component */}
+      {/* gradient bg */}
       <div
         className="fixed inset-0 animate-gradient-shift"
         style={{
-          background: "linear-gradient(135deg, #ff0099, #ff6600, #ffcc00, #22cc88, #00ccff, #cc88ff, #ff0099)",
+          background: "linear-gradient(135deg,#ff0099,#ff6600,#ffcc00,#22cc88,#00ccff,#cc88ff,#ff0099)",
           backgroundSize: "600% 600%",
         }}
       />
 
       <div className="relative z-10 flex flex-col">
-        {/* Logo Section */}
-        <div className="p-4 md:p-6 lg:p-8">
+        {/* Logo */}
+        <div ref={headerRef} className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
             <a href="/" className="w-full max-w-sm md:max-w-md">
               <img
@@ -38,48 +57,50 @@ export default function SuccessPage() {
           </div>
         </div>
 
-        {/* Centered Success Message */}
-        <div className="grid place-items-center px-4" style={{ minHeight: "calc(100svh - var(--wave-h))" }}>
+        {/* Success copy */}
+        <div
+          className="grid place-items-center px-4"
+          style={{
+            minHeight: "calc(100svh - var(--wave-h) - var(--logo-h))",
+          }}
+        >
           <div className="text-center">
-            <h1 
+            <h1
               className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-8"
               style={{
-                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                color: '#d81b8c'
+                fontFamily: "'ZollaPro','Impact','Arial Black',sans-serif",
+                textShadow: "3px 3px 6px rgba(0,0,0,0.5)",
+                color: "#d81b8c",
               }}
             >
-              You're In!
+              You&apos;re In!
             </h1>
-            
-            <p 
+            <p
               className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-wider mb-4"
               style={{
-                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                color: '#fff'
+                fontFamily: "'ZollaPro','Impact','Arial Black',sans-serif",
+                textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+                color: "#fff",
               }}
             >
               Thank you for securing your tickets!
             </p>
-            
-            <p 
+            <p
               className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-wider mb-8"
               style={{
-                fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                color: '#fff'
+                fontFamily: "'ZollaPro','Impact','Arial Black',sans-serif",
+                textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+                color: "#fff",
               }}
             >
-              We can't wait to see you at Bremmiepalooza!
+              We can&apos;t wait to see you at Bremmiepalooza!
             </p>
-
-            <p 
+            <p
               className="text-lg md:text-xl lg:text-2xl font-semibold"
               style={{
-                fontFamily: 'Arial, sans-serif',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
-                color: '#fff'
+                fontFamily: "Arial, sans-serif",
+                textShadow: "1px 1px 2px rgba(0,0,0,0.5)",
+                color: "#fff",
               }}
             >
               Check your email for your ticket registration confirmation!
@@ -88,7 +109,7 @@ export default function SuccessPage() {
         </div>
       </div>
 
-      {/* bottom of page */}
+      {/* Bottom */}
       <BeachFooter height="24vh" bremmieMobileFactor={0.46} />
       <BremmieDoodle />
 

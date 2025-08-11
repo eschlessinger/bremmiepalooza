@@ -29,7 +29,6 @@ interface FormData {
 
 export default function RSVPPage() {
   const [mounted, setMounted] = useState(false)
-  const isMobile = false
   const [formData, setFormData] = useState<FormData>({
     passType: '',
     events: [],
@@ -289,68 +288,80 @@ export default function RSVPPage() {
         </div>
 
         {/* Navigation Banner */}
-        <div 
-          className="w-full z-20"
-          style={{
-            position: 'absolute',
-            top: isMobile ? '120px' : '150px',
-            left: 0,
-            right: 0
-          }}
-        >
-          <div 
-            className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
-            style={{ height: isMobile ? '120px' : '160px' }}
-          >
-            <div className="h-full flex items-center justify-center">
-              {/* compact row so icons hug the title */}
-              <div className="inline-flex items-center max-w-fit gap-2 md:gap-3 lg:gap-4">
-                {/* Left icons */}
-                <div className="flex items-center gap-0.5 md:gap-2 lg:gap-3 -mr-1">
-                  {doodles.slice(0, 4).map((doodle, i) => (
+        <section className="w-full z-20">
+          <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300">
+            {/* unified heights so content can center vertically */}
+            <div className="h-28 sm:h-32 md:h-40 flex items-center">
+              <div
+                className="w-full grid grid-cols-[auto,1fr,auto] items-center"
+                style={{
+                  // mobile baseline sizes (tweak if needed)
+                  // These vars control icon size and gaps on mobile.
+                  // md+ sizes come from Tailwind classes below.
+                  '--icon': '22px',
+                  '--gap': '6px',
+                  '--pad': '10px',
+                } as React.CSSProperties}
+              >
+                {/* LEFT ICONS */}
+                <div className="flex items-center" style={{ gap: 'var(--gap)', paddingLeft: 'var(--pad)' }}>
+                  {doodles.slice(0, 4).map((d, i) => (
                     <img
-                      key={`left-${i}`}
-                      src={doodle}
+                      key={`L${i}`}
+                      src={d}
                       alt=""
                       aria-hidden="true"
-                      className="block object-contain doodle-animation shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-20 lg:h-20"
-                      style={{ animationDelay: `${i * 0.08}s` }}
+                      className="doodle-animation block object-contain md:w-12 md:h-12 lg:w-16 lg:h-16"
+                      style={{ width: 'var(--icon)', height: 'var(--icon)', animationDelay: `${i * 0.08}s` }}
                     />
                   ))}
                 </div>
 
-                {/* Title */}
-                <h1 
-                  className="m-0 px-1 md:px-3 lg:px-4 text-lg md:text-4xl lg:text-5xl font-black uppercase tracking-wider leading-none text-center"
+                {/* TITLE */}
+                <div
+                  className="min-w-0 px-2 text-center"
                   style={{
-                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
-                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                    color: '#d81b8c'
+                    // Give the title exactly the space left after 4+4 icons + gaps + side padding
+                    maxWidth: 'calc(100vw - 2*(4*var(--icon) + 3*var(--gap)) - 2*var(--pad))',
+                    marginInline: 'auto',
                   }}
                 >
-                  SECURE YOUR TICKETS
-                </h1>
+                  <h1
+                    className="font-black uppercase leading-[0.95] tracking-tight sm:tracking-wider text-center"
+                    style={{
+                      fontFamily: "'ZollaPro','Impact','Arial Black',sans-serif",
+                      color: '#d81b8c',
+                      textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                      // mobile: big but safe; desktop scales up
+                      fontSize: 'clamp(18px, 7.4vw, 56px)',
+                      // @ts-ignore
+                      textWrap: 'balance',
+                    }}
+                  >
+                    SECURE<span className="md:hidden"><br/></span> YOUR <span className="md:hidden"><br/></span> TICKETS
+                  </h1>
+                </div>
 
-                {/* Right icons */}
-                <div className="flex items-center gap-0.5 md:gap-2 lg:gap-3 -ml-1">
-                  {doodles.slice(4, 8).map((doodle, i) => (
+                {/* RIGHT ICONS */}
+                <div className="flex items-center justify-end" style={{ gap: 'var(--gap)', paddingRight: 'var(--pad)' }}>
+                  {doodles.slice(4, 8).map((d, i) => (
                     <img
-                      key={`right-${i}`}
-                      src={doodle}
+                      key={`R${i}`}
+                      src={d}
                       alt=""
                       aria-hidden="true"
-                      className="block object-contain doodle-animation shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-20 lg:h-20"
-                      style={{ animationDelay: `${(i + 4) * 0.08}s` }}
+                      className="doodle-animation block object-contain md:w-12 md:h-12 lg:w-16 lg:h-16"
+                      style={{ width: 'var(--icon)', height: 'var(--icon)', animationDelay: `${(i + 4) * 0.08}s` }}
                     />
                   ))}
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Content with margin for absolute positioned banner */}
-        <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
+        <div>
           <div className="px-4 pb-12" style={{ paddingBottom: '30vh' }}>
             <div className="max-w-4xl mx-auto">
               {/* Festival Events */}

@@ -298,32 +298,42 @@ export default function RSVPPage() {
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
             style={{ height: isMobile ? '120px' : '160px' }}
           >
-            <div className="flex justify-center items-center h-full relative">
+            <div className="flex justify-between items-center h-full px-8 relative">
               {/* Left side doodles */}
-              <div className="flex gap-4 md:gap-6 items-center">
+              <div className="flex gap-6 items-center">
                 {doodles.slice(0, 4).map((doodle, index) => (
                   <div
                     key={`left-${index}`}
-                    className="doodle-animation flex items-center justify-center"
+                    className="doodle-animation"
                     style={{
-                      width: isMobile ? '45px' : '60px',
-                      height: isMobile ? '45px' : '60px',
+                      width: '50px',
+                      height: '50px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       animationDelay: `${index * 0.1}s`
                     }}
                   >
                     <img 
                       src={doodle}
                       alt="Festival doodle" 
-                      width={isMobile ? 45 : 60} 
-                      height={isMobile ? 45 : 60} 
-                      className="w-full h-full object-contain"
+                      width={50} 
+                      height={50} 
+                      style={{ 
+                        width: '50px', 
+                        height: '50px', 
+                        objectFit: 'contain' 
+                      }}
                     />
                   </div>
                 ))}
               </div>
 
-              {/* Center title - with equal spacing on both sides */}
-              <div className="text-center px-12 md:px-16">
+              {/* Center title - positioned absolutely for perfect centering */}
+              <div 
+                className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                style={{ whiteSpace: 'nowrap' }}
+              >
                 <h1 
                   className="text-2xl md:text-4xl font-black uppercase tracking-wider" 
                   style={{
@@ -337,23 +347,30 @@ export default function RSVPPage() {
               </div>
 
               {/* Right side doodles */}
-              <div className="flex gap-4 md:gap-6 items-center">
+              <div className="flex gap-6 items-center">
                 {doodles.slice(4, 8).map((doodle, index) => (
                   <div
                     key={`right-${index}`}
-                    className="doodle-animation flex items-center justify-center"
+                    className="doodle-animation"
                     style={{
-                      width: isMobile ? '45px' : '60px',
-                      height: isMobile ? '45px' : '60px',
+                      width: '50px',
+                      height: '50px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       animationDelay: `${(index + 4) * 0.1}s`
                     }}
                   >
                     <img 
                       src={doodle}
                       alt="Festival doodle" 
-                      width={isMobile ? 45 : 60} 
-                      height={isMobile ? 45 : 60} 
-                      className="w-full h-full object-contain"
+                      width={50} 
+                      height={50} 
+                      style={{ 
+                        width: '50px', 
+                        height: '50px', 
+                        objectFit: 'contain' 
+                      }}
                     />
                   </div>
                 ))}
@@ -410,7 +427,7 @@ export default function RSVPPage() {
                 
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    1. Are you interested in 1-Day, 2-Day, or 3-Day passes? *
+                    Are you interested in 1-Day, 2-Day, or 3-Day passes? *
                   </label>
                   <div className="space-y-3">
                     {['1-Day', '2-Day', '3-Day'].map(option => (
@@ -434,7 +451,7 @@ export default function RSVPPage() {
                 {formData.passType && formData.passType !== '3-Day' && (
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                      2. Which events do you plan to attend? * 
+                      Which events do you plan to attend? * 
                       <span className="text-sm font-normal"> (Select {formData.passType === '1-Day' ? '1' : '2'} event{formData.passType === '2-Day' ? 's' : ''})</span>
                     </label>
                     <div className="space-y-3">
@@ -459,7 +476,7 @@ export default function RSVPPage() {
 
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    3. Name of Person *
+                    Name of Person *
                   </label>
                   <input
                     type="text"
@@ -475,7 +492,7 @@ export default function RSVPPage() {
 
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    4. Are you bringing a +1? *
+                    Are you bringing a +1? *
                   </label>
                   <div className="space-y-3">
                     {['yes', 'no'].map(option => (
@@ -499,7 +516,7 @@ export default function RSVPPage() {
                 {formData.hasPlusOne === 'yes' && (
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                      5. What is the name of the +1? *
+                      What is the name of the +1? *
                     </label>
                     <input
                       type="text"
@@ -516,7 +533,7 @@ export default function RSVPPage() {
 
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    6. Are you bringing kids? *
+                    Are you bringing kids? *
                   </label>
                   <div className="space-y-3">
                     {['yes', 'no'].map(option => (
@@ -541,7 +558,7 @@ export default function RSVPPage() {
                   <>
                     <div className="mb-8">
                       <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                        7. How many kids? *
+                        How many kids? *
                       </label>
                       <select
                         name="numKids"
@@ -561,7 +578,7 @@ export default function RSVPPage() {
                     {formData.numKids && (
                       <div className="mb-8">
                         <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                          8. What are the names of the kids? *
+                          What are the names of the kids? *
                         </label>
                         <div className="space-y-3">
                           {Array.from({length: parseInt(formData.numKids)}, (_, index) => (
@@ -583,7 +600,7 @@ export default function RSVPPage() {
 
                     <div className="mb-8">
                       <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                        9. Are you interested in babysitting services for your kids? *
+                        Are you interested in babysitting services for your kids? *
                       </label>
                       <div className="space-y-3">
                         {['yes', 'no'].map(option => (
@@ -606,7 +623,7 @@ export default function RSVPPage() {
                     {formData.wantsBabysitting === 'yes' && attendingEvents.length > 0 && (
                       <div className="mb-8">
                         <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                          10. For which events? *
+                          For which events? *
                         </label>
                         <div className="space-y-3">
                           {attendingEvents.map(event => (
@@ -632,7 +649,7 @@ export default function RSVPPage() {
                 {getAllGuests().length > 0 && (
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                      11. Do you or your guests have any dietary restrictions? *
+                      Do you or your guests have any dietary restrictions? *
                     </label>
                     <div className="space-y-6">
                       {getAllGuests().map(guest => (
@@ -687,7 +704,7 @@ export default function RSVPPage() {
 
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    12. What songs are you most excited to hear at Bremmiepalooza?
+                    What songs are you most excited to hear at Bremmiepalooza?
                   </label>
                   <textarea
                     name="musicPreferences"
@@ -702,7 +719,7 @@ export default function RSVPPage() {
 
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    13. What is your complete mailing address? *
+                    What is your complete mailing address? *
                   </label>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
@@ -773,7 +790,7 @@ export default function RSVPPage() {
 
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    14. Phone Number *
+                    Phone Number *
                   </label>
                   <input
                     type="tel"
@@ -789,7 +806,7 @@ export default function RSVPPage() {
 
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    15. Email Address *
+                    Email Address *
                   </label>
                   <input
                     type="email"

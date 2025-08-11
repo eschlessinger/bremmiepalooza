@@ -23,6 +23,12 @@
     --input: 0 0% 89.8%;
     --ring: 325 90% 60%;
     --radius: 0.5rem;
+    
+    /* Bremmiepalooza component variables */
+    --wave-h: 24vh;
+    --bremmie-right: 6%;
+    --bremmie-bottom: 60px;
+    --bremmie-size: 20vmin;
   }
 }
 
@@ -258,4 +264,9 @@
     --ring: 325 90% 60%;
     --radius: 0.5rem;
   }
+}
+
+/* Bremmiepalooza scrollbar fix */
+html {
+  scrollbar-gutter: stable;
 }

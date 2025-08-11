@@ -31,7 +31,6 @@ export default function RSVPPage() {
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState('')
-  const isMobile = false // For demo purposes
 
   useEffect(() => {
     setMounted(true)
@@ -52,10 +51,10 @@ export default function RSVPPage() {
   // Create doodle positions in a line above header
   const createLinearPositions = (count) => {
     const positions = []
-    const spacing = 80 / (count - 1) // Distribute across 80% of width
+    const spacing = 80 / (count - 1)
     for (let i = 0; i < count; i++) {
       positions.push({
-        x: 10 + (spacing * i), // Start at 10%, end at 90%
+        x: 10 + (spacing * i),
         y: 12,
         size: 8,
         rotation: (Math.random() - 0.5) * 20,
@@ -144,11 +143,9 @@ export default function RSVPPage() {
   const formatPhoneNumber = (value) => {
     const cleaned = value.replace(/\D/g, '')
     if (cleaned.startsWith('44')) {
-      // UK format
       const match = cleaned.match(/^44(\d{4})(\d{3})(\d{3})$/)
       if (match) return `+44 ${match[1]} ${match[2]} ${match[3]}`
     } else {
-      // US format
       const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
       if (match) return `(${match[1]}) ${match[2]}-${match[3]}`
     }
@@ -188,7 +185,6 @@ export default function RSVPPage() {
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required'
     if (!formData.email.trim()) newErrors.email = 'Email is required'
     
-    // Address validation
     if (!formData.mailingAddress.name.trim()) newErrors.addressName = 'Name is required'
     if (!formData.mailingAddress.street.trim()) newErrors.addressStreet = 'Street address is required'
     if (!formData.mailingAddress.city.trim()) newErrors.addressCity = 'City is required'
@@ -207,23 +203,16 @@ export default function RSVPPage() {
     setSubmitStatus('')
 
     try {
-      // Prepare form data for submission
       const submitData = {
         ...formData,
-        // Add auto-filled events for 3-Day pass
         events: formData.passType === '3-Day' ? ['pregame', 'mainstage', 'aftershow'] : formData.events,
         timestamp: new Date().toISOString()
       }
 
-      // For demo purposes - in real implementation, this would go to Vercel Forms
       console.log('Form submitted:', submitData)
-      
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
       setSubmitStatus('success')
       
-      // In real implementation, redirect to success page
       setTimeout(() => {
         alert('Form submitted successfully! In a real implementation, this would redirect to the success page.')
       }, 1000)
@@ -258,7 +247,6 @@ export default function RSVPPage() {
 
   return (
     <main className="relative min-h-screen">
-      {/* Background gradient */}
       <div
         className="fixed inset-0 animate-gradient-shift"
         style={{
@@ -267,7 +255,6 @@ export default function RSVPPage() {
         }}
       />
 
-      {/* Doodles in a line */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
         {doodlePositions.map((position, index) => (
           <div
@@ -280,7 +267,6 @@ export default function RSVPPage() {
               height: `${position.size}vmin`,
               transform: `translate(-50%, -50%) rotate(${position.rotation}deg)`,
               animationDelay: `${position.delay}s`,
-              '--rotation': `${position.rotation}deg`
             }}
           >
             <div className="relative w-full h-full">
@@ -294,9 +280,7 @@ export default function RSVPPage() {
         ))}
       </div>
 
-      {/* Content container */}
       <div className="relative z-10">
-        {/* Header */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
             <a href="/" className="w-full max-w-sm md:max-w-md">
@@ -309,8 +293,7 @@ export default function RSVPPage() {
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="px-4 pb-12 pt-8" style={{ marginTop: '4rem' }}>
+        <div className="px-4 pb-12 pt-8" style={{ marginTop: '4rem', paddingBottom: '30vh' }}>
           <div className="max-w-4xl mx-auto">
             <h1 
               className="text-4xl md:text-6xl font-black text-center mb-12 uppercase tracking-wider" 
@@ -323,14 +306,13 @@ export default function RSVPPage() {
               Secure Your Tickets
             </h1>
 
-            {/* Event Descriptions */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-8">
               <h2 
                 className="text-2xl md:text-3xl font-black text-center mb-6 uppercase tracking-wider" 
                 style={{
                   fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                   textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                  color: '#d81b8c'
+                  color: '#fff'
                 }}
               >
                 Festival Events
@@ -348,7 +330,6 @@ export default function RSVPPage() {
               </div>
             </div>
 
-            {/* Status Messages */}
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-500/20 border-2 border-green-400/50 rounded-xl text-center">
                 <p className="text-white font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -365,9 +346,8 @@ export default function RSVPPage() {
               </div>
             )}
 
-            {/* RSVP Form */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-              {/* Question 1: Pass Type */}
+              
               <div className="mb-8">
                 <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                   1. Are you interested in 1-Day, 2-Day, or 3-Day passes? *
@@ -391,7 +371,6 @@ export default function RSVPPage() {
                 {errors.passType && <p className="text-red-300 mt-2">{errors.passType}</p>}
               </div>
 
-              {/* Question 2: Event Selection (conditional) */}
               {formData.passType && formData.passType !== '3-Day' && (
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -418,7 +397,6 @@ export default function RSVPPage() {
                 </div>
               )}
 
-              {/* Question 3: Guest Name */}
               <div className="mb-8">
                 <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                   3. Name of Person *
@@ -435,7 +413,6 @@ export default function RSVPPage() {
                 {errors.guestName && <p className="text-red-300 mt-2">{errors.guestName}</p>}
               </div>
 
-              {/* Question 4: Plus One */}
               <div className="mb-8">
                 <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                   4. Are you bringing a +1? *
@@ -459,7 +436,6 @@ export default function RSVPPage() {
                 {errors.hasPlusOne && <p className="text-red-300 mt-2">{errors.hasPlusOne}</p>}
               </div>
 
-              {/* Question 5: Plus One Name (conditional) */}
               {formData.hasPlusOne === 'yes' && (
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -478,7 +454,6 @@ export default function RSVPPage() {
                 </div>
               )}
 
-              {/* Question 6: Kids */}
               <div className="mb-8">
                 <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                   6. Are you bringing kids? *
@@ -502,10 +477,8 @@ export default function RSVPPage() {
                 {errors.hasKids && <p className="text-red-300 mt-2">{errors.hasKids}</p>}
               </div>
 
-              {/* Questions 7-8: Kids Details (conditional) */}
               {formData.hasKids === 'yes' && (
                 <>
-                  {/* Question 7: Number of Kids */}
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                       7. How many kids? *
@@ -525,7 +498,6 @@ export default function RSVPPage() {
                     {errors.numKids && <p className="text-red-300 mt-2">{errors.numKids}</p>}
                   </div>
 
-                  {/* Question 8: Kid Names */}
                   {formData.numKids && (
                     <div className="mb-8">
                       <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -549,7 +521,6 @@ export default function RSVPPage() {
                     </div>
                   )}
 
-                  {/* Question 9: Babysitting */}
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                       9. Are you interested in babysitting services for your kids? *
@@ -572,7 +543,6 @@ export default function RSVPPage() {
                     </div>
                   </div>
 
-                  {/* Question 10: Babysitting Events (conditional) */}
                   {formData.wantsBabysitting === 'yes' && attendingEvents.length > 0 && (
                     <div className="mb-8">
                       <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -599,7 +569,6 @@ export default function RSVPPage() {
                 </>
               )}
 
-              {/* Question 11: Dietary Restrictions */}
               {getAllGuests().length > 0 && (
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -634,7 +603,6 @@ export default function RSVPPage() {
                             />
                           )}
                         </div>
-                        {/* Show selected restrictions */}
                         {(formData.dietaryRestrictions[guest.key] || []).length > 0 && (
                           <div className="flex flex-wrap gap-2 mt-3">
                             {(formData.dietaryRestrictions[guest.key] || []).map(restriction => (
@@ -657,7 +625,6 @@ export default function RSVPPage() {
                 </div>
               )}
 
-              {/* Question 12: Music Preferences */}
               <div className="mb-8">
                 <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                   12. What songs are you most excited to hear at Bremmiepalooza?
@@ -673,7 +640,6 @@ export default function RSVPPage() {
                 />
               </div>
 
-              {/* Question 13: Mailing Address */}
               <div className="mb-8">
                 <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                   13. What is your complete mailing address? *
@@ -745,7 +711,6 @@ export default function RSVPPage() {
                 </div>
               </div>
 
-              {/* Question 14: Phone Number */}
               <div className="mb-8">
                 <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                   14. Phone Number *
@@ -762,7 +727,6 @@ export default function RSVPPage() {
                 {errors.phone && <p className="text-red-300 mt-2">{errors.phone}</p>}
               </div>
 
-              {/* Question 15: Email */}
               <div className="mb-8">
                 <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                   15. Email Address *
@@ -779,13 +743,12 @@ export default function RSVPPage() {
                 {errors.email && <p className="text-red-300 mt-2">{errors.email}</p>}
               </div>
 
-              {/* Submit Button */}
               <div className="text-center pt-8">
                 <button
                   type="button"
                   onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className={`bg-black hover:bg-gray-800 text-white font-black text-2xl md:text-3xl px-12 py-6 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white ${
+                  className={`bg-transparent hover:bg-white/10 text-white font-black text-4xl md:text-5xl px-20 py-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-2xl border-4 border-white ${
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                   style={{
@@ -802,8 +765,8 @@ export default function RSVPPage() {
         </div>
       </div>
 
-      {/* Wave Footer */}
-      <div className="absolute left-0 w-full bottom-0 z-10" style={{ height: "24vh" }}>
+      {/* Wave Footer - Fixed to bottom */}
+      <div className="fixed left-0 w-full bottom-0 z-10" style={{ height: "24vh" }}>
         <svg
           width="100%"
           height="100%"
@@ -833,9 +796,9 @@ export default function RSVPPage() {
         </svg>
       </div>
 
-      {/* Bremmie doodle */}
+      {/* Bremmie doodle - Fixed to bottom */}
       <div
-        className="absolute pointer-events-none z-20"
+        className="fixed pointer-events-none z-20"
         style={{
           right: "6%",
           bottom: "60px",
@@ -852,11 +815,18 @@ export default function RSVPPage() {
         </div>
       </div>
 
-      {/* CSS Styles */}
-      <style jsx global>{`
+      <style jsx>{`
         @font-face {
           font-family: 'ZollaPro';
           src: url('/fonts/Zolla%20Pro.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'ZollaProOutlined';
+          src: url('/fonts/Zolla-Pro-Outlined.woff') format('woff');
           font-weight: normal;
           font-style: normal;
           font-display: swap;
@@ -889,9 +859,10 @@ export default function RSVPPage() {
         }
 
         .doodle-animation {
-          --rotation: 0deg;
           opacity: 0;
           animation: doodleAppear 0.6s forwards;
         }
       `}</style>
     </main>
+  )
+}

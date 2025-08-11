@@ -912,24 +912,24 @@ export default function RSVPPage() {
           animation: gradient-shift 10s ease infinite;
         }
 
-        @keyframes doodleAppear {
+        @keyframes doodlePop {
           0% {
             opacity: 0;
-            transform: translate(-50%, -50%) scale(0) rotate(0deg);
+            transform: scale(0.6) rotate(0deg);
           }
           70% {
             opacity: 1;
-            transform: translate(-50%, -50%) scale(1.2) rotate(var(--rotation));
+            transform: scale(1.15) rotate(var(--rotation, 0deg));
           }
           100% {
             opacity: 1;
-            transform: translate(-50%, -50%) scale(1) rotate(var(--rotation));
+            transform: scale(1) rotate(var(--rotation, 0deg));
           }
         }
 
         .doodle-animation {
           opacity: 0;
-          animation: doodleAppear 0.6s forwards;
+          animation: doodlePop 0.5s ease-out forwards;
         }
       `}</style>
     </main>

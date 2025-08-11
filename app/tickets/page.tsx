@@ -290,18 +290,16 @@ export default function RSVPPage() {
         {/* Navigation Banner */}
         <section className="w-full z-20">
           <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300">
-            {/* unified heights so content can center vertically */}
             <div className="h-28 sm:h-32 md:h-40 flex items-center">
               <div
-                className="w-full grid grid-cols-[auto,1fr,auto] items-center"
-                style={{
-                  // mobile baseline sizes (tweak if needed)
-                  // These vars control icon size and gaps on mobile.
-                  // md+ sizes come from Tailwind classes below.
-                  '--icon': '22px',
-                  '--gap': '6px',
-                  '--pad': '10px',
-                } as React.CSSProperties}
+                // mobile: full width so it can compute space; md+: shrink to content and center
+                className="
+                  grid items-center w-full md:w-auto mx-auto
+                  grid-cols-[auto,1fr,auto] md:grid-cols-[auto,auto,auto]
+                  [--icon:22px] md:[--icon:48px] lg:[--icon:64px]
+                  [--gap:6px] md:[--gap:12px] lg:[--gap:16px]
+                  [--pad:10px] md:[--pad:18px]
+                "
               >
                 {/* LEFT ICONS */}
                 <div className="flex items-center" style={{ gap: 'var(--gap)', paddingLeft: 'var(--pad)' }}>
@@ -319,11 +317,10 @@ export default function RSVPPage() {
 
                 {/* TITLE */}
                 <div
-                  className="min-w-0 px-2 text-center"
+                  className="min-w-0 px-2 text-center md:px-3"
+                  // mobile: cap so it wraps to 3 lines w/ room for 4+4 icons; md+: no cap
                   style={{
-                    // Give the title exactly the space left after 4+4 icons + gaps + side padding
                     maxWidth: 'calc(100vw - 2*(4*var(--icon) + 3*var(--gap)) - 2*var(--pad))',
-                    marginInline: 'auto',
                   }}
                 >
                   <h1
@@ -332,8 +329,7 @@ export default function RSVPPage() {
                       fontFamily: "'ZollaPro','Impact','Arial Black',sans-serif",
                       color: '#d81b8c',
                       textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                      // mobile: big but safe; desktop scales up
-                      fontSize: 'clamp(18px, 7.4vw, 56px)',
+                      fontSize: 'clamp(18px, 7.4vw, 72px)', // was 56px; increase if you want
                       // @ts-ignore
                       textWrap: 'balance',
                     }}

@@ -37,7 +37,7 @@ export default function SuccessPage() {
         </div>
 
         {/* Centered Success Message */}
-        <div className="flex-1 flex items-center justify-center px-4" style={{ paddingBottom: '20vh' }}>
+        <div className="flex-1 flex items-center justify-center px-4" style={{ paddingBottom: '15vh' }}>
           <div className="text-center">
             <h1 
               className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-8"

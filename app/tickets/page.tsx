@@ -292,13 +292,15 @@ export default function RSVPPage() {
           <div className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300">
             <div className="h-28 sm:h-32 md:h-40 flex items-center">
               <div
-                // mobile: full width so it can compute space; md+: shrink to content and center
                 className="
-                  grid items-center w-full md:w-auto mx-auto
+                  grid items-center mx-auto
+                  w-full md:w-auto
                   grid-cols-[auto,1fr,auto] md:grid-cols-[auto,auto,auto]
-                  [--icon:22px] md:[--icon:48px] lg:[--icon:64px]
-                  [--gap:6px] md:[--gap:12px] lg:[--gap:16px]
-                  [--pad:10px] md:[--pad:18px]
+                  [--icon:22px] md:[--icon:56px] lg:[--icon:64px]
+                  [--gap:6px] md:[--gap:18px] lg:[--gap:20px]
+                  [--pad:10px] md:[--pad:24px]
+                  [--title-max:calc(100vw-2*(4*var(--icon)+3*var(--gap))-2*var(--pad))]
+                  md:[--title-max:unset]
                 "
               >
                 {/* LEFT ICONS */}
@@ -309,7 +311,7 @@ export default function RSVPPage() {
                       src={d}
                       alt=""
                       aria-hidden="true"
-                      className="doodle-animation block object-contain md:w-12 md:h-12 lg:w-16 lg:h-16"
+                      className="doodle-animation block object-contain"
                       style={{ width: 'var(--icon)', height: 'var(--icon)', animationDelay: `${i * 0.08}s` }}
                     />
                   ))}
@@ -317,24 +319,23 @@ export default function RSVPPage() {
 
                 {/* TITLE */}
                 <div
-                  className="min-w-0 px-2 text-center md:px-3"
-                  // mobile: cap so it wraps to 3 lines w/ room for 4+4 icons; md+: no cap
-                  style={{
-                    maxWidth: 'calc(100vw - 2*(4*var(--icon) + 3*var(--gap)) - 2*var(--pad))',
-                  }}
+                  className="min-w-0 px-2 md:px-4 text-center"
+                  style={{ maxWidth: 'var(--title-max)' }}
                 >
                   <h1
-                    className="font-black uppercase leading-[0.95] tracking-tight sm:tracking-wider text-center"
+                    className="
+                      font-black uppercase leading-[0.95] tracking-tight sm:tracking-wider text-center
+                      md:whitespace-nowrap md:text-[48px] lg:text-[56px]
+                    "
                     style={{
                       fontFamily: "'ZollaPro','Impact','Arial Black',sans-serif",
                       color: '#d81b8c',
                       textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                      fontSize: 'clamp(18px, 7.4vw, 72px)', // was 56px; increase if you want
-                      // @ts-ignore
-                      textWrap: 'balance',
+                      fontSize: 'clamp(18px, 7.4vw, 42px)',
                     }}
                   >
-                    SECURE<span className="md:hidden"><br/></span> YOUR <span className="md:hidden"><br/></span> TICKETS
+                    <span className="hidden md:inline">SECURE YOUR TICKETS</span>
+                    <span className="md:hidden">SECURE<br/>YOUR<br/>TICKETS</span>
                   </h1>
                 </div>
 
@@ -346,7 +347,7 @@ export default function RSVPPage() {
                       src={d}
                       alt=""
                       aria-hidden="true"
-                      className="doodle-animation block object-contain md:w-12 md:h-12 lg:w-16 lg:h-16"
+                      className="doodle-animation block object-contain"
                       style={{ width: 'var(--icon)', height: 'var(--icon)', animationDelay: `${(i + 4) * 0.08}s` }}
                     />
                   ))}
@@ -356,9 +357,8 @@ export default function RSVPPage() {
           </div>
         </section>
 
-        {/* Content with margin for absolute positioned banner */}
-        <div>
-          <div className="px-4 pb-12" style={{ paddingBottom: '30vh' }}>
+        {/* Content with spacing after banner */}
+        <div className="px-4 pb-12 mt-6 sm:mt-8 md:mt-10 lg:mt-12" style={{ paddingBottom: '30vh' }}>
             <div className="max-w-4xl mx-auto">
               {/* Festival Events */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-8">
@@ -835,7 +835,6 @@ export default function RSVPPage() {
             </div>
           </div>
         </div>
-      </div>
 
       {/* Wave Footer - Fixed to bottom */}
       <div className="fixed left-0 w-full bottom-0 z-10" style={{ height: "24vh" }}>

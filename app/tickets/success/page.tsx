@@ -59,10 +59,9 @@ export default function SuccessPage() {
 
         {/* Success copy */}
         <div
-          className="grid place-items-center px-4"
+          className="grid place-items-center px-4 desktop-adjust"
           style={{
             minHeight: "calc(100svh - var(--wave-h) - var(--logo-h))",
-            paddingTop: "clamp(0px, 8vh, 80px)", // desktop adjustment
           }}
         >
           <div className="text-center">
@@ -140,6 +139,12 @@ export default function SuccessPage() {
         .animate-gradient-shift {
           background-size: 600% 600%;
           animation: gradient-shift 10s ease infinite;
+        }
+
+        @media (min-width: 768px) {
+          .desktop-adjust {
+            padding-top: 8vh;
+          }
         }
       `}</style>
     </main>

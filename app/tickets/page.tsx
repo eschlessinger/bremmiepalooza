@@ -299,78 +299,65 @@ export default function RSVPPage() {
             style={{ height: isMobile ? '120px' : '160px' }}
           >
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
-              {navItems.map((item, index) => {
-                if (item.type === 'title') {
-                  return (
-                    <div
-                      key={item.key}
-                      className="relative flex flex-col items-center justify-center"
-                      style={{
-                        minWidth: isMobile ? '120px' : '200px',
-                        minHeight: isMobile ? '70px' : '100px',
-                        marginTop: '-10px'
-                      }}
-                    >
-                      <div className="text-center relative">
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                          }}
-                        >
-                          {item.label}
-                        </div>
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                          }}
-                        >
-                          {item.sublabel}
-                        </div>
-                        <div 
-                          className="absolute"
-                          style={{
-                            left: '50%',
-                            bottom: '-8px',
-                            transform: 'translateX(-50%)',
-                            width: '60%',
-                            height: '3px',
-                            backgroundColor: '#d81b8c',
-                            borderRadius: '2px'
-                          }}
-                        />
-                      </div>
-                    </div>
-                  )
-                } else {
-                  return (
-                    <div
-                      key={item.key}
-                      className="relative flex flex-col items-center justify-center transition-all duration-200 transform doodle-animation"
-                      style={{
-                        minWidth: isMobile ? '50px' : '80px',
-                        minHeight: isMobile ? '70px' : '100px',
-                        marginTop: '-10px',
-                        animationDelay: `${index * 0.1}s`
-                      }}
-                    >
-                      <div className="mb-1">
-                        <img 
-                          src={item.src}
-                          alt="Festival doodle" 
-                          width={isMobile ? 45 : 60} 
-                          height={isMobile ? 45 : 60} 
-                          className="w-11 h-11 md:w-15 md:h-15"
-                          style={{ marginTop: '-2px' }}
-                        />
-                      </div>
-                    </div>
-                  )
-                }
-              })}
+              {/* Left side doodles */}
+              <div className="flex gap-4 md:gap-6">
+                {doodles.slice(0, 4).map((doodle, index) => (
+                  <div
+                    key={`left-${index}`}
+                    className="doodle-animation flex items-center justify-center"
+                    style={{
+                      width: isMobile ? '45px' : '60px',
+                      height: isMobile ? '45px' : '60px',
+                      animationDelay: `${index * 0.1}s`
+                    }}
+                  >
+                    <img 
+                      src={doodle}
+                      alt="Festival doodle" 
+                      width={isMobile ? 45 : 60} 
+                      height={isMobile ? 45 : 60} 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Center title - simple header style */}
+              <div className="text-center px-8">
+                <h1 
+                  className="text-2xl md:text-4xl font-black uppercase tracking-wider" 
+                  style={{
+                    fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
+                    color: '#d81b8c'
+                  }}
+                >
+                  SECURE YOUR TICKETS
+                </h1>
+              </div>
+
+              {/* Right side doodles */}
+              <div className="flex gap-4 md:gap-6">
+                {doodles.slice(4, 8).map((doodle, index) => (
+                  <div
+                    key={`right-${index}`}
+                    className="doodle-animation flex items-center justify-center"
+                    style={{
+                      width: isMobile ? '45px' : '60px',
+                      height: isMobile ? '45px' : '60px',
+                      animationDelay: `${(index + 4) * 0.1}s`
+                    }}
+                  >
+                    <img 
+                      src={doodle}
+                      alt="Festival doodle" 
+                      width={isMobile ? 45 : 60} 
+                      height={isMobile ? 45 : 60} 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

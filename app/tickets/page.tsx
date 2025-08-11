@@ -374,7 +374,7 @@ export default function RSVPPage() {
                 </h2>
                 <div className="space-y-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                   <div style={{color: '#000'}}>
-                    <strong>Friday, January 16th: The Pregame</strong> - <em>Welcome drinks & games on the beach!</em>
+                    <strong>Friday, January 16th: The Pregame</strong> - <em>Welcome drinks & games on the beach. Think beer pong, ladder ball, baggo / cornhole / bags with hamburgers, hot dogs, and french fries!</em>
                   </div>
                   <div style={{color: '#000'}}>
                     <strong>Saturday, January 17th: The Main Stage</strong> - <em>Dance & celebrate with us all night!</em>
@@ -837,7 +837,7 @@ export default function RSVPPage() {
         </div>
 
       {/* Wave Footer - Fixed to bottom */}
-      <div className="fixed left-0 w-full bottom-0 z-10" style={{ height: "24vh" }}>
+      <div className="fixed left-0 w-full bottom-0 z-10" style={{ height: "var(--wave-h)" }}>
         <svg
           width="100%"
           height="100%"
@@ -871,10 +871,10 @@ export default function RSVPPage() {
       <div
         className="fixed pointer-events-none z-20"
         style={{
-          right: "6%",
-          bottom: "60px",
-          width: "20vmin",
-          height: "20vmin",
+          right: "var(--bremmie-right)",
+          bottom: "var(--bremmie-bottom)",
+          width: "var(--bremmie-size)",
+          height: "var(--bremmie-size)",
         }}
       >
         <div className="relative w-full h-full">

@@ -367,7 +367,7 @@ export default function RSVPPage() {
                 </h2>
                 <div className="space-y-4" style={{fontFamily: 'Arial, sans-serif', fontSize: '18px'}}>
                   <div style={{color: '#000'}}>
-                    <strong>Friday, January 16th: The Pregame</strong> - <em>Welcome drinks & games on the beach. Think beer pong, ladder ball, baggo / cornhole / bags with hamburgers, hot dogs, and french fries!</em>
+                    <strong>Friday, January 16th: The Pregame</strong> - <em>Welcome drinks & games on the beach!</em>
                   </div>
                   <div style={{color: '#000'}}>
                     <strong>Saturday, January 17th: The Main Stage</strong> - <em>Dance & celebrate with us all night!</em>

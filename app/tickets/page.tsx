@@ -1,9 +1,36 @@
+"use client"
+
 import { useState, useEffect } from "react"
+
+interface FormData {
+  passType: string
+  events: string[]
+  guestName: string
+  hasPlusOne: string
+  plusOneName: string
+  hasKids: string
+  numKids: string
+  kidNames: string[]
+  wantsBabysitting: string
+  babysittingEvents: string[]
+  dietaryRestrictions: Record<string, string[]>
+  musicPreferences: string
+  mailingAddress: {
+    name: string
+    street: string
+    city: string
+    state: string
+    zip: string
+    country: string
+  }
+  phone: string
+  email: string
+}
 
 export default function RSVPPage() {
   const [mounted, setMounted] = useState(false)
   const isMobile = false // Simplified for demo
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     passType: '',
     events: [],
     guestName: '',
@@ -27,7 +54,7 @@ export default function RSVPPage() {
     phone: '',
     email: ''
   })
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState('')
 
@@ -65,7 +92,7 @@ export default function RSVPPage() {
     ...doodles.slice(4, 8).map((doodle, index) => ({ type: 'doodle', src: doodle, key: `right-${index}` }))
   ]
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type, checked } = e.target
     
     if (type === 'checkbox') {
@@ -141,7 +168,7 @@ export default function RSVPPage() {
     return value
   }
 
-  const handlePhoneChange = (e) => {
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formatted = formatPhoneNumber(e.target.value)
     setFormData(prev => ({ ...prev, phone: formatted }))
   }
@@ -184,7 +211,7 @@ export default function RSVPPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!validateForm()) return
     

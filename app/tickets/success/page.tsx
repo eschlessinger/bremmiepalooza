@@ -26,7 +26,7 @@ export default function SuccessPage() {
         ["--wave-h" as any]: "24vh", // must match the fixed wave container height
       } as React.CSSProperties}>
         {/* Logo Section */}
-        <header className="h-[var(--header-h)] flex items-center justify-center px-4 md:px-6 lg:px-8">
+        <header className="h-[var(--header-h)] flex items-center justify-center px-4 md:px-6 lg:px-8 pt-12 md:pt-16 lg:pt-20">
           <a href="/" className="block h-full">
             <img 
               src="/bremmiepalooza-logo-for-cta.png" 
@@ -39,7 +39,6 @@ export default function SuccessPage() {
         {/* Centered Success Message */}
         <section 
           className="grid place-items-center px-4 text-center min-h-[calc(100svh-var(--header-h)-var(--wave-h))]"
-          style={{ minHeight: "calc(100vh - var(--header-h) - var(--wave-h))" }} // fallback
         >
           <div className="text-center">
             <h1 

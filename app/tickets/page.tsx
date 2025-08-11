@@ -298,42 +298,37 @@ export default function RSVPPage() {
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
             style={{ height: isMobile ? '120px' : '160px' }}
           >
-            <div className="flex justify-between items-center h-full px-8 relative">
+            <div className="flex justify-center items-center gap-8 md:gap-12 px-4 h-full relative">
               {/* Left side doodles */}
-              <div className="flex gap-6 items-center">
-                {doodles.slice(0, 4).map((doodle, index) => (
-                  <div
-                    key={`left-${index}`}
-                    className="doodle-animation"
-                    style={{
-                      width: '50px',
-                      height: '50px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      animationDelay: `${index * 0.1}s`
+              {doodles.slice(0, 4).map((doodle, index) => (
+                <div
+                  key={`left-${index}`}
+                  className="doodle-animation"
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    animationDelay: `${index * 0.1}s`
+                  }}
+                >
+                  <img 
+                    src={doodle}
+                    alt="Festival doodle" 
+                    width={60} 
+                    height={60} 
+                    style={{ 
+                      width: '60px', 
+                      height: '60px', 
+                      objectFit: 'contain' 
                     }}
-                  >
-                    <img 
-                      src={doodle}
-                      alt="Festival doodle" 
-                      width={50} 
-                      height={50} 
-                      style={{ 
-                        width: '50px', 
-                        height: '50px', 
-                        objectFit: 'contain' 
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
+                  />
+                </div>
+              ))}
 
-              {/* Center title - positioned absolutely for perfect centering */}
-              <div 
-                className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                style={{ whiteSpace: 'nowrap' }}
-              >
+              {/* Center title */}
+              <div className="text-center px-6">
                 <h1 
                   className="text-2xl md:text-4xl font-black uppercase tracking-wider" 
                   style={{
@@ -347,34 +342,32 @@ export default function RSVPPage() {
               </div>
 
               {/* Right side doodles */}
-              <div className="flex gap-6 items-center">
-                {doodles.slice(4, 8).map((doodle, index) => (
-                  <div
-                    key={`right-${index}`}
-                    className="doodle-animation"
-                    style={{
-                      width: '50px',
-                      height: '50px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      animationDelay: `${(index + 4) * 0.1}s`
+              {doodles.slice(4, 8).map((doodle, index) => (
+                <div
+                  key={`right-${index}`}
+                  className="doodle-animation"
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    animationDelay: `${(index + 4) * 0.1}s`
+                  }}
+                >
+                  <img 
+                    src={doodle}
+                    alt="Festival doodle" 
+                    width={60} 
+                    height={60} 
+                    style={{ 
+                      width: '60px', 
+                      height: '60px', 
+                      objectFit: 'contain' 
                     }}
-                  >
-                    <img 
-                      src={doodle}
-                      alt="Festival doodle" 
-                      width={50} 
-                      height={50} 
-                      style={{ 
-                        width: '50px', 
-                        height: '50px', 
-                        objectFit: 'contain' 
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

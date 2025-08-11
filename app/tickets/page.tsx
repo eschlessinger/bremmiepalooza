@@ -31,6 +31,7 @@ export default function RSVPPage() {
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState('')
+  const isMobile = false // For demo purposes
 
   useEffect(() => {
     setMounted(true)
@@ -48,23 +49,6 @@ export default function RSVPPage() {
     'None', 'Vegan', 'Vegetarian', 'Gluten-Free', 'Kosher', 'Nut Allergies', 'Dairy-Free', 'Other'
   ]
 
-  // Create doodle positions in a line above header
-  const createLinearPositions = (count) => {
-    const positions = []
-    const spacing = 80 / (count - 1)
-    for (let i = 0; i < count; i++) {
-      positions.push({
-        x: 10 + (spacing * i),
-        y: 12,
-        size: 8,
-        rotation: (Math.random() - 0.5) * 20,
-        delay: i * 0.1
-      })
-    }
-    return positions
-  }
-
-  const doodlePositions = createLinearPositions(8)
   const doodles = [
     "/doodles/tree.png",
     "/doodles/bikini.png", 
@@ -74,6 +58,13 @@ export default function RSVPPage() {
     "/doodles/sunglasses.png",
     "/doodles/star-blue.png",
     "/doodles/music.png"
+  ]
+
+  // Create the navigation items - doodles + center title
+  const navItems = [
+    ...doodles.slice(0, 4).map((doodle, index) => ({ type: 'doodle', src: doodle, key: `left-${index}` })),
+    { type: 'title', label: 'SECURE YOUR', sublabel: 'TICKETS', key: 'center' },
+    ...doodles.slice(4, 8).map((doodle, index) => ({ type: 'doodle', src: doodle, key: `right-${index}` }))
   ]
 
   const handleInputChange = (e) => {

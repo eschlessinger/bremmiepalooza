@@ -21,22 +21,26 @@ export default function SuccessPage() {
         }}
       />
 
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-10" style={{
+        ["--header-h" as any]: "clamp(72px,10vw,120px)",
+        ["--wave-h" as any]: "24vh", // must match the fixed wave container height
+      } as React.CSSProperties}>
         {/* Logo Section */}
-        <div className="p-4 md:p-6 lg:p-8">
-          <div className="flex justify-center">
-            <a href="/" className="w-full max-w-sm md:max-w-md">
-              <img
-                src="/bremmiepalooza-logo-for-cta.png"
-                alt="Bremmiepalooza 2026"
-                className="w-full h-auto mx-auto cursor-pointer hover:opacity-90 transition-opacity"
-              />
-            </a>
-          </div>
-        </div>
+        <header className="h-[var(--header-h)] flex items-center justify-center px-4 md:px-6 lg:px-8">
+          <a href="/" className="block h-full">
+            <img 
+              src="/bremmiepalooza-logo-for-cta.png" 
+              alt="" 
+              className="h-full w-auto mx-auto" 
+            />
+          </a>
+        </header>
 
         {/* Centered Success Message */}
-        <div className="flex-1 flex items-center justify-center px-4" style={{ minHeight: 'calc(100vh - 200px)' }}>
+        <section 
+          className="grid place-items-center px-4 text-center min-h-[calc(100svh-var(--header-h)-var(--wave-h))]"
+          style={{ minHeight: "calc(100vh - var(--header-h) - var(--wave-h))" }} // fallback
+        >
           <div className="text-center">
             <h1 
               className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-8"
@@ -82,7 +86,7 @@ export default function SuccessPage() {
               Check your email for your ticket registration confirmation!
             </p>
           </div>
-        </div>
+        </section>
       </div>
 
       {/* Wave Footer - Fixed to bottom */}

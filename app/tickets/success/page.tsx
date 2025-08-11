@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import BeachFooter from "../components/BeachFooter"
-import BremmieDoodle from "../components/BremmieDoodle"
+import BeachFooter from "../../../components/BeachFooter"
+import BremmieDoodle from "../../../components/BremmieDoodle"
 
 export default function SuccessPage() {
   const [mounted, setMounted] = useState(false)

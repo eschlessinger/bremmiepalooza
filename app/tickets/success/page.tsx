@@ -36,7 +36,7 @@ export default function SuccessPage() {
         </div>
 
         {/* Centered Success Message */}
-        <div className="flex-1 flex items-center justify-center px-4 py-8">
+        <div className="flex-1 flex items-center justify-center px-4" style={{ minHeight: 'calc(100vh - 200px)' }}>
           <div className="text-center">
             <h1 
               className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-8"
@@ -50,7 +50,7 @@ export default function SuccessPage() {
             </h1>
             
             <p 
-              className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-wider mb-6"
+              className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-wider mb-4"
               style={{
                 fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                 textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
@@ -61,7 +61,7 @@ export default function SuccessPage() {
             </p>
             
             <p 
-              className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-wider mb-12"
+              className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-wider mb-8"
               style={{
                 fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                 textShadow: '2px 2px 4px rgba(0,0,0,0.5)',

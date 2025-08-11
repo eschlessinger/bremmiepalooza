@@ -296,7 +296,7 @@ export default function RSVPPage() {
                   grid items-center mx-auto
                   w-full md:w-auto
                   grid-cols-[auto,1fr,auto] md:grid-cols-[auto,auto,auto]
-                  [--icon:22px] md:[--icon:56px] lg:[--icon:64px]
+                  [--icon:26px] md:[--icon:56px] lg:[--icon:64px]
                   [--gap:6px] md:[--gap:18px] lg:[--gap:20px]
                   [--pad:10px] md:[--pad:24px]
                   [--title-max:calc(100vw-2*(4*var(--icon)+3*var(--gap))-2*var(--pad))]
@@ -325,13 +325,13 @@ export default function RSVPPage() {
                   <h1
                     className="
                       font-black uppercase leading-[0.95] tracking-tight sm:tracking-wider text-center
-                      md:whitespace-nowrap md:text-[48px] lg:text-[56px]
+                      md:whitespace-nowrap md:text-[54px] lg:text-[64px]
                     "
                     style={{
                       fontFamily: "'ZollaPro','Impact','Arial Black',sans-serif",
                       color: '#d81b8c',
                       textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                      fontSize: 'clamp(18px, 7.4vw, 42px)',
+                      fontSize: 'clamp(16px, 6.8vw, 38px)',
                     }}
                   >
                     <span className="hidden md:inline">SECURE YOUR TICKETS</span>

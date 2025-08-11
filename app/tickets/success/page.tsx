@@ -38,7 +38,6 @@ export default function SuccessPage() {
 
         {/* Centered Success Message */}
         <div className="flex-1 grid place-items-center px-4" style={{ minHeight: 'calc(100dvh - var(--wave-h))' }}>
-          <div className="text-center"> items-center justify-center px-4 md:pb-[20vh]">
           <div className="text-center">
             <h1 
               className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-8"

@@ -306,14 +306,14 @@ export default function RSVPPage() {
               {/* compact row so icons hug the title */}
               <div className="inline-flex items-center max-w-fit gap-2 md:gap-3 lg:gap-4">
                 {/* Left icons */}
-                <div className="flex items-center gap-1 md:gap-2 lg:gap-3 -mr-1">
+                <div className="flex items-center gap-0.5 md:gap-2 lg:gap-3 -mr-1">
                   {doodles.slice(0, 4).map((doodle, i) => (
                     <img
                       key={`left-${i}`}
                       src={doodle}
                       alt=""
                       aria-hidden="true"
-                      className="block object-contain doodle-animation shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                      className="block object-contain doodle-animation shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-20 lg:h-20"
                       style={{ animationDelay: `${i * 0.08}s` }}
                     />
                   ))}
@@ -321,7 +321,7 @@ export default function RSVPPage() {
 
                 {/* Title */}
                 <h1 
-                  className="m-0 px-2 md:px-3 lg:px-4 text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-wider leading-none text-center"
+                  className="m-0 px-1 md:px-3 lg:px-4 text-lg md:text-4xl lg:text-5xl font-black uppercase tracking-wider leading-none text-center"
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                     textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
@@ -332,14 +332,14 @@ export default function RSVPPage() {
                 </h1>
 
                 {/* Right icons */}
-                <div className="flex items-center gap-1 md:gap-2 lg:gap-3 -ml-1">
+                <div className="flex items-center gap-0.5 md:gap-2 lg:gap-3 -ml-1">
                   {doodles.slice(4, 8).map((doodle, i) => (
                     <img
                       key={`right-${i}`}
                       src={doodle}
                       alt=""
                       aria-hidden="true"
-                      className="block object-contain doodle-animation shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                      className="block object-contain doodle-animation shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-20 lg:h-20"
                       style={{ animationDelay: `${(i + 4) * 0.08}s` }}
                     />
                   ))}

@@ -191,6 +191,18 @@ export default function RSVPPage() {
     if (formData.hasKids === 'yes' && formData.kidNames.some(name => !name.trim())) {
       newErrors.kidNames = 'All kid names are required'
     }
+
+    // Validate dietary restrictions - each guest must have at least one selection
+    const allGuests = getAllGuests()
+    if (allGuests.length > 0) {
+      const guestsWithoutDietaryInfo = allGuests.filter(guest => 
+        !formData.dietaryRestrictions[guest.key] || formData.dietaryRestrictions[guest.key].length === 0
+      )
+      if (guestsWithoutDietaryInfo.length > 0) {
+        newErrors.dietaryRestrictions = 'Please select dietary restrictions for all guests (select "None" if no restrictions)'
+      }
+    }
+    
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required'
     if (!formData.email.trim()) newErrors.email = 'Email is required'
     
@@ -220,11 +232,10 @@ export default function RSVPPage() {
 
       console.log('Form submitted:', submitData)
       await new Promise(resolve => setTimeout(resolve, 1000))
-      setSubmitStatus('success')
       
-      setTimeout(() => {
-        alert('Form submitted successfully! In a real implementation, this would redirect to the success page.')
-      }, 1000)
+      // In a real implementation, redirect to success page
+      // For now, show success message and redirect after delay
+      window.location.href = '/tickets/success' // This would be your success page URL
       
     } catch (error) {
       console.error('Submission failed:', error)
@@ -368,14 +379,6 @@ export default function RSVPPage() {
               </div>
 
               {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-500/20 border-2 border-green-400/50 rounded-xl text-center">
-                  <p className="text-white font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
-                    ✅ RSVP submitted successfully! We'll send you a confirmation email soon.
-                  </p>
-                </div>
-              )}
-
               {submitStatus === 'error' && (
                 <div className="mb-6 p-4 bg-red-500/20 border-2 border-red-400/50 rounded-xl text-center">
                   <p className="text-white font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -668,6 +671,7 @@ export default function RSVPPage() {
                         </div>
                       ))}
                     </div>
+                    {errors.dietaryRestrictions && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.dietaryRestrictions}</p>}
                   </div>
                 )}
 
@@ -795,6 +799,15 @@ export default function RSVPPage() {
 
                 {/* Submit Button */}
                 <div className="text-center pt-8">
+                  {/* Form validation error message */}
+                  {Object.keys(errors).length > 0 && (
+                    <div className="mb-6">
+                      <p className="text-red-600 bg-white/90 px-4 py-3 rounded-lg font-semibold text-lg" style={{fontFamily: 'Arial, sans-serif'}}>
+                        Please review and correct errors in the form to submit
+                      </p>
+                    </div>
+                  )}
+                  
                   <button
                     type="button"
                     onClick={handleSubmit}

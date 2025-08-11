@@ -302,45 +302,44 @@ export default function RSVPPage() {
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
             style={{ height: isMobile ? '120px' : '160px' }}
           >
-            <div className="h-24 sm:h-28 md:h-40 flex items-center justify-center overflow-hidden">
-              {/* the row shrinks to fit and won't exceed the viewport */}
-              <div className="inline-flex items-center gap-1 sm:gap-2 md:gap-4 max-w-[calc(100vw-1rem)] px-2">
-                {/* Left icons: small on mobile, grow on larger screens */}
-                <div className="flex items-center gap-1 sm:gap-2 md:gap-3 -mr-0.5">
+            <div className="h-full flex items-center justify-center">
+              {/* compact row so icons hug the title */}
+              <div className="inline-flex items-center max-w-fit gap-2 md:gap-3 lg:gap-4">
+                {/* Left icons */}
+                <div className="flex items-center gap-1 md:gap-2 lg:gap-3 -mr-1">
                   {doodles.slice(0, 4).map((doodle, i) => (
                     <img
                       key={`left-${i}`}
                       src={doodle}
                       alt=""
                       aria-hidden="true"
-                      className="block object-contain doodle-animation shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                      className="block object-contain doodle-animation shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 lg:w-20 lg:h-20"
                       style={{ animationDelay: `${i * 0.08}s` }}
                     />
                   ))}
                 </div>
 
-                {/* Title: never wraps; scales down on tiny phones */}
+                {/* Title */}
                 <h1 
-                  className="m-0 px-1.5 sm:px-3 md:px-4 font-black uppercase leading-none text-center whitespace-nowrap tracking-tight sm:tracking-wider"
+                  className="m-0 px-2 md:px-3 lg:px-4 text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-wider leading-none text-center"
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                     textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-                    color: '#d81b8c',
-                    fontSize: 'clamp(16px, 6.5vw, 48px)',
+                    color: '#d81b8c'
                   }}
                 >
                   SECURE YOUR TICKETS
                 </h1>
 
                 {/* Right icons */}
-                <div className="flex items-center gap-1 sm:gap-2 md:gap-3 -ml-0.5">
+                <div className="flex items-center gap-1 md:gap-2 lg:gap-3 -ml-1">
                   {doodles.slice(4, 8).map((doodle, i) => (
                     <img
                       key={`right-${i}`}
                       src={doodle}
                       alt=""
                       aria-hidden="true"
-                      className="block object-contain doodle-animation shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                      className="block object-contain doodle-animation shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 lg:w-20 lg:h-20"
                       style={{ animationDelay: `${(i + 4) * 0.08}s` }}
                     />
                   ))}

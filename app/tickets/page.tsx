@@ -389,7 +389,7 @@ export default function RSVPPage() {
                 {/* Pass Type */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    Are you interested in 1-Day, 2-Day, or 3-Day passes? *
+                    Would you like 1-Day, 2-Day, or 3-Day pass(es)?
                   </label>
                   <div className="space-y-3">
                     {['1-Day', '2-Day', '3-Day'].map(option => (
@@ -407,14 +407,14 @@ export default function RSVPPage() {
                       </label>
                     ))}
                   </div>
-                  {errors.passType && <p className="text-red-300 mt-2">{errors.passType}</p>}
+                  {errors.passType && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.passType}</p>}
                 </div>
 
                 {/* Event Selection */}
                 {formData.passType && formData.passType !== '3-Day' && (
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                      Which events do you plan to attend? * 
+                      Which events do you plan to attend?
                       <span className="text-sm font-normal"> (Select {formData.passType === '1-Day' ? '1' : '2'} event{formData.passType === '2-Day' ? 's' : ''})</span>
                     </label>
                     <div className="space-y-3">
@@ -433,14 +433,14 @@ export default function RSVPPage() {
                         </label>
                       ))}
                     </div>
-                    {errors.events && <p className="text-red-300 mt-2">{errors.events}</p>}
+                    {errors.events && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.events}</p>}
                   </div>
                 )}
 
                 {/* Name */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    Name of Person *
+                    Name
                   </label>
                   <input
                     type="text"
@@ -451,13 +451,13 @@ export default function RSVPPage() {
                     style={{fontFamily: 'Arial, sans-serif'}}
                     placeholder="Your full name"
                   />
-                  {errors.guestName && <p className="text-red-300 mt-2">{errors.guestName}</p>}
+                  {errors.guestName && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.guestName}</p>}
                 </div>
 
                 {/* Plus One */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    Are you bringing a +1? *
+                    Are you bringing a +1?
                   </label>
                   <div className="space-y-3">
                     {['yes', 'no'].map(option => (
@@ -475,14 +475,14 @@ export default function RSVPPage() {
                       </label>
                     ))}
                   </div>
-                  {errors.hasPlusOne && <p className="text-red-300 mt-2">{errors.hasPlusOne}</p>}
+                  {errors.hasPlusOne && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.hasPlusOne}</p>}
                 </div>
 
                 {/* Plus One Name */}
                 {formData.hasPlusOne === 'yes' && (
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                      What is the name of the +1? *
+                      Name of +1
                     </label>
                     <input
                       type="text"
@@ -493,14 +493,14 @@ export default function RSVPPage() {
                       style={{fontFamily: 'Arial, sans-serif'}}
                       placeholder="Full name of your +1"
                     />
-                    {errors.plusOneName && <p className="text-red-300 mt-2">{errors.plusOneName}</p>}
+                    {errors.plusOneName && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.plusOneName}</p>}
                   </div>
                 )}
 
                 {/* Kids */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    Are you bringing kids? *
+                    Are you bringing kids?
                   </label>
                   <div className="space-y-3">
                     {['yes', 'no'].map(option => (
@@ -518,7 +518,7 @@ export default function RSVPPage() {
                       </label>
                     ))}
                   </div>
-                  {errors.hasKids && <p className="text-red-300 mt-2">{errors.hasKids}</p>}
+                  {errors.hasKids && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.hasKids}</p>}
                 </div>
 
                 {/* Kids Details */}
@@ -526,7 +526,7 @@ export default function RSVPPage() {
                   <>
                     <div className="mb-8">
                       <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                        How many kids? *
+                        How many kids?
                       </label>
                       <select
                         name="numKids"
@@ -540,13 +540,13 @@ export default function RSVPPage() {
                           <option key={num} value={num} className="bg-gray-800">{num}</option>
                         ))}
                       </select>
-                      {errors.numKids && <p className="text-red-300 mt-2">{errors.numKids}</p>}
+                      {errors.numKids && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.numKids}</p>}
                     </div>
 
                     {formData.numKids && (
                       <div className="mb-8">
                         <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                          What are the names of the kids? *
+                          Name of Kid(s)
                         </label>
                         <div className="space-y-3">
                           {Array.from({length: parseInt(formData.numKids)}, (_, index) => (
@@ -562,13 +562,13 @@ export default function RSVPPage() {
                             />
                           ))}
                         </div>
-                        {errors.kidNames && <p className="text-red-300 mt-2">{errors.kidNames}</p>}
+                        {errors.kidNames && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.kidNames}</p>}
                       </div>
                     )}
 
                     <div className="mb-8">
                       <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                        Are you interested in babysitting services for your kids? *
+                        Are you interested in babysitting services for your kids?
                       </label>
                       <div className="space-y-3">
                         {['yes', 'no'].map(option => (
@@ -591,7 +591,7 @@ export default function RSVPPage() {
                     {formData.wantsBabysitting === 'yes' && attendingEvents.length > 0 && (
                       <div className="mb-8">
                         <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                          For which events? *
+                          For which events?
                         </label>
                         <div className="space-y-3">
                           {attendingEvents.map(event => (
@@ -618,7 +618,7 @@ export default function RSVPPage() {
                 {getAllGuests().length > 0 && (
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                      Do you or your guests have any dietary restrictions? *
+                      Do you or your guests have any dietary restrictions?
                     </label>
                     <div className="space-y-6">
                       {getAllGuests().map(guest => (
@@ -690,7 +690,7 @@ export default function RSVPPage() {
                 {/* Mailing Address */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    What is your complete mailing address? *
+                    What is your complete mailing address?
                   </label>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
@@ -702,7 +702,7 @@ export default function RSVPPage() {
                       style={{fontFamily: 'Arial, sans-serif'}}
                       placeholder="Full Name"
                     />
-                    {errors.addressName && <p className="text-red-300 mt-2 md:col-span-2">{errors.addressName}</p>}
+                    {errors.addressName && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold md:col-span-2">{errors.addressName}</p>}
                     <input
                       type="text"
                       name="address_street"
@@ -712,7 +712,7 @@ export default function RSVPPage() {
                       style={{fontFamily: 'Arial, sans-serif'}}
                       placeholder="Street Address"
                     />
-                    {errors.addressStreet && <p className="text-red-300 mt-2 md:col-span-2">{errors.addressStreet}</p>}
+                    {errors.addressStreet && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold md:col-span-2">{errors.addressStreet}</p>}
                     <input
                       type="text"
                       name="address_city"
@@ -722,7 +722,7 @@ export default function RSVPPage() {
                       style={{fontFamily: 'Arial, sans-serif'}}
                       placeholder="City"
                     />
-                    {errors.addressCity && <p className="text-red-300 mt-2">{errors.addressCity}</p>}
+                    {errors.addressCity && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.addressCity}</p>}
                     <input
                       type="text"
                       name="address_state"
@@ -732,7 +732,7 @@ export default function RSVPPage() {
                       style={{fontFamily: 'Arial, sans-serif'}}
                       placeholder="State/Province"
                     />
-                    {errors.addressState && <p className="text-red-300 mt-2">{errors.addressState}</p>}
+                    {errors.addressState && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.addressState}</p>}
                     <input
                       type="text"
                       name="address_zip"
@@ -742,7 +742,7 @@ export default function RSVPPage() {
                       style={{fontFamily: 'Arial, sans-serif'}}
                       placeholder="ZIP/Postal Code"
                     />
-                    {errors.addressZip && <p className="text-red-300 mt-2">{errors.addressZip}</p>}
+                    {errors.addressZip && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.addressZip}</p>}
                     <select
                       name="address_country"
                       value={formData.mailingAddress.country}
@@ -762,7 +762,7 @@ export default function RSVPPage() {
                 {/* Phone Number */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    Phone Number *
+                    Phone Number
                   </label>
                   <input
                     type="tel"
@@ -773,13 +773,13 @@ export default function RSVPPage() {
                     style={{fontFamily: 'Arial, sans-serif'}}
                     placeholder="(XXX) XXX-XXXX or +44 XXXX XXX XXX"
                   />
-                  {errors.phone && <p className="text-red-300 mt-2">{errors.phone}</p>}
+                  {errors.phone && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.phone}</p>}
                 </div>
 
                 {/* Email */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    Email Address *
+                    Email Address
                   </label>
                   <input
                     type="email"
@@ -790,7 +790,7 @@ export default function RSVPPage() {
                     style={{fontFamily: 'Arial, sans-serif'}}
                     placeholder="your.email@example.com"
                   />
-                  {errors.email && <p className="text-red-300 mt-2">{errors.email}</p>}
+                  {errors.email && <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">{errors.email}</p>}
                 </div>
 
                 {/* Submit Button */}

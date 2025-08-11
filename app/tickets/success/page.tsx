@@ -62,6 +62,7 @@ export default function SuccessPage() {
           className="grid place-items-center px-4"
           style={{
             minHeight: "calc(100svh - var(--wave-h) - var(--logo-h))",
+            paddingTop: "clamp(0px, 8vh, 80px)", // desktop adjustment
           }}
         >
           <div className="text-center">

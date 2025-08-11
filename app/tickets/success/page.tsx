@@ -12,7 +12,7 @@ export default function SuccessPage() {
   if (!mounted) return null
 
   return (
-    <main className="relative min-h-screen" style={{ overflowY: 'scroll' }}>
+    <main className="relative min-h-screen">
       <div
         className="fixed inset-0 animate-gradient-shift"
         style={{
@@ -161,6 +161,12 @@ export default function SuccessPage() {
         .animate-gradient-shift {
           background-size: 600% 600%;
           animation: gradient-shift 10s ease infinite;
+        }
+      `}</style>
+
+      <style jsx global>{`
+        html {
+          scrollbar-gutter: stable;
         }
       `}</style>
     </main>

@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import BeachFooter from "../components/BeachFooter"
+import BremmieDoodle from "../components/BremmieDoodle"
 
 export default function SuccessPage() {
   const [mounted, setMounted] = useState(false)
@@ -22,7 +24,7 @@ export default function SuccessPage() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col min-h-[calc(100dvh-var(--wave-h))]">
+      <div className="relative z-10 flex flex-col">
         {/* Logo Section */}
         <div className="p-4 md:p-6 lg:p-8">
           <div className="flex justify-center">
@@ -37,7 +39,7 @@ export default function SuccessPage() {
         </div>
 
         {/* Centered Success Message */}
-        <div className="flex-1 grid place-items-center px-4">
+        <div className="grid place-items-center px-4" style={{ minHeight: "calc(100svh - var(--wave-h))" }}>
           <div className="text-center">
             <h1 
               className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-8"
@@ -86,55 +88,9 @@ export default function SuccessPage() {
         </div>
       </div>
 
-      {/* Wave Footer using CSS variables */}
-      <div className="fixed left-0 w-full bottom-0 z-10" style={{ height: "var(--wave-h)" }}>
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 1440 200"
-          preserveAspectRatio="none"
-          style={{ display: "block" }}
-        >
-          <path
-            d="M0 100L48 87.5C96 75 192 50 288 58.3C384 66.7 480 108.3 576 125C672 141.7 768 133.3 864 116.7C960 100 1056 75 1152 66.7C1248 58.3 1344 66.7 1392 70.8L1440 75V200H1392C1344 200 1248 200 1152 200C1056 200 960 200 864 200C768 200 672 200 576 200C480 200 384 200 288 200C192 200 96 200 48 200H0V100Z"
-            fill="url(#paint0_linear_desktop)"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_desktop"
-              x1="720"
-              y1="0"
-              x2="720"
-              y2="200"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#EC4899" />
-              <stop offset="0.333333" stopColor="#FACC15" />
-              <stop offset="0.666667" stopColor="#3B82F6" />
-              <stop offset="1" stopColor="#A855F7" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      {/* Bremmie doodle using CSS variables */}
-      <div
-        className="fixed pointer-events-none z-20"
-        style={{
-          right: "var(--bremmie-right)",
-          bottom: "var(--bremmie-bottom)",
-          width: "var(--bremmie-size)",
-          height: "var(--bremmie-size)",
-        }}
-      >
-        <div className="relative w-full h-full">
-          <img 
-            src="/doodles/bremmie.png" 
-            alt="Bremmie on the beach" 
-            className="w-full h-full object-contain"
-          />
-        </div>
-      </div>
+      {/* bottom of page */}
+      <BeachFooter height="24vh" bremmieMobileFactor={0.46} />
+      <BremmieDoodle />
 
       <style jsx>{`
         @font-face {
@@ -153,10 +109,6 @@ export default function SuccessPage() {
           font-display: swap;
         }
 
-        :root {
-          --wave-h: 24vh;
-        }
-
         @keyframes gradient-shift {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -166,12 +118,6 @@ export default function SuccessPage() {
         .animate-gradient-shift {
           background-size: 600% 600%;
           animation: gradient-shift 10s ease infinite;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html {
-          scrollbar-gutter: stable;
         }
       `}</style>
     </main>

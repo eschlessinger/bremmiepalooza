@@ -120,7 +120,7 @@ export default function SuccessPage() {
       <div
         className="fixed pointer-events-none z-20"
         style={{
-          right: "6%",
+          right: "60px",
           bottom: "60px",
           width: "20vmin",
           height: "20vmin",

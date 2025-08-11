@@ -21,25 +21,22 @@ export default function SuccessPage() {
         }}
       />
 
-      <div className="relative z-10" style={{
-        ["--header-h" as any]: "clamp(96px, 12vw, 168px)",
-        ["--wave-h" as any]: "24vh", // must match the fixed wave container height
-      } as React.CSSProperties}>
+      <div className="relative z-10 min-h-screen flex flex-col">
         {/* Logo Section */}
-        <header className="h-[var(--header-h)] flex items-center justify-center px-4 md:px-6 lg:px-8 pt-12 md:pt-16 lg:pt-20">
-          <a href="/" className="block h-full">
-            <img 
-              src="/bremmiepalooza-logo-for-cta.png" 
-              alt="" 
-              className="h-full w-auto mx-auto" 
-            />
-          </a>
-        </header>
+        <div className="px-4 md:px-6 lg:px-8 pt-12 md:pt-16 lg:pt-20">
+          <div className="flex justify-center">
+            <a href="/" className="w-full max-w-sm md:max-w-md">
+              <img
+                src="/bremmiepalooza-logo-for-cta.png"
+                alt="Bremmiepalooza 2026"
+                className="w-full h-auto mx-auto cursor-pointer hover:opacity-90 transition-opacity"
+              />
+            </a>
+          </div>
+        </div>
 
         {/* Centered Success Message */}
-        <section 
-          className="grid place-items-center px-4 text-center min-h-[calc(100svh-var(--header-h)-var(--wave-h))]"
-        >
+        <div className="flex-1 flex items-center justify-center px-4" style={{ paddingBottom: '20vh' }}>
           <div className="text-center">
             <h1 
               className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight mb-8"
@@ -85,7 +82,7 @@ export default function SuccessPage() {
               Check your email for your ticket registration confirmation!
             </p>
           </div>
-        </section>
+        </div>
       </div>
 
       {/* Wave Footer - Fixed to bottom */}

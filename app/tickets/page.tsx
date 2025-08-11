@@ -298,37 +298,36 @@ export default function RSVPPage() {
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
             style={{ height: isMobile ? '120px' : '160px' }}
           >
-            <div className="flex justify-center items-center gap-8 md:gap-12 px-4 h-full relative">
+            <div className="relative h-full flex items-center justify-center">
               {/* Left side doodles */}
-              {doodles.slice(0, 4).map((doodle, index) => (
-                <div
-                  key={`left-${index}`}
-                  className="doodle-animation"
-                  style={{
-                    width: '60px',
-                    height: '60px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    animationDelay: `${index * 0.1}s`
-                  }}
-                >
-                  <img 
-                    src={doodle}
-                    alt="Festival doodle" 
-                    width={60} 
-                    height={60} 
-                    style={{ 
-                      width: '60px', 
-                      height: '60px', 
-                      objectFit: 'contain' 
+              <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex gap-4">
+                {doodles.slice(0, 4).map((doodle, index) => (
+                  <div
+                    key={`left-${index}`}
+                    className="doodle-animation"
+                    style={{
+                      width: '60px',
+                      height: '60px',
+                      animationDelay: `${index * 0.1}s`
                     }}
-                  />
-                </div>
-              ))}
+                  >
+                    <img 
+                      src={doodle}
+                      alt="Festival doodle" 
+                      width={60} 
+                      height={60} 
+                      style={{ 
+                        width: '60px', 
+                        height: '60px', 
+                        objectFit: 'contain' 
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
 
               {/* Center title */}
-              <div className="text-center px-6">
+              <div className="text-center">
                 <h1 
                   className="text-2xl md:text-4xl font-black uppercase tracking-wider" 
                   style={{
@@ -342,32 +341,31 @@ export default function RSVPPage() {
               </div>
 
               {/* Right side doodles */}
-              {doodles.slice(4, 8).map((doodle, index) => (
-                <div
-                  key={`right-${index}`}
-                  className="doodle-animation"
-                  style={{
-                    width: '60px',
-                    height: '60px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    animationDelay: `${(index + 4) * 0.1}s`
-                  }}
-                >
-                  <img 
-                    src={doodle}
-                    alt="Festival doodle" 
-                    width={60} 
-                    height={60} 
-                    style={{ 
-                      width: '60px', 
-                      height: '60px', 
-                      objectFit: 'contain' 
+              <div className="absolute right-8 top-1/2 transform -translate-y-1/2 flex gap-4">
+                {doodles.slice(4, 8).map((doodle, index) => (
+                  <div
+                    key={`right-${index}`}
+                    className="doodle-animation"
+                    style={{
+                      width: '60px',
+                      height: '60px',
+                      animationDelay: `${(index + 4) * 0.1}s`
                     }}
-                  />
-                </div>
-              ))}
+                  >
+                    <img 
+                      src={doodle}
+                      alt="Festival doodle" 
+                      width={60} 
+                      height={60} 
+                      style={{ 
+                        width: '60px', 
+                        height: '60px', 
+                        objectFit: 'contain' 
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

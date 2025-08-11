@@ -29,7 +29,7 @@ interface FormData {
 
 export default function RSVPPage() {
   const [mounted, setMounted] = useState(false)
-  const isMobile = false // Simplified for demo
+  const isMobile = false
   const [formData, setFormData] = useState<FormData>({
     passType: '',
     events: [],
@@ -85,13 +85,6 @@ export default function RSVPPage() {
     "/doodles/music.png"
   ]
 
-  // Create the navigation items - doodles + center title
-  const navItems = [
-    ...doodles.slice(0, 4).map((doodle, index) => ({ type: 'doodle', src: doodle, key: `left-${index}` })),
-    { type: 'title', label: 'SECURE YOUR', sublabel: 'TICKETS', key: 'center' },
-    ...doodles.slice(4, 8).map((doodle, index) => ({ type: 'doodle', src: doodle, key: `right-${index}` }))
-  ]
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type, checked } = e.target
     
@@ -127,7 +120,7 @@ export default function RSVPPage() {
     }
   }
 
-  const handleDietaryChange = (guestKey, restriction, isOther = false, otherValue = '') => {
+  const handleDietaryChange = (guestKey: string, restriction: string, isOther = false, otherValue = '') => {
     setFormData(prev => {
       const currentRestrictions = prev.dietaryRestrictions[guestKey] || []
       let updatedRestrictions
@@ -156,7 +149,7 @@ export default function RSVPPage() {
     })
   }
 
-  const formatPhoneNumber = (value) => {
+  const formatPhoneNumber = (value: string) => {
     const cleaned = value.replace(/\D/g, '')
     if (cleaned.startsWith('44')) {
       const match = cleaned.match(/^44(\d{4})(\d{3})(\d{3})$/)
@@ -174,7 +167,7 @@ export default function RSVPPage() {
   }
 
   const validateForm = () => {
-    const newErrors = {}
+    const newErrors: Record<string, string> = {}
     
     if (!formData.passType) newErrors.passType = 'Please select a pass type'
     if (formData.passType !== '3-Day' && formData.events.length === 0) {
@@ -242,7 +235,7 @@ export default function RSVPPage() {
   }
 
   const getAllGuests = () => {
-    const guests = []
+    const guests: Array<{key: string, name: string}> = []
     if (formData.guestName.trim()) {
       guests.push({ key: 'main', name: formData.guestName })
     }
@@ -290,46 +283,34 @@ export default function RSVPPage() {
           style={{
             position: 'absolute',
             top: isMobile ? '120px' : '150px',
-            left: '0',
-            right: '0'
+            left: 0,
+            right: 0
           }}
         >
           <div 
             className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
             style={{ height: isMobile ? '120px' : '160px' }}
           >
-            <div className="relative h-full flex items-center justify-center">
-              {/* Left side doodles */}
-              <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex gap-4">
-                {doodles.slice(0, 4).map((doodle, index) => (
-                  <div
-                    key={`left-${index}`}
-                    className="doodle-animation"
-                    style={{
-                      width: '60px',
-                      height: '60px',
-                      animationDelay: `${index * 0.1}s`
-                    }}
-                  >
-                    <img 
+            <div className="h-full flex items-center justify-center">
+              {/* compact row so icons hug the title */}
+              <div className="inline-flex items-center max-w-fit gap-2 md:gap-3 lg:gap-4">
+                {/* Left icons */}
+                <div className="flex items-center gap-1 md:gap-2 lg:gap-3 -mr-1">
+                  {doodles.slice(0, 4).map((doodle, i) => (
+                    <img
+                      key={`left-${i}`}
                       src={doodle}
-                      alt="Festival doodle" 
-                      width={60} 
-                      height={60} 
-                      style={{ 
-                        width: '60px', 
-                        height: '60px', 
-                        objectFit: 'contain' 
-                      }}
+                      alt=""
+                      aria-hidden="true"
+                      className="block object-contain doodle-animation shrink-0 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                      style={{ animationDelay: `${i * 0.08}s` }}
                     />
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              {/* Center title */}
-              <div className="text-center">
+                {/* Title */}
                 <h1 
-                  className="text-2xl md:text-4xl font-black uppercase tracking-wider" 
+                  className="m-0 px-2 md:px-3 lg:px-4 text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-wider leading-none text-center"
                   style={{
                     fontFamily: "'ZollaPro', 'Impact', 'Arial Black', sans-serif",
                     textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
@@ -338,33 +319,20 @@ export default function RSVPPage() {
                 >
                   SECURE YOUR TICKETS
                 </h1>
-              </div>
 
-              {/* Right side doodles */}
-              <div className="absolute right-8 top-1/2 transform -translate-y-1/2 flex gap-4">
-                {doodles.slice(4, 8).map((doodle, index) => (
-                  <div
-                    key={`right-${index}`}
-                    className="doodle-animation"
-                    style={{
-                      width: '60px',
-                      height: '60px',
-                      animationDelay: `${(index + 4) * 0.1}s`
-                    }}
-                  >
-                    <img 
+                {/* Right icons */}
+                <div className="flex items-center gap-1 md:gap-2 lg:gap-3 -ml-1">
+                  {doodles.slice(4, 8).map((doodle, i) => (
+                    <img
+                      key={`right-${i}`}
                       src={doodle}
-                      alt="Festival doodle" 
-                      width={60} 
-                      height={60} 
-                      style={{ 
-                        width: '60px', 
-                        height: '60px', 
-                        objectFit: 'contain' 
-                      }}
+                      alt=""
+                      aria-hidden="true"
+                      className="block object-contain doodle-animation shrink-0 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                      style={{ animationDelay: `${(i + 4) * 0.08}s` }}
                     />
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -374,6 +342,7 @@ export default function RSVPPage() {
         <div style={{ marginTop: isMobile ? '120px' : '160px' }}>
           <div className="px-4 pb-12" style={{ paddingBottom: '30vh' }}>
             <div className="max-w-4xl mx-auto">
+              {/* Festival Events */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20 mb-8">
                 <h2 
                   className="text-2xl md:text-3xl font-black text-center mb-6 uppercase tracking-wider" 
@@ -398,6 +367,7 @@ export default function RSVPPage() {
                 </div>
               </div>
 
+              {/* Status Messages */}
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-500/20 border-2 border-green-400/50 rounded-xl text-center">
                   <p className="text-white font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -414,8 +384,9 @@ export default function RSVPPage() {
                 </div>
               )}
 
+              {/* RSVP Form */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-                
+                {/* Pass Type */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                     Are you interested in 1-Day, 2-Day, or 3-Day passes? *
@@ -439,6 +410,7 @@ export default function RSVPPage() {
                   {errors.passType && <p className="text-red-300 mt-2">{errors.passType}</p>}
                 </div>
 
+                {/* Event Selection */}
                 {formData.passType && formData.passType !== '3-Day' && (
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -465,6 +437,7 @@ export default function RSVPPage() {
                   </div>
                 )}
 
+                {/* Name */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                     Name of Person *
@@ -481,6 +454,7 @@ export default function RSVPPage() {
                   {errors.guestName && <p className="text-red-300 mt-2">{errors.guestName}</p>}
                 </div>
 
+                {/* Plus One */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                     Are you bringing a +1? *
@@ -504,6 +478,7 @@ export default function RSVPPage() {
                   {errors.hasPlusOne && <p className="text-red-300 mt-2">{errors.hasPlusOne}</p>}
                 </div>
 
+                {/* Plus One Name */}
                 {formData.hasPlusOne === 'yes' && (
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -522,6 +497,7 @@ export default function RSVPPage() {
                   </div>
                 )}
 
+                {/* Kids */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                     Are you bringing kids? *
@@ -545,6 +521,7 @@ export default function RSVPPage() {
                   {errors.hasKids && <p className="text-red-300 mt-2">{errors.hasKids}</p>}
                 </div>
 
+                {/* Kids Details */}
                 {formData.hasKids === 'yes' && (
                   <>
                     <div className="mb-8">
@@ -637,6 +614,7 @@ export default function RSVPPage() {
                   </>
                 )}
 
+                {/* Dietary Restrictions */}
                 {getAllGuests().length > 0 && (
                   <div className="mb-8">
                     <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
@@ -693,6 +671,7 @@ export default function RSVPPage() {
                   </div>
                 )}
 
+                {/* Music Preferences */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                     What songs are you most excited to hear at Bremmiepalooza?
@@ -708,6 +687,7 @@ export default function RSVPPage() {
                   />
                 </div>
 
+                {/* Mailing Address */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                     What is your complete mailing address? *
@@ -779,6 +759,7 @@ export default function RSVPPage() {
                   </div>
                 </div>
 
+                {/* Phone Number */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                     Phone Number *
@@ -795,6 +776,7 @@ export default function RSVPPage() {
                   {errors.phone && <p className="text-red-300 mt-2">{errors.phone}</p>}
                 </div>
 
+                {/* Email */}
                 <div className="mb-8">
                   <label className="block text-white font-bold mb-4 text-xl" style={{fontFamily: 'Arial, sans-serif'}}>
                     Email Address *
@@ -811,6 +793,7 @@ export default function RSVPPage() {
                   {errors.email && <p className="text-red-300 mt-2">{errors.email}</p>}
                 </div>
 
+                {/* Submit Button */}
                 <div className="text-center pt-8">
                   <button
                     type="button"

@@ -571,7 +571,7 @@ export default function RSVPPage() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
                   style={{ fontFamily: "Arial, sans-serif" }}
-                  placeholder="Your full name"
+                  placeholder="Your full name (inclusive of preferred titles and / or prefixes)"
                 />
                 {errors.guestName && (
                   <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">
@@ -631,7 +631,7 @@ export default function RSVPPage() {
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-lg bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:border-white/60 focus:outline-none backdrop-blur-sm text-lg"
                     style={{ fontFamily: "Arial, sans-serif" }}
-                    placeholder="Full name of your +1"
+                    placeholder="Full name of your +1 (inclusive of preferred titles and / or prefixes)"
                   />
                   {errors.plusOneName && (
                     <p className="text-red-600 bg-white/90 px-3 py-2 rounded-lg mt-2 font-semibold">

@@ -8,8 +8,8 @@ export const runtime = "nodejs";
 
 const resend = new Resend(process.env.RESEND_API_KEY || "");
 
-// ---- Pretty HTML email (brand-safe, inline styles)
-const SITE = "https://bremmiepalooza.com";
+// ---------- Helpers & branded HTML ----------
+const SITE = "https://bremmiepalooza.com"; // change if needed
 
 const label = (s: string) =>
   s.replace(/[_-]/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
@@ -17,56 +17,75 @@ const label = (s: string) =>
 const asList = (v: any) =>
   Array.isArray(v) ? v.filter(Boolean).join(", ") : v ?? "";
 
+const EVENT_LABELS = {
+  pregame: "The Pregame",
+  mainstage: "The Main Stage",
+  aftershow: "The Aftershow",
+} as const;
+
+const prettyEventList = (ids: any) =>
+  Array.isArray(ids) && ids.length
+    ? ids.map((id: string) => EVENT_LABELS[id] ?? label(id)).join(", ")
+    : "";
+
 const formatRows = (email: string, p: Record<string, any>) => {
   const addr = p?.mailingAddress || {};
+
+  // Which events they’re attending
+  const attending =
+    p?.passType === "3-Day"
+      ? Object.values(EVENT_LABELS).join(", ")
+      : prettyEventList(p?.events);
+
+  const rows: Array<[string, string]> = [
+    ["Email", email],
+    ["Pass Type", p?.passType],
+    ["Events", attending],
+    ["Guest Name", p?.guestName],
+  ];
+
+  if (p?.hasPlusOne === "yes") rows.push(["+1 Name", p?.plusOneName]);
+
+  // Kids + babysitting logic
+  const hasKids = p?.hasKids === "yes";
+  rows.push(["Kids", hasKids ? (p?.numKids || "Yes") : "No"]);
+
+  if (hasKids) {
+    const wants = p?.wantsBabysitting === "yes";
+    rows.push(["Wants Babysitting", wants ? "Yes" : "No"]);
+    if (wants) {
+      rows.push(["Babysitting For", prettyEventList(p?.babysittingEvents)]);
+    }
+  }
+
+  // Dietary
   const dietary =
     typeof p?.dietaryRestrictions === "object"
       ? Object.entries(p.dietaryRestrictions)
           .map(([who, arr]: any) => `${label(who)}: ${asList(arr)}`)
           .join(" · ")
       : "";
+  if (dietary) rows.push(["Dietary Restrictions", dietary]);
 
-  const rows: Array<[string, string]> = [
-    ["Email", email],
-    ["Pass Type", p?.passType],
+  if (p?.musicPreferences)
+    rows.push(["Music Preferences", p.musicPreferences]);
+
+  rows.push([
+    "Mailing Address",
     [
-      "Events",
-      asList(
-        p?.passType === "3-Day"
-          ? ["pregame", "mainstage", "aftershow"]
-          : p?.events
-      ),
-    ],
-    ["Guest Name", p?.guestName],
-    ...(p?.hasPlusOne === "yes" ? [["+1 Name", p?.plusOneName]] : []),
-    ["Kids", p?.hasKids === "yes" ? (p?.numKids || "Yes") : "No"],
-    ...(p?.hasKids === "yes" && Array.isArray(p?.kidNames) && p.kidNames.length
-      ? [["Kid Names", asList(p.kidNames)]]
-      : []),
-    ["Wants Babysitting", p?.wantsBabysitting || "no"],
-    ...(p?.wantsBabysitting === "yes" && Array.isArray(p?.babysittingEvents)
-      ? [["Babysitting For", asList(p.babysittingEvents)]]
-      : []),
-    ...(dietary ? [["Dietary Restrictions", dietary]] : []),
-    ...(p?.musicPreferences
-      ? [["Music Preferences", p.musicPreferences]]
-      : []),
-    [
-      "Mailing Address",
-      [
-        addr?.name,
-        addr?.street,
-        `${addr?.city || ""}${addr?.state ? ", " + addr.state : ""} ${
-          addr?.zip || ""
-        }`,
-        addr?.country,
-      ]
-        .filter(Boolean)
-        .join(" · "),
-    ],
-    ["Phone", p?.phone],
-    ["Timestamp", new Date().toISOString()],
-  ];
+      addr?.name,
+      addr?.street,
+      `${addr?.city || ""}${addr?.state ? ", " + addr.state : ""} ${
+        addr?.zip || ""
+      }`,
+      addr?.country,
+    ]
+      .filter(Boolean)
+      .join(" · "),
+  ]);
+
+  rows.push(["Phone", p?.phone]);
+  rows.push(["Timestamp", new Date().toISOString()]);
 
   return rows.filter(
     ([, v]) => v !== undefined && v !== null && String(v).trim() !== ""
@@ -154,9 +173,10 @@ const makeHtml = (email: string, payload: Record<string, any>) => {
 </html>`;
 };
 
-// ---- Minimal validation; accept everything else for storage
+// ---------- Validation ----------
 const Schema = z.object({ email: z.string().email() }).passthrough();
 
+// ---------- Handlers ----------
 export async function POST(req: Request) {
   try {
     const data = Schema.parse(await req.json());
@@ -169,7 +189,7 @@ export async function POST(req: Request) {
       values (${email}, ${payloadJson}::jsonb)
     `;
 
-    // Send confirmation email
+    // Send confirmation
     const from =
       process.env.EMAIL_FROM || "Bremmiepalooza <onboarding@resend.dev>";
     const bcc = process.env.EMAIL_BCC;

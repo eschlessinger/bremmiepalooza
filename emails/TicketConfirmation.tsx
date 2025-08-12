@@ -1,274 +1,231 @@
-// emails/TicketConfirmation.tsx
 import * as React from "react";
 
 type Row = [string, string];
 
-type Props = {
+export default function TicketConfirmation(props: {
   rows: Row[];
   dietaryItems?: string[];
   guestName?: string;
-  site: string;
-};
+  site?: string;
+}) {
+  const { rows, dietaryItems = [], guestName, site = "https://bremmiepalooza.com" } = props;
 
-const BRAND_PINK = "#e11d8f"; // tailwind pink-600
-const TEXT = "#111827";       // gray-900
-const MUTED = "#374151";      // gray-700
-const BORDER = "#e5e7eb";     // gray-200
-const BG_SOFT = "#f3e8ff";    // violet-100-like for the "pills"
-const LINK = BRAND_PINK;
+  // helpers to pull values out of the rows array
+  const get = (label: string) =>
+    rows.find(([k]) => k.toLowerCase() === label.toLowerCase())?.[1] || "";
 
-export default function TicketConfirmation({
-  rows,
-  dietaryItems = [],
-  guestName,
-  site,
-}: Props) {
-  // Pull Pass/Events to render as lil' badges (pills) near the header
-  const rowsMap = Object.fromEntries(rows);
-  const passType = rowsMap["Pass Type"] || "";
-  const events = rowsMap["Events"] || "";
-
-  // Helper to render the details table
-  const detailRows = rows.map(([k, v]) => (
-    <tr key={k}>
-      <td
-        style={{
-          padding: "10px 12px",
-          borderBottom: `1px solid ${BORDER}`,
-          verticalAlign: "top",
-          fontWeight: 600,
-          color: MUTED,
-          width: "32%",
-        }}
-      >
-        {k}
-      </td>
-      <td
-        style={{
-          padding: "10px 12px",
-          borderBottom: `1px solid ${BORDER}`,
-          verticalAlign: "top",
-          color: TEXT,
-        }}
-      >
-        {v}
-      </td>
-    </tr>
-  ));
+  const passType = get("Pass Type");
+  const events = get("Events");
+  const name = guestName || get("Guest Name") || "Friend";
 
   return (
     <html>
       <body
         style={{
           margin: 0,
-          padding: 0,
-          background: "#f9fafb", // gray-50
+          background: "#F6F7FB",
           fontFamily:
-            "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif",
-          color: TEXT,
+            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
+          color: "#111827",
         }}
       >
-        <table
-          role="presentation"
-          width="100%"
-          cellPadding={0}
-          cellSpacing={0}
-          style={{ background: "#f9fafb" }}
+        {/* Top rainbow bar */}
+        <div
+          style={{
+            maxWidth: 680,
+            margin: "0 auto",
+            padding: "16px 18px 0 18px",
+          }}
         >
-          <tbody>
-            <tr>
-              <td style={{ padding: "24px 0" }}>
-                <table
-                  role="presentation"
-                  width={640}
-                  cellPadding={0}
-                  cellSpacing={0}
-                  align="center"
+          <div
+            style={{
+              height: 14,
+              borderRadius: 10,
+              background:
+                "linear-gradient(90deg,#F43F5E 0%,#F59E0B 25%,#10B981 50%,#3B82F6 75%,#8B5CF6 100%)",
+            }}
+          />
+        </div>
+
+        {/* Card */}
+        <div
+          style={{
+            maxWidth: 680,
+            margin: "0 auto",
+            padding: "18px",
+          }}
+        >
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: 14,
+              boxShadow:
+                "0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.10)",
+              padding: 24,
+            }}
+          >
+            {/* brand */}
+            <div
+              style={{
+                fontWeight: 800,
+                fontSize: 14,
+                letterSpacing: 1.2,
+                textTransform: "uppercase",
+                color: "#E11D8F",
+                marginBottom: 6,
+              }}
+            >
+              Bremmiepalooza
+            </div>
+
+            {/* headline */}
+            <h1
+              style={{
+                margin: "6px 0 8px",
+                fontSize: 32,
+                lineHeight: "36px",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              You’re in, {name}! <span>🎟️</span>
+            </h1>
+            <p
+              style={{
+                margin: "0 0 16px",
+                color: "#374151",
+                fontSize: 16,
+              }}
+            >
+              Thanks for securing your tickets.
+            </p>
+
+            {/* pills */}
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 16 }}>
+              {passType && <Pill label={`Pass: ${passType}`} />}
+              {events && <Pill label={`Events: ${events}`} />}
+            </div>
+
+            {/* details table (all answers they saw/answered) */}
+            <table
+              width="100%"
+              cellPadding={0}
+              cellSpacing={0}
+              style={{ borderCollapse: "collapse", marginTop: 8 }}
+            >
+              <tbody>
+                {rows.map(([k, v], idx) => (
+                  <tr key={idx}>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderTop: "1px solid #F3F4F6",
+                        width: 180,
+                        color: "#6B7280",
+                        fontWeight: 600,
+                        fontSize: 14,
+                        verticalAlign: "top",
+                      }}
+                    >
+                      {k}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderTop: "1px solid #F3F4F6",
+                        fontSize: 15,
+                        color: "#111827",
+                      }}
+                    >
+                      {v}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            {/* Dietary details, if any */}
+            {dietaryItems.length > 0 && (
+              <div style={{ marginTop: 20 }}>
+                <div
                   style={{
-                    margin: "0 auto",
-                    background: "#ffffff",
-                    borderRadius: 14,
-                    border: `1px solid ${BORDER}`,
-                    overflow: "hidden",
+                    fontSize: 14,
+                    color: "#6B7280",
+                    fontWeight: 700,
+                    marginBottom: 6,
                   }}
                 >
-                  {/* Header / Brand */}
-                  <tbody>
-                    <tr>
-                      <td style={{ padding: "24px 28px 0 28px" }}>
-                        <div
-                          style={{
-                            fontSize: 14,
-                            fontWeight: 800,
-                            letterSpacing: 1,
-                            color: BRAND_PINK,
-                            textTransform: "uppercase",
-                          }}
-                        >
-                          Bremmiepalooza
-                        </div>
+                  Dietary Details
+                </div>
+                <ul style={{ margin: 0, paddingLeft: 18, color: "#111827" }}>
+                  {dietaryItems.map((line, i) => (
+                    <li key={i} style={{ margin: "4px 0" }}>
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-                        <h1
-                          style={{
-                            margin: "12px 0 8px",
-                            fontSize: 30,
-                            lineHeight: 1.25,
-                            color: TEXT,
-                          }}
-                        >
-                          You’re In, {guestName || "Friend"}!{" "}
-                          <span role="img" aria-label="tickets">
-                            🎟️
-                          </span>
-                        </h1>
+            {/* inside-card help line with bold pink email */}
+            <p
+              style={{
+                marginTop: 22,
+                borderTop: "1px solid #F3F4F6",
+                paddingTop: 14,
+                fontSize: 14,
+                color: "#334155",
+              }}
+            >
+              Questions? Just reach out to us at{" "}
+              <a
+                href="mailto:info@bremmiepalooza.com"
+                style={{ color: "#E11D8F", fontWeight: 700, textDecoration: "none" }}
+              >
+                info@bremmiepalooza.com
+              </a>
+              .
+            </p>
+          </div>
+        </div>
 
-                        <p
-                          style={{
-                            margin: 0,
-                            fontSize: 16,
-                            color: MUTED,
-                          }}
-                        >
-                          Thanks for securing your tickets.
-                        </p>
-
-                        {/* Pills row */}
-                        <div style={{ marginTop: 16 }}>
-                          {passType ? (
-                            <span style={pillStyle}>Pass: {passType}</span>
-                          ) : null}
-                          {events ? (
-                            <span style={{ ...pillStyle, marginLeft: 10 }}>
-                              Events: {events}
-                            </span>
-                          ) : null}
-                        </div>
-                      </td>
-                    </tr>
-
-                    {/* Details */}
-                    <tr>
-                      <td style={{ padding: "20px 28px 24px" }}>
-                        <table
-                          role="presentation"
-                          width="100%"
-                          cellPadding={0}
-                          cellSpacing={0}
-                          style={{
-                            border: `1px solid ${BORDER}`,
-                            borderRadius: 12,
-                            overflow: "hidden",
-                          }}
-                        >
-                          <tbody>{detailRows}</tbody>
-                        </table>
-
-                        {/* Per-person dietary list */}
-                        {dietaryItems.length > 0 && (
-                          <div style={{ marginTop: 18 }}>
-                            <div
-                              style={{
-                                fontSize: 14,
-                                fontWeight: 700,
-                                color: MUTED,
-                                marginBottom: 6,
-                              }}
-                            >
-                              Dietary (by person)
-                            </div>
-                            <ul
-                              style={{
-                                margin: "0 0 0 18px",
-                                padding: 0,
-                                color: TEXT,
-                              }}
-                            >
-                              {dietaryItems.map((line, i) => (
-                                <li key={i} style={{ marginBottom: 4 }}>
-                                  {line}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </td>
-                    </tr>
-
-                    {/* Footer helper + cute sign-off */}
-                    <tr>
-                      <td
-                        style={{
-                          padding: "8px 28px 26px",
-                          borderTop: `1px solid ${BORDER}`,
-                        }}
-                      >
-                        <p
-                          style={{
-                            margin: "14px 0 0",
-                            fontSize: 14,
-                            color: MUTED,
-                          }}
-                        >
-                          Questions? Just reach out to us at{" "}
-                          <a
-                            href="mailto:info@bremmiepalooza.com"
-                            style={{
-                              color: LINK,
-                              fontWeight: 700,
-                              textDecoration: "none",
-                            }}
-                          >
-                            info@bremmiepalooza.com
-                          </a>
-                          .
-                        </p>
-
-                        <p
-                          style={{
-                            margin: "18px 0 0",
-                            fontSize: 13,
-                            color: MUTED,
-                          }}
-                        >
-                          Sent with{" "}
-                          <span role="img" aria-label="love">
-                            ❤️
-                          </span>{" "}
-                          from{" "}
-                          <a
-                            href={site}
-                            style={{
-                              color: LINK,
-                              fontWeight: 700,
-                              textDecoration: "none",
-                            }}
-                          >
-                            Bremmiepalooza
-                          </a>
-                          .
-                        </p>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                {/* Spacer under the card */}
-                <div style={{ height: 24 }} />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        {/* footer OUTSIDE card, centered */}
+        <div
+          style={{
+            maxWidth: 680,
+            margin: "8px auto 28px",
+            textAlign: "center",
+            color: "#6B7280",
+            fontSize: 13,
+          }}
+        >
+          Sent with <span style={{ color: "#EF4444" }}>❤️</span> from{" "}
+          <a
+            href={site}
+            style={{ color: "#E11D8F", fontWeight: 700, textDecoration: "none" }}
+          >
+            Bremmiepalooza
+          </a>
+          .
+        </div>
       </body>
     </html>
   );
 }
 
-const pillStyle: React.CSSProperties = {
-  display: "inline-block",
-  padding: "8px 14px",
-  background: BG_SOFT,
-  borderRadius: 9999,
-  fontWeight: 700,
-  fontSize: 14,
-  color: "#111827",
-};
+function Pill({ label }: { label: string }) {
+  return (
+    <span
+      style={{
+        display: "inline-block",
+        padding: "8px 12px",
+        background: "#F5F3FF",
+        color: "#4C1D95",
+        borderRadius: 999,
+        fontSize: 14,
+        fontWeight: 600,
+      }}
+    >
+      {label}
+    </span>
+  );
+}

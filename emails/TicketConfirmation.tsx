@@ -1,152 +1,80 @@
+// /emails/TicketConfirmation.tsx
 import * as React from "react";
 
-type Props = {
-  rows: Array<[string, string]>;
-  dietaryItems?: string[];
-  guestName?: string;
-  site?: string;
-};
-
-const brand = {
-  bg: "#f6f8fb",
-  card: "#ffffff",
-  text: "#0b1020",
-  sub: "#4a5568",
-  divider: "#e9edf1",
-  accent: "#d81b8c",
-  pill: "#f6e8ff",
-  gradient:
-    "linear-gradient(90deg,#EC4899 0%, #FACC15 33%, #3B82F6 66%, #A855F7 100%)",
-};
+type Row = [label: string, value: string];
 
 export default function TicketConfirmation({
   rows,
-  dietaryItems = [],
   guestName,
-  site = "https://bremmiepalooza.com",
-}: Props) {
-  const name = escapeHtml(guestName?.trim() || "Guest");
-  const map = Object.fromEntries(rows);
-  const passType = map["Pass Type"] || "";
-  const events = map["Events"] || "";
-
+}: {
+  rows: Row[];
+  guestName?: string;
+}) {
   return (
     <html>
       <head>
         <meta charSet="utf-8" />
-        <title>You’re in — Bremmiepalooza</title>
-        <meta name="color-scheme" content="light only" />
+        <meta name="x-apple-disable-message-reformatting" />
+        <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
+        <title>You’re In! 🎟️ Your Bremmiepalooza Tix</title>
       </head>
       <body style={styles.body}>
-        <table role="presentation" width="100%" style={styles.outer}>
+        <table role="presentation" width="100%" cellPadding={0} cellSpacing={0}>
           <tbody>
+            {/* Header gradient bar */}
             <tr>
               <td>
-                {/* Header */}
-                <table role="presentation" width="100%" style={styles.header}>
-                  <tbody>
-                    <tr>
-                      <td style={styles.headerStrip} />
-                    </tr>
-                    <tr>
-                      <td style={styles.headerInner}>
-                        <div style={styles.kicker}>Bremmiepalooza</div>
-                        <h1 style={styles.title}>You’re In, {name}! 🎟️</h1>
-                        <div style={styles.subtitle}>
-                          Thanks for securing your tickets.
-                        </div>
+                <div style={styles.headerBar} />
+              </td>
+            </tr>
 
-                        <div style={{ height: 16 }} />
-                        <div style={styles.chipsRow}>
-                          {passType ? (
-                            <span style={styles.chip}>Pass: {passType}</span>
-                          ) : null}
-                          {events ? (
-                            <span style={styles.chip}>Events: {escapeHtml(events)}</span>
-                          ) : null}
-                        </div>
-
-                        <div style={{ height: 24 }} />
-                        <a
-                          href={`${site}/tickets/success`}
-                          style={styles.cta}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          View Tickets Info
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                {/* Details card */}
+            {/* Card */}
+            <tr>
+              <td style={styles.container}>
                 <table role="presentation" width="100%" style={styles.card}>
                   <tbody>
                     <tr>
                       <td style={{ padding: "24px" }}>
-                        <div style={styles.cardTitle}>
-                          Here’s a quick recap of what you submitted:
-                        </div>
+                        <h1 style={styles.h1}>
+                          YOU’RE IN! <span style={{ fontSize: 22 }}>🎟️</span>
+                        </h1>
 
-                        <table
-                          role="presentation"
-                          width="100%"
-                          cellPadding={0}
-                          cellSpacing={0}
-                          style={styles.table}
-                        >
+                        <p style={styles.lead}>
+                          Thanks for securing your tickets{guestName ? `, ${guestName}` : ""}!
+                        </p>
+
+                        <p style={styles.sublead}>
+                          Here’s a quick recap of what you submitted:
+                        </p>
+
+                        {/* Details Table */}
+                        <table role="presentation" width="100%" style={styles.detailsTable}>
                           <tbody>
-                            {rows.map(([k, v]) => {
-                              const isDietary = k === "Dietary Restrictions";
-                              return (
-                                <tr key={k}>
-                                  <td style={styles.th}>{k}</td>
-                                  <td style={styles.td}>
-                                    {isDietary && dietaryItems.length ? (
-                                      <div style={{ lineHeight: "22px" }}>
-                                        {dietaryItems.map((line, i) => (
-                                          <div key={i}>{escapeHtml(line)}</div>
-                                        ))}
-                                      </div>
-                                    ) : (
-                                      escapeHtml(v)
-                                    )}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {rows.map(([k, v], i) => (
+                              <tr key={i}>
+                                <td style={styles.detailsKey}>{k}</td>
+                                <td style={styles.detailsValue}>{v}</td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
 
-                        <div style={{ height: 8 }} />
-                        <div style={styles.help}>
-                          Questions? Just reply to this email or visit{" "}
-                          <a href={site} style={styles.link}>
-                            bremmiepalooza.com
-                          </a>
+                        {/* Footer help text */}
+                        <p style={styles.footerText}>
+                          Questions? Just reach out to us at{" "}
+                          <strong style={styles.pink}>info@bremmiepalooza.com</strong>
                           .
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                {/* Footer */}
-                <table role="presentation" width="100%">
-                  <tbody>
-                    <tr>
-                      <td style={styles.footer}>
-                        Sent with ❤️ from{" "}
-                        <a href={site} style={styles.link}>
-                          Bremmiepalooza
-                        </a>
-                        .
+                        </p>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </td>
+            </tr>
+
+            {/* Bottom padding */}
+            <tr>
+              <td style={{ height: 32 }} />
             </tr>
           </tbody>
         </table>
@@ -159,113 +87,69 @@ const styles: Record<string, React.CSSProperties> = {
   body: {
     margin: 0,
     padding: 0,
-    background: brand.bg,
-    color: brand.text,
+    background: "#f7f7fb",
     fontFamily:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol", sans-serif',
+    color: "#111827",
   },
-  outer: {
+  headerBar: {
     width: "100%",
-    maxWidth: 640,
-    margin: "0 auto",
+    height: 56,
+    background:
+      "linear-gradient(90deg,#ec4899 0%,#f59e0b 20%,#facc15 35%,#22c55e 55%,#3b82f6 75%,#a855f7 100%)",
   },
-  header: {
-    background: "#ffffff",
-    borderRadius: 16,
-    overflow: "hidden",
-  },
-  headerStrip: {
-    height: 10,
-    backgroundImage: brand.gradient,
-  },
-  headerInner: {
-    padding: "28px 24px 12px",
-    textAlign: "left",
-  },
-  kicker: {
-    letterSpacing: 0.6,
-    fontWeight: 700,
-    textTransform: "uppercase",
-    color: brand.accent,
-    fontSize: 12,
-  },
-  title: {
-    margin: "8px 0 4px",
-    fontSize: 28,
-    lineHeight: "34px",
-  },
-  subtitle: {
-    color: brand.sub,
-    fontSize: 14,
-  },
-  chipsRow: {
-    display: "flex",
-    gap: 8,
-    flexWrap: "wrap",
-  },
-  chip: {
-    display: "inline-block",
-    padding: "6px 10px",
-    borderRadius: 999,
-    background: brand.pill,
-    color: brand.text,
-    fontSize: 12,
-    border: "1px solid #ead8ff",
-  },
-  cta: {
-    display: "inline-block",
-    padding: "14px 22px",
-    borderRadius: 999,
-    color: "#0b1020",
-    textDecoration: "none",
-    fontWeight: 800,
-    backgroundImage: brand.gradient,
+  container: {
+    padding: "20px 16px",
   },
   card: {
-    marginTop: 16,
+    maxWidth: 720,
+    margin: "0 auto",
     background: "#ffffff",
     borderRadius: 16,
-    border: `1px solid ${brand.divider}`,
+    boxShadow:
+      "0 1px 3px rgba(0,0,0,0.07), 0 10px 24px rgba(16,24,40,0.06)",
   },
-  cardTitle: {
-    fontWeight: 700,
-    marginBottom: 10,
+  h1: {
+    margin: 0,
+    fontSize: 28,
+    fontWeight: 900,
+    letterSpacing: 0.3,
   },
-  table: {
+  lead: {
+    margin: "16px 0 6px 0",
+    fontSize: 16,
+    color: "#111827",
+  },
+  sublead: {
+    margin: "2px 0 18px 0",
+    fontSize: 14,
+    color: "#374151",
+  },
+  detailsTable: {
     width: "100%",
     borderCollapse: "collapse",
+    borderTop: "1px solid #e5e7eb",
+    borderBottom: "1px solid #e5e7eb",
   },
-  th: {
-    width: 180,
-    padding: "10px 0",
-    color: brand.sub,
-    fontSize: 13,
-    verticalAlign: "top",
-    borderTop: `1px solid ${brand.divider}`,
-  },
-  td: {
-    padding: "10px 0",
-    fontSize: 14,
-    borderTop: `1px solid ${brand.divider}`,
-  },
-  help: {
-    color: brand.sub,
-    fontSize: 12,
-  },
-  link: {
-    color: brand.accent,
-    textDecoration: "none",
+  detailsKey: {
+    width: "32%",
+    padding: "10px 12px",
     fontWeight: 700,
+    background: "#fafafa",
+    borderBottom: "1px solid #efefef",
   },
-  footer: {
-    textAlign: "center" as const,
-    color: brand.sub,
-    fontSize: 12,
-    padding: "18px 0 32px",
+  detailsValue: {
+    padding: "10px 12px",
+    borderBottom: "1px solid #efefef",
+    color: "#111827",
+  },
+  footerText: {
+    marginTop: 18,
+    fontSize: 14,
+    color: "#374151",
+  },
+  pink: {
+    color: "#e11d8d",
+    fontWeight: 800,
   },
 };
-
-const esc: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;" };
-function escapeHtml(input: string) {
-  return String(input).replace(/[<>&]/g, (m) => esc[m]);
-}

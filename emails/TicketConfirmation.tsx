@@ -2,6 +2,7 @@ import * as React from "react";
 
 type Props = {
   rows: Array<[string, string]>;
+  dietaryItems?: string[];
   guestName?: string;
   site?: string;
 };
@@ -20,12 +21,11 @@ const brand = {
 
 export default function TicketConfirmation({
   rows,
+  dietaryItems = [],
   guestName,
   site = "https://bremmiepalooza.com",
 }: Props) {
-  const name = (guestName?.trim() || "Guest").replace(/[<>&]/g, (m) => esc[m]);
-
-  // Pull some commonly-used fields if present
+  const name = escapeHtml(guestName?.trim() || "Guest");
   const map = Object.fromEntries(rows);
   const passType = map["Pass Type"] || "";
   const events = map["Events"] || "";
@@ -62,7 +62,7 @@ export default function TicketConfirmation({
                             <span style={styles.chip}>Pass: {passType}</span>
                           ) : null}
                           {events ? (
-                            <span style={styles.chip}>Events: {events}</span>
+                            <span style={styles.chip}>Events: {escapeHtml(events)}</span>
                           ) : null}
                         </div>
 
@@ -80,7 +80,7 @@ export default function TicketConfirmation({
                   </tbody>
                 </table>
 
-                {/* Card */}
+                {/* Details card */}
                 <table role="presentation" width="100%" style={styles.card}>
                   <tbody>
                     <tr>
@@ -97,19 +97,25 @@ export default function TicketConfirmation({
                           style={styles.table}
                         >
                           <tbody>
-                            {rows
-                              .filter(
-                                ([, v]) =>
-                                  v !== undefined &&
-                                  v !== null &&
-                                  String(v).trim() !== ""
-                              )
-                              .map(([k, v]) => (
+                            {rows.map(([k, v]) => {
+                              const isDietary = k === "Dietary Restrictions";
+                              return (
                                 <tr key={k}>
                                   <td style={styles.th}>{k}</td>
-                                  <td style={styles.td}>{escapeHtml(v)}</td>
+                                  <td style={styles.td}>
+                                    {isDietary && dietaryItems.length ? (
+                                      <div style={{ lineHeight: "22px" }}>
+                                        {dietaryItems.map((line, i) => (
+                                          <div key={i}>{escapeHtml(line)}</div>
+                                        ))}
+                                      </div>
+                                    ) : (
+                                      escapeHtml(v)
+                                    )}
+                                  </td>
                                 </tr>
-                              ))}
+                              );
+                            })}
                           </tbody>
                         </table>
 
@@ -230,7 +236,7 @@ const styles: Record<string, React.CSSProperties> = {
     borderCollapse: "collapse",
   },
   th: {
-    width: 160,
+    width: 180,
     padding: "10px 0",
     color: brand.sub,
     fontSize: 13,

@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Zolla Pro";
+  src: url("/fonts/Zolla Pro.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Zolla Pro Outlined";
+  src: url("/fonts/Zolla-Pro-Outlined.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root { --font-display: "Zolla Pro"; }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -164,15 +180,9 @@
 }
 
 @keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .animate-gradient-shift {
   background-size: 400% 400%;
@@ -183,18 +193,9 @@
 }
 /* Doodle animations */
 @keyframes doodleAppear {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0) rotate(0deg);
-  }
-  70% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.2) rotate(var(--rotation));
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1) rotate(var(--rotation));
-  }
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(0deg); }
+  70% { opacity: 1; transform: translate(-50%, -50%) scale(1.2) rotate(var(--rotation)); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(var(--rotation)); }
 }
 .doodle-animation {
   --rotation: 0deg;
@@ -202,14 +203,8 @@
   animation: doodleAppear 0.6s forwards;
 }
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .fade-in {
   opacity: 0;
@@ -269,4 +264,9 @@
 /* Bremmiepalooza scrollbar fix */
 html {
   scrollbar-gutter: stable;
+}
+
+/* Make all headings use the display font */
+@layer base {
+  h1, h2, h3 { @apply font-display; }
 }

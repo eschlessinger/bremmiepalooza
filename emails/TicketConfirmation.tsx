@@ -1,220 +1,265 @@
-// /emails/TicketConfirmation.tsx
 import * as React from "react";
 
 type Props = {
   rows: Array<[string, string]>;
   guestName?: string;
-  site?: string; // e.g. https://bremmiepalooza.com
+  site?: string;
+};
+
+const brand = {
+  bg: "#f6f8fb",
+  card: "#ffffff",
+  text: "#0b1020",
+  sub: "#4a5568",
+  divider: "#e9edf1",
+  accent: "#d81b8c",
+  pill: "#f6e8ff",
+  gradient:
+    "linear-gradient(90deg,#EC4899 0%, #FACC15 33%, #3B82F6 66%, #A855F7 100%)",
 };
 
 export default function TicketConfirmation({
   rows,
-  guestName = "",
+  guestName,
   site = "https://bremmiepalooza.com",
 }: Props) {
-  const preheader =
-    "You’re in! Thanks for RSVPing — here’s your Bremmiepalooza recap.";
+  const name = (guestName?.trim() || "Guest").replace(/[<>&]/g, (m) => esc[m]);
 
-  const tableRow = (k: string, v: string, i: number) => (
-    <tr key={i}>
-      <td
-        style={{
-          padding: "10px 12px",
-          borderTop: "1px solid #eee",
-          fontWeight: 600,
-          color: "#0f172a",
-          width: "38%",
-        }}
-      >
-        {k}
-      </td>
-      <td
-        style={{
-          padding: "10px 12px",
-          borderTop: "1px solid #eee",
-          color: "#0f172a",
-        }}
-      >
-        {v}
-      </td>
-    </tr>
-  );
+  // Pull some commonly-used fields if present
+  const map = Object.fromEntries(rows);
+  const passType = map["Pass Type"] || "";
+  const events = map["Events"] || "";
 
   return (
-    <div style={{ margin: 0, padding: 0, background: "#f5f7fb" }}>
-      {/* inbox preview text */}
-      <div
-        style={{
-          display: "none",
-          maxHeight: 0,
-          overflow: "hidden",
-          opacity: 0,
-          color: "transparent",
-        }}
-      >
-        {preheader}
-      </div>
-
-      <table
-        role="presentation"
-        width="100%"
-        cellSpacing={0}
-        cellPadding={0}
-        style={{ background: "#f5f7fb", padding: "24px 0" }}
-      >
-        <tbody>
-          <tr>
-            <td align="center">
-              <table
-                role="presentation"
-                width={600}
-                cellSpacing={0}
-                cellPadding={0}
-                style={{
-                  background: "#ffffff",
-                  borderRadius: 14,
-                  boxShadow: "0 3px 20px rgba(0,0,0,0.06)",
-                  overflow: "hidden",
-                }}
-              >
+    <html>
+      <head>
+        <meta charSet="utf-8" />
+        <title>You’re in — Bremmiepalooza</title>
+        <meta name="color-scheme" content="light only" />
+      </head>
+      <body style={styles.body}>
+        <table role="presentation" width="100%" style={styles.outer}>
+          <tbody>
+            <tr>
+              <td>
                 {/* Header */}
-                <tbody>
-                  <tr>
-                    <td
-                      style={{
-                        background: "#d81b8c",
-                        backgroundImage:
-                          "linear-gradient(90deg,#EC4899,#FACC15,#3B82F6,#A855F7)",
-                        color: "#ffffff",
-                        padding: "28px 24px",
-                        textAlign: "center",
-                      }}
-                    >
-                      <a href={site} style={{ textDecoration: "none" }}>
-                        <img
-                          src={`${site}/bremmiepalooza-logo-for-cta.png`}
-                          alt="Bremmiepalooza"
-                          width={260}
-                          style={{
-                            display: "block",
-                            margin: "0 auto 10px",
-                            maxWidth: "100%",
-                            border: 0,
-                            outline: "none",
-                          }}
-                        />
-                      </a>
-                      <div
-                        style={{
-                          fontFamily:
-                            "Arial Black, Impact, Arial, sans-serif",
-                          fontSize: 24,
-                          lineHeight: 1.2,
-                          textTransform: "uppercase",
-                          letterSpacing: ".5px",
-                        }}
-                      >
-                        You’re In! 🎟️
-                      </div>
-                    </td>
-                  </tr>
+                <table role="presentation" width="100%" style={styles.header}>
+                  <tbody>
+                    <tr>
+                      <td style={styles.headerStrip} />
+                    </tr>
+                    <tr>
+                      <td style={styles.headerInner}>
+                        <div style={styles.kicker}>Bremmiepalooza</div>
+                        <h1 style={styles.title}>You’re In, {name}! 🎟️</h1>
+                        <div style={styles.subtitle}>
+                          Thanks for securing your tickets.
+                        </div>
 
-                  {/* Body intro */}
-                  <tr>
-                    <td
-                      style={{
-                        padding: "24px 24px 8px",
-                        fontFamily: "Arial, Helvetica, sans-serif",
-                        color: "#0f172a",
-                      }}
-                    >
-                      <p style={{ margin: "0 0 12px", fontSize: 16 }}>
-                        Thanks for securing your tickets{" "}
-                        <strong>{guestName || ""}</strong>!
-                      </p>
-                      <p
-                        style={{
-                          margin: "0 0 4px",
-                          fontSize: 14,
-                          color: "#475569",
-                        }}
-                      >
-                        Here’s a quick recap of what you submitted:
-                      </p>
-                    </td>
-                  </tr>
+                        <div style={{ height: 16 }} />
+                        <div style={styles.chipsRow}>
+                          {passType ? (
+                            <span style={styles.chip}>Pass: {passType}</span>
+                          ) : null}
+                          {events ? (
+                            <span style={styles.chip}>Events: {events}</span>
+                          ) : null}
+                        </div>
 
-                  {/* Recap table */}
-                  <tr>
-                    <td style={{ padding: "0 24px 12px" }}>
-                      <table
-                        role="presentation"
-                        width="100%"
-                        cellSpacing={0}
-                        cellPadding={0}
-                        style={{
-                          borderCollapse: "collapse",
-                          fontFamily: "Arial, Helvetica, sans-serif",
-                          fontSize: 14,
-                        }}
-                      >
-                        <tbody>{rows.map(([k, v], i) => tableRow(k, v, i))}</tbody>
-                      </table>
-                    </td>
-                  </tr>
+                        <div style={{ height: 24 }} />
+                        <a
+                          href={`${site}/tickets/success`}
+                          style={styles.cta}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          View Tickets Info
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
 
-                  {/* CTA */}
-                  <tr>
-                    <td align="center" style={{ padding: "12px 24px 28px" }}>
-                      <a
-                        href={`${site}/tickets`}
-                        style={{
-                          display: "inline-block",
-                          backgroundImage:
-                            "linear-gradient(90deg,#EC4899,#FACC15,#3B82F6,#A855F7)",
-                          color: "#111",
-                          textDecoration: "none",
-                          fontWeight: 700,
-                          borderRadius: 999,
-                          padding: "12px 22px",
-                          fontFamily:
-                            "Arial Black, Impact, Arial, sans-serif",
-                          fontSize: 14,
-                        }}
-                      >
-                        View Tickets Info
-                      </a>
-                    </td>
-                  </tr>
+                {/* Card */}
+                <table role="presentation" width="100%" style={styles.card}>
+                  <tbody>
+                    <tr>
+                      <td style={{ padding: "24px" }}>
+                        <div style={styles.cardTitle}>
+                          Here’s a quick recap of what you submitted:
+                        </div>
 
-                  {/* Footer */}
-                  <tr>
-                    <td
-                      style={{
-                        background: "#f8fafc",
-                        color: "#64748b",
-                        padding: "16px 24px",
-                        textAlign: "center",
-                        fontFamily: "Arial, Helvetica, sans-serif",
-                        fontSize: 12,
-                      }}
-                    >
-                      Questions? Reply to this email or visit{" "}
-                      <a
-                        href={site}
-                        style={{ color: "#0ea5e9", textDecoration: "none" }}
-                      >
-                        {site.replace("https://", "")}
-                      </a>
-                      .
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+                        <table
+                          role="presentation"
+                          width="100%"
+                          cellPadding={0}
+                          cellSpacing={0}
+                          style={styles.table}
+                        >
+                          <tbody>
+                            {rows
+                              .filter(
+                                ([, v]) =>
+                                  v !== undefined &&
+                                  v !== null &&
+                                  String(v).trim() !== ""
+                              )
+                              .map(([k, v]) => (
+                                <tr key={k}>
+                                  <td style={styles.th}>{k}</td>
+                                  <td style={styles.td}>{escapeHtml(v)}</td>
+                                </tr>
+                              ))}
+                          </tbody>
+                        </table>
+
+                        <div style={{ height: 8 }} />
+                        <div style={styles.help}>
+                          Questions? Just reply to this email or visit{" "}
+                          <a href={site} style={styles.link}>
+                            bremmiepalooza.com
+                          </a>
+                          .
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                {/* Footer */}
+                <table role="presentation" width="100%">
+                  <tbody>
+                    <tr>
+                      <td style={styles.footer}>
+                        Sent with ❤️ from{" "}
+                        <a href={site} style={styles.link}>
+                          Bremmiepalooza
+                        </a>
+                        .
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </body>
+    </html>
   );
+}
+
+const styles: Record<string, React.CSSProperties> = {
+  body: {
+    margin: 0,
+    padding: 0,
+    background: brand.bg,
+    color: brand.text,
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+  },
+  outer: {
+    width: "100%",
+    maxWidth: 640,
+    margin: "0 auto",
+  },
+  header: {
+    background: "#ffffff",
+    borderRadius: 16,
+    overflow: "hidden",
+  },
+  headerStrip: {
+    height: 10,
+    backgroundImage: brand.gradient,
+  },
+  headerInner: {
+    padding: "28px 24px 12px",
+    textAlign: "left",
+  },
+  kicker: {
+    letterSpacing: 0.6,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    color: brand.accent,
+    fontSize: 12,
+  },
+  title: {
+    margin: "8px 0 4px",
+    fontSize: 28,
+    lineHeight: "34px",
+  },
+  subtitle: {
+    color: brand.sub,
+    fontSize: 14,
+  },
+  chipsRow: {
+    display: "flex",
+    gap: 8,
+    flexWrap: "wrap",
+  },
+  chip: {
+    display: "inline-block",
+    padding: "6px 10px",
+    borderRadius: 999,
+    background: brand.pill,
+    color: brand.text,
+    fontSize: 12,
+    border: "1px solid #ead8ff",
+  },
+  cta: {
+    display: "inline-block",
+    padding: "14px 22px",
+    borderRadius: 999,
+    color: "#0b1020",
+    textDecoration: "none",
+    fontWeight: 800,
+    backgroundImage: brand.gradient,
+  },
+  card: {
+    marginTop: 16,
+    background: "#ffffff",
+    borderRadius: 16,
+    border: `1px solid ${brand.divider}`,
+  },
+  cardTitle: {
+    fontWeight: 700,
+    marginBottom: 10,
+  },
+  table: {
+    width: "100%",
+    borderCollapse: "collapse",
+  },
+  th: {
+    width: 160,
+    padding: "10px 0",
+    color: brand.sub,
+    fontSize: 13,
+    verticalAlign: "top",
+    borderTop: `1px solid ${brand.divider}`,
+  },
+  td: {
+    padding: "10px 0",
+    fontSize: 14,
+    borderTop: `1px solid ${brand.divider}`,
+  },
+  help: {
+    color: brand.sub,
+    fontSize: 12,
+  },
+  link: {
+    color: brand.accent,
+    textDecoration: "none",
+    fontWeight: 700,
+  },
+  footer: {
+    textAlign: "center" as const,
+    color: brand.sub,
+    fontSize: 12,
+    padding: "18px 0 32px",
+  },
+};
+
+const esc: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;" };
+function escapeHtml(input: string) {
+  return String(input).replace(/[<>&]/g, (m) => esc[m]);
 }

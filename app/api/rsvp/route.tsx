@@ -127,7 +127,7 @@ export async function POST(req: Request) {
     const reactEl = (
       <TicketConfirmation rows={rows} guestName={payload?.guestName} site={SITE} />
     );
-    const html = render(reactEl);
+    const html = await render(reactEl);
     const text = rows.map(([k, v]) => `${k}: ${v}`).join("\n"); // plain text fallback
 
     const result = await resend.emails.send({

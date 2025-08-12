@@ -104,7 +104,7 @@ export default function TicketConfirmation({
                       <td style={{ padding: "0 28px 24px 28px" }}>
                         <div style={styles.divider} />
                         <div style={styles.bottomHelp}>
-                          Questions? Just reach out to us at{" "}
+                          Questions? Just reach out to us at {" "}
                           <a href="mailto:info@bremmiepalooza.com" style={styles.helpLink}>
                             info@bremmiepalooza.com
                           </a>

@@ -5,6 +5,10 @@ import { Resend } from "resend";
 import { sql } from "@/lib/db";
 import TicketConfirmation from "@/emails/TicketConfirmation";
 
+// NEW: render React -> HTML
+import * as React from "react";
+import { render } from "@react-email/render";
+
 export const runtime = "nodejs";
 
 const resend = new Resend(process.env.RESEND_API_KEY || "");
@@ -54,9 +58,7 @@ const formatRows = (email: string, p: Record<string, any>) => {
   if (hasKids) {
     const wants = p?.wantsBabysitting === "yes";
     rows.push(["Wants Babysitting", wants ? "Yes" : "No"]);
-    if (wants) {
-      rows.push(["Babysitting For", prettyEventList(p?.babysittingEvents)]);
-    }
+    if (wants) rows.push(["Babysitting For", prettyEventList(p?.babysittingEvents)]);
   }
 
   // Dietary
@@ -68,17 +70,14 @@ const formatRows = (email: string, p: Record<string, any>) => {
       : "";
   if (dietary) rows.push(["Dietary Restrictions", dietary]);
 
-  if (p?.musicPreferences)
-    rows.push(["Music Preferences", p.musicPreferences]);
+  if (p?.musicPreferences) rows.push(["Music Preferences", p.musicPreferences]);
 
   rows.push([
     "Mailing Address",
     [
       addr?.name,
       addr?.street,
-      `${addr?.city || ""}${addr?.state ? ", " + addr.state : ""} ${
-        addr?.zip || ""
-      }`,
+      `${addr?.city || ""}${addr?.state ? ", " + addr.state : ""} ${addr?.zip || ""}`,
       addr?.country,
     ]
       .filter(Boolean)
@@ -109,11 +108,11 @@ export async function POST(req: Request) {
       values (${email}, ${payloadJson}::jsonb)
     `;
 
-    // Build React email
+    // Build email
     const from =
       process.env.EMAIL_FROM || "Bremmiepalooza <onboarding@resend.dev>";
-    const bcc = process.env.EMAIL_BCC;
-    const subject = "You’re In — Bremmiepalooza Tix 🎟️";
+    const bcc = process.env.EMAIL_BCC; // (you removed it – fine to keep here)
+    const subject = "You’re In — Bremmiepalooza Ticket 🎟️";
     const rows = formatRows(email, payload);
 
     if (!process.env.RESEND_API_KEY) {
@@ -124,27 +123,26 @@ export async function POST(req: Request) {
       );
     }
 
-    const react = TicketConfirmation({
-      rows,
-      guestName: payload?.guestName,
-      site: SITE,
-    });
+    // Render React -> HTML (works with all Resend versions)
+    const reactEl = (
+      <TicketConfirmation rows={rows} guestName={payload?.guestName} site={SITE} />
+    );
+    const html = render(reactEl);
+    const text = rows.map(([k, v]) => `${k}: ${v}`).join("\n"); // plain text fallback
 
     const result = await resend.emails.send({
       from,
       to: email,
       ...(bcc ? { bcc } : {}),
       subject,
-      react, // 👈 send React element
+      html,
+      text,
     });
 
     if ((result as any)?.error) {
       console.error("Resend error:", (result as any).error);
       return NextResponse.json(
-        {
-          ok: false,
-          error: (result as any).error?.message || "Resend send failed",
-        },
+        { ok: false, error: (result as any).error?.message || "Resend send failed" },
         { status: 500 }
       );
     }

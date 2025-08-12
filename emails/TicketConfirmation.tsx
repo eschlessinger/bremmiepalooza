@@ -29,25 +29,7 @@ export default function TicketConfirmation(props: {
           color: "#111827",
         }}
       >
-        {/* Top rainbow bar */}
-        <div
-          style={{
-            maxWidth: 680,
-            margin: "0 auto",
-            padding: "16px 18px 0 18px",
-          }}
-        >
-          <div
-            style={{
-              height: 14,
-              borderRadius: 10,
-              background:
-                "linear-gradient(90deg,#F43F5E 0%,#F59E0B 25%,#10B981 50%,#3B82F6 75%,#8B5CF6 100%)",
-            }}
-          />
-        </div>
-
-        {/* Card */}
+        {/* Card (rainbow bar is INSIDE this card now) */}
         <div
           style={{
             maxWidth: 680,
@@ -62,8 +44,20 @@ export default function TicketConfirmation(props: {
               boxShadow:
                 "0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.10)",
               padding: 24,
+              overflow: "hidden", // so rainbow bar corners match the card
             }}
           >
+            {/* Rainbow bar at the very top of the white card */}
+            <div
+              style={{
+                height: 14,
+                borderRadius: 10,
+                background:
+                  "linear-gradient(90deg,#F43F5E 0%,#F59E0B 25%,#10B981 50%,#3B82F6 75%,#8B5CF6 100%)",
+                margin: "-6px 0 10px 0",
+              }}
+            />
+
             {/* brand */}
             <div
               style={{
@@ -166,46 +160,56 @@ export default function TicketConfirmation(props: {
               </div>
             )}
 
-            {/* inside-card help line with bold pink email */}
-            <p
+            {/* centered help line INSIDE the card */}
+            <div
               style={{
                 marginTop: 22,
                 borderTop: "1px solid #F3F4F6",
-                paddingTop: 14,
-                fontSize: 14,
-                color: "#334155",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minHeight: 44, // vertical centering area
+                textAlign: "center",
               }}
             >
-              Questions? Just reach out to us at{" "}
-              <a
-                href="mailto:info@bremmiepalooza.com"
-                style={{ color: "#E11D8F", fontWeight: 700, textDecoration: "none" }}
-              >
-                info@bremmiepalooza.com
-              </a>
-              .
-            </p>
+              <span style={{ fontSize: 14, color: "#334155" }}>
+                Questions? Just reach out to us at{" "}
+                <a
+                  href="mailto:info@bremmiepalooza.com"
+                  style={{ color: "#E11D8F", fontWeight: 700, textDecoration: "none" }}
+                >
+                  info@bremmiepalooza.com
+                </a>
+                .
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* footer OUTSIDE card, centered */}
+        {/* footer OUTSIDE card, centered (horizontally & vertically) */}
         <div
           style={{
             maxWidth: 680,
-            margin: "8px auto 28px",
-            textAlign: "center",
+            margin: "0 auto 28px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: 44, // vertical centering area
             color: "#6B7280",
             fontSize: 13,
+            textAlign: "center",
           }}
         >
-          Sent with <span style={{ color: "#EF4444" }}>❤️</span> from{" "}
-          <a
-            href={site}
-            style={{ color: "#E11D8F", fontWeight: 700, textDecoration: "none" }}
-          >
-            Bremmiepalooza
-          </a>
-          .
+          <span>
+            Sent with <span style={{ color: "#EF4444" }}>❤️</span> from{" "}
+            <a
+              href={site}
+              style={{ color: "#E11D8F", fontWeight: 700, textDecoration: "none" }}
+            >
+              Bremmiepalooza
+            </a>
+            .
+          </span>
         </div>
       </body>
     </html>

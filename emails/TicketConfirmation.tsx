@@ -1,235 +1,265 @@
 import * as React from "react";
 
 type Row = [string, string];
-
-export default function TicketConfirmation(props: {
+type Props = {
   rows: Row[];
   dietaryItems?: string[];
   guestName?: string;
   site?: string;
-}) {
-  const { rows, dietaryItems = [], guestName, site = "https://bremmiepalooza.com" } = props;
+};
 
-  // helpers to pull values out of the rows array
-  const get = (label: string) =>
-    rows.find(([k]) => k.toLowerCase() === label.toLowerCase())?.[1] || "";
+const BRAND = "BREMMIEPALOOZA";
+const PINK = "#E11D8A";
+const FG = "#0F172A"; // slate-900
+const MUTED = "#64748B"; // slate-500
+const CARD_BG = "#ffffff";
+const PAGE_BG = "#F6F7FB"; // very light gray
+const BORDER = "#E2E8F0";
 
-  const passType = get("Pass Type");
-  const events = get("Events");
-  const name = guestName || get("Guest Name") || "Friend";
+export default function TicketConfirmation({
+  rows,
+  dietaryItems = [],
+  guestName = "Guest",
+  site = "https://bremmiepalooza.com",
+}: Props) {
+  // Extract just the two small chips shown beneath the title
+  const passType = getValue(rows, "Pass Type");
+  const events = getValue(rows, "Events");
 
   return (
     <html>
-      <body
-        style={{
-          margin: 0,
-          background: "#F6F7FB",
-          fontFamily:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
-          color: "#111827",
-        }}
-      >
-        {/* Card (rainbow bar is INSIDE this card now) */}
-        <div
-          style={{
-            maxWidth: 680,
-            margin: "0 auto",
-            padding: "18px",
-          }}
-        >
-          <div
-            style={{
-              background: "#fff",
-              borderRadius: 14,
-              boxShadow:
-                "0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.10)",
-              padding: 24,
-              overflow: "hidden", // so rainbow bar corners match the card
-            }}
-          >
-            {/* Rainbow bar at the very top of the white card */}
-            <div
-              style={{
-                height: 14,
-                borderRadius: 10,
-                background:
-                  "linear-gradient(90deg,#F43F5E 0%,#F59E0B 25%,#10B981 50%,#3B82F6 75%,#8B5CF6 100%)",
-                margin: "-6px 0 10px 0",
-              }}
-            />
+      <head>
+        <meta charSet="utf-8" />
+        <title>You’re In!</title>
+        <meta name="color-scheme" content="light only" />
+      </head>
+      <body style={styles.body}>
+        <table role="presentation" width="100%" cellPadding={0} cellSpacing={0} style={{ minHeight: "100%", background: PAGE_BG }}>
+          <tbody>
+            <tr>
+              <td align="center" style={{ padding: "24px 12px" }}>
+                {/* CARD */}
+                <table role="presentation" width={680} style={styles.card} cellPadding={0} cellSpacing={0}>
+                  <tbody>
+                    {/* Rainbow stripe INSIDE the card */}
+                    <tr>
+                      <td style={{ padding: 0 }}>
+                        <div style={styles.rainbow} />
+                      </td>
+                    </tr>
 
-            {/* brand */}
-            <div
-              style={{
-                fontWeight: 800,
-                fontSize: 14,
-                letterSpacing: 1.2,
-                textTransform: "uppercase",
-                color: "#E11D8F",
-                marginBottom: 6,
-              }}
-            >
-              Bremmiepalooza
-            </div>
+                    {/* Header section */}
+                    <tr>
+                      <td style={{ padding: "28px 28px 4px 28px" }}>
+                        <div style={{ color: PINK, fontWeight: 800, letterSpacing: 1.2, fontSize: 12 }}>
+                          {BRAND}
+                        </div>
 
-            {/* headline */}
-            <h1
-              style={{
-                margin: "6px 0 8px",
-                fontSize: 32,
-                lineHeight: "36px",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              You’re in, {name}! <span>🎟️</span>
-            </h1>
-            <p
-              style={{
-                margin: "0 0 16px",
-                color: "#374151",
-                fontSize: 16,
-              }}
-            >
-              Thanks for securing your tickets.
-            </p>
+                        <h1 style={styles.h1}>
+                          You’re In, {guestName}!
+                          <span style={{ marginLeft: 8, fontSize: 26 }}>🎟️</span>
+                        </h1>
 
-            {/* pills */}
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 16 }}>
-              {passType && <Pill label={`Pass: ${passType}`} />}
-              {events && <Pill label={`Events: ${events}`} />}
-            </div>
+                        <p style={styles.sub}>Thanks for securing your tickets.</p>
 
-            {/* details table (all answers they saw/answered) */}
-            <table
-              width="100%"
-              cellPadding={0}
-              cellSpacing={0}
-              style={{ borderCollapse: "collapse", marginTop: 8 }}
-            >
-              <tbody>
-                {rows.map(([k, v], idx) => (
-                  <tr key={idx}>
-                    <td
-                      style={{
-                        padding: "10px 12px",
-                        borderTop: "1px solid #F3F4F6",
-                        width: 180,
-                        color: "#6B7280",
-                        fontWeight: 600,
-                        fontSize: 14,
-                        verticalAlign: "top",
-                      }}
-                    >
-                      {k}
-                    </td>
-                    <td
-                      style={{
-                        padding: "10px 12px",
-                        borderTop: "1px solid #F3F4F6",
-                        fontSize: 15,
-                        color: "#111827",
-                      }}
-                    >
-                      {v}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 10 }}>
+                          {passType && <Chip>Pass: {passType}</Chip>}
+                          {events && <Chip>Events: {events}</Chip>}
+                        </div>
+                      </td>
+                    </tr>
 
-            {/* Dietary details, if any */}
-            {dietaryItems.length > 0 && (
-              <div style={{ marginTop: 20 }}>
-                <div
-                  style={{
-                    fontSize: 14,
-                    color: "#6B7280",
-                    fontWeight: 700,
-                    marginBottom: 6,
-                  }}
-                >
-                  Dietary Details
+                    {/* Details table */}
+                    <tr>
+                      <td style={{ padding: "6px 28px 10px 28px" }}>
+                        <SectionTitle>Here’s a quick recap of what you submitted:</SectionTitle>
+                        <table role="presentation" width="100%" cellPadding={0} cellSpacing={0} style={styles.table}>
+                          <tbody>
+                            {rows.map(([label, value], i) => {
+                              const isDietRow = label === "Dietary Restrictions" && dietaryItems.length > 0;
+                              return (
+                                <tr key={i}>
+                                  <td style={styles.th}>{label}</td>
+                                  <td style={styles.td}>
+                                    {isDietRow ? (
+                                      <div>
+                                        {dietaryItems.map((line, idx) => (
+                                          <div key={idx}>{line}</div>
+                                        ))}
+                                      </div>
+                                    ) : (
+                                      value
+                                    )}
+                                  </td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+                    {/* Bottom “Questions?” line — centered vertically inside the card */}
+                    <tr>
+                      <td style={{ padding: "0 28px 24px 28px" }}>
+                        <div style={styles.divider} />
+                        <div style={styles.bottomHelp}>
+                          Questions? Just reach out to us at{" "}
+                          <a href="mailto:info@bremmiepalooza.com" style={styles.helpLink}>
+                            info@bremmiepalooza.com
+                          </a>
+                          .
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                {/* OUTSIDE the card — centered in the light gray area */}
+                <div style={styles.footerLove}>
+                  Sent with <span style={{ color: "#EF4444" }}>♥</span> from{" "}
+                  <a href={site} target="_blank" rel="noreferrer" style={styles.brandLink}>
+                    Bremmiepalooza
+                  </a>
+                  .
                 </div>
-                <ul style={{ margin: 0, paddingLeft: 18, color: "#111827" }}>
-                  {dietaryItems.map((line, i) => (
-                    <li key={i} style={{ margin: "4px 0" }}>
-                      {line}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* centered help line INSIDE the card */}
-            <div
-              style={{
-                marginTop: 22,
-                borderTop: "1px solid #F3F4F6",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                minHeight: 44, // vertical centering area
-                textAlign: "center",
-              }}
-            >
-              <span style={{ fontSize: 14, color: "#334155" }}>
-                Questions? Just reach out to us at{" "}
-                <a
-                  href="mailto:info@bremmiepalooza.com"
-                  style={{ color: "#E11D8F", fontWeight: 700, textDecoration: "none" }}
-                >
-                  info@bremmiepalooza.com
-                </a>
-                .
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* footer OUTSIDE card, centered (horizontally & vertically) */}
-        <div
-          style={{
-            maxWidth: 680,
-            margin: "0 auto 28px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: 44, // vertical centering area
-            color: "#6B7280",
-            fontSize: 13,
-            textAlign: "center",
-          }}
-        >
-          <span>
-            Sent with <span style={{ color: "#EF4444" }}>❤️</span> from{" "}
-            <a
-              href={site}
-              style={{ color: "#E11D8F", fontWeight: 700, textDecoration: "none" }}
-            >
-              Bremmiepalooza
-            </a>
-            .
-          </span>
-        </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </body>
     </html>
   );
 }
 
-function Pill({ label }: { label: string }) {
+/* ----------------- helpers ----------------- */
+
+function getValue(rows: Row[], label: string): string {
+  const found = rows.find(([k]) => k === label);
+  return found ? found[1] : "";
+}
+
+function Chip({ children }: { children: React.ReactNode }) {
   return (
     <span
       style={{
         display: "inline-block",
         padding: "8px 12px",
-        background: "#F5F3FF",
-        color: "#4C1D95",
+        background: "#F4EAFF",
+        color: FG,
         borderRadius: 999,
         fontSize: 14,
-        fontWeight: 600,
+        lineHeight: "18px",
+        border: `1px solid ${BORDER}`,
       }}
     >
-      {label}
+      {children}
     </span>
   );
 }
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      style={{
+        fontWeight: 700,
+        color: FG,
+        margin: "6px 0 12px 0",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+/* ----------------- styles ----------------- */
+
+const styles: Record<string, React.CSSProperties> = {
+  body: {
+    margin: 0,
+    padding: 0,
+    WebkitTextSizeAdjust: "100%",
+    background: PAGE_BG,
+    color: FG,
+    fontFamily:
+      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji'",
+  },
+  card: {
+    background: CARD_BG,
+    borderRadius: 16,
+    boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
+    border: `1px solid ${BORDER}`,
+  },
+  rainbow: {
+    height: 10,
+    borderRadius: "16px 16px 0 0",
+    background:
+      "linear-gradient(90deg,#EC4899 0%,#F59E0B 20%,#10B981 40%,#3B82F6 60%,#8B5CF6 85%,#EC4899 100%)",
+  },
+  h1: {
+    margin: "6px 0 4px 0",
+    fontSize: 36,
+    lineHeight: "42px",
+    color: FG,
+    fontWeight: 900,
+    letterSpacing: -0.3,
+  },
+  sub: {
+    margin: 0,
+    color: MUTED,
+    fontSize: 16,
+  },
+  table: {
+    width: "100%",
+    borderCollapse: "collapse",
+    borderTop: `1px solid ${BORDER}`,
+    borderLeft: `1px solid ${BORDER}`,
+    borderRight: `1px solid ${BORDER}`,
+    borderRadius: 12,
+    overflow: "hidden",
+  },
+  th: {
+    width: 160,
+    padding: "12px 14px",
+    background: "#FBFDFF",
+    borderBottom: `1px solid ${BORDER}`,
+    color: MUTED,
+    fontWeight: 600,
+    verticalAlign: "top",
+  },
+  td: {
+    padding: "12px 14px",
+    borderBottom: `1px solid ${BORDER}`,
+    color: FG,
+    verticalAlign: "top",
+  },
+  divider: {
+    height: 1,
+    background: BORDER,
+    margin: "4px 0 10px 0",
+  },
+  bottomHelp: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: 48, // ensures vertical centering space
+    textAlign: "center",
+    color: FG,
+  },
+  helpLink: {
+    color: PINK,
+    fontWeight: 800,
+    textDecoration: "none",
+  },
+  footerLove: {
+    marginTop: 12,
+    textAlign: "center",
+    color: MUTED,
+    fontSize: 14,
+  },
+  brandLink: {
+    color: PINK,
+    textDecoration: "none",
+    fontWeight: 800,
+  },
+};

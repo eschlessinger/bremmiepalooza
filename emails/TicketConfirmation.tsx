@@ -137,26 +137,26 @@ export default function TicketConfirmation({
 function getValue(rows: Row[], label: string): string {
   const found = rows.find(([k]) => k === label);
   return found ? found[1] : "";
-}
-
 function Chip({ children }: { children: React.ReactNode }) {
   return (
     <span
       style={{
         display: "inline-block",
         padding: "8px 12px",
-        background: "#F4EAFF",
-        color: FG,
+        background: "#F4EAFF",          // light lavender fill
+        color: "#4F46E5",               // purple text (indigo-600)
+        fontWeight: 800,                // bold
         borderRadius: 999,
         fontSize: 14,
         lineHeight: "18px",
-        border: `1px solid ${BORDER}`,
+        border: `1px solid ${BORDER}`,  // keep subtle outline
       }}
     >
       {children}
     </span>
   );
 }
+
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (

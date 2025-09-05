@@ -394,8 +394,11 @@ export default function BookHotelPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-6 border-2 border-white/20">
+                      <div className="text-lg md:text-xl font-black text-red-500 mb-1" style={{fontFamily: 'Arial, sans-serif'}}>
+                        EXTENDED!
+                      </div>
                       <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
-                        September 1, 2025
+                        September 15, 2025
                       </div>
                       <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
                         Room Block<br />
@@ -449,7 +452,7 @@ export default function BookHotelPage() {
                         To take advantage of the room block rate,
                       </p>
                       <p className="mb-1" style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
-                        reservations must be made by Monday, September 1, 2025.
+                        reservations must be made by Monday, September 15, 2025.
                       </p>
                     </div>
                     <p className="text-center mb-6" style={{color: '#000', fontWeight: '400', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginTop: '1.5rem'}}>
@@ -563,13 +566,17 @@ export default function BookHotelPage() {
                     </p>
                     <ul className="space-y-3 ml-6 custom-bullets">
                       <li>
-                        Once the hotel room reservation link is completed and sent, you will receive an email from the hotel containing the reservation details along with a credit card payment link
+                        <div>
+                          After you have completed the hotel room reservation link, you will receive an email from the hotel containing your reservation details along with a credit card payment link for the full amount of your room
+                          <ul className="mt-2 ml-6 space-y-2 custom-bullets">
+                            <li>
+                              The email will not arrive immediately after booking; it has been arriving from a few hours to a few days after – depending on how busy the hotel is when you submit your form
+                            </li>
+                          </ul>
+                        </div>
                       </li>
                       <li>
-                        All rooms must be guaranteed with payment of one night at the time of booking
-                      </li>
-                      <li>
-                        The payment of the remaining nights of the room reservation must be completed before December 1, 2025
+                        <strong>Note: </strong>The booking form will request your payment information upfront. This is so that the hotel can have your card on file to reserve your room(s) – it essentially serves as a backup for if the payment link is not completed for any reason
                       </li>
                     </ul>
                   </div>

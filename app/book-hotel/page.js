@@ -570,7 +570,7 @@ export default function BookHotelPage() {
                           After you have completed the hotel room reservation link, you will receive an email from the hotel containing your reservation details along with a credit card payment link for the full amount of your room
                           <ul className="mt-2 ml-6 space-y-2 custom-bullets">
                             <li>
-                              The email will not arrive immediately after booking; it has been arriving from a few hours to a few days after – depending on how busy the hotel is when you submit your form
+                              The email will not arrive immediately after completing the booking form; it has been arriving from a few hours to a few days after – depending on how busy the hotel is when you submit your form
                             </li>
                           </ul>
                         </div>

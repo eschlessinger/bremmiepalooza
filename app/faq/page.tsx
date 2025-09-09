@@ -72,9 +72,11 @@ export default function FAQsPage() {
         <div>
           <p>Bremmiepalooza will be a fun, colorful, and joyful weekend. We hope it will be filled with lots of fun bright colors, patterns, and textures. We also hope that everyone will feel 100% comfortable throughout the whole weekend (reminder: typical evening temperatures range from mid 70s to low 80s and fall to nighttime temperatures in the upper 60s to low 70s).</p>
           
+          <p>With that said, please see below for Bremmiepalooza outfit guidance:</p>
+          
           {/* The Pregame */}
           <div className="mt-6">
-            <h4 className="text-xl font-bold text-pink-600 mb-3">The Pregame (Friday)</h4>
+            <h4 className="text-xl font-bold text-pink-600 mb-3 text-center md:text-left">The Pregame (Friday)</h4>
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="flex-shrink-0">
                 <Image 
@@ -86,14 +88,14 @@ export default function FAQsPage() {
                 />
               </div>
               <div className="flex-1">
-                <p className="italic">We're throwing it back to college. Think pinnies, jerseys, oversized tees, cut-offs, high socks, baseball hats. If it feels like it belongs at a tailgate, it belongs here. Comfort > couture when it comes to fueling beach game competitions.</p>
+                <p className="italic text-center md:text-left">We're throwing it back to college. Think pinnies, jerseys, oversized tees, cut-offs, high socks, baseball hats. If it feels like it belongs at a tailgate, it belongs here. Comfort > couture when it comes to fueling beach game competitions.</p>
               </div>
             </div>
           </div>
 
           {/* The Main Stage */}
           <div className="mt-6">
-            <h4 className="text-xl font-bold text-pink-600 mb-3">The Main Stage (Saturday)</h4>
+            <h4 className="text-xl font-bold text-pink-600 mb-3 text-center md:text-left">The Main Stage (Saturday)</h4>
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="flex-shrink-0">
                 <Image 
@@ -105,14 +107,14 @@ export default function FAQsPage() {
                 />
               </div>
               <div className="flex-1">
-                <p className="italic">This is the headline act. Bright, bold, and fun — resort wear, cocktail dresses, statement shirts, flowy skirts, or whatever keeps you on the dance floor until 4AM. Textures, sparkles, colors, and patterns are all encouraged. Think "festival glam meets tropical cocktail hour" — as extra or as laid-back as you like, as long as it shines.</p>
+                <p className="italic text-center md:text-left">This is the headline act. Bright, bold, and fun — resort wear, cocktail dresses, statement shirts, flowy skirts, or whatever keeps you on the dance floor until 4AM. Textures, sparkles, colors, and patterns are all encouraged. Think "festival glam meets tropical cocktail hour" — as extra or as laid-back as you like, as long as it shines.</p>
               </div>
             </div>
           </div>
 
           {/* The Aftershow */}
           <div className="mt-6">
-            <h4 className="text-xl font-bold text-pink-600 mb-3">The Aftershow (Sunday)</h4>
+            <h4 className="text-xl font-bold text-pink-600 mb-3 text-center md:text-left">The Aftershow (Sunday)</h4>
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="flex-shrink-0">
                 <Image 
@@ -124,7 +126,7 @@ export default function FAQsPage() {
                 />
               </div>
               <div className="flex-1">
-                <p className="italic">Swimsuits, breezy tees, fun cover-ups, and anything you'd happily wear while cannonballing into the ocean. Hawaiian shirts, sunglasses, sarongs, flip flops — all fair game. Just make sure you're boat-ready and splash-friendly.</p>
+                <p className="italic text-center md:text-left">Swimsuits, breezy tees, fun cover-ups, and anything you'd happily wear while cannonballing into the ocean. Hawaiian shirts, sunglasses, sarongs, flip flops — all fair game. Just make sure you're boat-ready and splash-friendly.</p>
               </div>
             </div>
           </div>

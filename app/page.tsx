@@ -6,6 +6,8 @@ import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function LineupPage() {
+  console.log("🚨 COMPONENT STARTED LOADING")
+  
   const [mounted, setMounted] = useState(false)
   const [timeLeft, setTimeLeft] = useState({
     days: 0,

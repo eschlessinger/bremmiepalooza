@@ -47,9 +47,9 @@ export default function LineupPage() {
   const navButtons = [
     { 
       label: "TICKETS", 
-      sublabel: "(Coming Soon)",
-      href: "#", 
-      disabled: true,
+      sublabel: "",
+      href: "/tickets", 
+      disabled: false,
       onClick: null
     },
     { 
@@ -232,7 +232,7 @@ export default function LineupPage() {
                             >
                               {button.sublabel}
                             </div>
-                          ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
+                          ) : (button.label === 'LINEUP' || button.label === 'FAQS' || button.label === 'TICKETS') ? (
                             <div 
                               className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
                               style={{
@@ -390,6 +390,15 @@ export default function LineupPage() {
             </div>
           </div>
         </div>
+
+        {/* Ticket Drop Animation */}
+        {showDropAnimation && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+            <div className="bg-gradient-to-r from-pink-500 to-yellow-400 text-white text-4xl md:text-6xl font-black px-8 py-4 rounded-2xl border-4 border-white animate-bounce shadow-2xl">
+              🎫 TICKETS ARE LIVE! 🎫
+            </div>
+          </div>
+        )}
 
         {/* Content with margin for absolute positioned banner */}
         <div style={{ marginTop: isMobile ? '120px' : '160px' }}>

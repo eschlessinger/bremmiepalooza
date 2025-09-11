@@ -354,7 +354,8 @@ export default function LineupPage() {
                           className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
                           style={{
                             textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif",
+                            color: button.sublabel === "NOW LIVE!" ? '#ff0000' : 'black'
                           }}
                         >
                           {button.sublabel}

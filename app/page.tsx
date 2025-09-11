@@ -6,8 +6,6 @@ import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function LineupPage() {
-  console.log("🚨 COMPONENT STARTED LOADING")
-  
   const [mounted, setMounted] = useState(false)
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -16,11 +14,6 @@ export default function LineupPage() {
     seconds: 0
   })
   const isMobile = useIsMobile()
-  
-  // Ticket drop configuration
-  const ticketDropTime = new Date('2025-09-12T10:00:00-04:00').getTime() // 10AM ET Sept 12
-  const [ticketsLive, setTicketsLive] = useState(false)
-  const [showDropAnimation, setShowDropAnimation] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -49,31 +42,14 @@ export default function LineupPage() {
     return () => clearInterval(interval)
   }, [])
 
-  // Check if tickets should be live
-  useEffect(() => {
-    const checkTicketStatus = () => {
-      const now = new Date().getTime()
-      if (now >= ticketDropTime && !ticketsLive) {
-        setTicketsLive(true)
-        setShowDropAnimation(true)
-        // Hide animation after 5 seconds
-        setTimeout(() => setShowDropAnimation(false), 5000)
-      }
-    }
-
-    checkTicketStatus()
-    const interval = setInterval(checkTicketStatus, 1000)
-    return () => clearInterval(interval)
-  }, [ticketDropTime, ticketsLive])
-
   if (!mounted) return null
 
   const navButtons = [
     { 
       label: "TICKETS", 
-      sublabel: "",
-      href: "/tickets", 
-      disabled: false,
+      sublabel: "(Coming Soon)",
+      href: "#", 
+      disabled: true,
       onClick: null
     },
     { 
@@ -256,7 +232,7 @@ export default function LineupPage() {
                             >
                               {button.sublabel}
                             </div>
-                          ) : (button.label === 'LINEUP' || button.label === 'FAQS' || button.label === 'TICKETS') ? (
+                          ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
                             <div 
                               className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
                               style={{
@@ -414,15 +390,6 @@ export default function LineupPage() {
             </div>
           </div>
         </div>
-
-        {/* Ticket Drop Animation */}
-        {showDropAnimation && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
-            <div className="bg-gradient-to-r from-pink-500 to-yellow-400 text-white text-4xl md:text-6xl font-black px-8 py-4 rounded-2xl border-4 border-white animate-bounce shadow-2xl">
-              🎫 TICKETS ARE LIVE! 🎫
-            </div>
-          </div>
-        )}
 
         {/* Content with margin for absolute positioned banner */}
         <div style={{ marginTop: isMobile ? '120px' : '160px' }}>

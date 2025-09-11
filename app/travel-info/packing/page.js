@@ -331,7 +331,7 @@ export default function PackingPage() {
                       </div>
                       {button.sublabel ? (
                         <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
+                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase leading-tight`}
                           style={{
                               textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
   fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif",

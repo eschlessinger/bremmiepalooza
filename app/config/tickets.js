@@ -1,1 +1,1 @@
-export const TICKETS_LIVE = false
+export const TICKETS_LIVE = true

@@ -113,7 +113,7 @@ export default function DocumentsPage() {
           }}
         >
           <div 
-            className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-300" 
+            className="bg-gradient-to-r from-yellow-300 via-pink-300 to-blue-3200" 
             style={{ height: isMobile ? '120px' : '160px' }}
           >
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
@@ -204,11 +204,11 @@ export default function DocumentsPage() {
                           </div>
                           {button.sublabel ? (
                             <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase leading-tight relative`}
                               style={{
                                 textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                                color: button.sublabel === "NOW LIVE!" ? '#ff0000' : '#000000',
+                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif",
+                                color: button.sublabel === "NOW LIVE!" ? '#ff0000' : '#000000'
                               }}
                             >
                               {button.sublabel}
@@ -331,10 +331,11 @@ export default function DocumentsPage() {
                       </div>
                       {button.sublabel ? (
                         <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
+                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase leading-tight`}
                           style={{
                             textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif",
+                            color: button.sublabel === "NOW LIVE!" ? '#ff0000' : '#000000'
                           }}
                         >
                           {button.sublabel}

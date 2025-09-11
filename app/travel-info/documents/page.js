@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
-import { TICKETS_LIVE } from '../config/tickets'
+import { TICKETS_LIVE } from '../../config/tickets'
 
 export default function DocumentsPage() {
   const [mounted, setMounted] = useState(false)

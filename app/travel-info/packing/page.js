@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { TICKETS_LIVE } from '../../config/tickets'
 
 export default function PackingPage() {
   const [mounted, setMounted] = useState(false)
@@ -17,11 +18,11 @@ export default function PackingPage() {
 
   const navButtons = [
     { 
-      label: "TICKETS", 
-      sublabel: "(Coming Soon)",
-      href: "#", 
-      disabled: true,
-      onClick: null
+  label: "TICKETS", 
+  sublabel: TICKETS_LIVE ? "NOW LIVE!" : "(Sept 12, 10AM ET)",
+  href: TICKETS_LIVE ? "/tickets" : "#", 
+  disabled: !TICKETS_LIVE,
+  onClick: null
     },
     { 
       label: "LINEUP", 
@@ -203,10 +204,11 @@ export default function PackingPage() {
                           </div>
                           {button.sublabel ? (
                             <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
+                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase leading-tight relative`}
                               style={{
-                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                                  textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+  fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif",
+  color: button.sublabel === "NOW LIVE!" ? '#ff0000' : '#000000'
                               }}
                             >
                               {button.sublabel}
@@ -331,8 +333,9 @@ export default function PackingPage() {
                         <div 
                           className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight`}
                           style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+                              textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+  fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif",
+  color: button.sublabel === "NOW LIVE!" ? '#ff0000' : '#000000'
                           }}
                         >
                           {button.sublabel}

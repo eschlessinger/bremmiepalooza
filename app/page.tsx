@@ -45,59 +45,127 @@ export default function LineupPage() {
 
   if (!mounted) return null
 
-  // Debug logging
-  console.log('TICKETS_LIVE value:', TICKETS_LIVE)
-  console.log('Tickets button config:', {
-    label: "TICKETS",
-    sublabel: TICKETS_LIVE ? "NOW LIVE!" : "(Sept 12, 10AM ET)",
-    href: TICKETS_LIVE ? "/tickets" : "#",
-    disabled: !TICKETS_LIVE
-  })
-
-  const navButtons = [
-    { 
-      label: "TICKETS", 
-      sublabel: TICKETS_LIVE ? "" : "(Sept 12, 10AM ET)",
-      href: TICKETS_LIVE ? "/tickets" : "#", 
-      disabled: !TICKETS_LIVE,
-      onClick: null
-    },
-    { 
-      label: "LINEUP", 
-      sublabel: "",
-      href: "/", 
-      disabled: false,
-      onClick: null
-    },
-    { 
-      label: "FESTIVAL", 
-      sublabel: "MAP",
-      href: "/festival-map", 
-      disabled: false,
-      onClick: null
-    },
-    { 
-      label: "FAQS", 
-      sublabel: "",
-      href: "/faq", 
-      disabled: false,
-      onClick: null
-    },
-    { 
-      label: "TRAVEL", 
-      sublabel: "INFO",
-      href: "/travel-info/flights", 
-      disabled: false,
-      onClick: null
-    },
-    { 
-      label: "BOOK MY", 
-      sublabel: "HOTEL",
-      href: "/book-hotel", 
-      disabled: false,
-      onClick: null
-    }
-  ]
+  // Create navigation buttons with clear logic
+  const createNavButton = (label, sublabel, href, disabled) => {
+    const ButtonWrapper = disabled ? 'div' : Link
+    const wrapperProps = disabled ? {} : { href }
+    
+    return (
+      <ButtonWrapper key={label} {...wrapperProps}>
+        <div className={`
+          relative flex flex-col items-center justify-center transition-all duration-200 transform cursor-pointer
+          ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110 active:scale-95'}
+        `}
+        style={{
+          minWidth: isMobile ? '50px' : '120px',
+          minHeight: isMobile ? '70px' : '100px',
+          marginTop: '-10px'
+        }}>
+          {/* Icon */}
+          <div className="mb-1">
+            {label === 'LINEUP' && (
+              <Image 
+                src="/Lineup.png" 
+                alt="Lineup Icon" 
+                width={isMobile ? 45 : 80} 
+                height={isMobile ? 45 : 80} 
+                className="md:w-24 md:h-24"
+                style={{ marginTop: '-2px' }}
+              />
+            )}
+            {label === 'TICKETS' && (
+              <Image 
+                src="/tickets_icon.PNG" 
+                alt="Tickets Icon" 
+                width={isMobile ? 45 : 80} 
+                height={isMobile ? 45 : 80} 
+                className="md:w-24 md:h-24"
+              />
+            )}
+            {label === 'FESTIVAL' && (
+              <Image 
+                src="/festival_map_icon.PNG" 
+                alt="Festival Map Icon" 
+                width={isMobile ? 45 : 80} 
+                height={isMobile ? 45 : 80} 
+                className="md:w-24 md:h-24"
+              />
+            )}
+            {label === 'FAQS' && (
+              <Image 
+                src="/faqs_icon.PNG" 
+                alt="FAQs Icon" 
+                width={isMobile ? 45 : 80} 
+                height={isMobile ? 45 : 80} 
+                className="md:w-24 md:h-24"
+              />
+            )}
+            {label === 'TRAVEL' && (
+              <Image 
+                src="/travel_info.PNG" 
+                alt="Travel Info Icon" 
+                width={isMobile ? 45 : 80} 
+                height={isMobile ? 45 : 80} 
+                className="md:w-24 md:h-24"
+              />
+            )}
+            {label === 'BOOK MY' && (
+              <Image 
+                src="/book_my_hotel.PNG" 
+                alt="Book My Hotel Icon" 
+                width={isMobile ? 45 : 80} 
+                height={isMobile ? 45 : 80} 
+                className="md:w-24 md:h-24"
+              />
+            )}
+          </div>
+          
+          {/* Text */}
+          <div className="text-center relative">
+            {/* Main Label */}
+            <div 
+              className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
+              style={{
+                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
+              }}
+            >
+              {label}
+            </div>
+            
+            {/* Sublabel */}
+            <div 
+              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase leading-tight`}
+              style={{
+                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif",
+                color: sublabel === "NOW LIVE!" ? '#ff0000' : '#000000',
+                minHeight: isMobile ? '14px' : '20px'
+              }}
+            >
+              {sublabel}
+            </div>
+            
+            {/* Active indicator for LINEUP */}
+            {label === 'LINEUP' && (
+              <div 
+                className="absolute"
+                style={{
+                  left: '50%',
+                  bottom: '-8px',
+                  transform: 'translateX(-50%)',
+                  width: '60%',
+                  height: '3px',
+                  backgroundColor: '#d81b8c',
+                  borderRadius: '2px'
+                }}
+              />
+            )}
+          </div>
+        </div>
+      </ButtonWrapper>
+    )
+  }
 
   return (
     <main className="relative min-h-screen">
@@ -147,257 +215,18 @@ export default function LineupPage() {
             style={{ height: isMobile ? '120px' : '160px' }}
           >
             <div className="flex justify-center items-center gap-4 md:gap-8 px-2 h-full relative">
-              {navButtons.map((button, index) => {
-                // For internal page links
-                if (button.href && button.href.startsWith('/') && !button.href.startsWith('/#')) {
-                  return (
-                    <Link key={index} href={button.href}>
-                      <div className={`
-                        relative flex flex-col items-center justify-center transition-all duration-200 transform cursor-pointer
-                        ${button.disabled 
-                          ? 'opacity-50 cursor-not-allowed' 
-                          : 'hover:scale-110 active:scale-95'
-                        }
-                      `}
-                      style={{
-                        minWidth: isMobile ? '50px' : '120px',
-                        minHeight: isMobile ? '70px' : '100px',
-                        marginTop: '-10px'
-                      }}>
-                        <div className="mb-1">
-                          {button.label === 'LINEUP' && (
-                            <Image 
-                              src="/Lineup.png" 
-                              alt="Lineup Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                              style={{ marginTop: '-2px' }}
-                            />
-                          )}
-                          {button.label === 'TICKETS' && (
-                            <Image 
-                              src="/tickets_icon.PNG" 
-                              alt="Tickets Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'FESTIVAL' && (
-                            <Image 
-                              src="/festival_map_icon.PNG" 
-                              alt="Festival Map Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'FAQS' && (
-                            <Image 
-                              src="/faqs_icon.PNG" 
-                              alt="FAQs Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'TRAVEL' && (
-                            <Image 
-                              src="/travel_info.PNG" 
-                              alt="Travel Info Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                          {button.label === 'BOOK MY' && (
-                            <Image 
-                              src="/book_my_hotel.PNG" 
-                              alt="Book My Hotel Icon" 
-                              width={isMobile ? 45 : 80} 
-                              height={isMobile ? 45 : 80} 
-                              className="md:w-24 md:h-24"
-                            />
-                          )}
-                        </div>
-                        
-                        <div className="text-center relative">
-                          <div 
-                            className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
-                            style={{
-                              textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                              fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                            }}
-                          >
-                            {button.label}
-                          </div>
-                          {button.sublabel ? (
-                            <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight relative`}
-                              style={{
-                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                              }}
-                            >
-                              {button.sublabel}
-                            </div>
-                          ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
-                            <div 
-                              className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
-                              style={{
-                                textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                                fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                              }}
-                            >
-                              &nbsp;
-                            </div>
-                          ) : null}
-                          {button.label === 'LINEUP' && (
-                            <div 
-                              className="absolute"
-                              style={{
-                                left: '50%',
-                                bottom: '-8px',
-                                transform: 'translateX(-50%)',
-                                width: '60%',
-                                height: '3px',
-                                backgroundColor: '#d81b8c',
-                                borderRadius: '2px'
-                              }}
-                            />
-                          )}
-                        </div>
-                      </div>
-                    </Link>
-                  )
-                }
-                
-                // For disabled buttons
-                return (
-                  <div
-                    key={index}
-                    className={`
-                      relative flex flex-col items-center justify-center transition-all duration-200 transform
-                      ${button.disabled 
-                        ? 'opacity-50 cursor-not-allowed' 
-                        : 'hover:scale-110 active:scale-95 cursor-pointer'
-                      }
-                    `}
-                    style={{
-                      minWidth: isMobile ? '50px' : '120px',
-                      minHeight: isMobile ? '70px' : '100px',
-                      marginTop: '-10px'
-                    }}
-                  >
-                    <div className="mb-1">
-                      {button.label === 'LINEUP' && (
-                        <Image 
-                          src="/Lineup.png" 
-                          alt="Lineup Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                          style={{ marginTop: '-2px' }}
-                        />
-                      )}
-                      {button.label === 'TICKETS' && (
-                        <Image 
-                          src="/tickets_icon.PNG" 
-                          alt="Tickets Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'FESTIVAL' && (
-                        <Image 
-                          src="/festival_map_icon.PNG" 
-                          alt="Festival Map Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'FAQS' && (
-                        <Image 
-                          src="/faqs_icon.PNG" 
-                          alt="FAQs Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'TRAVEL' && (
-                        <Image 
-                          src="/travel_info.PNG" 
-                          alt="Travel Info Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                      {button.label === 'BOOK MY' && (
-                        <Image 
-                          src="/book_my_hotel.PNG" 
-                          alt="Book My Hotel Icon" 
-                          width={isMobile ? 45 : 80} 
-                          height={isMobile ? 45 : 80} 
-                          className="md:w-24 md:h-24"
-                        />
-                      )}
-                    </div>
-                    
-                    <div className="text-center relative">
-                      <div 
-                        className={`${isMobile ? 'text-xs' : 'text-lg'} font-black uppercase tracking-wider text-black leading-tight`}
-                        style={{
-                          textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                          fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                        }}
-                      >
-                        {button.label}
-                      </div>
-                      {button.sublabel && button.sublabel !== "" ? (
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase leading-tight`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif",
-                            color: button.sublabel === "NOW LIVE!" ? '#ff0000' : '#000000'
-                          }}
-                        >
-                          {button.sublabel}
-                        </div>
-                      ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
-                        <div 
-                          className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
-                          style={{
-                            textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                            fontFamily: "'ZollaProOutlined', 'Impact', 'Arial Black', sans-serif"
-                          }}
-                        >
-                          &nbsp;
-                        </div>
-                      ) : null}
-                      {button.label === 'LINEUP' && (
-                        <div 
-                          className="absolute"
-                          style={{
-                            left: '50%',
-                            bottom: '-8px',
-                            transform: 'translateX(-50%)',
-                            width: '60%',
-                            height: '3px',
-                            backgroundColor: '#d81b8c',
-                            borderRadius: '2px'
-                          }}
-                        />
-                      )}
-                    </div>
-                  </div>
-                )
-              })}
+              {/* Navigation Buttons */}
+              {createNavButton(
+                "TICKETS", 
+                TICKETS_LIVE ? "NOW LIVE!" : "(Sept 12, 10AM ET)", 
+                TICKETS_LIVE ? "/tickets" : "#", 
+                !TICKETS_LIVE
+              )}
+              {createNavButton("LINEUP", "", "/", false)}
+              {createNavButton("FESTIVAL", "MAP", "/festival-map", false)}
+              {createNavButton("FAQS", "", "/faq", false)}
+              {createNavButton("TRAVEL", "INFO", "/travel-info/flights", false)}
+              {createNavButton("BOOK MY", "HOTEL", "/book-hotel", false)}
             </div>
           </div>
         </div>

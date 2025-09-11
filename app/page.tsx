@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { TICKETS_LIVE } from './config/tickets'
 
 export default function LineupPage() {
   const [mounted, setMounted] = useState(false)
@@ -47,9 +48,9 @@ export default function LineupPage() {
   const navButtons = [
     { 
       label: "TICKETS", 
-      sublabel: "(Coming Soon)",
-      href: "#", 
-      disabled: true,
+      sublabel: TICKETS_LIVE ? "" : "(Sept 12, 10AM ET)",
+      href: TICKETS_LIVE ? "/tickets" : "#", 
+      disabled: !TICKETS_LIVE,
       onClick: null
     },
     { 

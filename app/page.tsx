@@ -14,6 +14,11 @@ export default function LineupPage() {
     seconds: 0
   })
   const isMobile = useIsMobile()
+  
+  // Ticket drop configuration
+  const ticketDropTime = new Date('2025-09-12T10:00:00-04:00').getTime() // 10AM ET Sept 12
+  const [ticketsLive, setTicketsLive] = useState(false)
+  const [showDropAnimation, setShowDropAnimation] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -41,6 +46,23 @@ export default function LineupPage() {
     const interval = setInterval(updateCountdown, 1000)
     return () => clearInterval(interval)
   }, [])
+
+  // Check if tickets should be live
+  useEffect(() => {
+    const checkTicketStatus = () => {
+      const now = new Date().getTime()
+      if (now >= ticketDropTime && !ticketsLive) {
+        setTicketsLive(true)
+        setShowDropAnimation(true)
+        // Hide animation after 5 seconds
+        setTimeout(() => setShowDropAnimation(false), 5000)
+      }
+    }
+
+    checkTicketStatus()
+    const interval = setInterval(checkTicketStatus, 1000)
+    return () => clearInterval(interval)
+  }, [ticketDropTime, ticketsLive])
 
   if (!mounted) return null
 

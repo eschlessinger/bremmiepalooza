@@ -47,9 +47,9 @@ export default function LineupPage() {
   const navButtons = [
     { 
       label: "TICKETS", 
-      sublabel: "(Coming Soon)",
-      href: "#", 
-      disabled: true,
+      sublabel: "",
+      href: "/tickets", 
+      disabled: false,
       onClick: null
     },
     { 
@@ -232,7 +232,7 @@ export default function LineupPage() {
                             >
                               {button.sublabel}
                             </div>
-                          ) : (button.label === 'LINEUP' || button.label === 'FAQS') ? (
+                          ) : (button.label === 'LINEUP' || button.label === 'FAQS' || button.label === 'TICKETS') ? (
                             <div 
                               className={`${isMobile ? 'text-xs' : 'text-base'} font-bold uppercase text-black leading-tight invisible`}
                               style={{

@@ -401,7 +401,7 @@ export default function BookHotelPage() {
                         EXTENDED!
                       </div>
                       <div className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: 'Arial, sans-serif'}}>
-                        September 15, 2025
+                        September 20, 2025
                       </div>
                       <div className="text-white/90 font-semibold" style={{fontFamily: 'Arial, sans-serif'}}>
                         Room Block<br />
@@ -455,7 +455,7 @@ export default function BookHotelPage() {
                         To take advantage of the room block rate,
                       </p>
                       <p className="mb-1" style={{color: '#d81b8c', fontWeight: '700', fontSize: '18px', fontFamily: 'Arial, sans-serif'}}>
-                        reservations must be made by Monday, September 15, 2025.
+                        reservations must be made by Saturday, September 20, 2025.
                       </p>
                     </div>
                     <p className="text-center mb-6" style={{color: '#000', fontWeight: '400', fontSize: '18px', fontFamily: 'Arial, sans-serif', marginTop: '1.5rem'}}>
